@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Location</title>
+	<script>
+		console.log(location);
+		console.log(window.location === document.location);  //true
+		window.onload = function(){
+			var btns = document.getElementsByTagName('button');
+			btns[0].onclick = function(){
+				// window.location = './3-弹出框.html';
+				// location.href = './3-弹出框.html';
+				location.assign('./3-弹出框.html');
+				// location.replace('./3-弹出框.html');
+				//在新选项卡打开(原来的选项卡保留)
+				// window.open('./3-弹出框.html');
+			}
+			btns[1].onclick =function(){
+				//参数为false(默认)以最有效的方式重新加载   参数为true强制从服务器加载
+				location.reload();
+			}
+			btns[2].onclick =function(){
+				//跳转下一页
+				// history.forward();
+				history.go(1);
+			}
+
+
+		}
+
+
+	</script>
+</head>
+<body>
+	<button>打开新页面</button>
+	<button>刷新</button>
+	<button>跳转下一页</button>
+</body>
+</html>

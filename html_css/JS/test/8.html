@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>8</title>
+	<script>
+		window.onload = function(){
+			var div = document.getElementsByTagName('div')[0];
+			var btn = document.getElementsByTagName('button')[0]; 
+			div.onclick = function(){
+				alert(1);
+			}
+			btn.onclick = function(event){
+				div.onclick = null;
+				alert('解绑成功');
+				event.target.style.background = '#ccc';
+				btn.onclick = null;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>点击</div>
+	<button>解绑</button>
+</body>
+</html>

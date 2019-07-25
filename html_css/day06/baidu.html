@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度一下</title>
+	<style>
+		*{
+			margin: 0px;
+			padding: 0px;
+
+		}
+		body{
+			height: 100%;
+			width: 100%;
+			background: url(./images/66.jpg);
+			background-size: cover;
+            text-align: center;
+			font-size: 0;
+			
+		}
+		#im{
+			margin-top: 140px;
+			margin-bottom: 30px;
+		}
+
+		
+		
+		p{
+			display: inline-block;
+			color: white;
+			font-size: 12px;
+			font-family: arial;
+		}
+		
+		input[type=text]{
+			width: 480px;
+            height: 20px;
+			border-style: none;
+			padding: 10px 9px 10px 7px;
+			padding-right: 50px;
+			line-height: 20px;
+			box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+			margin-left: -50px;
+			
+        }
+		input[type=submit]{
+			width: 104px;
+			height: 40px;
+			background-color: #e9e9e9;
+			padding: 0;
+			border: 0;
+			border-style: none;
+		
+
+		}
+		span.one{
+			display: inline-block;
+			margin-left: 50px;
+			
+			
+
+		}
+		.bottom{
+			margin-top: 350px;
+		}
+		.bottom>#p1{
+			width: 12px;
+			height: 12px;
+
+		}
+		.bottom>#p2{
+			display: inline-block;
+			width: 14px;
+			height: 16px;
+			margin-right: 6px;
+			vertical-align: middle;
+			margin-top: -4px;
+			line-height: 16px;
+		}
+		span.btn{
+			z-index: 1;
+			position: absolute;
+			margin-left: -28px; 
+			margin-top: 10px;
+			height: 16px;
+			width: 18px;
+			background: #fff url("./images/5.png") no-repeat;
+			text-align: left;
+			color: #000;
+
+		}
+		div.center-box{
+			position: relative;
+			z-index: 1;
+			width: 100%;
+			height: 100%
+		}
+		div#sp{
+			z-index: 500;
+			position: absolute;
+			top: 0;
+			right: 0;
+			width: 590px;
+			font-size: 13px;
+			text-align: right;
+			color: #999;
+		}
+		div#up{
+			z-index: 500;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 590px;
+			font-size: 13px;
+			text-align: left;
+			color: #999;
+		}
+		a.mnav{
+			position: relative;
+			height: 32px;
+			line-height: 32px;
+			margin-left: 19px;
+			outline: none;
+			display: inline-block;
+			text-shadow: none;
+			font-size: 13px;
+			text-align: right;
+		}
+		span.setting{
+			text-decoration: underline;
+			display: inline-block;
+			line-height: 32px;
+		    font-size: 13px;
+			text-align: right;
+			margin-left: 16px;
+			margin-right: 16px;
+		}
+		a.bri{
+			text-align: center;
+			width: 66px;
+			height: 30px;
+			line-height: 34px;
+			margin: 0 auto;
+			font-size: 13px;
+			margin-right: 16px;
+
+		}
+		a.place{
+			display: inline-block;
+			margin-left: 16px;
+			line-height: 32px;
+			font-style: normal;
+			font-size: 12px;
+			text-align: center;
+		}
+		a.weather{
+			display: inline-block;
+			line-height: 32px;
+			font-size: 12px;
+			font-style: normal;
+			text-align: center;
+		}
+		a.title{
+			text-decoration: underline;
+			line-height: 32px;
+			font:12px arial;
+			text-align: center;
+			margin-left: 16px;
+		}
+
+
+		
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="up">
+	    <a class="place">苏州：</a>
+		<a class="weather">24℃</a>
+		<a class="title">换肤</a>
+		<a class="title">消息</a>
+		<a class="title">显示频道</a>
+		</div>
+	<div class="center-box"></div>
+	</div>
+	<div id="menu"></div>
+	<div id="sp">
+		<a class="mnav">新闻</a>
+		<a class="mnav">hao123</a>
+		<a class="mnav">地图</a>
+		<a class="mnav">视频</a>
+		<a class="mnav">贴吧</a>
+		<a class="mnav">学术</a>
+		<span class="setting">设置</span>
+		<a class="bri">更多产品</a>
+	</div>
+
+	<div id="im" align="center">
+	<img src="./images/2.png" alt="" width="225px" height="80px ">
+	</div>
+	<form action="">
+		<span class="one">
+		<input type="text" name="search" />
+		<span class="btn">
+		</span>
+		</span>
+		<span>
+		<input type="submit" value="百度一下"/>
+		</span>
+		
+	</form>
+	<div class="bottom">
+		<p>设置为首页</p>
+		<p>&copy;2019 Baidu</p>
+		<p>使用百度前必读</p>
+		<p>意见反馈</p>
+		<p>京ICP证030173号</p>
+		<img src="./images/3.png" id="p1">
+		<br />
+		<img src="./images/4.png" id="p2">
+		<p>京公网安备11000002000001</p>
+	</div>
+	
+</body>
+</html>

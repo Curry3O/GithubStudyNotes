@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格显示</title>
+	<script>
+		window.onload = function(){
+			var arr = [{
+				sno:1001,
+				name:'hb',
+				age:22,
+			},{
+				sno:1002,
+				name:'lm',
+				age:21,
+			},{
+				sno:1003,
+				name:'yoyo',
+				age:27,
+			}]
+		//按钮点击，将数据展示到表中(通过标签名去获取节点  第一个)
+			var btn = document.getElementsByTagName('button')[0];
+			var tbody = document.getElementsByTagName('tbody')[0];
+		//给按钮绑定点击事件  点击按钮时，事件处理程序执行(函数执行)
+			btn.onclick = function(){
+			//数组中的一个对象->tr
+			//对象中的属性值->td
+			//清空tbody
+				tbody.innerHTML = '';
+				/*tbody.innerHTML = `
+				<tr>
+				<th>学号</th>
+				<th>姓名</th>
+				<th>年龄</th>
+				</tr>;
+				`*/
+				arr.forEach(function(item){
+					var newTr = document.createElement('tr');
+				//写td
+					for(var key in item){
+						var newTd = document.createElement('td');
+						newTd.innerText = item[key];
+						newTr.appendChild(newTd);
+					};
+					tbody.appendChild(newTr);
+				});
+			};
+		}
+	</script>
+</head>
+<body>
+	<button>加载数据</button>
+	<table>
+		<tbody>
+			<tr>
+				<th>学号</th>
+				<th>姓名</th>
+				<th>年龄</th>
+			</tr>
+		</tbody>
+	</table>
+	
+</body>
+</html>

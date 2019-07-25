@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>4</title>
+	<script>
+		window.onload = function(){
+			var div1 = document.getElementsByTagName('div')[0];
+			console.log(div1);//<div id="1" class="one" name="o">
+			// div1.className = 'onee';
+			div1.setAttribute('class','onne')
+			console.log(div1.className);//onne
+			console.log(div1.attributes.getNamedItem('class'));//class="onne"
+			div1.attributes.removeNamedItem('name');
+			console.log(div1);//<div id="1" class="onne">
+			//修改
+			var id = div1.attributes.getNamedItem('id');
+			id.nodeValue=1001;
+			div1.attributes.setNamedItem(id);
+			console.log(div1.attributes.setNamedItem(id));//id="1001"
+			console.log(div1);//<div id="1001" class="onne">
+			//创建
+			var title = document.createAttribute('title');
+			title.nodeValue='adsad';
+			div1.attributes.setNamedItem(title);
+			console.log(div1);//<div id="1001" class="onne" title="adsad">
+			console.log(div1.attributes.item(0));//class="onne"
+			console.log(document.body.children[3]);//<span class="spa">
+			console.log(document.body.firstElementChild);//<div id="1001" class="onne" title="adsad">
+			console.log(document.body.firstChild);//childNodes列表中的第一个节点
+			console.log(div1.nextElementSibling);//<div class="two">
+			console.log(document.body.childElementCount);//4
+			var text = document.body.childNodes[8];
+			console.log(text);
+			text.appendData('world');
+			text.splitText(2);
+			console.log(document.body.childNodes);
+			document.body.normalize();
+			console.log(document.body.childNodes);
+			console.log(text.substringData(5,5));  //world
+			console.log(text);
+			text.deleteData(0,3);
+			console.log(text);
+		}
+	</script>
+</head>
+<body>
+	<div class="one" id="1" name='o'>one</div>
+	<div class="two">two</div>
+	<div class="three">three</div>
+	<span class="spa">span</span>end
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册页面</title>
+	<style>
+		body{
+			background-color: teal;
+			color: white;
+		}
+		h3{
+			display: block;
+			text-align:center;
+			color: pink;
+		}
+		label{
+			display: inline-block;
+			width: 65px;
+		}
+		input[type=text]:focus{
+			box-shadow: 3px 3px 2px gray;
+		}
+		input[type=number]:in-range{
+			border: 1px solid teal;
+		}
+		input[type=number]:out-of-range{
+			border: 1px solid red;
+		}
+		input[type=image]{
+			height: 200px;
+			width: 160px;
+		}
+		textarea[name=brief]{
+			height: 150px;
+			width: 500px;
+		}
+	</style>
+</head>
+<body>
+	<h3>注册个人信息</h3>
+	<form action="./7-myself.html">
+		<label for="">用户名：</label>
+		<input type="text" name="username" />
+		<br />
+		<label for="">密码：</label>
+		<input type="password" name="password" required />
+		<br />
+		性别：
+		<input type="radio" name="gender" />男
+		<input type="radio" name="gender" />女
+		<br />
+		兴趣：
+		<input type="checkbox" name="hobby" />唱歌
+		<input type="checkbox" name="hobby" />跳舞
+		<input type="checkbox" name="hobby" />篮球
+		<input type="checkbox" name="hobby" />瑜伽
+		<br />
+		籍贯：
+		<select>
+			<optgroup label="省份">
+			<option value="">请选择</option>
+			<option value="江西省">江西省</option>
+			<option value="江苏省">江苏省</option>
+			<option value="湖北省">湖北省</option>
+			<option value="广东省">广东省</option>
+			</optgroup>
+		</select>
+		<select>
+			<optgroup label="直辖市">
+			<option value="">请选择</option>
+			<option value="南昌市">南昌市</option>
+			<option value="宜春市">宜春市</option>
+			<option value="九江市">九江市</option>
+			<option value="苏州市">苏州市</option>
+			</optgroup>
+		</select>
+		<select>
+			<optgroup label="区/县">
+			<option value="">请选择</option>
+			<option value="青山湖区">青山湖区</option>
+			<option value="樟树">樟树</option>
+			<option value="濂溪区">濂溪区</option>
+			<option value="昆山">昆山</option>
+			</optgroup>
+		</select>
+		<br />
+		生日：
+		<input type="date" />
+		<br />
+		年龄：
+		<input type="number" min="0" max="100">
+		<br />
+		电话：
+		<input type="tel" pattern="[0-9]{11}" required />
+		<br />
+		邮箱：
+		<input type="email" />
+		<br />
+		头像：
+		<input type="file" name="file">
+		<input type="image" src="../day02/images/1.png" alt="">
+		<br />
+		个人简介：
+		<br />
+		<textarea name="brief"></textarea>
+		<br />
+		<input type="submit" value="提交">
+
+	</form>
+	
+</body>
+</html>

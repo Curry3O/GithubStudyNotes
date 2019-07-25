@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11</title>
+	<script>
+		var funs = {
+			//事件绑定
+			bind:function(el,type,handle){
+				if (el.addEventListener) {
+					el.addEventListener(type,handle);
+				}else if (el.attachEvent) {
+					el.attachEvent('on'+type,function(){
+						handle.call(el);
+					});
+				}else {
+					el['on'+type] =handle;
+				}
+			},
+			//事件解绑
+			unbind:function(el,type,handle){
+				if(el.removeEventListener){
+					el.removeEventListener(type,handle);
+				}else if (el.detachEvent) {
+					el.detachEvent('on'+type,handle);
+				}else {
+					el['on'+type] = null;
+				}
+			},
+			//事件对象
+			getEvent:function(event){
+				return event?event:window.event;
+			},
+			//事件目标
+			getTarget:function(event){
+				return event.target?event.target:event.srcElement;
+			},
+			//阻止冒泡
+			stopPropa:function(event){
+				if (event.stopPropagation) {
+					event.stopPropagation();
+				}else {
+					event.cancelBubble = true;
+				}
+			},
+			//阻止默认
+			preDef:function(event){
+				if (event.preventDefault) {
+					event.preventDefault();
+				}else {
+					event.returnValue = false;
+				}
+			},
+		};
+		window.onload = function(){
+			var div = document.getElementsByTagName('div')[0];
+			var btn = document.getElementsByTagName('button')[0];
+			funs.bind(div,'click',function(event){
+				alert('绑定成功');
+				var a = funs.getEvent(event);
+				console.log(a);
+				console.log(this);
+			});
+			btn.onclick = function(){
+				div.onclick = null;
+				alert('success');
+				this.onclick = null;
+				this.style.background = '#ccc';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>点击绑定</div>
+	<button>取消绑定</button>
+</body>
+</html>

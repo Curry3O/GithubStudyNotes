@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>冒泡和捕获阶段的测试</title>
+	<style>
+		#outer{
+			width: 200px;
+			height: 200px;
+			background: pink;
+			border: 1px solid black;
+		}
+		#center{
+			width: 100px;
+			height: 100px;
+			background: cyan;
+			margin: 50px;
+			border: 1px solid black;
+		}
+		#inner{
+			width: 50px;
+			height: 50px;
+			background: coral;
+			margin: 25px;
+			border: 1px solid black;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var outer = document.getElementById('outer');
+			var center = document.getElementById('center');
+			var inner = document.getElementById('inner');
+			function handle1(){
+				console.log(this,'冒泡阶段');
+			}
+			function handle2(){
+				console.log(this,'捕获阶段');
+			}
+			//先写捕获阶段再写冒泡阶段代码可正常执行
+			//捕获阶段执行
+			outer.addEventListener('click',handle2,true);
+			center.addEventListener('click',handle2,true);
+			inner.addEventListener('click',handle2,true);
+			//冒泡阶段执行
+			outer.addEventListener('click',handle1);
+			center.addEventListener('click',handle1);
+			inner.addEventListener('click',handle1);	
+		}
+	</script>
+</head>
+<body>
+	<div id="outer">
+		<div id="center">
+			<div id="inner"></div>
+		</div>
+	</div>
+</body>
+</html>

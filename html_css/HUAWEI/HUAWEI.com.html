@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>HUAWEI.com</title>
+	<link rel="stylesheet" type="text/css" href="./css/huawei.css">
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+	<script>
+			var banners = ["./images/a-1.jpg","./images/a-2.jpg","./images/a-3.jpg","./images/a-4.jpg","./images/a-5.jpg","./images/a-9.jpg","./images/a-10.jpg","./images/a-11.jpg"]; 
+			var counter = 0;
+			function run(){
+				setInterval(cycle,2000);  
+			}
+			function cycle(){
+				counter++;
+				if(counter == banners.length)	
+					counter = 0;
+				document.getElementById("banner").src = banners[counter];
+			}
+	</script>
+</head>
+<body onload = "run()";>
+	<div class="container">
+		<!-- 顶部banner -->
+		<div id="to1" class="top-banner">
+			<p>
+				<a style="font-size: 0px;">
+				<img src="./images/01.jpg">
+				</a>
+			</p>
+			<a class="button-top-close" title="关闭"></a>
+		</div>
+		<!-- 上菜单栏 -->
+		<div class="shortcut">
+			<div class="layout">
+				<div class="s-sub">
+					<ul>
+						<li>
+							<a>首页</a>
+						</li>
+						<li class="beforeli">
+							<a>华为官网</a>
+						</li>
+						<li class="beforeli">
+							<a>荣耀官网</a>
+						</li>
+						<li class="beforeli">
+							<a>花粉俱乐部</a>
+						</li>
+						<li class="beforeli">
+							<a>V码(优购码)</a>
+						</li>
+						<li class="beforeli">
+							<a>企业购</a>
+						</li>
+						<li class="beforeli">
+							<a>Select Region</a>
+						</li>
+						<li class="beforeli">
+							<div class="s-drapdown">
+							    <div class="h">
+								   更多精彩
+								   <i class="fa fa-angle-down " aria-hidden="true"></i>
+							    </div>
+							    <div class="b">
+							    	<div class="drop-more">
+							    		<dl>
+							    			<dt>
+							    				<a>EMUI</a>
+							    			</dt>
+							    			<dt>
+							    				<a>应用市场</a>
+							    			</dt>
+							    			<dt>
+							    				<a>华为终端云空间</a>
+							    			</dt>
+							    			<dt>
+							    				<a>开发者联盟</a>
+							    			</dt>
+							    		</dl>
+							    	</div>
+							    </div>
+						    </div>
+						</li>
+					</ul>
+				</div>
+				<div class="s-main">
+					<ul>
+						<li class="unlogin">
+							<div class="header-toolbar">
+							    <a>请登录</a>
+							    &nbsp;
+								<a>注册</a>
+							</div>
+						</li>
+						<li class="beforeli">
+							<a>我的订单</a>
+						</li>
+						<li class="beforeli">
+							<div class="s-drapdown">
+								<div class="h">
+									客户服务
+									<i class="fa fa-angle-down " aria-hidden="true"></i>
+								</div>
+							    <div class="b">
+							    	<div class="drop-more">
+							    		<dl>
+							    			<dt>
+							    				<a>服务中心</a>
+							    			</dt>
+							    			<dt>
+							    				<a>联系客服</a>
+							    			</dt>
+							    		</dl>
+							    	</div>
+							    </div>
+							</div>
+						</li>
+					    <li class="beforeli">
+					    	<div class="s-drapdown">
+					    		<div class="h">
+					    			网站导航
+					    			<i class="fa fa-angle-down " aria-hidden="true"></i>
+					    		</div>
+					    		<div class="b">
+					    			<div class="dropdown-navs">
+					    				<div class="navs-icon">
+					    				    <i class="fa fa-home fa-4x" aria-hidden="true"></i>
+					    					<!-- <span style="font-size: 0;"></span> -->
+					    					商城首页
+					    				</div>
+					    				<div class="f1-a">
+					    					<div class="f16">频道</div>
+					    					<div>
+					    						<div class="f1">
+					    							<a>华为专区</a>
+					    						</div>
+					    						<div class="f1">
+					    							<a>荣耀专区</a>
+					    						</div>
+					    						<div class="f1">
+					    							<a>企业购</a>
+					    						</div>
+					    					</div>
+					    				</div>
+					    			    <div class="f1-a">
+					    			    	<div class="f16">产品</div>
+					    			    	<div>
+					    			    		<div class="f1">
+					    			    			<a>手机</a>
+					    			    		</div>
+					    			    		<div class="f1">
+					    			    			<a>智能家居</a>
+					    			    		</div>
+					    			    		<div class="f1">
+					    			    			<a>平板&笔记本</a>
+					    			    		</div>
+					    			    		<div class="f1">
+					    			    			<a>通用配件</a>
+					    			    		</div>
+					    			    		<div class="f1">
+					    			    			<a>智能穿戴</a>
+					    			    		</div>
+					    			    		<div class="f1">
+					    			    			<a>专属配件</a>
+					    			    		</div>
+					    			    	</div>
+					    			    </div>
+					    			    <div class="f1-a">
+					    					<div class="f16">增值服务</div>
+					    					<div>
+					    						<div class="f1">
+					    							<a>以旧换新</a>
+					    						</div>
+					    						<div class="f1">
+					    							<a>礼品包装</a>
+					    						</div>
+					    						<div class="f1">
+					    							<a>补购保障</a>
+					    						</div>
+					    						<div class="f1">
+					    							<a>一口价换电池</a>
+					    						</div>
+					    					</div>
+					    				</div>
+					    				<div class="f1-a">
+					    					<div class="f16">会员</div>
+					    					<div>
+					    						<div class="f1">
+					    							<a>会员频道</a>
+					    						</div>
+					    					</div>
+					    				</div>
+					    			</div>
+					    		</div>
+					    	</div>
+					    </li>
+					    <li class="beforeli">
+					    	<div class="s-drapdown">
+					    		<div class="h">
+					    			手机版
+					    			<i class="fa fa-angle-down " aria-hidden="true"></i>
+					    		</div>
+					    		<div class="b">
+					    			<div class="dropdown-code">
+					    				<div class="code-detail">
+					    					<a>
+					    						<img src="./images/code1.png">
+					    					</a>
+					    					<div class="code-info">
+					    						<h2>华为商城App</h2>
+					    						<p class="red">
+					    							新人专享好礼
+					    							<br />
+					    							最高5000积分
+					    						</p>
+					    						<span class="fa fa-android fa-2x" aria-hidden="true"></span>
+					    						<span class="fa fa-weixin fa-2x" aria-hidden="true"></span>
+					    					</div>
+					    				</div>
+					    				<div class="code-detail">
+					    					<a>
+					    						<img src="./images/code2.jpg">
+					    					</a>
+					    					<div class="code-info">
+					    						<h2>华为商城公众号</h2>
+					    						<p>微信扫一扫</p>
+					    						<span class="fa fa-weixin fa-2x" aria-hidden="true"></span>
+					    					</div>
+					    				</div>
+					    				<div class="code-detail">
+					    					<a>
+					    						<img src="./images/code3.jpg">
+					    					</a>
+					    					<div class="code-info">
+					    						<h2>微信小程序</h2>
+					    						<span class="fa fa-weixin fa-2x" aria-hidden="true"></span>
+					    					</div>
+					    				</div>
+					    			</div>
+					    		</div>
+					    	</div>
+					    </li>
+					    <li>
+					    	<div class="s-minicart" style="background: #f2f2f2;">
+					    		<div class="h">
+					    			<i class="fa fa-shopping-cart" aria-hidden="true">
+					    			</i>
+					    			购物车(0)
+					    		</div>
+					    	    <div class="b">
+					    			<div class="dropdown-minicart">
+					    				<div class="pro-empty">
+					    					<i class="fa fa-cart-arrow-down fa-5x" aria-hidden="true">
+					    					</i>
+					    					<p>您的购物车是空的,赶紧选购吧~</p>
+					    					<a>去逛逛吧</a>
+					    				</div>
+					    			</div>
+					    		</div>
+					    	</div>
+					    </li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!-- 下菜单栏 -->
+		<div class="header">
+			<div class="layout">
+				<div class="left">
+					<div class="logo logo-area">
+						<a title="Vmall.com - 华为商城">
+							<img src="./images/logo.png">
+					    </a>
+						<em></em>
+						<a>
+							<img src="./images/logo1.png">
+						</a>
+					</div>
+					<div class="naver">
+						<ul class="clear-fix">
+							<li id="z-0">
+								<div class="s-su">
+									<a>
+										<span>手机</span>
+									</a>
+	                                <div class="naver-sub naver-sub1">
+					                	<div class="naver-sub-wrap">
+					                		<div class="p-title">
+					                			<div class="s1 f1">
+					                				<a>全部手机&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+					                			</div>
+					                			<div class="s2 fl">
+					                				<input type="hidden">
+					                				<a class="f1">HUAWEI Mate系列</a>
+					                				<input type="hidden">
+					                				<a class="f1">HUAWEI P系列</a>
+					                				<input type="hidden">
+					                				<a class="f1">HUAWEI nova系列</a>
+					                				<input type="hidden">
+					                				<a class="f1">华为畅享系列</a>
+					                				<input type="hidden">
+					                				<a class="f1">HUAWEI 麦芒系列</a>
+					                				<div></div>
+					                			</div>
+					                		</div>
+					                		<ul class="grid-list">
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/00-1.png">
+					                					</p>
+					                					<div class="grid-title">HUAWEI P30 Pro</div>
+					                					<p class="grid-price">¥5488</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/00-2.png">
+					                					</p>
+					                					<div class="grid-title">HUAWEI P30</div>
+					                					<p class="grid-price">¥3988</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/00-3.png">
+					                					</p>
+					                					<div class="grid-title">HUAWEI Mate 20 Pro</div>
+					                					<p class="grid-price">¥5499</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/00-4.png">
+					                					</p>
+					                					<div class="grid-title">HUAWEI nova 5 Pro</div>
+					                					<p class="grid-price">¥2999</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/00-5.png">
+					                					</p>
+					                					<div class="grid-title">华为畅享9</div>
+					                					<p class="grid-price">¥849</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/00-6.png">
+					                					</p>
+					                					<div class="grid-title">华为麦芒8</div>
+					                					<p class="grid-price">¥1899</p>
+					                				</a>
+					                			</li>
+                                            </ul>
+					                	</div>
+					                </div>
+				                </div>
+							</li>
+							<li id="z-1">
+								<div class="s-su">
+									<a>
+										<span>笔记本电脑</span>
+									</a>
+									<div class="naver-sub naver-sub2">
+					                	<div class="naver-sub-wrap">
+					                		<div class="p-title">
+					                			<div class="s1 f1">
+					                				<a>全部笔记本电脑&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+					                			</div>
+					                			<div class="s2 fl">
+					                				<input type="hidden">
+					                				<a class="f1">笔记本电脑</a>
+					                				<input type="hidden">
+					                				<a class="f1">笔记本配件</a>
+					                				<div></div>
+					                			</div>
+					                		</div>
+					                		<ul class="grid-list">
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/01-1.png">
+					                					</p>
+					                					<div class="grid-title">HUAWEI MateBook X Pro</div>
+					                					<p class="grid-price">¥8999</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/01-2.png">
+					                					</p>
+					                					<div class="grid-title">HUAWEI MateBook 14</div>
+					                					<p class="grid-price">¥5999</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/01-3.png">
+					                					</p>
+					                					<div class="grid-title">HUAWEI MateBook E</div>
+					                					<p class="grid-price">¥3999</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/01-4.png">
+					                					</p>
+					                					<div class="grid-title">HUAWEI MateBook X</div>
+					                					<p class="grid-price">¥6188</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/01-5.png">
+					                					</p>
+					                					<div class="grid-title">HUAWEI MateBook D</div>
+					                					<p class="grid-price">¥5188</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/01-6.png">
+					                					</p>
+					                					<div class="grid-title">HUAWEI 蓝牙鼠标</div>
+					                					<p class="grid-price">¥179</p>
+					                				</a>
+					                			</li>
+                                            </ul>
+					                	</div>
+					                </div>
+                                </div>
+							</li>
+							<li id="z-2">
+								<div class="s-su">
+									<a>
+										<span>平板&穿戴</span>
+									</a>
+									<div class="naver-sub naver-sub3">
+					                	<div class="naver-sub-wrap">
+					                		<div class="p-title">
+					                			<div class="s1 f1">
+					                				<a>全部平板&穿戴&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+					                			</div>
+					                			<div class="s2 fl">
+					                				<input type="hidden">
+					                				<a class="f1">平板电脑</a>
+					                				<input type="hidden">
+					                				<a class="f1">手环/手表</a>
+					                				<input type="hidden">
+					                				<a class="f1">VR</a>
+					                				<div></div>
+					                			</div>
+					                		</div>
+					                		<ul class="grid-list">
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/02-1.png">
+					                					</p>
+					                					<div class="grid-title">华为平板 M6 8英寸</div>
+					                					<p class="grid-price">¥1999</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/02-2.png">
+					                					</p>
+					                					<div class="grid-title">HUAWEI WATCH GT</div>
+					                					<p class="grid-price">¥1488</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/02-3.png">
+					                					</p>
+					                					<div class="grid-title">华为平板 M5 青春版 8.0英寸</div>
+					                					<p class="grid-price">¥1149</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/02-4.png">
+					                					</p>
+					                					<div class="grid-title">华为手环 3 Pro</div>
+					                					<p class="grid-price">¥399</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/02-5.png">
+					                					</p>
+					                					<div class="grid-title">华为儿童手表 3 Pro</div>
+					                					<p class="grid-price">¥938</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/02-6.png">
+					                					</p>
+					                					<div class="grid-title">华为畅享平板</div>
+					                					<p class="grid-price">¥1299</p>
+					                				</a>
+					                			</li>
+                                            </ul>
+					                	</div>
+					                </div>
+								</div>
+							</li>
+							<li id="z-3">
+								<div class="s-su">
+									<a>
+										<span>智能家居</span>
+									</a>
+									<div class="naver-sub naver-sub4">
+					                	<div class="naver-sub-wrap">
+					                		<div class="p-title">
+					                			<div class="s1 f1">
+					                				<a>全部智能家居&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+					                			</div>
+					                			<div class="s2 fl">
+					                				<input type="hidden">
+					                				<a class="f1 m1">路由器</a>
+					                				<input type="hidden">
+					                				<a class="f1 m2">子母/分布式路由</a>
+					                				<input type="hidden">
+					                				<a class="f1 m3">电力猫/wifi放大器</a>
+					                				<input type="hidden">
+					                				<a class="f1 m4">随行WiFi</a>
+					                				<input type="hidden">
+					                				<a class="f1">照明</a>
+					                				<input type="hidden">
+					                				<a class="f1">清洁</a>
+					                				<input type="hidden">
+					                				<a class="f1">节能</a>
+					                				<input type="hidden">
+					                				<a class="f1">环境</a>
+					                				<input type="hidden">
+					                				<a class="f1">安防</a>
+					                				<input type="hidden">
+					                				<a class="f1">健康</a>
+					                				<input type="hidden">
+					                				<a class="f1">个护</a>
+					                				<input type="hidden">
+					                				<a class="f1">厨电</a>
+					                				<input type="hidden">
+					                				<a class="f1">影音</a>
+					                				<input type="hidden">
+					                				<a class="f1">卫浴</a>
+					                				<input type="hidden">
+					                				<a class="f1">出行</a>
+					                				<input type="hidden">
+					                				<a class="f1">其他</a>
+					                				<div></div>
+					                			</div>
+					                		</div>
+					                		<ul class="grid-list">
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/03-1.png">
+					                					</p>
+					                					<div class="grid-title">华为路由 Q2 Pro</div>
+					                					<p class="grid-price">¥799</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/03-2.png">
+					                					</p>
+					                					<div class="grid-title">华为 AI 音箱</div>
+					                					<p class="grid-price">¥399</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/03-3.png">
+					                					</p>
+					                					<div class="grid-title">华为路由 Q2</div>
+					                					<p class="grid-price">¥799</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/03-4.jpg">
+					                					</p>
+					                					<div class="grid-title">华为路由器 A1</div>
+					                					<p class="grid-price">¥399</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/03-5.png">
+					                					</p>
+					                					<div class="grid-title">华为随行WiFi 2 畅享版</div>
+					                					<p class="grid-price">¥349</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/03-6.png">
+					                					</p>
+					                					<div class="grid-title">720全效空气净化器</div>
+					                					<p class="grid-price">¥1299</p>
+					                				</a>
+					                			</li>
+                                            </ul>
+					                	</div>
+					                </div>
+								</div>
+							</li>
+							<li id="z-4">
+								<div class="s-su">
+									<a>
+										<span>配件</span>
+									</a>
+									<div class="naver-sub naver-sub5">
+					                	<div class="naver-sub-wrap">
+					                		<div class="p-title">
+					                			<div class="s1 f1">
+					                				<a>全部配件&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right" aria-hidden="true"></i></a>
+					                			</div>
+					                			<div class="s2 fl">
+					                				<input type="hidden">
+					                				<a class="f1">贴膜</a>
+					                				<input type="hidden">
+					                				<a class="f1 n1">保护壳</a>
+					                				<input type="hidden">
+					                				<a class="f1 n1">保护套</a>
+					                				<input type="hidden">
+					                				<a class="f1 n1">触控笔</a>
+					                				<input type="hidden">
+					                				<a class="f1">表带</a>
+					                				<input type="hidden">
+					                				<a class="f1">耳机</a>
+					                				<input type="hidden">
+					                				<a class="f1">音响</a>
+					                				<input type="hidden">
+					                				<a class="f1 n2">全景相机</a>
+					                				<input type="hidden">
+					                				<a class="f1 n3">电源/充电器/线材</a>
+					                				<input type="hidden">
+					                				<a class="f1 n4">自拍杆/支架</a>
+					                				<input type="hidden">
+					                				<a class="f1">存储</a>
+					                				<input type="hidden">
+					                				<a class="f1 n2">智能硬件</a>
+					                				<input type="hidden">
+					                				<a class="f1 n1">取卡针</a>
+					                				<div></div>
+					                			</div>
+					                		</div>
+					                		<ul class="grid-list">
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/04-1.png">
+					                					</p>
+					                					<div class="grid-title">华为40W超级快充移动电源</div>
+					                					<p class="grid-price">¥369</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/04-2.png">
+					                					</p>
+					                					<div class="grid-title">华为智能体脂秤</div>
+					                					<p class="grid-price">¥169</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/04-3.png">
+					                					</p>
+					                					<div class="grid-title">HUAWEI P30 透明保护壳</div>
+					                					<p class="grid-price">¥199</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/04-4.png">
+					                					</p>
+					                					<div class="grid-title">HUAWEI FreeLace 无线耳机</div>
+					                					<p class="grid-price">¥499</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/04-5.png">
+					                					</p>
+					                					<div class="grid-title">华为车载快速充电器</div>
+					                					<p class="grid-price">¥129</p>
+					                				</a>
+					                			</li>
+					                			<li class="grid-items">
+					                				<a class="thumb">
+					                					<p class="grid-img">
+					                						<img src="./images/04-6.png">
+					                					</p>
+					                					<div class="grid-title">华为补光灯自拍杆</div>
+					                					<p class="grid-price">¥109</p>
+					                				</a>
+					                			</li>
+                                            </ul>
+					                	</div>
+					                </div>
+								</div>
+							</li>
+							<li>
+								<div class="hua">
+									<a>
+										<span>HUAWEI P30系列</span>
+									</a>
+								</div>
+							</li>
+						</ul>
+					</div>
+                </div>
+                <div class="naver-sub hide">
+                	<div class="naver-sub-wrap hide">
+                		<div class="p-title clearfix">
+                			<div class="s1 f1">
+                				<a>全部手机</a>
+                			</div>
+                			<div class="s2 fl clearfix">
+                				<input type="hidden">
+                				<a class="f1">HUAWEI Mate系列</a>
+                				<input type="hidden">
+                				<a class="f1">HUAWEI P系列</a>
+                				<input type="hidden">
+                				<a class="f1">HUAWEI nova系列</a>
+                				<input type="hidden">
+                				<a class="f1">华为畅享系列</a>
+                				<input type="hidden">
+                				<a class="f1">HUAWEI 麦芒系列</a>
+                				<div></div>
+                			</div>
+                		</div>
+                		<ul class="grid-list clearfix">
+                			<li class="grid-items">
+                				<a class="thumb">
+                					<p class="grid-img">
+                						<img src="./images/00-1.png">
+                					</p>
+                					<div class="grid-title">HUAWEI P30 Pro</div>
+                					<p class="grid-price">¥5488</p>
+                				</a>
+                			</li>
+                			<li class="grid-items">
+                				<a class="thumb">
+                					<p class="grid-img">
+                						<img src="./images/00-2.png">
+                					</p>
+                					<div class="grid-title">HUAWEI P30</div>
+                					<p class="grid-price">¥3988</p>
+                				</a>
+                			</li>
+                			<li class="grid-items">
+                				<a class="thumb">
+                					<p class="grid-img">
+                						<img src="./images/00-3.png">
+                					</p>
+                					<div class="grid-title">HUAWEI Mate 20 Pro</div>
+                					<p class="grid-price">¥5499</p>
+                				</a>
+                			</li>
+                			<li class="grid-items">
+                				<a class="thumb">
+                					<p class="grid-img">
+                						<img src="./images/00-4.png">
+                					</p>
+                					<div class="grid-title">HUAWEI nova 5 Pro</div>
+                					<p class="grid-price">¥2999</p>
+                				</a>
+                			</li>
+                			<li class="grid-items">
+                				<a class="thumb">
+                					<p class="grid-img">
+                						<img src="./images/00-5.png">
+                					</p>
+                					<div class="grid-title">华为畅享9</div>
+                					<p class="grid-price">¥849</p>
+                				</a>
+                			</li>
+                			<li class="grid-items">
+                				<a class="thumb">
+                					<p class="grid-img">
+                						<img src="./images/00-6.png">
+                					</p>
+                					<div class="grid-title">华为麦芒8</div>
+                					<p class="grid-price">¥1899</p>
+                				</a>
+                			</li>
+                		</ul>
+                	</div>
+                </div>
+                <div class="right">
+                	<div class="search-bar">
+                		<div class="search-bar-form">
+                			<form method="get">
+                				<input type="text" class="text" style="outline: none;">
+                				<i class="fa fa-search" aria-hidden="true"></i>
+                				<div class="search-bar-key">
+                					<div class="searchBar-key">
+                						<a style="color: #cf0a2c;">HUAWEI P30</a>
+                						<a class="mate20">HUAWEI Mate 20</a>
+                					</div>
+                				</div>
+                			</form>
+                		</div>
+                	</div>
+                </div>
+			</div>
+		</div>
+		<!-- 热门板 -->
+		<div class="hot-board">
+			<div class="ec-slider">
+				<img src="./images/a-1.jpg" id="banner";>
+			</div>
+		</div>
+		<!-- 华为精品 -->
+		<div class="hr-60"></div>
+		<div class="layout">
+			<div class="home-channel-floor huawei-channel-floor">
+				<div class="h" style="height: 54px;">
+					<h2 class="channel-title">华为精品</h2>
+				</div>
+				<div class="b1">
+					<div class="good-list">
+						<div class="b1 clearfix">
+							<ul class="grid-list clearfix">
+								<li class="grid-items grid-items-ad">
+									<a class="thumb">
+										<img src="./images/b-1.png">
+									</a>
+								</li>
+								<li class="grid-items grid-items-ad">
+									<a class="thumb">
+										<img src="./images/b-2.png">
+									</a>
+								</li>
+								<li class="grid-items grid-items-ad">
+									<a class="thumb">
+										<img src="./images/b-3.png">
+									</a>
+								</li>
+								<li class="grid-items grid-items-ad">
+									<a class="thumb">
+										<img src="./images/b-4.png">
+									</a>
+								</li>
+							</ul>
+							<ul class="grid-list grid-list-second clearfix">
+								<li class="grid-items grid-items-second">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info">
+											<div class="grid-title">华为平板 M6</div>
+											<p class="grid-desc">订金100抵200</p>
+											<p class="grid-price">¥2299</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/c-1.png">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-second">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info">
+											<div class="grid-title">HUAWEI MateBook 13</div>
+											<p class="grid-desc">2K全面屏笔记本</p>
+											<p class="grid-price">¥5699</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/c-2.png">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-second">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info">
+											<div class="grid-title">HUAWEI WATCH GT</div>
+											<p class="grid-desc">强劲续航 智能提醒</p>
+											<p class="grid-price">¥1388</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/c-3.png">
+										</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="hr-60"></div>
+		<!-- 侧边栏 -->
+		<div class="event-float-layout tool-Fixed">
+			<div class="event-float">
+				<div>
+					<ul class="hover-list">
+						<li class="hover">
+							<a href="#ph1" data-id="0">手机</a>
+							<div class="bord"></div>
+						</li>
+						<li class="">
+							<a href="#ph2" data-id="1">笔记本电脑</a>
+							<div class="bord"></div>
+						</li>
+						<li class="">
+							<a href="#ph3" data-id="2">平板&穿戴</a>
+							<div class="bord"></div>
+						</li>
+						<li class="">
+							<a href="#ph4" data-id="3">智能家居</a>
+							<div class="bord"></div>
+						</li>
+						<li class="">
+							<a href="#ph5" data-id="4">热销配件</a>
+							<div class="bord"></div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="home-channel-container huawei-channel-container relative">
+			<div class="layout">
+				<div class="home-channel-floor huawei-channel-floor">
+					<div class="h">
+						<h2 id="ph1" class="channel-title">
+							<a>手机</a>
+						</h2>
+						<ul class="channel-nav">
+							<li>
+								<a>HUAWEI Mate系列</a>
+							</li>
+							<li>
+								<a>HUAWEI P系列</a>
+							</li>
+							<li>
+								<a>HUAWEI nova系列</a>
+							</li>
+							<li>
+								<a>华为畅享系列</a>
+							</li>
+							<li>
+								<a>HUAWEI 麦芒系列</a>
+							</li>
+						</ul>
+						<div class="channel-more">
+							<a>更多&nbsp;&nbsp;<i class="fa fa-play" aria-hidden="true" style="color: #b2b2b2"></i></a>
+						</div>
+					</div>
+					<div class="b1" style="height: 860px; width: 1200px;">
+						<div class="good-list" style="height: 592px;">
+							<ul class="grid-list clearfix" style="height: 592px;">
+								<li class="grid-items grid-items-ad-291">
+									<a class="thumb" style="border: none;">
+										<img src="./images/d-1.jpg">
+									</a>
+								</li>
+								<li class="grid-items grid-items-third grid-items-third-594">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info">
+											<div class="grid-title">
+												HUAWEI P30
+											</div>
+											<p class="grid-price gray">¥3988</p>
+										</div>
+										<p class="grid-tips">
+											<img src="./images/热卖.png">
+										</p>
+										<p class="grid-img">
+											<img src="./images/d-2.jpg">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="margin-bottom: 12px; width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info grid-info-white" style="top: 140px; left: 940px;">
+											<div class="grid-title" style="color: #fff;">
+												华为畅享 9S
+											</div>
+											<p class="grid-price" style="color: #fff;">¥1499</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/d-3.jpg">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info" style="top: 440px; left: 340px;">
+											<div class="grid-title">
+												HUAWEI Mate 20 X
+											</div>
+											<p class="grid-price">¥4499</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/d-4.jpg">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info grid-info-white" style="top: 440px; left: 640px;">
+											<div class="grid-title" style="color: #fff;">
+												华为畅享 9e
+											</div>
+											<p class="grid-price" style="color: #fff;
+									     ">¥799</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/d-5.jpg">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info" style="top: 440px; left: 940px;">
+											<div class="grid-title">
+												华为畅享9 Plus
+											</div>
+											<p class="grid-price">¥1399</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/d-6.jpg">
+										</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="hr-12"></div>
+						<div class="goods-rolling swiper-container relative">
+							<ul class="grid-list swiper-wrapper clearfix" style="height: 254px;width: 1200px;">
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/e-1.png">
+										</p>
+										<div class="grid-title">HUAWEI Mate 20 RS</div>
+										<p class="grid-desc">保时捷设计</p>
+										<p class="grid-price">¥12999</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/e-2.png">
+										</p>
+										<div class="grid-title">华为畅享9</div>
+										<p class="grid-desc">最高优惠150</p>
+										<p class="grid-price">¥1399</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/e-3.png">
+										</p>
+										<div class="grid-title">HUAWEI P20</div>
+										<p class="grid-desc">享6期免息</p>
+										<p class="grid-price">¥3388</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/e-4.png">
+										</p>
+										<div class="grid-title">华为畅享 MAX</div>
+										<p class="grid-desc">7.12英寸珍珠屏</p>
+										<p class="grid-price">¥1499</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/e-5.png">
+										</p>
+										<div class="grid-title">HUAWEI nova 4e</div>
+										<p class="grid-desc">3200万立体美颜</p>
+										<p class="grid-price">¥1999</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/e-6.png">
+										</p>
+										<div class="grid-title">华为畅享 8e 青春</div>
+										<p class="grid-desc">高清全面屏</p>
+										<p class="grid-price">¥649</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="hr-60"></div>
+			<div class="layout" style="height: 696.4px; width: 1200px;">
+				<div class="home-channel-floor huawei-channel-floor">
+					<div class="h">
+						<h2 id="ph2" class="channel-title">
+							<a>笔记本电脑</a>
+						</h2>
+						<ul class="channel-nav">
+							<li>
+								<a>笔记本电脑</a>
+							</li>
+							<li>
+								<a>笔记本配件</a>
+							</li>
+						</ul>
+						<div class="channel-more">
+							<a>更多&nbsp;&nbsp;<i class="fa fa-play" aria-hidden="true" style="color: #b2b2b2"></i></a>
+						</div>
+					</div>
+					<div class="b1" style="width: 1200px; height: 592px;">
+						<div class="good-list" style="width: 1200px; height: 592px;">
+							<ul class="grid-list clearfix" style="width: 1200px; height: 592px;">
+								<li class="grid-items grid-items-ad-291">
+									<a class="thumb" style="border: none;">
+										<img src="./images/f-1.jpg" alt="">
+									</a>
+								</li>
+								<li class="grid-items grid-items-third grid-items-third-594">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info">
+											<div class="grid-title">HUAWEI MateBook 14</div>
+											<p class="grid-price gray">¥6999</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/f-2.png" alt="">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px;height: 290px;margin-bottom: 12px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info grid-info-white" style="top: 140px; left: 940px;">
+											<div class="grid-title" style="color: #fff;">HUAWEI MateBook E 2019 款</div>
+											<p class="grid-price" style="color: #fff;">¥3999</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/f-3.jpg" alt="">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px;height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info" style="top: 440px; left: 340px;">
+											<div class="grid-title">HUAWEI MateBook 13</div>
+											<p class="grid-price">¥5699</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/f-4.png" alt="">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px;height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info grid-info-white" style="top: 440px; left: 640px;">
+											<div class="grid-title" style="color: #fff;">HUAWEI MateBook D</div>
+											<p class="grid-price" style="color: #fff;">¥5188</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/f-5.jpg" alt="">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px;height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info" style="top: 440px; left: 940px;">
+											<div class="grid-title">HUAWEI MateBook E</div>
+											<p class="grid-price">¥4288</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/f-6.png" alt="">
+										</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="hr-60"></div>
+			<div class="layout" style="height: 696.4px; width: 1200px;">
+				<div class="home-channel-floor huawei-channel-floor">
+					<div class="h">
+						<h2 id="ph3" class="channel-title">
+							<a>平板&穿戴</a>
+						</h2>
+						<ul class="channel-nav">
+							<li>
+								<a>平板电脑</a>
+							</li>
+							<li>
+								<a>手环/手表</a>
+							</li>
+							<li>
+								<a>VR</a>
+							</li>
+						</ul>
+						<div class="channel-more">
+							<a>更多&nbsp;&nbsp;<i class="fa fa-play" aria-hidden="true" style="color: #b2b2b2"></i></a>
+						</div>
+					</div>
+					<div class="b1" style="height: 860px; width: 1200px;">
+						<div class="good-list" style="height: 592px;">
+							<ul class="grid-list clearfix" style="height: 592px;">
+								<li class="grid-items grid-items-ad-291">
+									<a class="thumb" style="border: none;">
+										<img src="./images/g-1.png">
+									</a>
+								</li>
+								<li class="grid-items grid-items-third grid-items-third-594">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info">
+											<div class="grid-title">
+												HUAWEI WATCH GT 雅致款
+											</div>
+											<p class="grid-price gray">¥1388</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/g-2.jpg">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="margin-bottom: 12px; width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info grid-info-white" style="top: 140px; left: 940px;">
+											<div class="grid-title" style="color: #fff;">
+												华为平板 M5 青春版 8.0英寸
+											</div>
+											<p class="grid-price" style="color: #fff;">¥1099</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/huan2.jpg">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info" style="top: 440px; left: 340px;">
+											<div class="grid-title">
+												华为儿童手表 3 Pro
+											</div>
+											<p class="grid-price">¥888</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/g-4.png">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info grid-info-white" style="top: 440px; left: 640px;">
+											<div class="grid-title" style="color: #fff;">
+												华为平板 M5 青春版 10.1英寸
+											</div>
+											<p class="grid-price" style="color: #fff;
+									     ">¥1799</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/huan1.jpg">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info" style="top: 440px; left: 940px;">
+											<div class="grid-title">
+												华为手环 B5
+											</div>
+											<p class="grid-price">¥1099</p>
+										</div>
+										<p class="grid-tips2" style="position: absolute;top: 625px;right: 20px;z-index: 10;">
+											<img src="./images/新品.png">
+										</p>
+										<p class="grid-img">
+											<img src="./images/g-6.jpg">
+										</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="hr-12"></div>
+						<div class="goods-rolling swiper-container relative">
+							<ul class="grid-list swiper-wrapper clearfix" style="height: 254px;width: 1200px;">
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/h-1.png">
+										</p>
+										<div class="grid-title">华为畅享平板</div>
+										<p class="grid-desc">限时直降50+3期免息</p>
+										<p class="grid-price">¥1249</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/h-2.png">
+										</p>
+										<div class="grid-title">PORSCHE DESIGN | HUAWEI Smartwatch</div>
+										<p class="grid-desc">低调奢华 天生不凡</p>
+										<p class="grid-price">¥4988</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/h-3.png">
+										</p>
+										<div class="grid-title">华为平板 M5 8.4英寸</div>
+										<p class="grid-desc">2K高清屏，哈曼卡顿调音</p>
+										<p class="grid-price">¥1888</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/h-4.png">
+										</p>
+										<div class="grid-title">华为儿童手表 3 Pro</div>
+										<p class="grid-desc">限时直降100</p>
+										<p class="grid-price">¥888</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/h-5.png">
+										</p>
+										<div class="grid-title">华为儿童手表 3</div>
+										<p class="grid-desc">限时直降30</p>
+										<p class="grid-price">¥368</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/h-6.png">
+										</p>
+										<div class="grid-title">华为手环B3 青春版</div>
+										<p class="grid-desc">限时直降 50</p>
+										<p class="grid-price">¥449</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="hr-60" style="margin-top: 265px;"></div>
+			<div class="layout" style="height: 696.4px; width: 1200px;">
+				<div class="home-channel-floor huawei-channel-floor">
+					<div class="h">
+						<h2 id="ph4" class="channel-title">
+							<a>智能家居</a>
+						</h2>
+						<ul class="channel-nav">
+							<li>
+								<a>路由器</a>
+							</li>
+							<li>
+								<a>子母/分布式路由</a>
+							</li>
+							<li>
+								<a>电力猫/wifi放大器</a>
+							</li>
+							<li>
+								<a>随行WiFi</a>
+							</li>
+							<li>
+								<a>照明</a>
+							</li>
+							<li>
+								<a>清洁</a>
+							</li>
+							<li>
+								<a>节能</a>
+							</li>
+							<li>
+								<a>环境</a>
+							</li>
+							<li>
+								<a>安防</a>
+							</li>
+							<li>
+								<a>健康</a>
+							</li>
+							<li>
+								<a>个护</a>
+							</li>
+							<li>
+								<a>厨电</a>
+							</li>
+							<li>
+								<a>影音</a>
+							</li>
+							<li>
+								<a>卫浴</a>
+							</li>
+							<li>
+								<a>出行</a>
+							</li>
+						</ul>
+						<div class="channel-more">
+							<a>更多&nbsp;&nbsp;<i class="fa fa-play" aria-hidden="true" style="color: #b2b2b2"></i></a>
+						</div>
+					</div>
+					<div class="b1" style="height: 860px; width: 1200px;">
+						<div class="good-list" style="height: 592px;">
+							<ul class="grid-list clearfix" style="height: 592px;">
+								<li class="grid-items grid-items-ad-291">
+									<a class="thumb" style="border: none;">
+										<img src="./images/i-1.jpg">
+									</a>
+								</li>
+								<li class="grid-items grid-items-third grid-items-third-594">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info">
+											<div class="grid-title">
+												【新品预订】华为AI音箱mini
+											</div>
+											<p class="grid-price gray">¥229</p>
+										</div>
+										<p class="grid-tips">
+											<img src="./images/新品.png">
+										</p>
+										<p class="grid-img">
+											<img src="./images/i-2.png">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="margin-bottom: 12px; width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info grid-info-white" style="top: 140px; left: 940px;">
+											<div class="grid-title" style="color: #fff;">
+												华为备咖存储
+											</div>
+											<p class="grid-price" style="color: #fff;">¥699</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/i-3.png">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info" style="top: 440px; left: 340px;">
+											<div class="grid-title">
+												华为路由 WS5200 增强版
+											</div>
+											<p class="grid-price">¥229</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/i-4.png">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info grid-info-white" style="top: 440px; left: 640px;">
+											<div class="grid-title" style="color: #fff;">
+												华为路由 WS5102
+											</div>
+											<p class="grid-price" style="color: #fff;
+									     ">¥159</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/i-5.png">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info" style="top: 440px; left: 940px;">
+											<div class="grid-title">
+												华为路由WS5200四核版
+											</div>
+											<p class="grid-price">¥249</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/i-6.png">
+										</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="hr-12"></div>
+						<div class="goods-rolling swiper-container relative">
+							<ul class="grid-list swiper-wrapper clearfix" style="height: 254px;width: 1200px;">
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/j-1.png">
+										</p>
+										<div class="grid-title">华为AI音箱</div>
+										<p class="grid-desc">丹拿音质 智能控制  </p>
+										<p class="grid-price">¥399</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/j-2.png">
+										</p>
+										<div class="grid-title">华为路由器WS5200</div>
+										<p class="grid-desc">真双频就是快</p>
+										<p class="grid-price">¥199</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/j-3.png">
+										</p>
+										<div class="grid-title">华为随行WiFi 2 Pro</div>
+										<p class="grid-desc">4G三网通 大充电宝</p>
+										<p class="grid-price">¥899</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/j-4.png">
+										</p>
+										<div class="grid-title">华为4G路由 2</div>
+										<p class="grid-desc">4G全网通 APP远程管理</p>
+										<p class="grid-price">¥389</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/j-5.png">
+										</p>
+										<div class="grid-title">华为 WiFi 放大器</div>
+										<p class="grid-desc">轻松扩展 WIFI 信号</p>
+										<p class="grid-price">¥99</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/j-6.jpg">
+										</p>
+										<div class="grid-title">华为路由 WS832</div>
+										<p class="grid-desc">1200M无线路由器</p>
+										<p class="grid-price">¥249</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="hr-60" style="margin-top: 265px;"></div>
+			<div class="layout" style="height: 696.4px; width: 1200px;">
+				<div class="home-channel-floor huawei-channel-floor">
+					<div class="h">
+						<h2 id="ph5" class="channel-title">
+							<a>热销配件</a>
+						</h2>
+						<ul class="channel-nav">
+							<li>
+								<a>贴膜</a>
+							</li>
+							<li>
+								<a>保护壳</a>
+							</li>
+							<li>
+								<a>保护套</a>
+							</li>
+							<li>
+								<a>表带</a>
+							</li>
+							<li>
+								<a>耳机</a>
+							</li>
+							<li>
+								<a>音响</a>
+							</li>
+							<li>
+								<a>全景相机</a>
+							</li>
+							<li>
+								<a>电源/充电器/线材</a>
+							</li>
+							<li>
+								<a>自拍杆/支架</a>
+							</li>
+							<li>
+								<a>智能硬件</a>
+							</li>
+							<li>
+								<a>触控笔</a>
+							</li>
+							<li>
+								<a>存储</a>
+							</li>
+							<li>
+								<a>取卡针</a>
+							</li>
+						</ul>
+						<div class="channel-more">
+							<a>更多&nbsp;&nbsp;<i class="fa fa-play" aria-hidden="true" style="color: #b2b2b2"></i></a>
+						</div>
+					</div>
+					<div class="b1" style="height: 860px; width: 1200px;">
+						<div class="good-list" style="height: 592px;">
+							<ul class="grid-list clearfix" style="height: 592px;">
+								<li class="grid-items grid-items-ad-291">
+									<a class="thumb" style="border: none;">
+										<img src="./images/k-1.jpg">
+									</a>
+								</li>
+								<li class="grid-items grid-items-third grid-items-third-594">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info">
+											<div class="grid-title">
+												华为快充移动电源 20000mAh
+											</div>
+											<p class="grid-price gray">¥229</p>
+										</div>
+										<p class="grid-tips">
+											<img src="./images/新品.png">
+										</p>
+										<p class="grid-img">
+											<img src="./images/k-2.jpg">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="margin-bottom: 12px; width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info grid-info-white" style="top: 140px; left: 940px;">
+											<div class="grid-title" style="color: #fff;">
+												华为便携照片打印机
+											</div>
+											<p class="grid-price" style="color: #fff;">¥589</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/k-3.png" style="width: 291px; height: 290px;">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info" style="top: 440px; left: 340px;">
+											<div class="grid-title">
+												华为10000mAh移动电源
+											</div>
+											<p class="grid-price">¥159</p>
+										</div>
+										<p class="grid-tips" style="position: absolute;top: 625px;right: 620px;z-index: 10;">
+											<img src="./images/爆款.png">
+										</p>
+										<p class="grid-img">
+											<img src="./images/k-4.png">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info grid-info-white" style="top: 440px; left: 640px;">
+											<div class="grid-title" style="color: #fff;">
+												华为无线充电器
+											</div>
+											<p class="grid-price" style="color: #fff;
+									     ">¥99</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/k-5.png">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items grid-items-third" style="width: 291px; height: 290px;">
+									<a class="thumb" style="border: none;">
+										<div class="grid-info" style="top: 440px; left: 940px;">
+											<div class="grid-title">
+												华为安居智能摄像机
+											</div>
+											<p class="grid-price">¥279</p>
+										</div>
+										<p class="grid-img">
+											<img src="./images/k-6.png">
+										</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+						<div class="hr-12"></div>
+						<div class="goods-rolling swiper-container relative">
+							<ul class="grid-list swiper-wrapper clearfix" style="height: 254px;width: 1200px;">
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/l-1.png">
+										</p>
+										<div class="grid-title">华为全景相机酷玩版</div>
+										<p class="grid-desc"></p>
+										<p class="grid-price">¥499</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/l-2.jpg">
+										</p>
+										<div class="grid-title">华为三脚架自拍杆</div>
+										<p class="grid-desc">三脚架+自拍杆一体式设计</p>
+										<p class="grid-price">¥99</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/l-3.png">
+										</p>
+										<div class="grid-title">华为小天鹅蓝牙音箱</div>
+										<p class="grid-desc">360°音效技术，音质更自然</p>
+										<p class="grid-price">¥89</p>
+										<p class="grid-tips" style="position: absolute;top: 800px;right: 630px;z-index: 10;">
+											<img src="./images/爆款.png">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/l-4.png">
+										</p>
+										<div class="grid-title">华为快充移动电源</div>
+										<p class="grid-desc">10000mAh快充</p>
+										<p class="grid-price">¥89</p>
+										<p class="grid-tips" style="position: absolute;top: 800px;right: 435px;z-index: 10;">
+											<img src="./images/新品.png">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/l-5.png">
+										</p>
+										<div class="grid-title">云启 扩展王座</div>
+										<p class="grid-desc">连接键鼠智能办公</p>
+										<p class="grid-price">¥369</p>
+										<p class="grid-tips" style="position: absolute;top: 800px;right: 240px;z-index: 10;">
+											<img src="./images/热卖.png">
+										</p>
+									</a>
+								</li>
+								<li class="grid-items swiper-slide">
+									<a class="thumb">
+										<p class="grid-img">
+											<img src="./images/l-6.jpg">
+										</p>
+										<div class="grid-title">华为Type C 数据线</div>
+										<p class="grid-desc">高品质线芯</p>
+										<p class="grid-price">¥29</p>
+									</a>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="hr-60" style="margin-top: 265px;"></div>
+		</div>
+		<!-- 口号 -->
+        <div class="slogan-container">
+        	<div class="slogan">
+        		<ul>
+        			<li class="s1">
+        				<a>
+        					<i></i>
+        					百强企业 品质保证
+        				</a>
+        			</li>
+        			<li class="s2">
+        				<a>
+        					<i></i>
+        					7天退货 15天换货
+        				</a>
+        			</li>
+        			<li class="s3">
+        				<a>
+        					<i></i>
+        					48元起免运费
+        				</a>
+        			</li>
+        			<li class="s4">
+        				<a>
+        					<i></i>
+        					1000家维修网点 全国联保
+        				</a>
+        			</li>
+        		</ul>
+        	</div>
+        </div>
+        <!-- 服务 -->
+		<div class="service-container">
+			<div class="service">
+				<div class="service-l fl">
+					<dl class="s1">
+						<dt>
+							<p class="title">购物相关</p>
+						</dt>
+						<dd>
+							<ol>
+								<li>
+									<a>购物指南</a>
+								</li>
+								<li>
+									<a>配送方式</a>
+								</li>
+								<li>
+									<a>支付方式</a>
+								</li>
+								<li>
+									<a>常见问题</a>
+								</li>
+							</ol>
+						</dd>
+					</dl>
+					<dl class="s2">
+						<dt>
+							<p class="title">保修与退换货</p>
+						</dt>
+						<dd>
+							<ol>
+								<li>
+									<a>保修政策</a>
+								</li>
+								<li>
+									<a>退换货政策</a>
+								</li>
+								<li>
+									<a>退换货流程</a>
+								</li>
+								<li>
+									<a>保修状态查询</a>
+								</li>
+								<li>
+									<a>配件防伪查询</a>
+								</li>
+							</ol>
+						</dd>
+					</dl>
+					<dl class="s3">
+						<dt>
+							<p class="title">维修与技术支持</p>
+						</dt>
+						<dd>
+							<ol>
+								<li>
+									<a>售后网点</a>
+								</li>
+								<li>
+									<a>预约维修</a>
+								</li>
+								<li>
+									<a>手机寄修</a>
+								</li>
+								<li>
+									<a>备件价格查询</a>
+								</li>
+								<li>
+									<a>上门服务</a>
+								</li>
+							</ol>
+						</dd>
+					</dl>
+					<dl class="s4">
+						<dt>
+							<p class="title">特色服务</p>
+						</dt>
+						<dd>
+							<ol>
+								<li>
+									<a>防伪查询</a>
+								</li>
+								<li>
+									<a>补购保障</a>
+								</li>
+								<li>
+									<a>以旧换新</a>
+								</li>
+								<li>
+									<a>礼品包装</a>
+								</li>
+							</ol>
+						</dd>
+					</dl>
+					<dl class="s5">
+						<dt>
+							<p class="title">关于我们</p>
+						</dt>
+						<dd>
+							<ol>
+								<li>
+									<a>公司介绍</a>
+								</li>
+								<li>
+									<a>华为商城简介</a>
+								</li>
+								<li>
+									<a>华为线下门店</a>
+								</li>
+								<li>
+									<a>荣耀线下门店</a>
+								</li>
+								<li>
+									<a>诚征英才</a>
+								</li>
+								<li>
+									<a>意见反馈</a>
+								</li>
+							</ol>
+						</dd>
+					</dl>
+					<dl class="s6">
+						<dt class="relative">
+							<p class="title">友情链接</p>
+						</dt>
+						<dd>
+							<ol>
+								<li>
+									<a>华为集团</a>
+								</li>
+								<li>
+									<a>华为CBG官网</a>
+								</li>
+								<li>
+									<a>荣耀官网</a>
+								</li>
+								<li>
+									<a>花粉俱乐部</a>
+								</li>
+								<li>
+									<a>华为云</a>
+								</li>
+							</ol>
+						</dd>
+					</dl>
+				</div>
+				<div class="service-r fl">
+					<dl class="s7">
+						<dt>
+							<p class="title" style="font-size: 28px">400-088-6888</p>
+						</dt>
+						<dd style="width: 279px;height: 22px;text-align: center;">
+							<ol style="width: 279px;height: 22px; text-align: center;">
+								<li>
+									<a style="font-size: 14px">7x24小时客服热线（仅收市话费）</a>
+								</li>
+							</ol>
+						</dd>
+						<dd style="width: 279px;height: 34px;"> 
+							<a class="service-btn">
+								<i class=""></i>
+								 在线客服
+							</a>
+						</dd>
+					</dl>
+					<div class="service-code clearfix">
+						<h2>关注Vmall：</h2>
+						<ul class="clearfix">
+							<li class="iconfont icon1">
+								<a><i class="fa fa-weixin" aria-hidden="true"></i></a>
+								<div class="service-code-img">
+									<img src="./images/code2.jpg">
+								</div>
+							</li>
+							<li class="iconfont">
+								<a><i class="fa fa-apple" aria-hidden="true"></i></a>
+							</li>
+							<li class="iconfont">
+								<a><i class="fa fa-weibo" aria-hidden="true"></i></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 悬浮工具 -->
+		<div class="hungBar j-hungBar">
+			<div class="hungBar-content">
+				<a class="hungBar-cart" title="购物车">
+					<i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i>
+					<span></span>
+					<i class="fa1">购物车</i>
+				</a>
+				<a class="hungBar-service" title="在线客服">
+					<i class="fa fa-user-circle fa-2x" aria-hidden="true"></i>
+					<i class="fa1">在线客服</i>
+				</a>
+				<a class="hungBar-feedback" title="意见反馈">
+					<i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i>
+					<i class="fa1">意见反馈</i>
+				</a>
+				<a href="#to1" class="hungBar-top" title="返回顶部">
+					<i class="fa fa-arrow-circle-up fa-2x" aria-hidden="true"></i>
+					<i class="fa1">返回顶部</i>
+				</a>
+			</div>
+		</div>
+		<!-- 底部 -->
+		<div class="footer-container">
+			<div class="footer">
+				<div class="footer-warrant-area clearfix">
+					<p class="footer-warrant-logo fl">
+						<a>
+							<img src="./images/hw.png">
+						</a>
+					</p>
+					<div class="f1">
+						<ul class="footer-warrant-link">
+							<li>
+								<a>华为集团</a>
+							</li>
+							<li>
+								<a>华为CBG官网</a>
+							</li>
+							<li>
+								<a>荣耀官网</a>
+							</li>
+							<li>
+								<a>花粉俱乐部</a>
+							</li>
+							<li>
+								<a>华为应用市场</a>
+							</li>
+							<li>
+								<a>EMUI</a>
+							</li>
+							<li>
+								<a>华为终端云空间</a>
+							</li>
+							<li>
+								<a>开发者联盟</a>
+							</li>
+							<li>
+								<a>华为商城手机版</a>
+							</li>
+						</ul>
+						<a>隐私声明</a>
+						<a>服务协议</a>
+						<a>COOKIES</a>
+						 Copyright © 2012-2019 华为终端有限公司 版权所有 
+						<a>粤ICP备19015064号-4</a>
+						<em>|</em>
+						<a>粤公网安备 44190002003939号</a>
+						<br>
+						增值电信业务经营许可证：粤B2-20190762
+						<em>|</em>
+						备案主体编号：44201919072182
+					</div>
+					<p class="fr footer-warrant-img">
+						<a>
+							<img src="./images/foot1.jpg">
+						</a>
+						<a>
+							<img src="./images/foot2.png">
+						</a>
+					</p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

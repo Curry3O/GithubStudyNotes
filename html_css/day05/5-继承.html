@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>继承</title>
+	<style>
+		div{
+			/*可继承*/
+			font-size: 30px;
+			/*不可继承*/
+			border: 1px solid red;
+		}
+		span{
+			/*span自己的样式*/
+			/*font-size: 10px;*/
+			/*使用初始化的样式，font-size与父元素div没有关系了，initial将可继承属性设置成不可继承的*/
+			font-size: initial;
+			/*继承父元素的border属性,inhertit将不可继承的属性设置成可继承的*/
+			border: inherit;
+			/*可继承属性继承，不可继承属性不继承*/
+			/*border: unset;*/
+
+		}
+	</style>
+</head>
+<body>
+	<div>
+		div标签
+		<p>p标签</p>
+		<span>span标签</span>
+
+	</div>
+	
+</body>
+</html>

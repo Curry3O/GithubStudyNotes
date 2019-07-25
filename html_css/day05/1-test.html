@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试~=和*=</title>
+	<style>
+		.one{
+			color: red;
+		}
+		/*10*/
+		.two{
+			color: blue; 
+		}
+		[class~=one]{
+			background-color: pink;
+		}
+		/*"!important"优先级最高*/
+        /*[class~=one]{
+			background-color: pink; !important;
+		}*/
+
+		/*[class*=one]{
+			background-color: yellow;
+		}*/
+		
+		/*
+		
+		 特性值                                   权重
+		(行内样式)style属性内                      1000
+		id选择器                                  100
+        class选择器,属性选择器，伪类选择器          10
+        标签选择器,伪元素选择器                     1
+        空格 ^ + > ~                              0
+		
+		css级联，使用！important修饰(在css规则的值末尾添加)最优先无需判断。先判断特性值，如果特性值一样就考虑就近原则;如果不一样就考虑特性值大的
+		*/
+	    /*div.one 属性值为(相加)：11 */
+
+	</style>
+</head>
+<body>
+	<div class="one two">one two</div>
+	<div class="onetwo">onetwo</div>
+	
+		
+	
+</body>
+</html>

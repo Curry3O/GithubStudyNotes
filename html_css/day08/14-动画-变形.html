@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画-变形</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: orange;
+			animation-name: myani;
+			animation-duration: 3s;
+			animation-direction: alternate;
+			animation-iteration-count: infinite;
+			border-radius: 20px;
+			display: inline-block;
+			margin: 10px;
+			animation-timing-function: ease-in-out;
+		}
+		@keyframes myani{
+			0%{
+				/*transform给定多个项目用空格隔开*/
+				transform: translate(0) rotate(0deg);
+				background-color: orange;
+			}
+			100%{
+				transform: translateX(400px) rotate(360deg);
+				background-color: pink;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	
+</body>
+</html>

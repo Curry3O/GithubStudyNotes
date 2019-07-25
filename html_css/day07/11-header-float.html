@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>header-float</title>
+	<style>
+		*{
+			margin: 0px;
+			padding:0px;
+		}
+		header,img,article{
+			display: block;
+		}
+		header{
+			/*height: 60px;*/
+			background-color: teal;
+			border:1px solid red;
+			color: white;
+			padding:0px 10px;
+			/*溢出隐藏和清除浮动 清除子元素的浮动对父元素产生的影响*/
+			overflow: hidden;
+		}
+		.logo{
+			float: left;
+		}
+		.logo img{
+			width: 80px;
+			height: 60px;
+			float: left;
+		}
+		
+		.logo span{
+			/*行内元素没有设置浮动效果就去设置padding margin没有效果*/
+			float: left;
+			line-height: 60px;
+			margin-left: 5px;
+			font-size: 20px;
+		}
+		.user{
+			float: right;
+		}
+		.user img{
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			float: left;
+			margin-top: 10px;
+			
+		}
+		.user span{
+			line-height: 60px;
+			float: left;
+			margin-left: 10px;
+		}
+		article{
+			height: 20px;
+			background-color: coral;
+		}
+		
+		
+	</style>
+</head>
+<body>
+	<header>
+		<div class="logo">
+			<img src="../day06/images/1.png">
+			<span>管理系统</span>
+		</div>
+		<div class="user">
+			<img src="./images/1.png">
+			<span>admin</span>
+		</div>
+	</header>
+	<article>
+		内容
+	</article>
+	
+</body>
+</html>

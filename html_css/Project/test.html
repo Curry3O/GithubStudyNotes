@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+	<script>
+			var banners = ["../HUAWEI/images/a-1.jpg","../HUAWEI/images/a-2.jpg","../HUAWEI/images/a-3.jpg","../HUAWEI/images/a-4.jpg"]; 
+			var counter = 0;
+			function run(){
+				setInterval(cycle,2000);  
+			}
+			function cycle(){
+				counter++;
+				if(counter == banners.length)	
+					counter = 0;
+				document.getElementById("banner").src = banners[counter];
+			}
+		</script>
+</head>
+<body>
+	<body onload = "run()";>
+		
+		<img id="banner" alt="banner" src="../HUAWEI/images/a-1.jpg">
+		
+</body>
+</html>
+<!-- <ul class="ec-slider-list">
+					<li class="ec-slider-item">
+						<div class="ec-slider-item-img" style="width: 100%;">
+							<a></a>
+						</div>
+					</li>
+					<li class="ec-slider-item">
+						<div class="ec-slider-item-img" style="width: 100%;">
+							<a></a>
+						</div>
+					</li>
+					<li class="ec-slider-item">
+						<div class="ec-slider-item-img" style="width: 100%;">
+							<a></a>
+						</div>
+					</li>
+					<li class="ec-slider-item">
+						<div class="ec-slider-item-img" style="width: 100%;">
+							<a></a>
+						</div>
+					</li>
+					<li class="ec-slider-item">
+						<div class="ec-slider-item-img" style="width: 100%;">
+							<a></a>
+						</div>
+					</li>
+					<li class="ec-slider-item">
+						<div class="ec-slider-item-img" style="width: 100%;">
+							<a></a>
+						</div>
+					</li>
+					<li class="ec-slider-item">
+						<div class="ec-slider-item-img" style="width: 100%;">
+							<a></a>
+						</div>
+					</li>
+					<li class="ec-slider-item">
+						<div class="ec-slider-item-img" style="width: 100%;">
+							<a></a>
+						</div>
+					</li>
+				</ul> -->

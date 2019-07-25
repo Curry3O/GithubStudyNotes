@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>圆角嵌套</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			background-color: pink;
+
+	}
+	.inner,.outer{
+		/*给最内部的元素设置圆角边框才能生效*/
+		border-radius: 20px;
+	}
+
+	.inner{
+		background-color: teal;
+	}
+
+		
+	</style>
+</head>
+<body>
+	<div class="outer">
+	<div class="inner"></div>
+	</div>
+	
+</body>
+</html>

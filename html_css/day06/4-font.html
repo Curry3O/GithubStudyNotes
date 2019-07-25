@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>font</title>
+	<style>
+		body{
+			font-weight: 200px;
+		}
+		div{
+			/* 字体不倾斜 */
+			/*font-style: normal;*/
+
+			/*字体倾斜*/
+			/*font-style: italic;*/
+
+			/*模拟斜体*/
+			/*font-style: oblique;*/
+
+			/*字体粗细,100~900*/
+			/*正常 400*/
+			/*font-weight: normal;*/
+
+			/*字体加粗 700*/
+			/*font-weight: bold;*/
+
+			/*比父元素字体更细一点*/
+			/*font-weight: lighter;*/
+
+			/*比父元素字体更粗一点*/
+			font-weight: bolder;
+
+			/*字体变形*/
+			/*原样输出*/
+			/*text-transform: none;*/
+
+			/*全大写输出*/
+			/*text-transform: uppercase;*/
+
+			/*全小写输出*/
+			/*text-transform: lowercase;*/
+
+			/*首字母大写(只将每个单词的首字母变成大写)*/
+			/*text-transform: capitalize;*/
+
+			/*等宽*/
+			/*text-transform: full-width;*/
+
+			/*文本修饰*/
+			/*默认*/
+			/*text-decoration: none;*/
+
+			/*下划线*/
+			/*text-decoration: underline;*/
+
+			/*上划线*/
+			/*text-decoration: overline;*/
+
+			/*删除线*/
+			/*text-decoration: line-through;*/
+
+			/*线条的样式*/
+			/*点虚线*/
+			/*text-decoration-style: dotted;*/
+			/*双实线*/
+			/*text-decoration-style: double;*/
+			/*波浪线*/
+			/*text-decoration-style: wavy;*/
+			/*线条的颜色*/
+			/*text-decoration-color: coral;*/
+			/*线条的位置*/
+			/*text-decoration-line: line-through;*/
+
+			/*文本阴影 x方向偏移，y方向偏移，模糊距离(越小越清晰)，颜色。(多个方向的阴影用逗号去隔开)*/
+			text-shadow: 3px 3px 2px #ccc, 10px 10px 10px #bbb;
+        }
+		a{
+			/*无法继承div里的text-decoration: none*/
+			text-decoration: none;
+		}
+		
+	</style>
+</head>
+<body>
+	<div>
+		hello 你好
+		<a href="">跳转</a>
+	</div>
+	
+</body>
+</html>

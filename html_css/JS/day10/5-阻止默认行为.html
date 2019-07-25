@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>阻止默认行为</title>
+	<script>
+		window.onload = function(){
+			var a = document.links[0];
+			var input = document.forms[0].lastElementChild;
+			//console.log(a);
+			//console.log(form);
+			function handle(event){
+				//阻止默认行为
+				//非IE8及以下
+				event.preventDefault();
+				//IE8及以下
+				event.returnValue = false;
+				//根据浏览器判断用哪种
+				if (event.preventDefault) {
+					event.preventDefault();
+				}else{
+					event.returnValue = false;
+				}
+			}
+			a.onclick = handle;
+			input.onclick = handle;
+		}
+	</script>
+</head>
+<body>
+	<a href="./1-Element.html">跳转</a>
+	<form action="./2-Text.html">
+		<input type="text">
+		<input type="submit" value="提交">
+	</form>
+</body>
+</html>

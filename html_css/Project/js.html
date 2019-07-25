@@ -1,0 +1,3154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>a</title>
+	<!-- <style>
+		 *{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			margin: 10px;
+			float: left;
+			background: pink;
+			text-align: center;
+			line-height: 100px;
+		} 
+	</style> -->
+	<!-- <style>
+		.red{
+			background: red;
+		}
+		.blue{
+			background: blue;
+		}
+	</style>
+	</head> -->
+<script>
+	/*var score =Number(prompt("请输入成绩")),
+	if (score <= 100&&score >= 0) {
+		if (score >= 90) {
+			console.log("A");
+		}else if (score >= 80) {
+			console.log("B");
+		}else if (score >= 70) {
+			console.log("C");
+		}else if (score >= 60) {
+			console.log("D");
+		}else {
+			console.log("E");
+		}
+
+	}else{
+		console.log("请输入正确的成绩");
+	}*/
+
+	/*var year = Number(prompt("请输入当前年份:"));
+	if (year % 4 == 0 && year %100 !=0 || year % 400 == 0) {
+		console.log("今年是闰年");
+	}else {
+		console.log("今年不是闰年");
+	}*/
+
+	/*var score = "A";
+	switch (score) {
+		case "A":
+			console.log("成绩在100到90之间");
+			break;
+		case "B":
+			console.log("成绩在90到80之间");
+			break;
+		case "C":
+			console.log("成绩在80到70之间");
+			break;
+		case "D":
+			console.log("成绩在70到60之间");
+			break;
+		default:
+			console.log("成绩在0到59之间");
+			break;
+	}*/
+
+	/*var month = Number(prompt("请输入当前月份："));
+	switch (month) {
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		case 12:
+			console.log("31天");
+			break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+		console.log("30天");
+			break;
+		default:
+			console.log("28天");
+			break;
+	}*/
+
+	/*var i = 0;
+	while (i < 10) {
+		console.log("你好"+(i+1));
+		i++;
+	}*/
+
+	/*var i = 1;
+	var sum = 0;
+	while (i <= 100) {
+		sum = sum + i;
+		i++;
+	}
+	console.log(sum);*/
+
+	/*var i = 1;
+	var sum = 1;
+	while (i <= 6) {
+		sum *= i;
+		i++;
+	}
+	console.log(sum);*/
+
+	/*var i = 2;
+	var sum = 0;
+	while (i <= 100) {
+		sum += i;
+		i += 2;
+	}
+	console.log(sum);*/
+
+	/*var i = 1;
+	var sum = 0;
+	while (i <= 100) {
+		if (i % 2 != 0) {
+			sum += i;
+		}
+		i++;
+	}
+	console.log(sum);*/
+
+	/*var i = 1;
+	while (i <= 100) {
+		if (i % 7 == 0) {
+			console.log(i);
+		}
+		i++;
+	}*/
+
+	/*var userName = prompt("请输入用户名：");
+	var userPwd = prompt("请输入密码：");
+	while (userName!="admin"||userPwd!= "123") {
+		userName = prompt("重新输入用户名！");
+		userPwd = prompt("重新输入密码！");
+	}
+	console.log("登录成功！");*/
+
+	/*do{
+		var res = prompt("你觉得我帅吗？y/n");
+	}while (res != "y");
+	console.log("您真有眼光！");*/
+
+	/*var i = 1;
+	var sum = 0;
+	do{
+		if (i % 3 == 0) {
+			sum +=i;
+		}
+		i++;
+	}while(i <= 100);
+	console.log(sum);*/
+
+	/*for(var i=0;i<10;i++){
+		console.log("你好"+(i+1));
+	}*/
+
+	/*var sum = 0;
+	for(var i=1;i<=100;i++){
+		sum+=i;
+	}
+	console.log(sum);*/
+
+	/*var sum = 0;
+	for(var i=1;i<=100;i++){
+		if (i%2==0) {
+			sum+=i;
+		}
+	}
+	console.log(sum);*/
+
+	/*var sum = 0;
+	for(var i=0;i<=100;i+=2){
+		if (i%2==0) {
+			sum+=i;
+		}
+	}
+	console.log(sum);*/
+
+	/*for(var i=1;i<=100;i++){
+		if (i%9==0) {
+			console.log(i);
+		}
+	}*/
+
+	// document.write("<a herf ='https://www.baidu.com'>百度</a>");
+	
+	/*for(var i=0;i<5;i++){
+		for(var j=0;j<10;j++){
+			document.write("★");
+		}
+		document.write("<br/>");
+	}*/
+
+	/*for(var i=0;i<=4;i++){
+		for(var j=0;j<=i;j++){
+			document.write("★");
+		}
+		document.write("<br/>");
+	}*/
+
+	// 乘法口诀
+	/*document.write("<table cellpadding='0' cellspacing='0'>");
+	for(var i=1;i<=9;i++){
+		document.write("<tr>");
+		for(var j=1;j<=i;j++){
+		document.write("<td>");
+		document.write("&nbsp;"+j+"*"+i+"="+i*j+"&nbsp;");
+		document.write("</td>");
+		}
+		document.write("</tr>");
+	}
+	document.write("</table>");*/
+
+	/*var a = 1;
+	var b = ++a + ++a;
+	console.log(b);*/
+
+	/*var money = 10000;
+	for(var year=1;year<=5;year++){
+		money*=1.003;
+	}
+	console.log(money);*/
+
+	// 斐波那契数列
+	/*rb1 = 1;
+	rb2 = 1;
+	sum = 0;
+	for(var i=3;i<=12;i++){
+		sum = rb1 + rb2;
+		rb1 = rb2;
+		rb2 = sum;
+	}
+	console.log(sum);*/
+
+	/*while (true) {
+		console.log(111);
+		break;
+	}
+	console.log(123);*/
+
+	/*for(var i=100;i<=200;i++){
+		if (i%7==0) {
+			console.log(i);
+			break;
+		}
+	}*/
+
+	/*sum = 0;
+	for(var i=1;i<=100;i++){
+		if (i%10==3) {
+			sum+=i;
+			break;
+		}
+	}
+	console.log(sum);*/
+
+	/*sum = 0;
+	for(var i=1;i<=100;i++){
+		if (i%10!=3) {
+			sum+=i;
+		}
+	}
+	console.log(sum);*/
+
+	/*var i = 0;
+	while (i<10) {
+		console.log(111);
+		continue;
+		i++;
+	}*/
+
+	/*sum = 0;
+	for(var i=1;i<=100;i++){
+		if (i%7==0) {
+			continue;
+		}else {
+			sum+=i;
+		}
+	}
+	console.log(sum);*/
+
+	/*var sum = 0;
+	for(var i=100;i<=200;i++){
+		if (i%2==0){
+			continue;
+		}
+			sum+=i;
+	}
+	console.log(sum);*/
+
+	/*for(i=200;i<=300;i++){
+		if (i%7==0) {
+			console.log(i);
+			break;
+		}
+	}*/
+
+	/*var sum = 0;
+	var i = 100;
+	while (i<=200) {
+		if (i%2==0) {
+			i++;
+			continue;
+		}
+		sum+=i;
+		i++;
+	}
+	console.log(sum);*/
+
+	/*for(var i=1;i<=9;i++){
+		for(var j=1;j<=i;j++){
+			document.write(j+"*"+i+"="+i*j+"&nbsp;&nbsp;");
+		}
+		document.write("<br/>")	;
+	}*/
+
+	/*var sum =0;
+	var i = 1;
+	while (i<=100) {
+		if (i%10==3) {
+			i++;
+			continue;
+		}
+ 		sum+=i;
+ 		i++;
+	}
+	console.log(sum);*/
+
+	/*var arr = new Array(5);
+	console.log(arr);*/
+
+	// alert(arr);
+	
+	/*var arr = [];
+	console.log(arr);*/
+
+	/*var arr = new Array(5,6,8,10,3,1);
+	console.log(arr[3]);
+	arr[5] = 9;
+	console.log(arr);
+	console.log(arr[5]);*/
+
+	/*var arr = [1,2,3,4,5,6,7,8,9];
+	console.log(arr[8]);
+	arr[2]=20;
+	console.log(arr);
+	console.log(arr.length);*/
+
+	/*var arr = [];
+	console.log(arr);
+	arr[0]=1;
+	arr[1]=3;
+	console.log(arr.length);
+	console.log(arr);*/
+
+	/*var arr = [10,20,30,40,50,60,70,80,90,100];
+	for(i=0;i<arr.length;i++){
+		console.log(arr[i]);
+	}*/
+
+	/*var arr = [10,20,30,40,50,60,70,80,90,100];
+	var sum = 0;
+	for(i=0;i<arr.length;i++){
+		sum+=arr[i];
+	}
+	console.log(sum);*/
+
+	/*var arr = [10,20,30,40,50,60,70,80,90,100];
+	var sum = 0;
+	for(i=0;i<arr.length;i++){
+		sum+=arr[i];
+	}
+	console.log(sum/arr.length);*/
+
+	// var arr = [10,20,30,40,50,60,70,80,90,100];
+	// var max = arr[0];
+	// for(i=0;i<arr.length;i++){
+	// 	if (max<arr[i]) {
+	// 		max = arr[i];
+	// 	}
+	// }
+	// console.log(max);
+
+	/*var arr = [10,20,30,40,50,60,70,80,90,100];
+	var min = arr[0];
+	for(i=0;i<arr.length;i++){
+		if (min>arr[i]) {
+			min = arr[i];
+		}
+	}
+	console.log(min);*/
+
+	/*var arr = [10,20,30,40,50,60,70,80,90,100];
+	for(i=arr.length-1;i>=0;i--){
+		console.log(arr[i]);
+	}*/
+
+	/*var arr = ["我","是","你","的","宝","贝","呀"];
+	var str ="";
+	for(i=0;i<arr.length-1;i++){
+		str+=arr[i]+'|';
+	}
+	console.log(str+arr[arr.length-1]);*/
+
+	/*var arr = ["我","是","你","的","宝","贝","呀"];
+	var str ="";
+	for(i=1;i<arr.length;i++){
+		str+='|'+arr[i];
+	}
+	console.log(arr[0]+str);*/
+
+	/*var arr = [10,0,20,0,30,0,40,0,50,0,60];
+	var newArr = [];
+	for(i=0;i<arr.length;i++){
+		if (arr[i]!=0) {
+			newArr[newArr.length]=arr[i];
+		}
+	}
+	console.log(newArr);*/
+	
+	// 实现数组反转
+	/*var arr = [10,20,50,80,30,70,40,90,60];
+	for(i=0;i<arr.length/2;i++){
+		tmp=arr[i];
+		arr[i]=arr[arr.length-1-i];
+		arr[arr.length-1-i]=tmp;
+	}
+	console.log(arr);*/
+
+	// 用数组存储用户输入的数据
+	/*var count = parseInt(prompt("请输入班级人数"));
+	var grades = [];
+	for(i=0;i<count;i++){
+		grades[grades.length]= parseInt(prompt("请输入第"+(i+1)+"的成绩:"));
+	}
+	var sum = 0;
+	var per = 0;
+	for(i=0;i<grades.length;i++){
+		sum+=grades[i];
+		per=sum/count;
+	}
+	var max = grades[0];
+	var min = grades[0];
+	for(i=0;i<grades.length;i++){
+		if (max<grades[i]) {
+			max=grades[i];
+		}
+		if (min>grades[i]) {
+			min=grades[i];
+		}
+	}
+	console.log("总和为："+sum);
+	console.log("平均值为："+per);
+	console.log("最大值为："+max);
+	console.log("最小值为："+min);*/
+
+	// 冒泡排序
+	/*var arr = [11,59,9,47,30,23,35,7];
+	for(i=0;i<arr.length-1;i++){
+		for(j=0;j<arr.length-1-i;j++){
+			if (arr[j]>arr[j+1]) {
+				temp = arr[j];
+				arr[j]=arr[j+1];
+				arr[j+1]=temp;
+			}
+		}
+		console.log('第'+(i+1)+'轮的排序结果:'+arr);
+	}
+	console.log(arr);*/
+
+	/*var arr = [11,59,9,47,30,23,35,7];
+	for(i=0;i<arr.length-1;i++){
+		for(j=0;j<arr.length-1-i;j++){
+			if (arr[j]<arr[j+1]) {
+				temp = arr[j];
+				arr[j]=arr[j+1];
+				arr[j+1]=temp;
+			}
+		}
+		console.log('第'+(i+1)+'轮的排序结果:'+arr);
+	}
+	console.log(arr);*/
+
+
+	/*function cook(){
+		console.log("你");
+		console.log("好");
+		console.log("美");
+		console.log("呀");
+	}
+	console.log("---")
+	cook();
+	console.log("---")
+	cook();
+	console.log("---")
+	cook();
+	console.log("---")*/
+
+	/*function ever() {
+		var num1 = 10;
+		var num2 = 20;
+		var sum =num1+num2;
+		console.log(sum);
+	}
+	ever();*/
+
+	/*function ever() {
+		var num1 = 10;
+		var num2 = 20;
+		var num3 = 30;
+		var sum =num1+num2+num3;
+		console.log(sum);
+	}
+	ever();*/
+
+	/*function max(){
+		var num1 = 10;
+		var num2 = 20;
+		console.log(num1>num2?num1:num2);
+	}
+	max();*/
+
+	/*function mas(){
+		var num1 = 10;
+		var num2 = 20;
+		var num3 = 30;
+		var max = num1>num2?(num1>num3?num1:num3):(num2>num3?num2:num3)
+		console.log(max);
+	}
+	mas();*/
+
+	/*function sus(){
+		var sum = 0;
+		for(i=1;i<=100;i++){
+			sum+=i;
+		}
+		console.log(sum);
+	}
+	sus();*/
+
+	/*function sus(){
+		var sum = 0;
+		for(i=1;i<=100;i++){
+			if (i%2==0) {
+				sum+=i;
+			}
+		}
+		console.log(sum);
+	}
+	sus();*/
+
+	/*function ary(){
+		var arr = [10,20,30,40,50];
+		var sum = 0;
+		for(i=0;i<arr.length;i++){
+			sum+=arr[i];
+		}
+		console.log(sum);
+	}
+	ary();*/
+
+	/*function sum(x,y){
+		var sus = x + y;
+		console.log(sus)
+	}
+	sum(30,11);	*/
+
+	/*function sum(x,y) {   //形参
+		var sus = x + y;
+		console.log(sus)
+	}
+	var num1 = parseInt(prompt("请输入第一个加数:"));
+	var num2 = parseInt(prompt("请输入第二个加数:"));
+	sum(num1,num2); //实参*/
+
+	/*function getSum(x,y){
+		var sum = x + y;
+		return sum;
+	}
+	var result = getSum(10,20);
+	console.log(result);*/
+
+	/*function getSum(x,y){
+		return x + y;
+	}
+	var result = getSum(10,20);
+	console.log(result);*/
+
+	/*function getSum(x,y){
+		var sus = 0;
+		for(i=x;i<=y;i++){
+			sus+=i;
+		}
+		return sus;
+	}
+	console.log(getSum(1,100));*/
+
+	/*function area(r){ 
+		return Math.PI*r*r;
+	}
+	var result = area(5);
+	console.log(result);*/
+
+	/*function maxValue(x,y,z) {
+		var max = x>y?(x>z?x:z):(y>z?y:z);
+		return max;
+	}
+	var result = maxValue(5,6,9);
+	console.log(result);*/
+
+	// 判断素数
+	/*function su(m){
+		var a = 0;
+		for(i=2;i<m;i++){
+			if (m%i==0) {
+				a++;
+			}
+		}
+		if (a==0) {
+			return(m+'是素数！');
+		}
+		return(m+'不是素数！');
+	}
+	var result = su(parseInt(prompt("请输入一个数字:")));
+	console.log(result);*/
+
+	// 方法二
+	/*function isPrimeNumber(num){
+		for(i=2;i<num;i++){
+			if (num%i==0) {
+				return false;
+			}
+		}
+		return true;
+	}
+	console.log(isPrimeNumber(parseInt(prompt("请输入一个数字:")))?"是素数":"不是素数");*/
+
+	/*console.log(parseFloat("0xa"));  //0
+	console.log(parseFloat(0xa));    //10
+	console.log(parseFloat("010"));   //10
+	console.log(parseFloat(010));     //8
+    console.log(true + false + '1');  //11*/
+
+    /*function getMaxArray(arr){
+    	var max = arr[0];
+    	for(i=0;i<arr.length;i++){
+    		if (max<arr[i]) {
+    			max = arr[i];
+    		}
+    	}
+    	return max;
+    }
+    var array =[1,2,3,4,5]
+    var result = getMaxArray(array);
+    console.log(result);*/
+
+    /*function getMinArray(arr){
+    	var min = arr[0];
+    	for(i=0;i<arr.length;i++){
+    		if (min>arr[i]) {
+    			min = arr[i];
+    		}
+    	}
+    	return min;
+    }
+    console.log(getMinArray([1,2,3,4,5]));*/
+
+    /*function getSumArray(arr){
+    	var sum = 0;
+    	for(i=0;i<arr.length;i++){
+    		sum+=arr[i];
+    	}
+    	return sum;
+    }
+    console.log(getSumArray([1,2,3,4,5]));*/
+
+    // 求一个数组的最大值、最小值还有和。
+    // 结果返回一个数组[最大值、最小值、和].
+    /*function getMaxMinSumArray(arr){
+    	var max = arr[0];
+    	var min = arr[0];
+    	var sum = 0;
+    	for(i=0;i<arr.length;i++){
+    		sum+=arr[i];
+    		if (max<arr[i]) {
+    			max = arr[i];
+    		}
+    		if (min>arr[i]) {
+    			min = arr[i];
+    		}
+    	}
+    	var array = [max,min,sum]
+    	return array;
+    }
+    var resultArray = getMaxMinSumArray([10,20,30,40,50]);
+    console.log('最大值为:'+resultArray[0]);
+    console.log('最小值为:'+resultArray[1]);
+    console.log('和为:'+resultArray[2]);*/
+
+    // 反转函数
+    /*function getReverseArray(arr){
+    	// var array = [];
+    	for(i=0;i<arr.length/2;i++){
+    		temp = arr[i];
+    		arr[i] = arr[arr.length-1-i];
+    		arr[arr.length-1-i] = temp;
+    	}
+    	return arr;
+    }
+    console.log(getReverseArray([1,2,3,4,5]));*/
+
+    // 冒泡函数
+    /*function getBom(arr){
+    	for(i=0;i<arr.length;i++){
+    		for(j=0;j<arr.length-1-i;j++){
+    			if (arr[j]>arr[j+1]) {
+    				temp = arr[j];
+    				arr[j] = arr[j+1];
+    				arr[j+1] = temp;
+    			}
+    		}
+    	}
+    	return arr;
+    }
+    console.log(getBom([8,2,13,9,6,20]));*/
+
+    // 阶乘函数
+    /*function getFactorial(num){
+    	var mul = 1;
+    	for(var i=1;i<=num;i++){
+    		mul*=i;
+    	}
+    	return mul;
+    }*/
+    // console.log(getFactorial(5));
+
+    // 求1!+2!+3!+...+n!的函数
+    /*function getAll(num){
+    	temp = 1;
+    	sum = 0;
+    	for(i=1;i<=num;i++){
+    		temp*=i;
+    		sum+=temp;
+    	}
+    	return sum;
+    }
+    console.log(getAll(3));*/
+
+    // 方法二，通过调用getFactorial()函数
+   /* function getAll(num){
+    	var sum = 0;
+    	for(var i=1;i<=num;i++){
+    		sum+=getFactorial(i);
+    	}
+    	return sum;
+    }
+    console.log(getAll(5));*/
+
+    //求斐波那契数列中第n个数
+    /*function getNum(n){
+    	var a = 1;
+    	var b = 1;
+    	var x;
+    	if (n<=2) {
+ 	   		x=1;
+    	}else{
+    		for(i=3;i<=n;i++){
+    			x=a+b;
+    			a=b;
+    			b=x;
+    		}
+    	}
+    	return x;
+    }
+    console.log(getNum(9));*/
+
+    //输入年月日，获取这个日期是这一年的第几天
+    /*function getDate(year,month,day){
+    	var months1=[31,28,31,30,31,30,31,31,30,31,30,31];
+    	var months2=[31,29,31,30,31,30,31,31,30,31,30,31];
+    	var days=day;
+    	if (month==1) {
+    		return days;
+    	}
+		if((year%4==0&&year%100!=0||year%400==0)&&month>2){
+			for(i=0;i<month-1;i++){
+				days+=months2[i];
+			}
+    	}else {
+    		for(i=0;i<month-1;i++){
+    			days+=months1[i];
+    		}
+    		
+    	}
+    	return days;
+
+    }
+    console.log(getDate(1998,7,10));*/
+
+    //改进版
+    /*function getDate(year,month,day){
+    	var months=[31,28,31,30,31,30,31,31,30,31,30,31];
+    	var days=day;
+    	if (month==1) {
+    		return days;
+    	}
+    	for(i=0;i<month-1;i++){
+    		days+=months[i];
+    	}
+		//闰年并且月份大于2时天数需要加1
+		if ((year%4==0&&year%100!=0||year%400==0)&&month>2) {
+			days++;
+		}
+    	return days;
+
+    }
+    console.log(getDate(2019,7,10));*/
+
+    /*function getJieCheng(num){
+    	var result = 1;
+    	for(var i=1;i<=num;i++){
+    		result *=i;
+    	}
+    	return result;
+    }
+    function getJieChengSum(num){
+    	var sum = 0;
+    	for(var i=1;i<=num;i++){
+    		sum+=getJieCheng(i);
+    	}
+    	return sum;
+    }
+    console.log(getJieChengSum(5));*/
+
+    // arguments伪数组,可以获取传入每个参数的值
+   /* function getAdd(){
+    	var sum = 0;
+    	for(var i=0;i<arguments.length;i++){
+    		sum+=arguments[i];
+    	}
+    	return sum;
+    }
+    console.log(getAdd(10,20,30,40,50));*/
+
+    // 函数表达式     匿名函数
+   /* var f1 = function(){
+    	console.log("hello world");
+    };
+    f1();*/
+
+    //函数的类型
+    /*function f1(){}
+    console.log(typeof f1);*/     //function类型
+
+    //函数的自调用，没有名字----声明的同时，直接调用(一次性的,方便安全)
+    /*(function (){console.log("hello world");})();*/
+
+    /*var num = 5;
+  	var result = '';
+  	switch(num){
+    case 1:
+       result = '星期一';
+       break;
+    case 2:
+       result = '星期二';
+       break;
+    case 3:
+      result = '星期三';
+      break;
+    case 4:
+      result = '星期四';
+      break;
+    case 5:
+      result = '星期五';
+      break;
+    case 6:
+      result = '星期六';
+      break;
+    case 7:
+      result = '星期天';
+      break;
+    default:
+      result = '输入有错';
+      break;
+  }
+  console.log(result);*/
+
+  /*var count = 0;
+  for(;;){
+  	console.log(count);
+  	count++;
+  	if (count==2) {
+  		continue;
+  	}
+  	console.log('---');
+  	if (count==5) {
+  		break;
+  	}
+  }
+  console.log('***');
+  console.log(count);*/
+
+  //函数作为参数使用   回调函数
+  /*function f1(fn){
+  	console.log('---');
+  	fn();
+  }
+  function f2(){
+  	console.log('***');
+  }
+  f1(f2);*/
+
+  //函数作为返回值使用
+ /* function f1(){
+  	console.log('f1函数');
+  	return function(){
+  		console.log('这是一个函数');
+  	};
+  }
+   var ff = f1();
+   ff();*/
+
+   //构造函数创建对象
+   /*var obj = new Object();
+   obj.name = 'hb';
+   obj.age = 22;
+   obj.sayHi = function(){
+   		console.log('sayHi');
+   };
+   console.log(obj);
+   obj.sayHi();*/
+
+   //使用对象字面量声明对象
+   /*var obj = {
+   		name:'hb',
+   		age:22,
+   		sayHi:function(){
+   			console.log('sayHi');
+   		},
+   		sayBye:function(){}
+   };
+   console.log(obj);
+   console.log(obj.name);
+   obj.sayHi();*/
+
+	/*var obj = {
+   		name:'hb',
+   		age:22,
+   		f1:function(){
+   			document.write(obj.name);
+   		}
+   	};
+   	console.log(obj);
+   	console.log(obj.name); 
+   	console.log(obj.f1);
+   	obj.f1();
+   	function test(){
+   		console.log('----');
+   	}
+   	console.log(test);
+   	test();*/
+
+   	/*var obj = {
+   		test:{a:3,b:2},
+   		f1:function(){
+   			console.log('****')
+   		}
+	};
+   	console.log(obj.test);
+   	console.log(obj.f1);
+   	obj.f1();*/
+
+   	// 通过[]访问对象
+   /*	var obj = {
+   		name:'hb',
+   		age:22,
+   		gender:1,
+   		id:1001,
+   	};
+   	console.log(obj.name);
+   	console.log(obj['name']);*/
+
+   	//for-in 循环，遍历对象
+   	/*for(var key in obj){
+   		document.write(key+'----'+obj[key]);
+   		document.write('<br/>');
+   	}*/
+
+   	//删除对象中的属性
+   	/*var obj = {
+   		name:'Lily',
+   		age:16,
+   		id:101,
+   		gender:'女',
+   		info:'',
+   		address:'',
+   		phone:null,
+   	};
+   	for(var key in obj){
+   		if (!obj[key]) {
+   			delete obj[key];
+   		}
+   	}
+   	console.log(obj);*/
+
+   	//对象序列化是指将对象的状态转换为字符串，也可以反序列化
+   	/*var obj = {
+   		name:'Lily',
+   		age:16,
+   		id:101,
+   		gender:'女',
+   		info:'',
+   		address:'',
+   		phone:null,
+   	};
+   	//对象序列化
+   	console.log(JSON.stringify(obj));
+   	//{"name":"Lily","age":16,"id":101,"gender":"女","info":"","address":"","phone":null}
+   	//反序列化
+   	var str = '{"name":"Lily","age":16,"id":101,"gender":"女","info":"","address":"","phone":null}';
+   	console.log(JSON.parse(str));
+   	//Object { name: "Lily", age: 16, id: 101, gender: "女", info: "", address: "", phone: null }*/
+
+   	//检测属性
+   	/*console.log(Object.prototype);  //{}
+   	console.log(Object.prototype.constructor === Object); //true*/
+
+   	/*var obj = {
+   		name:'Lily',
+   		age:16,
+   		id:101,
+   		gender:'女',
+   		info:'',
+   		address:'',
+   		phone:null,
+   	};*/
+   	//使用原型对象中的属性和方法
+   	/*console.log(obj.toString());  //[object Object]  返回对象的字符串表示
+   	console.log(obj.toString === Object.prototype.toString);  //true*/
+
+   	//通过实例找找构建函数
+   	/*console.log(obj.constructor);  //function Object()*/
+
+   	//in 判断是否为自有属性或继承属性，是就返回true
+   	/*console.log('name' in obj);
+   	console.log('id' in obj);*/
+
+   	//hasOwnProperty判断自有属性
+	/*console.log(obj.hasOwnProperty('name'));   	//true
+	console.log(obj.hasOwnProperty('toString'));   //false   */   
+
+	//重写toString属性 并添加进obj对象中
+	/*obj.toString = function(){}; 
+	console.log(obj.hasOwnProperty('toString'));   //true
+	for(var key in obj){
+		console.log(key);
+	} 	 //遍历对象验证   */
+
+	//propertyIsEnumerable 判断是否为自有属性并可枚举
+	/*console.log(obj.propertyIsEnumerable('name'));
+	console.log(obj.propertyIsEnumerable('toString'));*/
+
+	//valueOf 返回对象的字符串，数值，布尔值的表示
+	/*console.log(obj.valueOf());*/
+	//Object{name:"Lily",age:16,id:101,gender:"女",info:"",address:"",phone: null}
+
+	//isPrototypeOf(object) 检查传入的对象是否是原型
+	/*console.log(Object.prototype.isPrototypeOf(obj));*/
+
+	//toLocaleString();  返回对象的字符串表示该字符串与执行环境的
+	/*var date = new Date;
+	console.log(date);  //Date 2019-07-11T09:19:13.752Z
+	console.log(date.toString);  //function toString()
+	console.log(date.toLocaleString());  //2019/7/11 下午5:19:13*/
+
+	/*//函数声明(只有函数声明存在函数声明提升):
+	function fun(a){
+		console.log(a);
+	}
+	//函数表达式:
+	var fun = function(a){
+		console.log(a);
+	};
+	//构造函数:
+	var fun = new Function("a",
+			console.log(a)
+		);*/
+
+	//函数声明  没有返回值
+	/*function test(){
+		console.log('---');
+	}
+	test();
+   	//有返回值时
+	function test1(){
+		console.log('**');
+		return 1;
+	}
+	var result = test1();
+	console.log(result);
+	//匿名函数(匿名函数的执行的环境具有全局性)
+	var test2 = function(){
+		console.log(123);
+	}
+	test2();*/
+	//IIFE 立即执行函数，是匿名函数，只执行一次(一般在函数内使用) ()创建了一个立即执行函数表达式
+	//无法从外部访问name
+	/*(function(){var name = 'hb';})();
+
+	//将 IIFE 分配给一个变量，不是存储 IIFE 本身，而是存储 IIFE 执行后返回的结果
+	var result = (function(){ 
+    	var name = "Barry"; 
+   		return name; 
+	})();
+	console.log(result);  //Barry*/
+
+	//函数声明提升,会提升到代码的最前面(声明统一提前，赋值原地不变)
+	/*test();    //123
+	function test(){
+		console.log(123);
+	}*/
+
+	/*console.log(a);  //undefined
+	var a = 1;
+	console.log(a);  //1*/
+
+	/*console.log(one);  //function one()
+	function one(){
+		console.log('one');
+	}
+	var one = 123;
+	console.log(one);  //123*/
+
+	/*foo();    //1
+	var foo;
+	function foo(){
+		console.log(1);
+	}
+	foo = function(){
+		console.log(2);
+	};
+	foo();   //2*/
+	//上面的代码片段会被引擎理解为如下形式：
+	/*function foo(){
+		console.log(1);
+	}
+	foo();
+	foo = function(){
+		console.log(2);
+	};
+	foo();*/
+	// var foo 尽管出现在 function foo()... 的声明之前，但它是重复的声明（因此被忽略了），因为函数声明会被提升到普通变量之前。
+	
+	/*console.log(a);  //function a()
+	a();   //   10
+	var a = 3;
+	function a (){
+		console.log(10);
+	}
+	console.log(a);   //3
+	a = 6;
+	//a();   //报错*/
+
+	//任意个数相加
+	//arguments 类数组对象，包含着传入函数中参数  它还有一个callee的属性，用来指向拥有这个arguments对象的函数
+	/*function add(){
+		var total = 0;
+		for(i=0;i<arguments.length;i++){
+			total += arguments[i];
+		}
+		return total;
+	}
+	var result = add(1,3,5,7,9);
+	console.log(result);*/
+
+	//递归阶乘    (arguments.callee相当于函数名mul)
+	/*function mul(n){
+		//console.log(this);
+		console.log(arguments.callee);
+		if (n>1) {
+			mul=n*mul(n-1);
+		}else{
+			mul = 1;
+		}
+		return mul;
+	}
+	var result = mul(5);
+	console.log(result);*/
+
+	//this 指向的是函数赖以执行的环境对象
+	/*function test(){
+		console.log(this);
+	}
+	test();*/
+
+	/*var obj ={
+		name:'hb',
+		age:22,
+		sayHi:function(){
+			console.log(this);    //Object { name: "hb", age: 22, sayHi: sayHi()
+			console.log(this.name);   //hb
+		}
+	};
+	obj.sayHi();
+	console.log(obj);  */ 
+
+	/*var name = 'a';
+	var obj = {
+		name:'b',
+		f1:function(){
+			return function(){
+				return this.name;
+			};
+		}
+	};
+	console.log(obj.f1()());    //a*/
+
+	/*var name = 'a';
+	var obj = {
+		name:'b',
+		f1:function(){
+			var that = this;
+			return function(){
+				return that.name;
+			};
+		}
+	};
+	console.log(obj.f1()());    //b*/
+
+	/*function handle(fun){
+    var msg = 'hello';
+    fun(msg);
+  	}
+  	handle(function(m){
+    console.log(m);
+ 	});                //hello*/
+
+
+ 	/*function f1(a,fun){
+ 		fun();
+ 		console.log(a);
+ 	}
+ 	function fun(){
+ 		console.log('----');
+ 	}
+ 	f1(1,fun);*/
+
+ 	/*function test(a){
+ 		console.log(this,a)
+ 	}
+ 	test();   //windows
+ 	var obj = {
+ 		naem:'yoyo',
+ 		age:27
+ 	};
+ 	//call()  可以调用当前函数，并可以指定其执行环境对象
+ 	test.call(obj,1);   //Object { naem: "yoyo", age: 27 }    1
+ 	//apply()  可以调用当前函数，并可以指定其执行环境对象
+ 	test.apply(obj, [1]);  //Object { naem: "yoyo", age: 27 }    1
+ 	test.bind(obj);   //不执行test函数，只更改this指向,返回了更改了this指向的test函数
+ 	test.bind(obj)(1);   //Object { naem: "yoyo", age: 27 }    1
+ 	test.bind(obj,1)();  //Object { naem: "yoyo", age: 27 }    1*/
+
+ 	/*var a = 1;      //全局变量
+ 	function test(){
+ 		console.log(a);  //1
+ 		var b = 2;   //局部变量
+ 		c = 3;     //隐式全局变量
+ 		console.log(b);   //2
+ 		console.log(c);   //3
+ 	}
+ 	test();
+ 	console.log(a);  //1
+ 	console.log(b);  //报错，函数外部不可以访问局部变量
+ 	console.log(c);  //3   在函数内部不使用var修饰的就是全局变量*/
+
+ 	/*var m = 1;
+ 	function f1(){
+ 		console.log(m);   //undefined
+ 		var m = 2;   //变量声明提升
+ 		console.log(m);   //2
+ 	}
+ 	f1();
+ 	console.log(m);  //1*/
+
+ 	/*function test(a,b){
+ 		return 1;
+ 	}
+ 	console.log(test.length);  //2  形参个数
+ 	test();
+ 	console.log(test());    //  1  打印test()运行之后的返回值*/
+
+ 	//函数作为参数
+ 	/*function test(fun){
+ 		var a = 2;
+ 		fun(a);
+ 	}
+ 	test(function(b){console.log(b)});   //2*/
+
+ 	//函数作为返回值
+ 	/*function test(){
+ 		return function(){
+ 			console.log(123);
+ 		}
+ 	}
+ 	test()();   //123
+ 	console.log(test());   //function test*/
+
+ 	//值传递
+ 	/*var a = 1;
+ 	var b = a;
+ 	console.log(a,b);  // 1   1
+ 	b = 2;
+ 	console.log(a,b);   //1   2*/
+
+ 	//址传递
+ 	/*var obj = {name:'hb'};  
+ 	var obj1 = obj;
+ 	console.log(obj,obj1);   //{ name: "hb" }  { name: "hb" }
+ 	obj1.age = 22;
+ 	console.log(obj,obj1);   //{ name: "hb", age: 22 }  { name: "hb", age: 22 }*/
+
+ 	//闭包是函数和声明该函数的词法环境的组合
+ 	//这个环境包含了这个闭包创建时所能访问的所有局部变量
+ 	/*function f1(){
+ 		var a = 1;
+ 		function f2(){
+ 			console.log(++a);
+ 		}
+ 		return f2;
+ 	}
+ 	var res = f1();
+ 	res();   //2*/
+
+ 	/*var arr = [];
+ 	for(i=0;i<5;i++){
+ 		arr[i] = function(){
+ 			console.log(i);
+ 		}
+ 	}
+ 	arr[0]();   //5
+ 	arr[1]();	//5
+ 	arr[2]();	//5
+ 	arr[3]();	//5
+ 	arr[4]();	//5*/
+	//因为每个闭包函数访问变量i是windows执行环境下的变量i，随着循环的结束，i已经变成5了，所以执行每个闭包函数，结果打印5， 5， ..., 5
+ 	
+
+ 	//解决方案
+ 	/*var arr = [];
+ 	for(i=0;i<5;i++){
+ 		arr[i] = (function(num){
+ 			return function(){
+ 				console.log(num);
+ 			}
+ 		})(i);
+ 	}
+ 	arr[0]();   //0
+ 	arr[1]();	//1
+ 	arr[2]();	//2
+ 	arr[3]();	//3
+ 	arr[4]();	//4*/
+ 	//此时访问的num，是上层函数执行环境的num，数组有10个函数对象，每个对象的执行环境下的number都不一样
+        
+   	/*var arr = [1,2,3,4,5];
+   	console.log(arr[2]);   //3
+   	console.log(arr[10]);  //undefined  
+   	arr[8] = 123;  //给index为8的位置设置为123，空余的位置补undefined
+   	console.log(arr);   //[ 1, 2, 3, 4, 5, <3 empty slots>, 123 ]
+   	console.log(arr.length);  //9
+   	arr.length = 12;
+   	console.log(arr);  //[ 1, 2, 3, 4, 5, <3 empty slots>, 123, <1 empty slot>, … ]
+   	arr.length = 3;
+   	console.log(arr);  //[1,2,3]*/
+
+   	/*var arr = [1,2,3];
+   	console.log(typeof arr);   //object
+   	//使用instanceof操作符判断某个值是否是数组
+   	console.log(arr instanceof Array);  //true
+   	//Array.isArray()方法进行判断是否是数组
+   	console.log(Array.isArray(arr));  //true
+
+   	function test(){
+   		console.log(Array.isArray(arguments));
+   	}
+   	test();  //false
+   	console.log(arr); //[1,2,3]  数组类型
+   	console.log(arr.toString());  //1,2,3
+   	console.log(arr.join('||'));  //1||2||3
+   	console.log(JSON.stringify(arr)); //[1,2,3]  字符串类型*/
+
+   	//栈、队列方法
+  	/*var arr = [30, 11, 35, 9, 23];  
+  	console.log(arr);  // [30, 11, 35, 9, 23]
+  	//栈 LIFO (Last-In-First-Out)
+  	
+  	//push() 可接受任意类型的参数，将它们逐个添加到数组的末尾，并返回数组的长度
+  	console.log(arr.push(24));  //6(现在数组长度为6)
+  	console.log(arr);  // [30, 11, 35, 9, 23, 24]
+
+  	// pop() 从数组的末尾移除最后一项，减少数组的length值，返回移除的项
+  	console.log(arr.pop());  //24
+  	console.log(arr);  // [30, 11, 35, 9, 23]
+
+  	//队列 FIFO (First-In-First-Out)
+  	//unshift() 在数组的前端添加任意个项，并返回新数组的长度
+  	console.log(arr.unshift(1));   //6
+  	console.log(arr);  // [1, 30, 11, 35, 9, 23]
+
+  	//shift() 移除数组中的第一个项并且返回该项，同时将数组的长度减一
+  	console.log(arr.shift());  //1
+  	console.log(arr);  //[30, 11, 35, 9, 23]
+  	console.log(arr.length);  //5*/
+
+  	// var arr = [30, 11, 35, 9, 23];
+ 	//数组反转
+  	//reverse() 反转数组项的顺序
+  	/*console.log(arr.reverse());  //[23, 9, 35, 11, 30]  
+  	console.log(arr);  //[23, 9, 35, 11, 30]  数组永久性改变*/
+
+  	//数组排序(默认)
+  	/*console.log(arr.sort());  // [ 11, 23, 30, 35, 9 ]
+  	console.log(arr);
+  	//compare 函数
+  	console.log(arr.sort(com));
+  	console.log(arr);*/
+
+  	//sort()
+  	// 默认排序：该方法会调用每个数组项的toString() 方法，然后按照字符序列排序
+  	//console.log(arr.sort(com));  打印排序完的数组
+  	//升序
+  	//方法一
+  	/*function com(a,b){
+  		return a - b;
+  	}
+  	//方法二
+  	function com(a,b){
+  		if(a<b){
+  			return -1;
+  		}
+  		return 1;
+  	}*/
+
+
+  	//降序
+  	//方法一
+  	/*function com(a,b){
+  		return b - a;
+  	}
+  	//方法二
+  	function com(a,b){
+  		if(a>b){
+  			return -1;
+  		}
+  		return 1;
+  	}*/
+
+  	/*var arr = [{name:'hb',age:22},{name:'lm',age:21}];
+  	//按照name排序
+  	//按照age排序
+  	//万能比较排序
+  	console.log(arr);
+
+  	function compare(attr,rules){
+  		return function(o1,o2){
+  			if(rules === '升序'){
+  				if(o1[attr]<o2[attr]){
+  					return -1;
+  				}
+  				return 1;
+  			}else{
+  				if(o1[attr]>o2[attr]){
+  					return -1;
+  				}
+  				return 1;
+  			}
+  		}
+  	}*/
+  	
+  	/*arr.sort(compare('name','升序'));  //按名字第一个字音序升序排序
+  	console.log(arr); //0: Object { name:"hb",age: 22} 1: Object {name:"lm",age:21}	
+
+  	arr.sort(compare('name','降序'));  //按名字第一个字音序降序排序
+  	console.log(arr); //0: Object {name:"lm",age:21} 1: Object { name:"hb",age: 22}
+
+  	arr.sort(compare('age','升序'));  //按年龄大小升序排序
+  	console.log(arr); //0: Object {name:"lm",age:21} 1: Object { name:"hb",age: 22}
+
+  	arr.sort(compare('age','降序'));  //按年龄大小降序排序
+  	console.log(arr); //0: Object { name:"hb",age: 22} 1: Object {name:"lm",age:21}*/
+
+
+  /*	function fun(a,b){
+		console.log("a="+a);
+		console.log("b="+b);
+		console.log(this.name);
+	}
+	var obj = {
+		name:"obj",
+	};
+	var obj2 = {
+		name:"obj2",
+	};
+	fun.apply(obj,[1,2]);
+	//输出：a=1 b=2 obj
+	fun.call(obj2,1,2);
+	//输出：a=1 b=2 obj2*/
+
+	/*var obj = {
+		name:"obj",
+		sayName:function(a){
+			console.log(this.name);
+			console.log(a);
+		}
+	};
+	var obj2 = {
+		name:"obj2"
+	};
+	obj.sayName.apply(obj2,[22]);
+	//打印出 obj2*/
+
+	/*function f1(){
+		console.log(arguments.length);
+	}
+	f1(1,2,3,4,5);
+	f1();
+	f1('asdffg','sss',5);*/
+
+	/*function add(){
+		if (arguments.length==1) {
+			return arguments[0];
+		}else if (arguments.length==2) {
+			return arguments[0]+arguments[1];
+		}
+	}
+	console.log(add(12));
+	console.log(add(30,11));*/
+
+    //加法器
+	/*function add(){
+		var sum = 0;
+		for(i=0;i<arguments.length;i++){
+			sum+=arguments[i];
+		}
+		return sum;
+	}
+	console.log(add(1,2,3,4,5,6,7,8,9,10));*/
+
+	/*//实现reverse
+	function reverse(){
+		var arr = [];
+		for(i=0;i<arguments.length/2;i++){
+			temp = arguments[i];
+			arguments[i] = arguments[arguments.length-i-1];
+			arguments[arguments.length-i-1] = temp;
+		}
+		for(j=0;j<arguments.length;j++){
+			arr[j] = arguments[j];
+		}
+		return arr;
+	}
+	var result = reverse(30,11,35,9,23);
+	console.log(result);    //(23,9,35,11,30)*/
+
+	/*//实现pop
+	var arr = [1,2,3,4,5]
+	function pop(){
+		a = arr[arr.length-1];
+		arr.length = arr.length-1;
+		return a;
+	}
+	console.log(arr.pop());  //5
+  	console.log(arr);    //[1,2,3,4]
+
+  	//实现push
+  	var arr = [1,2,3,4,5]
+	function push(m){
+		arr[arr.length] = m;
+		n = arr.length;
+		return n;
+	}
+	console.log(arr.push(6));  //6
+  	console.log(arr);    //[1,2,3,4,5,6]*/
+
+	/*var f1 = function(){
+		console.log('***');
+	};
+	f1();*/
+
+
+	/*f1();   //1
+	function f1(){
+		console.log(1);
+	}
+	f1();  //1
+	var f1 = function(){
+		console.log(2);
+	}
+	f1();   //2*/
+
+	//回调函数
+	/*function f1(f2){
+		console.log(1);
+		f2();
+	}
+	function f3(){
+		console.log(2);
+	}
+	f1(f3);   //1  2*/
+	//函数作为返回值
+	/*function f1(){
+		console.log(1);
+		return function f2(){
+			console.log(2);
+		}
+	}
+	//var ff = f1();
+	//ff();
+	f1()();*/
+
+	//全局作用域  全局变量的使用范围
+	//局部作用域  局部变量的使用范围
+	//js中块级作用域里定义的变量，外面也能使用(js没有块级作用域，函数除外)
+	/*if(true){
+		var a = 1;
+		console.log(a);   //1
+	}
+	console.log(a);   //1*/
+
+	/*for(var i =0;i<3;i++){
+		var num = 10;
+	}
+	console.log(num);  //10
+	console.log(i);  //3*/	
+
+	//隐式全局变量  声明时没有var,可以被删除
+	//全局变量用var声明，并且不可以被删除
+	/*a = 1;
+	console.log(a);  //1  隐式全局变量
+	function f1(){
+	b = 2;
+	}
+	f1();
+	console.log(b);  //2  隐式全局变量
+	var c = 3;
+
+	//隐式局部变量可以删除，全局变量不可以删除
+	console.log(typeof a);  //number
+	console.log(typeof b);	//number
+	console.log(typeof c);	//number
+	delete a;
+	console.log(typeof a);	//undefined
+	delete b;
+	console.log(typeof b);	//undefined
+	delete c;
+	console.log(typeof c);	//number
+	console.log(c);		//3*/
+
+	/*function f1(){
+		console.log(1);
+		function f2(){
+			console.log(2);
+		}
+		f2();
+	}
+	f1();  // 1  2*/
+
+	/*var n = 1;
+	function f1(){
+		var n = 2;
+		function f2(){
+			var n = 3;
+			function f3(){
+				var n = 4;
+				console.log(n);    //4
+			}
+			f3();
+		}
+		f2();
+	}
+	f1();
+	console.log(n);  //1*/
+
+	//预解析  函数声明和变量声明都提前到当前作用域的最上面
+	/*f1();  //undefined
+	var num = 10;
+	function f1(){
+		console.log(num);
+		var num = 20;
+	}
+
+	f1();  //undefined
+	var num = 10;
+	function f1(){
+		console.log(num);
+	}
+
+	var num = 10;
+	function f1(){
+		console.log(num);
+	}
+	f1();  //10*/
+
+	//函数声明提前  a为局部变量   b和c为隐式全局变量
+	/*f1();
+	console.log(c);		//2
+	console.log(b);		//2
+	console.log(a);		//报错
+	function f1(){
+		var a = b = c =2;
+		console.log(a);		//2
+		console.log(b);		//2
+		console.log(c);		//2
+	}*/
+
+	/*f1();  //报错,不能被调用，此时f1是变量不是函数
+	var f1 = function(){
+		console.log(a);
+		var a = 1;
+	}*/
+
+	//第一最简单的形式无参函数，直接形式函数的函数名放到括号中，再在执行部分这个函数即可
+	/*function test(fun){
+		fun();
+	}
+	function test1(){
+		console.log(111);
+	}
+	test(test1);  //111*/
+
+	//带参数的普通调用法    跟第一种唯一的区别就是在定义主函数的执行语句里调用参数函数时该把参数加上
+	
+	/*function test(fun,a){
+		fun(a);
+	}
+	function test1(b){
+		console.log(b);
+	}
+	test(test1,111);*/
+	//上面代码相当于:
+	/*function test(fun){
+		fun(111);
+	}
+	test(function(a){console.log(a)});
+
+	function test(fun){
+		function fun(a){
+			console.log(a);
+		}
+		fun(111);
+	}
+	test();*/
+
+	//concat() 方法用于合并两个或多个数组 此方法不会更改现有数组，而是返回一个新数组
+	/*var arr1 = [1,2,3];
+	var arr2 = [4,5,6];
+	console.log(arr1.concat(arr2));     //Array(6) [ 1, 2, 3, 4, 5, 6 ]*/
+
+	//重写concat()
+	/*Array.prototype.myConcat = function(param){
+		//创建副本
+		var temp = [];
+		for(i=0;i<this.length;i++){
+			temp.push(this[i]);
+		}
+		//判断数据类型 如果是数组则展开放进去 其他类型直接放进去
+		if (Array.isArray(param)){
+			for(j=0;j<param.length;j++){
+				temp.push(param[j]);
+			}
+		}else{
+			temp.push(param);
+		}
+		return temp;
+	}
+	var a = [1,2,3,4,5];
+	var b = [6,7,8,9,10];
+	var res = a.myConcat(b);
+	console.log(res);*/
+
+	//slice() 方法返回一个新的数组对象，这一对象是一个由 begin和 end（不包括end）   决定的原数组的浅拷贝 原始数组不会被改变
+	/*var arr = ['a','b','c','d','e','f'];
+	console.log(arr.slice(2));   //Array(4) ['c','d','e','f']
+	//当slice()只有一个参数a，且参数为负数时，表示返回的的新数组从索引为        (arr.length-|a|)地方开始输出
+	console.log(arr.slice(-2));   //Array() ['e','f']  从索引为4开始
+	console.log(arr.slice(2,4));   // ['c','d']   
+	console.log(arr.slice(1,6));   //Array(5) ['b',c','d','e','f']
+	console.log(arr);  //Array(6) [ "a", "b", "c", "d", "e", "f" ]*/
+
+	//splice() 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容    此方法会改变原数组
+	//删除：指定两个参数(删除的起始位置，要删除的项数)
+	//指定三个参数(起始位置，0，要插入的项任意数量的项)
+	//指定三个参数(起始位置，要删除的项数，要插入的任意数量的项)
+	/*var arr = [1,3,4,5,6];
+	//当splice()只有一个参数时a,表示删除从索引a开始到最后的所有项
+	arr.splice(2);	//  Array [ 1, 3 ]  从索引2开始后面元素全部删除
+	console.log(arr);
+	//当splice()只有一个参数时a且为负数时，表示从索引为(arr.length-|a|)  的地方开始，删除后面所有项
+	arr.splice(-2);
+	console.log(arr); //Array(3)[ 1, 3, 4 ]  从索引为3的地方开始删除后面所有项
+	arr.splice(1,0,2);  //在index为1的地方插入2
+	console.log(arr);  //Array(6) [ 1, 2, 3, 4, 5, 6 ]
+	arr.splice(4,2);    //在index为4的地方删除后面两项
+	console.log(arr);	//Array(5) [ 1, 2, 3, 4]
+	arr.splice(3,1,5)	//把在index为3的一个元素替换成5
+	console.log(arr);	//Array(4) [ 1, 2, 3, 5 ]*/
+
+	//indexOf()方法返回在数组中可以找到一个给定元素的第一个索引，如果不存在，则返回-1
+	// 第一个参数为要查找的项,第二个参数(可选)为索引开始位置
+	/*var arr = ['a','b','c','d','c','e','c'];
+	console.log(arr.indexOf('c'));   // 2  查找c元素,找到则返回它的第一个索引
+	console.log(arr.indexOf('f'));   //-1  查找f元素,没找到返回-1
+	//从索引为3的地方向后查找元素c,找到则返回第一次找到它的索引，没找到返回-1
+	console.log(arr.indexOf('c',3));   //4  */
+
+	//lastIndexOf() 方法返回指定元素
+	//（也即有效的JavaScript值或变量）在数组中的最后一个的索引如果不存在则返回 -1 从数组的后面向前查找，从 fromIndex 处开始
+	/*var arr = ['a','b','c','d','c','e','c'];
+	//查找元素c 从最后一项开始查找,如果找到则返回第一次找到它的索引
+	console.log(arr.lastIndexOf('c'));	//6 
+	//查找元素f 如果没找到则返回-1
+	console.log(arr.lastIndexOf('f'));	//-1
+	//查找元素c 从索引为5的地方向前查找，如果找到则返回第一次找到它的索引
+	console.log(arr.lastIndexOf('c',5));//4*/
+
+	//every()方法测试一个数组内的所有元素是否都能通过某个指定函数的测试 
+	//参数： 每一项上运行的函数   运行该函数的作用域对象（可选,写了以后this指向这个对象）
+	//它返回一个布尔值
+	//若收到一个空数组，此方法在一切情况下都会返回 true
+	/*function f1(a){
+		return a<6;
+	}
+	var arr1 = [1,2,3,4,5];
+	var arr2 = [1,2,3,4,5,6];
+	var arr3 = [];
+	console.log(arr1.every(f1));	//true
+	console.log(arr2.every(f1));	//false
+	console.log(arr3.every(f1));	//true*/
+
+	/*function isBelowThreshold(currentValue) {
+  		return currentValue < 40;
+	}
+	var array1 = [1, 30, 39, 29, 10, 13];
+	console.log(array1.every(isBelowThreshold));   //true*/
+
+	/*var arr = [1,2,3,4,5];
+	var res = arr.every(function(item,index,arr){
+		console.log(this);
+		return item % 2 == 0;
+	},{});
+	console.log(res);  //Object{}   false*/
+
+	//重写every()
+	/*Array.prototype.myEvery = function(fun,funThis){
+		var res;
+		for(i=0;i<this.length;i++){
+			var res = fun.call(funThis,this[i],i,this);
+			if (!res) {
+				break;
+			}
+		}
+		return res;
+	}
+	var a = [1,2,3,4,5];
+	var res = a.every(function(item,index,arr){
+		console.log(this);
+		return item>0;
+	},{})
+	console.log(res);  //Object{}....      true*/   
+
+	//some() 方法测试是否至少有一个元素可以通过被提供的函数方法
+	//该方法返回一个Boolean类型的值
+	//对于空数组上的任何条件，此方法返回false
+	/*var arr = [1,2,3,4,5];
+	var arr1 = [];
+	function f1(a){
+		return a %2 ==0;
+	}
+	console.log(arr.some(f1));  //true
+	console.log(arr1.some(f1));  //false*/
+
+	//filter() 方法创建一个新数组, 其包含通过所提供函数实现的测试的所有元素
+	/*var arr = ['hb','lmm','xiaobinbin','wodem','papapap'];
+	const result = arr.filter(word => word.length>6);
+	console.log(result);  //Array [ "xiaobinbin", "papapap" ]
+
+	var arr = [1,2,3,5,7,9,11];
+	function f1(a){
+		return a >=5;
+	}
+	var result = arr.filter(f1);
+	console.log(result);   //Array(4) [ 5, 7, 9, 11 ]*/
+
+	/*var arr = [{
+		name:'hb',
+		age:22,
+		gender:'man',
+	},{
+		name:'lm',
+		age:21,
+		gender:'woman',
+	},{
+		name:'yo',
+		age:27,
+		gender:'woman',
+	}];
+	var res = arr.some(function(item,index,arr){
+		console.log(this);
+		return item.age>=25;
+	},{});
+	console.log(res);   //Object{}..    true
+	//查找年龄小于25岁的人的名字
+	var res1 = arr.filter(function(item,index,arr){
+		return item.age<25;
+	}).map(function(item,index,arr){
+		return item.name;
+	});
+	console.log(res1);  //Array [ "hb", "lm" ]
+	//运用数组遍历往每个对象中添加id属性
+	var idInit = 1;
+	arr.forEach(function(item,index,arr){
+		item.id = idInit++;
+	});
+	console.log(arr);     //Array(3) [ {…}, {…}, {…} ]*/
+
+
+	//map()方法创建一个新数组其结果,是该数组中的每个元素都调用一个提供的函数后返回的结果  不改变原数组
+	/*var arr = [1,2,3,4,5];
+	const result = arr.map(x => x * 2);
+	console.log(result); //Array(5) [ 2, 4, 6, 8, 10 ]
+
+	var arr = [1,4,9,16];
+	var roots = arr.map(Math.sqrt);
+	console.log(roots);   //Array(4) [ 1, 2, 3, 4 ]
+	console.log(arr);   //Array(4) [ 1, 4, 9, 16 ]*/
+
+	//forEach() 方法对数组的每个元素执行一次提供的函数,没有返回值,常用来遍历元素
+	/*function f1(a){
+		console.log(a);
+	}
+	var arr = [1,2,3,4];
+	arr.forEach(f1);   // 1	  2	  3   4*/
+
+
+	//js中const,var,let区别与用法
+	//const定义的变量不可以修改,而且必须初始化
+	/*const a = 10;
+	console.log(a);  //10*/
+	//const b;  //报错,必须初始化
+	//a = 10;   //报错,变量的值不可更改
+
+	//var定义的变量可以修改,如果不初始化会输出undefined，不会报错
+	/*var a = 1;
+	console.log(a);   //1
+	a = 2;
+	console.log(a);   //2*/
+	/*var b = 1;   //(全局变量)
+	function f1(){
+		var c = 2;  //(局部变量)
+		b = 3;		//(隐式全局变量)
+	}
+	f1();
+	console.log(b);		//3 
+	//console.log(c);		//报错
+	delete b;
+	console.log(typeof b);  //undefined*/
+	//let是块级作用域，函数内部使用let定义后，对函数外部无影响
+	/*let c = 3;
+	console.log(c);   //3
+	function f1(){
+		let c = 5;
+		console.log(c);   //5
+	}
+	f1();
+	console.log(c);  //33*/
+
+
+	//正则表达式
+	//i   不区分大小写,执行对大小写不敏感的匹配
+	//g   执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）
+	//m   执行多行匹配
+	//search() 方法使用正则表达式
+	/*var str = 'Hello World!';
+	var a = str.search(/o/i);
+	console.log(a);    //4
+	
+	//search() 方法使用字符串
+	var a = str.search('World');
+	console.log(a);    //6
+
+	//replace() 方法使用正则表达式
+	var a = str.replace(/hello/i,'Goodbye');
+	console.log(a);  //Goodbye World!
+
+	//replace() 方法使用字符串
+	var a = str.replace('Hello','Goodbye');
+	console.log(a);  //Goodbye World!*/
+
+	//使用 RegExp 对象
+	//使用 test()
+	//test() 方法用于检测一个字符串是否匹配某个模式,如果字符串中含有匹配的文本,则返回 true,否则返回 false
+	/*var str = /e/;
+	console.log(str.test('hello world'));  //true
+	console.log(/e/.test('hello world'));  //true*/
+	
+	//使用 exec()
+	//exec() 方法用于检索字符串中的正则表达式的匹配                           该函数返回一个数组,其中存放匹配的结果 如果未找到匹配,则返回值为 null
+	/*console.log(/e/.exec('hello world'));  //Array [ "e" ]
+	console.log(/f/.exec('hello world'));  //null*/
+
+	//自定义构造函数
+	/*function Person (name,age,gender){
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.play = function (){
+			console.log('---');
+		};
+		this.eat = function (){
+			console.log('***');
+		};
+	}
+	var per = new Person('hb',22,'男');
+	console.log(per);  
+	//Object{name:"hb",age:22,gender:"男",play:play(),eat:eat()}
+	//instanceof运算符用于测试构造函数的prototype属性是否出现在对象的原型链中的任何位置
+	console.log(per instanceof Person);  //true
+	console.log(per instanceof Object);  //true*/
+
+	/*//全局变量的累加
+	var count = 0;
+	function cum(){
+		count++;
+		console.log(count);
+	}
+	cum();//1
+	cum();//2
+	cum();//3
+
+	//局部变量的累加
+	function cum(){
+		var count = 0;
+		count++;
+		console.log(count);
+	}
+	cum();//1
+	cum();//1
+
+	//局部变量的累加
+	function test(){
+		var count = 0;
+		return function(){
+			count++;
+			console.log(count);
+		}
+	}
+	var res = test();
+	res();	//1
+	res();	//2
+	res();	//3*/
+
+	/*function test(){
+		var arr = [];
+		for(var i=0;i<5;i++){
+			arr[i] = (function(num){
+				return function(){
+					return num;
+				};
+			})(i);
+		}
+		return arr;
+	}
+	var result = test();
+	for(var i=0;i<result.length;i++){
+		console.log(result[i]());
+	}
+	// 0  1  2  3  4*/
+
+	//工厂模式   所有对象都是Object类型
+	/*function sayName(){
+		console.log(this.name);
+	}
+	function createObject(name,age,sex){
+		var obj = {
+			name:name,
+			age:age,
+			sex:sex,
+			sayName:sayName,
+		};
+		return obj;
+	}
+	var o1 = createObject('hb',22,'man');
+	var o2 = createObject('lm',21,'woman');
+	var god = createObject('yoyo',27,'woman');
+	console.log(o1,o2,god); 
+	//Object { name: "hb", age: 22, sex: "man", sayName: sayName() }
+	//Object { name: "lm", age: 21, sex: "woman", sayName: sayName() }
+	//Object { name: "yoyo", age: 27, sex: "woman", sayName: sayName() }
+	
+	////通过实例找构造函数   实例上调用的原型对象中的constructor属性
+	console.log(o1.constructor);  //function Object()
+	console.log(o1.sayName === o2.sayName);  //true*/
+
+	//构造函数模式(自定义构造函数)
+	//使用new操作符调用构造函数创建对象实际上经历了如下几个步骤:
+	//1.创建一个新对象
+	//2.将构造函数的作用域赋给新对象(this指向这个新对象)
+	//3.执行构造函数中的代码
+	//4.返回新对象
+	/*function Person(name,age,sex){
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+		this.sayName = sayName;
+	}
+	function sayName(){
+		console.log(this.name);
+	}
+	//Person.prototype.sayName = function(){
+	//	console.log(this.name);
+	//}
+	var p1 = new Person('hb',22,'man');
+	var p2 = new Person('lm',21,'woman');
+	console.log(p1,p2);
+	//Object { name: "hb", age: 22, sex: "man", sayName: sayName() }
+	//Object { name: "lm", age: 21, sex: "woman", sayName: sayName() }
+	console.log(p1.constructor);  //function Person()
+
+	function God(name,age,gender){
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+	}
+	var god = new God('yoyo',27,'woman');
+	console.log(god);
+	//Object { name: "yoyo", age: 27, gender: "woman" }
+	console.log(god.constructor);  //function God()*/
+
+	//原型模型   实例的数据隔离不好
+	//每个函数都有一个属性：prototype(原型属性),这个属性是一个指针,指向一个对象,该对象的用途是包含可以由特定类型的所有实例共享的属性和方法
+	/*function Person(){}
+	Person.prototype.name = 'hb';
+	Person.prototype.friends = [];
+	Person.prototype.sayName = function(){
+		console.log(this,name);
+	};
+	//Person.prototype = {
+	//	constructor:Person,
+	//	name:name,
+	//	age:age,
+	//	sex:sex,
+	//	sayName:function(){}
+	//};
+	var p1 = new Person();
+	console.log(p1.name);  //hb
+	var p2 = new Person();
+	p2.name = 'lm';
+	console.log(p2.name);  //lm
+	//给p1实例添加一个friends属性值，但属于Person的实例都会添加这个属性值
+	p1.friends.push('yoyo');
+	console.log(p1.friends);  //Array [ "yoyo" ]
+	console.log(p2.friends);  //Array [ "yoyo" ]
+	console.log(p1.sayName === p2.sayName);  //true
+	console.log(p1.hasOwnProperty('name')); //false 
+	//因为name存在于原型中而不是实例对象中
+	console.log('name' in p1)  //true  判断一个属性是否在原型*/
+
+	/*//组合使用构造函数模式和原型模式
+	//将对象的私有特性存放在对象内存中，将对象可以共享属性保存到原型中
+	//在构造函数中放每个实例自有的属性或方法
+	function Person(name,age,sex){
+		this.name = name;
+		this.age = age;
+		this.sex = sex;
+		this.friends = [];
+	}
+	//在原型对象中放共享实例或方法
+	Person.prototype = {
+		//将新的原型对象指向Person构造函数
+		constructor:Person,
+		sayName:function(){
+			console.log(this.name);
+		}
+	};
+	var p1 = new Person('hb',22,'man');
+	var p2 = new Person('lm',21,'woman');
+	console.log(p1,p2);
+	//Object { name: "hb", age: 22, sex: "man", friends: [] }
+	//Object { name: "lm", age: 21, sex: "woman", friends: [] }
+	console.log(p1.constructor); // function Person()
+	p2.friends.push('yoyo');
+	console.log(p2);
+	//Object { name: "lm", age: 21, sex: "woman", friends: ['yoyo'] }
+	console.log(p1.friends,p2.friends);  //  []      Array [ "yoyo" ]
+	//创建一个新的函数
+	console.log(Person('li'));  //undefined
+	//创建一个新的对象(实例)
+	console.log(new Person('li'));  
+	//Object { name: "li", age: undefined, sex: undefined, friends: [] }*/
+
+	//可枚举性
+	//在打印一个对象,所能看到的属性,这些属性的可枚举性都是true
+	//for-in循环遍历对象时所能看到的属性也是可枚举的,可枚举性都是true
+	
+
+	/*var obj = {
+		name:'hb',
+		age:22,
+	};
+	console.log(obj);  //Object { name: "hb", age: 22 } 键值对 key-value
+	//Object.getOwnPropertyDescriptor() 获取指定属性的描述符该方法接受 两个参数 第一个为属性所在的对象,第二个为要读取其描述符的属性名称
+	console.log(Object.getOwnPropertyDescriptor(obj,'name'));
+	//Object { value: "hb", writable: true, enumerable: true, configurable: true }
+	
+	//修改属性的描述信息(修改默认属性)
+	//enumerable表示能否通过for-in循环返回属性(直接定义在对象中，默认为true)
+	Object.defineProperty(obj,'name',{enumerable:false});
+	//name属性设置成不可枚举 
+	console.log(Object.getOwnPropertyDescriptor(obj,'name'));
+	//Object { value: "hb", writable: true, enumerable: false, configurable: true }
+	
+	//Wriable 表示能否修改属性的值(直接定义在对象中，默认为true)
+	Object.defineProperty(obj,'name',{writable:false});
+	console.log(Object.getOwnPropertyDescriptor(obj,'name'));
+	//Object { value: "hb", writable: true, enumerable: true, configurable: true }
+	obj.name = 'lm';
+	console.log(obj);  
+	//Object { name: "hb", age: 22 }   修改失败
+	
+	//Value包含这个属性的数据值
+	Object.defineProperty(obj,'name',{value:'lm'});
+	console.log(Object.getOwnPropertyDescriptor(obj,'name'));
+	//Object { value: "lm", writable: true, enumerable: true, configurable: true }
+	console.log(obj);
+	//Object { name: "lm", age: 22 }  将name的属性值改成lm
+
+	//Configurable表示是否通过delete删除属性从而重新定义属性,能否修改属性的特性,或者能否把属性修改为访问器属性直接定义在对象中,默认为true
+	Object.defineProperty(obj,'name',{configurable:false});
+	delete obj.name;   //操作失败
+	//Object.defineProperty(obj,'name',{enumerable:false}); //操作失败并报错
+	console.log(Object.getOwnPropertyDescriptor(obj,'name'));
+	//Object { value: "hb", writable: true, enumerable: true, configurable: false }
+	console.log(obj);
+	//Object { name: "hb", age: 22 }*/
+
+
+
+	//访问器属性不包含数据值，包含一对setter,getter方法
+	//_year数据属性   year访问器属性
+	//year前面的下划线是一种常用的记号，用来表示只能通过对象方法访问的属性 而访问器属性year则包含一个getter函数和一个setter函数
+ 	/*var obj = {
+		name:'hb',
+		age:22,
+		_weight:140,
+	};
+	Object.defineProperty(obj,'weight',{
+		get:function(){
+			//获取值
+			return this._weight-20;
+		},
+		set:function(param){
+			//设置值
+			return this._weight = param;
+		},
+	});
+	console.log(obj.weight);  //120
+	console.log(obj);  //Object { name: "hb", age: 22, _weight: 140, … }
+	console.log(Object.getOwnPropertyDescriptor(obj,'weight'));
+	//Object { get: get(), set: set(), enumerable: false, configurable: false }
+	console.log(Object.getOwnPropertyDescriptor(obj,'_weight'));
+	//Object { value: 140, writable: true, enumerable: true, configurable: true }
+	obj.weight = 130;    //此时param=130，调用set函数计算
+	console.log(obj.weight);   //110
+	console.log(obj._weight);  //130*/
+	
+	//如何将私密信息不显示(不可枚举)或用别的信息代替它显示
+	//将_weight设置成不可枚举(隐藏起来),weight设置成可枚举
+	/*var obj = {
+		name:'hb',
+		age:22,
+		_weight:140,
+	};
+	Object.defineProperty(obj,'weight',{
+		get:function(){
+			//获取值
+			return this._weight-20;
+		},
+		set:function(param){
+			//设置值
+			return this._weight = param;
+		},
+		configurable:true,
+		//将weight设置成可更改它的属性的特性(这里默认的是false)
+	});
+	//Object.defineProperties()该方法接受两个对象参数,第一个是要添加或者要修改属性的对象;第二个对象的属性和第一个对象中要添加和修改的属性对应内容
+	Object.defineProperties(obj,{weight:{enumerable:true},_weight:{enumerable:false}});
+	console.log(Object.getOwnPropertyDescriptor(obj,'weight'));
+	//Object { get: get(), set: set(), enumerable: true, configurable: true }
+	console.log(Object.getOwnPropertyDescriptor(obj,'_weight'));
+	//Object { value: 140, writable: true, enumerable: false, configurable: true }
+	console.log(obj);
+	//Object { name: "hb", age: 22, weight: Getter & Setter, … }*/
+	
+
+	
+	//正则表达式    是一个描述字符模式的对象 
+	//创建正则表达式  
+	//方法一:构造函数
+	//第一个参数包括正则表达式的主体部分,即正则表达式直接量中两条斜线之间的文本,第二个参数指定正则表达式的修饰符 只能传入g ,i,m或者其组合,可以省略
+	/*var pattern = new RegExp('hello','ig');
+	console.log(pattern);  //    /hello/gi
+
+	//方法二:字面量
+	//var pattern = / 正则表达式 / 修饰符;
+	var pattern = /hello/ig;
+	console.log(pattern);  //	 /hello/gi   */
+
+	/*如果正则表达式中不含有^或$匹配字符串的开头或结尾,那么/m修饰符没有任何意义.
+	也就是说只有当目标字符串含有\n,而且正则表达式中含有^或$的时候,/m修饰符才有作用
+	如果multiline为false,那么"^"与字符串的开始位置相匹配,而"$"与字符串的结束位置相匹配.如果 multiline为true,那么"^"与字符串开始位置以及"\n"或"\r"之后的位置相匹配,而"$"与字符串结束位置以及"\n"或"\r"之前的位置相匹配*/
+	/*var pattern = /^hello/m;
+	var pattern1 = /^hello/;
+	var str = 'hi\rworld\nhello';
+	console.log(pattern.test(str));  //true
+	console.log(pattern1.test(str)); //false*/
+	/* \r \n 在windows下代表换行,如果只有1个\n也是一样的效果. 由于str是以hi开头的字符串,所以匹配pattern1的结果是false;由于str是多行字符串 
+	(含有\n),而第3
+	行是以hello开头,所以匹配pattern结果是true */
+
+	/*//正则表达式的对象属性
+	//RegExp.global 布尔值,表明这个正则表达式是否带有修饰符g
+	console.log(pattern.global);  //true
+	//RegExp.ignoreCase 布尔值,表明这个正则表达式是否带有修饰符i
+	console.log(pattern.ignoreCase);  //true
+	//RegExp.multiline 布尔值,表明这个正则表达式是否带有修饰符m
+	console.log(pattern.multiline);   //false
+	//RegExp.source 包含正则表达式文本
+	console.log(pattern.source);  //hello
+	//RegExp.lastIndex 如果匹配模式带有g,这个属性存储在整个字符串中下一次检索的开始位置,这个属性会被exec(),test()方法调用到(不带g永远返回0)
+	console.log(pattern.lastIndex); //0*/
+
+	/*var str = 'hihi HELLO Hello helloworld';
+	var pattern = /hello/ig;
+	//进行模式匹配
+	//var result = pattern.test(str)  检测一个字符串是否匹配某个模式
+	//参数：字符串  
+	//返回值：布尔类型 true代表有符合条件的，false代表没有符合条件的
+	console.log(pattern.test(str));  //true
+
+	//返回上次检索结束的位置
+	console.log(pattern.lastIndex); //10  
+
+	//var result = pattern.exec(str)  检索字符串中的正则表达式的匹配
+	//参数：字符串
+	//返回值：数组或者null(数组:匹配到的结果;null:无匹配)
+	//如果正则表达式中有修饰符"g",这时,在pattern中会维护lastIndex属性,记录下一次开始的位置,当第二次执行exec的时候,从lastIndex开始检索
+	//如果正则表达式中没有修饰符"g",不会维护lastIndex属性,每次执行从开始位置检索
+	var res = pattern.exec(str);
+	console.log(res);  //Array [ "HELLO" ]
+	//[ "HELLO",index:5,input:"hihi HELLO Hello helloworld",length:1 ]
+	console.log(res.length); //1
+	console.log(res.index);  //5
+	console.log(res.input);  //hihi HELLO Hello helloworld (string字符串)*/
+
+
+	//将匹配到的所有的字符串拿出来放到一个数组里(相当于重写match()方法)
+	/*var str = 'HELLO Hello helloworld';
+	var pattern = /hello/ig;
+	var arr = [];
+	while (res = pattern.exec(str)) {    //赋值和判断真假
+		arr = arr.concat(res);
+		//arr.push(res[0]);    //使用push()方法也行
+	}
+	console.log(arr);  //Array(3) [ "HELLO", "Hello", "hello" ]*/
+
+
+	//search()参数为一个正则表达式 如果参数不为正则表达式,则先通过RegExp将其转换为构造函数;不支持全局检索,返回第一个与之匹配的子串的位置,如果找不到匹配的子串,返回-1
+	/*var str = 'hihi HELLO Hello helloworld';
+	var pattern = /hello/ig;
+	console.log(str.search(pattern));  //5*/
+
+	//match()最常用的正则表达式方法,参数为正则表达式 返回由匹配结果组成的数组或 者null 
+	//当正则表达式中没有g修饰符的时候,就不是全局匹配 这时,数组的第一个元素就为匹配的字符串,剩余的元素则是由正则表达式中用圆括号括起来的子表达式;如果该正则表达式设置为修饰符g,则该方法返回的数组包含字符串中所有匹配结果
+	/*var str = 'hihi HELLO Hello helloworld';
+	var pattern = /hello/ig;
+	console.log(str.match(pattern)); //Array(3) ["HELLO","Hello","hello"]
+	var pattern1 = /hello/i;
+	console.log(str.match(pattern1));  //Array [ "HELLO" ]
+	var pattern2 = /(hello)/i;
+	console.log(str.match(pattern2));  //Array [ "HELLO", "HELLO" ]
+	var str1 = "1 plus 2 equals 3";
+	console.log(str1.match(/\d+/g));  //Array(3) [ "1", "2", "3" ]*/
+
+	//replace() 用以执行检索和替换操作 第一个参数是正则表达式, 第二个参数是要替换的字符串
+	/*var str = 'hihi HELLO Hello helloworld';
+	var pattern = /hello/ig;
+	console.log(str.replace(pattern,'hei')); //hihi hei hei heiworld*/
+
+	//split() 将字符串转成数组  参数可以为正则表达式
+	//[@@split]() 方法切割 String 对象为一个其子字符串的数组
+	/*var str = '1&2&3&4';
+	var str1 = 'hihi HELLO Hello helloworld';
+	var pattern = /hello/ig;
+	console.log(str1.split(pattern));  //Array(4) ["hihi"," "," ","world"]
+	console.log(str.split('&'));  //Array(4) [ "1", "2", "3", "4" ]
+	console.log(str.split(/&/));  //Array(4) [ "1", "2", "3", "4" ]
+	console.log(str.split(''));  
+	//Array(7) [ "1", "&", "2", "&", "3", "&", "4" ]
+	var res = "1, 2, 3, 4, 5".split(/\s*,\s* /);
+	console.log(res); //Array(5) [ "1", "2", "3", "4", "5" ]
+	console.log('a-b-c'.split(/-/));  //Array(3) [ "a", "b", "c" ]
+	console.log('a-b-c'.split(/b/));  //Array [ "a-", "-c" ]
+	console.log(/-/[Symbol.split]('a-b-c'));// Array(3) [ "a", "b", "c" ]*/
+
+	//贪婪模式(默认)
+	/*var str = 'helloworld goodbyeworld';
+	var pattern = /\w{3,8}/i;	////将满足条件的最多个元素放进数组返回  8个
+	console.log(pattern.test(str));  //true
+	console.log(pattern.exec(str));  //Array [ "hellowor" ]
+
+	//非贪婪模式(懒惰模式)
+	var str = 'helloworld goodbyeworld';
+	var pattern = /\w{3,8}?/i;  //将满足条件的最少个元素放进数组返回  3个
+	console.log(pattern.test(str));  //true
+	console.log(pattern.exec(str));  //Array [ "hel" ]
+
+	//   \d? [0-9]出现0~1次
+	//   \d? [0-9]出现0~1次,并且转换成非贪婪模式
+	//验证电话号码
+	var str = '18279020810';
+	var pattern = /^\d{11}$/;
+	console.log(pattern.test(str));   //true
+	console.log(pattern.exec(str));  //Array [ "18279020810" ]*/
+
+
+	//正则表达式
+	//字符类
+	//	.	( 点号，小数点 ) 匹配任意单个字符,但是行结束符除外
+	//  \d 	匹配任意阿拉伯数字。等价于 [0-9]
+	//  \D 	匹配任意一个 不是 阿拉伯数字的字符 等价于 [^0-9]
+	//  \w 	匹配()任意来自基本拉丁字母表中的字母数字字符,还包括下划线 等价于 [A-Za-z0-9_]   
+	//  \W 	匹配任意不是基本拉丁字母表中单词（字母数字下划线）字符的字符 等价于 [^A-Za-z0-9_] 
+	//  \s 	匹配一个空白符，包括空格、制表符、换页符、换行符和其他 Unicode 空格
+	//  \S 	匹配一个非空白符
+	//  \t 	匹配一个水平制表符(tab)
+	//  \r 	匹配一个回车符(carriage return)
+	//  \n 	匹配一个换行符(linefeed)
+	//  \v 	匹配一个垂直制表符(vertical tab)
+	//  \f 	匹配一个换页符(form-feed)
+	
+
+	//字符集合
+	//[xyz] 一个字符集合,也叫字符组 匹配集合中的任意一个字符 可以使用连字符 '-' 指定一个范围   例如:  [0-9]  [a-z]
+	//[^xyz] 一个反义或补充字符集,也叫反义字符组 
+	//也就是说,它匹配任意不在括号内的字符 可以通过使用连字符'-' 指定一个范围内的字符  例如:  [^0-9]  [^a-z]
+	
+	//边界
+	// ^匹配输入开始 如果多行(multiline)标志被设为true,该字符也会匹配一个断行(linebreak)符后的开始处
+	// $匹配输入开始 如果多行(multiline)标志被设为true,该字符也会匹配一个断行(linebreak)符前的结尾处
+	// \b匹配一个零宽单词边界(zero-width word boundary)如一个字母与一个空格之间
+	// \B匹配一个零宽非单词边界(zero-width non-word boundary )如两个字母之间或两个空格之间
+	
+	//分组
+	// (x) 匹配 x 并且捕获匹配项 这被称为捕获括号(capturing parentheses)
+	// \n  n是一个正整数 一个反向引用(back reference),指向正则表达式中第n个括号(从左开始数)中匹配的子字符串 
+	// 例如:/\w+:\/\/\w+(.)\w+\1\w+/  网址https://www.baidu.com
+	
+	//数量词
+	// x*  匹配前面的模式x  0次或多次
+	// x+  匹配前面的模式x  1次或多次
+	// x?  匹配前面的模式x  0次或1次
+	// x*? 像上面的*一样匹配前面的模式x,然而匹配是最小可能匹配
+	// x+? 像上面的+一样匹配前面的模式x,然而匹配是最小可能匹配
+	// x|y 匹配x或y
+	// x{n}   n是一个正整数  前面的模式x连续出现n次时匹配
+	// x{n,}  n是一个正整数  前面的模式x连续出现至少n次时匹配
+	// x{n,m} n是一个正整数  前面的模式x连续出现至少n次,至多m次时匹配
+	// 默认x{n,m}是贪婪模式，每次将出现出现至多次     	m次
+	// 默认x{n,m}?是非贪婪模式，每次将出现出现至少次  	n次
+	
+	//邮箱正则表达式
+	/*var str = '1461074099@qq.com';
+	var pattern = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	console.log(pattern.test(str));*/
+
+	/*var str = 'Hello123world567ae';
+	var pattern = /[abe]/ig;
+	var pattern1 = /[abe][abe]/ig;
+	var pattern2 = /[abe]{2,}/ig;
+	var pattern3 = /\d{1,2}/ig;
+	var pattern4 = /[abe]{1,2}?/ig;
+	var pattern5 = /[^abe]/ig;
+	console.log(str.match(pattern));  //['e','a','e']
+	console.log(str.match(pattern1)); //['ae']
+	console.log(str.match(pattern2)); //['ae']
+	console.log(str.match(pattern3)); //Array(4) [ "12", "3", "56", "7" ]
+	console.log(str.match(pattern4)); //['e','a','e']
+	console.log(str.match(pattern5)); 
+	//Array(15) [ "H", "l", "l", "o", "1", "2", "3", "w", "o", "r", … ]*/
+	
+	//以小写字母开头,以数字结尾
+	/*var pattern = /[a-z].*\d$/g;
+	var str = 'ab123';
+	var str1 = 'Ab123a';
+	console.log(pattern.test(str));  //true
+	console.log(pattern.test(str1));  //fasle*/
+
+	//电话号码
+	/*var iph = '18279020810';
+	var iph1 = '11279020810';
+	var pattern = /^1[3-9]\d{9}$/g;
+	console.log(pattern.lastIndex);   //0
+	console.log(pattern.test(iph));  //true
+	console.log(pattern.lastIndex);  //11
+	var pattern = /^1[3-9]\d{9}$/g;
+	console.log(pattern.test(iph1)); //false*/
+	
+	//如果匹配上，直接扔出来，下次开始位置是扔出来的下一位开始
+	//如果没有匹配上，从本次匹配的下一位开始继续匹配
+	/*var str = 'abbab';
+	var pattern = /([a-z]){2}.\1/g;  
+	console.log(str.match(pattern)); //['bbab']
+	var pattern = /([a-z])([a-z]).\1/g; //['abba']
+	console.log(str.match(pattern));
+	var pattern = /([a-z]).\1/g;  
+	console.log(str.match(pattern));  //['bab']
+	var pattern = /[a-z]{2}/g;
+	console.log(str.match(pattern));  //['ab','ba']
+	var pattern = /([a-z]){2}.([a-z])/g;
+	console.log(str.match(pattern));  //['abba']
+	var str = 'hellohelloworld';
+	var pattern = /(hello)+/ig;
+	console.log(str.match(pattern));  //['hellohello']
+	var str = 'hellohelloworld';
+	var pattern = /(hello)+?/ig;
+	console.log(str.match(pattern));//['hello','hello']
+	var str = 'acbycby';
+	var pattern = /([a-z]){3}(y).\1\2/g;  
+	console.log(str.match(pattern));  //['acbycby']
+	var str = 'acbycby';
+	var pattern = /([a-z]){3}(y).\1\2/; 
+	console.log(pattern.exec(str));  //Array(3) [ "acbycby", "b", "y" ]
+	console.log(str.match(pattern));  //Array(3) [ "acbycby", "b", "y" ]*/
+	//如果圆括号后边有次数，在使用\n引用的时候，用的是第n个圆括号最后一次匹配的结果,可以在不加g修饰的match中的数组中除了第一个之外的其他元素中拿到。
+	
+
+	/*var n = new Number(123);  
+	console.log(n);	//Number { 123 }
+	console.log(typeof n);	//object
+	console.log(n instanceof Number);	//true
+	console.log(n instanceof Object);	//true
+	var m =123;
+	console.log(m);	//123
+	console.log(typeof m);	//number
+	console.log(m instanceof Number);	//false
+	console.log(m instanceof Object);	//false
+
+	var o = new Object(123);
+	console.log(o);	//Number { 123 }
+	console.log(typeof o);	//object
+	console.log(o instanceof Number);	//true
+	console.log(o instanceof Object);	//true*/
+	
+	//String 类型
+	//length         属性，获取字符串的字符数量
+	//charAt(i)      返回给定位置的字符
+	//charCodeAt(i)  返回给定位置的字符的字符编码ASCII
+	
+	/*var str = 'abcdefg';
+	str.split('').forEach(function(item){
+		console.log(item);
+	});  a b c d e f g
+	console.log(str.split(''));  
+	//Array(7) [ "a", "b", "c", "d", "e", "f", "g" ]
+	for(i=0;i<str.length;i++){
+		console.log(str.charAt(i)+'---'+str.charCodeAt(i));
+	}*/
+
+
+	//concat()将一个或多个字符串拼接起来，返回拼接得到的新字符串，但是大多使用"+"拼接
+	/*var str1 = 'abc';
+	var str2 = 'def';
+	console.log(str1.concat(str2)); // abcdef
+	console.log(str1+str2);  // abcdef
+	console.log(str1.concat({name:'hb'}));  //abc[object Object]*/
+
+	//slice()截取字符串（开始位置，返回字符后一个字符位置）
+	/*var str = 'helloworld';
+	console.log(str.slice(3,7));   //lowo
+	//substr()截取字符串（开始位置，返回字符个数）
+	console.log(str.substr(3,7));   //loworld
+	//substring()截取字符串（开始位置，返回字符后一个字符位置，不改变原值大小）
+	console.log(str.substring(3,7));   //lowo   与slice()方法一样*/
+
+	//去掉前置空格和后置空格
+	//trim()删除前置以及后置中的所有空格，返回结果
+	/*var str = ' abc de ';
+	console.log(str.trim());  //abc de*/
+
+	//去掉所有空格
+	/*var str = ' abc de ';
+	var res = str.split(' ').join('');
+	console.log(res);  //abcde*/
+
+	//toLowerCase()转换为小写
+	/*console.log('HELLO'.toLowerCase());  //hello
+
+	//toUpperCase()转换为大写
+	console.log('hello'.toUpperCase());  //HELLO*/
+
+	/*//Math.min()求一组数中的最小值(放一个一个数)
+	console.log(Math.min(1,2,3,4,5));   //1
+	//Math.max()求一组数中的最大值(放一个一个数)
+	console.log(Math.max(1,2,3,4,5));   //5
+	console.log(Math.max(...[1,2,3,4,5]));  //5 放数组需要解构*/
+
+
+	/*// Math.ceil() 向上舍入
+	console.log(Math.ceil(12.3));  //13
+	// Math.floor() 向下舍入
+	console.log(Math.floor(12.3));  //12
+	// Math.round() 四舍五入
+	console.log(Math.round(12.3));  //12
+	console.log(Math.round(12.8));  //13
+	// Math.random() 返回大于0小于1的一个随机数[0,1)
+	console.log(Math.random());  //随机数*/
+
+	//随机输出数组中的一个元素
+	/*var arr = ['a','b','c','d','e'];
+	var index = Math.floor(Math.random()*arr.length);
+	console.log(arr[index]);  //随机*/
+
+	/*//abs(num) 返回num绝对值
+	console.log(Math.abs(-5));  //5
+	//exp(num) 返回Math.E的num次幂
+	console.log(Math.exp(1));   //2.718281828459045
+	//log(num) 返回num的自然对数
+	console.log(Math.log(1));   //0
+	//pow(num,power) 返回num的power次幂
+	console.log(Math.pow(2,3));  //8
+	//sqrt(num) 返回num的平方根
+	console.log(Math.sqrt(9));   //3
+	//scos(x) 返回x的反余弦值
+	//asin(x) 返回x的反正弦值
+	//atan(x) 返回x的反正切值
+	//atan2(y,x) 返回y/x的反正切值
+	//cos(x) 返回x的余弦值
+	//sin(x) 返回x的正弦值
+	//tan(x) 返回x的正切值*/
+
+	//将一个字符串转换为Date对象
+	//没有参数则显示当前时间的日期对象
+	/*var date = new Date();
+	console.log(date); 
+	//Date Wed Jul 17 2019 22:29:01 GMT+0800 (中国标准时间)
+	//有参数(时间戳)则将时间戳转成js的Date类型(时间类型)
+	var date = new Date(1563355259000);
+	console.log(date);
+	//Date Wed Jul 17 2019 17:20:59 GMT+0800 (中国标准时间)*/
+	
+	//获取年份  月  日  时 分 秒
+	//时间戳  秒时间戳  毫秒时间戳  1000
+	//将时间戳转换成js的Date对象，获取年月日时分秒，展示给用户
+	//最后输出2019-07-17 17:18:18
+	//new Date('2019/09/09 09:09:09');
+	/*var date = new Date();
+	//Date.prototype.getFullYear() 返回年份,如2012
+	console.log(date.getFullYear());   // 2019
+	//Date.prototype.getMonth()返回日期中的月份数,返回值0(1月)-11(12月)
+	console.log(date.getMonth()+1);    //  7
+	//Date.prototype.getDate()返回是日期对象中月份中的几号
+	console.log(date.getDate());   //17
+	//Date.prototype.getDay() 返回日期中的星期几,星期天0-星期6
+	console.log(date.getDay());  //3
+	//Date.prototype.getHours()返回日期中的小时，几点了，0-23
+	console.log(date.getHours());  //22
+	//Date.prototype.getMinutes()返回日期中的分钟数 0-59
+	console.log(date.getMinutes());  //48
+	//Date.prototype.getSeconds()返回一个日期的秒数
+	console.log(date.getSeconds());  //43
+	//Date.prototype.getMilliseconds()返回日期中的毫秒数
+	console.log(date.getMilliseconds());  //834
+	//返回对象的字符串表示该字符串与执行环境的
+	console.log(date.toLocaleString()); // 2019/7/18 上午9:17:20
+	//GMT时间与本地时间差，用分钟表示
+	console.log(date.getTimezoneOffset()); //-480  
+	//返回-480 实际上这个函数获取的是javascript运行于哪个时区,单位是分*/
+
+	//按一定格式输出当前时间
+	/*var date = new Date();
+	var month = date.getMonth()+1;
+	month = month<10?'0'+month:month;
+	var day = date.getDate();
+	day = day<10?'0'+day:day;
+	var hours = date.getHours();
+	hours = hours<10?'0'+hours:hours;
+	var minute = date.getMinutes();
+	minute = minute<10?'0'+minute:minute;
+	var second = date.getSeconds();
+	second = second<10?'0'+second:second;
+	var str = date.getFullYear()+'-'+month+'-'+day+' '+hours+':'+minute+':'+second;
+	console.log(str); // 2019-07-17 23:03:53*/
+
+	//Date.prototype.getTime()将一个日期对象以毫秒形式返回
+	//返回值是1970-01-01 午夜到当前时间的毫秒数
+	/*var date = new Date();
+	console.log(date.getTime());  //1563376252325
+	console.log((new Date()).getTime()); //1563376252327*/
+
+	/*var date = new Date();
+	console.log(date);
+	//Date Thu Jul 18 2019 10:27:01 GMT+0800 (中国标准时间)
+	//Date.prototype.getYear()返回Date对象中的年份值减去1900
+	console.log(date.getYear());  //119
+	//Date.prototype.now()静态方法,返回当前时间与1970-01-01的时间间隔,毫秒单位
+	console.log(Date.now()); //1563415928842
+	//Date.prototype.valueOf()
+	//如果是一个Date对象，将一个Date对象转为毫秒的形式，否则不显示
+	var a = '';
+	console.log(a.valueOf());  //不是Date对象,不输出
+	console.log(date.valueOf()); //1563416402491
+	//Date.prototype.toDateString()以字符串的形式返回一个Date的日期部分
+	console.log(date.toDateString()); //Thu Jul 18 2019
+	//Date.prototype.toTimeString()以字符串的形式返回一个Date的时间部分
+	console.log(date.toTimeString()); //10:25:43 GMT+0800 (中国标准时间)
+	//Date.prototype.toISOString()
+	//将一个Date对象转换为ISO-8601格式的字符串,返回的字符串格式为yyyy-mm-ddThh:mm:ssZ
+	console.log(date.toISOString()); //2019-07-18T02:26:42.084Z
+	//Date.prototype.toJSON()  JSON序列化一个对象
+	console.log(date.toJSON());  //2019-07-18T02:29:38.511Z
+	//Date.prototype.toLocaleDateString()  以本地格式的字符串返回一个Date的日期部分,返回一个本地人可读的日期格式，日期部分
+	console.log(date.toLocaleDateString())  //2019/7/18
+	//Date.prototype.toLocaleString() 将一个Date转化难为一个本地格式的字符串
+	console.log(date.toLocaleString());  //2019/7/18 上午10:32:44
+	//Date.prototype.toLocaleTimeString() 将一个Date转化为本地的格式的时间部分
+	console.log(date.toLocaleTimeString()); //上午10:33:43
+	//Date.prototype.toString()  将一个Date转换为一个字符串
+	console.log(date.toString()); //Thu Jul 18 2019 10:34:26 GMT+0800 (中国标准时间)
+	//Date.prototype.toTimeString() 以字符串的形式返回一个Date对象的时间部分
+	console.log(date.toTimeString()); //10:35:31 GMT+0800 (中国标准时间) */
+
+	//重新slice()方法
+	/*Array.prototype.mySlice = function(){
+		var temp = [];
+		for(var i=arguments[0];i<(arguments[1]?arguments[1]:this.length);i++){
+				temp.push(this[i]);
+			}
+		return temp;
+	}
+	var arr = [2,3,45,4,6,7];
+	console.log(arr.mySlice(2,4));*/
+
+	//继承
+	//子构造函数的原型对象是父构造函数的实例
+	/*function Person(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	Person.prototype.getName = function(){
+		console.log(this.name);
+	}
+	var per = new Person('curry',31);
+	console.log(per);  //Object { name: "curry", age: 31 }
+	per.getName(); //curry
+
+	function Man(name,gender){
+		Person.call(this,name);
+		this.gender = gender;
+	}
+	Man.prototype = new Person();
+	Man.prototype.constructor = Man;
+	Man.prototype.getGender = function(){
+		console.log(this.gender);
+	}
+	var man = new Man('hb','fale');
+	console.log(man);  //Object { name: "hb", age: undefined, gender: "fale" }
+	man.getName();  //hb
+	man.getGender();  //fale
+	console.log(man.constructor);  //function Man()
+	console.log(Array.prototype.__proto__.constructor.name);  //Object*/
+
+	/*Node类型
+	Document类型  document
+	Element类型	  元素节点类型
+	Text类型		  文本节点
+	Comment类型   注释节点*/
+
+	//Document类型
+	//Javascript通过使用Document类型表示文档。在浏览器中，document对象是HTMLDocument的一个实例，表示整个HTML页面。document对象是window对象的一个属性，因此可以直接调用。HTMLDocument继承自Documen
+	//document是Document构造函数的实例
+	/*console.log(document); //HTMLDocument
+	console.log(document.constructor); //HTMLDocument()
+	console.log(HTMLDocument.prototype.__proto__.constructor); //Document()*/
+
+	//文档加载完毕后再执行js代码
+	/*window.onload = function(){
+		//document.body是Element构造函数的实例
+		console.log(document.body); //<body>
+		//nodeType 表示节点类型
+		//Document--> 9;Element -->1;TextNode -->3;Comment--> 8
+		console.log(document.body.nodeType);  //1
+		//nodeName 该属性取决于节点类型，如果是元素类型，值为元素的标签名
+		console.log(document.body.nodeName);  //BODY
+		//nodeValue 该属性取决于节点类型，如果是元素类型，值有null
+		console.log(document.body.nodeValue);  //null
+		//childNodes属性，保存一个NodeList对象.NodeList是一种类数组对象用来保存一组有序的节点(伪数组)
+		console.log(document.body.childNodes);
+		//firstChild   childNodes列表中的第一个节点
+		console.log(document.body.firstChild);
+		//lastChild    childNodes列表中的最后一个节点
+		console.log(document.body.lastChild);
+		//childNodes列表中的第一个节点的值
+		console.log(document.body.firstChild.nodeValue);
+		//将类数组转换成数组
+		var a = document.body.childNodes;
+		var arr = Array.prototype.slice.call(a,0);
+		//var arr = [].slice.call(a,0)   //与上面一样可以
+		console.log(arr);
+		//parentNode指向文档树中的父节点。包含在childNodes列表中所有的节点都具有相同的父节点，每个节点之间都是同胞/兄弟节点
+		console.log(document.body.childNodes[3].parentNode);//<body>
+		//previousSibling 兄弟节点中的前一个节点
+		console.log(document.body.childNodes[3].previousSibling);
+		//nextSibling 兄弟节点中的下一个节点
+		console.log(document.body.childNodes[4].nextSibling);
+		//ownerDocument指向表示整个文档的文档节点。任何节点都属于它所在的文档，任何节点都不能同时存在于两个或更多个文档中
+		console.log(document.body.ownerDocument);  //HTMLDocument
+		console.log(document.body.ownerDocument === document);  //true
+		//hasChildNodes()在包含一个或多个子节点的情况下返回true
+		console.log(document.body.hasChildNodes());  //true
+		console.log(document.body.childNodes[0].nextSibling.hasChildNodes());
+		//true
+	}*/
+		
+	//操作节点(以下四个方法都需要父节点对象进行调用!)
+	/*window.onload = function(){
+		//追加div到body中
+		//创建Element节点
+		var div = document.createElement('div');
+		//在元素节点中添加内容
+		div.innerText = 'four';
+		//给父节点添加一个孩子到末尾
+		//appendChild()向childNodes列表末尾添加一个节点。返回新增的节点。
+		document.body.appendChild(div);
+
+		//将one div添加到最后
+		var one = document.getElementById('one');
+		document.body.appendChild(one);
+		//insertBefore 第一个参数:要插入的节点  第二个参数:作为的参照节点(为null会将该节点追加到NodeList后面)
+		var a = document.createElement('div');
+		a.innerText = 'a';
+		document.body.insertBefore(a,null);
+
+		//replaceChild()//第一个参数：要插入的节点；第二个参数：要替换的节点；
+		//要替换的节点将由这个方法返回并从文档树中被移除，同时由要插入的节点占据其位置
+		var b = document.createElement('div');
+		b.innerText = 'b';
+		document.body.replaceChild(b,a);
+		
+		//removeChild()//一个参数，即要移除的节点。
+		//移除的节点将作为方法的返回值。其他方法,任何节点对象都可以调用
+		document.body.removeChild(b);
+		
+
+		//克隆节点
+		//cloneNode()用于创建调用这个方法的节点的一个完全相同的副本。有一个参数为布尔类型参数为true时，表示深复制，即复制节点以及整个子节点数。参数为false的时候，表示浅复制，只复制节点本身
+		//深复制
+		var cloneOne = one.cloneNode(true);
+		document.body.appendChild(cloneOne);
+		//浅复制(默认)
+		var cloneTwo = two.cloneNode(false);
+		document.body.appendChild(cloneTwo);
+		//重新节点内容
+		cloneTwo.innerText = 'cloneTwo';
+		//document.body.appendChild(cloneTwo);
+		
+		//normalize()处理文档树中的文本节点，由于解析器的实现或DOM操作等原因，可能会出现文本节点不包含文本，或者接连出现两个文本节点，当在某个节点上调用了该方法，会删除空 白节点，会找到相邻的两个文本节点，并将他们合并为一个文本节点
+		var aa = document.createElement('div');
+		document.body.appendChild(aa);
+		aa.appendChild(document.createTextNode('1'));
+		aa.appendChild(document.createTextNode('2'));
+		//这时(规范化之前),wrapper.childNodes.length === 2
+		console.log(aa.childNodes[0].textContent === '1');  //true
+		console.log(aa.childNodes[1].textContent === '2');  //true
+		// 现在(规范化之后), wrapper.childNodes.length === 1
+		aa.normalize();
+		console.log(aa.childNodes[0].textContent === '12');  //true
+	}*/
+
+
+	//表格操作
+	/*window.onload = function(){
+		var arr = [{
+				id:1001,
+				name:'hb',
+				age:22,
+			},{
+				id:1002,
+				name:'lm',
+				age:21,
+			},{
+				id:1003,
+				name:'yoyo',
+				age:27,
+			}];
+		//按钮点击，将数据展示到表中
+		var btn = document.getElementsByTagName('button')[0];
+		var tbody = document.getElementsByTagName('tbody')[0];
+
+		//给按钮绑定点击事件
+		btn.onclick = function(){
+			//清空tbody
+			tbody.innerHTML = '';
+			//数组中的一个对象->tr
+			//对象中的属性值->td
+			//forEach遍历数组
+			arr.forEach(function(item){
+				var newTr = document.createElement('tr');
+				//for-in遍历对象
+				for(var key in item){
+					var newTd = document.createElement('td');
+					newTd.innerText = item[key];
+					newTr.appendChild(newTd);
+				};
+				tbody.appendChild(newTr);
+			});
+		};
+	}*/
+
+	//改进mySlice()
+	/*Array.prototype.mySlice = function(){
+		var temp = [];
+		if (arguments[0]>=0) {
+			for(var i=arguments[0];i<(arguments[1]?arguments[1]:this.length);i++){
+				temp.push(this[i]);
+			}
+		}else if (arguments[0]<0) {
+			for(var j=(arguments[0]+this.length);j<this.length;j++){
+				temp.push(this[j]);
+			}
+		}else if (arguments[0]===(undefined||null)){
+				temp = this;
+		}
+		return temp;
+	}
+	var arr = [2,3,45,4,6,7];
+	console.log(arr.mySlice(2,4));*/
+
+	/*function f1(){
+		var div = document.getElementById('one');
+		console.log(div);
+		div.className = (div.className === 'red')?'blue':'red';
+	}
+	window.onload = function(){
+		var div = document.body.children[0];
+		console.log(div);
+		console.log(document.body.firstElementChild);
+		//获取属性值
+		console.log(div.className);  //red
+		console.log(div.title);  //我是div
+		console.log(div.getAttribute('class'));  //red 
+		console.log(div.getAttribute('date-flag'));//1001
+		console.log(div.style);
+		console.log(div.onclick);//function onclick()函数
+		console.log(div.getAttribute('onclick'));//test()字符串
+		//设置属性值
+		div.title = 'hello';
+		div.setAttribute('title','world');
+		console.log(div.title);
+		//移除属性
+		div.removeAttribute('title');
+		console.log(div.attributes);		
+		console.log(div.attributes[2]);	//class="red"
+		div.attributes[2].nodeValue = 'blue';
+		console.log(div.attributes.getNamedItem('class'));	//class="blue"
+		console.log(div.getAttribute('class'));  //blue
+		//获取内部内容
+		console.log(div.innerHTML);
+		//获取内部文本,去掉回车换行
+		console.log(div.innerText);
+		//获取内部文本,有回车换行
+		console.log(div.textContent);
+		div.innerHTML = `<div>
+							   <span>
+									hello				
+							   </span>	
+						</div>`;
+
+	}*/
+
+	/*window.onload = function(){
+		var text = document.body.firstChild;
+		console.log(text);
+		text.appendData('world');
+		text.splitText(5);
+		console.log(document.body.childNodes);
+		//合并两个文本节点
+		document.body.normalize();
+		//截取
+		console.log(text.substringData(5,5));//从beginIndex开始提取n个子字符串
+		console.log(text);
+		//删除
+		text.deleteData(5,5);
+		console.log(text);
+	}*/
+
+	/*window.onload = function(){
+		var comment = document.body.childNodes[1];
+		console.log(comment);
+		console.log(comment.nodeType);
+		console.log(comment.nodeValue);
+		comment.nodeValue = 'hello';
+		console.log(comment);
+	}*/
+	
+	//事件就是文档或浏览器窗口中发生的一些特定的交互瞬间
+	//事件三要素:
+	//1.事件目标: 发生的事件与之相关联或与之相关的对象
+	//2.事件处理程序:处理或相应事件的函数
+	//3.事件对象:与特定事件相关且包含有关该事件详细信息的对象
+	
+
+	/*var id = setTimeout(function(){
+		alert(1);
+	},2000);
+	console.log(id); //2
+	clearTimeout(2);*/
+
+	/*var n = 0;
+	var sum = 10;
+	function addNum(){
+		n++;
+		if(n<sum){
+			console.log(n);
+			setTimeout(addNum,1000);
+		}else {
+			alert('end'+n);
+		}
+	}
+	setTimeout(addNum,1000);*/
+
+	//console.log(window.location == document.location);
+	
+	/*window.location = 'https://www.baidu.com';
+	location.herf = 'https://www.csdn.net';
+	//assign()传递一个url参数，打开新url，并在浏览记录中生成一条记录
+	location.assign('https://www.qq.com');
+	//replace() 参数为一个url,结果会导致浏览器位置改变，但不会在历史记录中生成新记录
+	location.replace('https://pvp.qq.com');
+	//reload()重新加载当前显示的页面，参数可以为boolean类型，默认为false，表示以最有效方式重新加载，可能从缓存中直接加载。如果参数为true，强制从服务器中重新加载
+	location.reload('https://china.nba.com');*/
+
+
+	// alert('hello world');
+	
+	/*if (confirm('Are you OK ?')) {
+		alert('Yes! I am OK.');
+	}else {
+		alert('No! I feel bad.');
+	}*/
+
+	/*function f1(fn){
+		setInterval(function(){
+			console.log(1);
+			fn();
+			console.log(2);
+		},2000);
+	}
+	f1(function(){
+		console.log('hhh');
+	});*/
+
+	/*function f1(){
+		var a = 3;
+		return function(){
+			console.log(a);
+		}
+	}
+	f1()();*/
+	/*function f1(){
+		var a = 3;
+		function f2(){
+			console.log(a);
+		};
+		f2();
+	}
+	f1();*/
+	function f1(){
+		var n = 10;
+		return function(){
+			n++;
+			return n;
+		}
+	}
+	/*console.log(f1()());
+	console.log(f1()());
+	console.log(f1()());*/   //错误方法
+	var ff = f1();
+	console.log(ff());
+	console.log(ff());
+	console.log(ff());
+
+
+
+</script>
+<body>
+
+ <!-- hello
+ <div>world</div>
+ hi
+ <span>good</span>
+ comment 8
+ bye -->
+
+ 	<!-- <div id="one">one</div>
+ 	<div id="two">two</div>
+ 	<div id="three">three</div> -->
+<!-- <button>加载数据</button>
+
+<table>
+	<tbody>
+		<tr>
+			<th>学号</th>
+			<th>姓名</th>
+			<th>年龄</th>
+		</tr>
+	</tbody>
+</table> -->
+
+<!-- hello
+	<div id='one' style="color: coral" class='red' title="我是div" date-flag='1001' onclick="test()">
+		one
+		two
+		three
+		<span>four</span>
+	</div> -->
+	
+</body>
+</html>

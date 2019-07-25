@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>动画-animation</title>
+	<style>
+		div:hover{
+			/*动画播放的动态*/
+			/*默认运行状态*/
+			/*animation-play-state: running;*/
+			/*暂停动画*/
+			animation-play-state: paused;
+
+
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			/*动画名字，将动画使用到元素上,使用动画*/
+			animation-name: myani;
+			/*动画时长，默认0s*/
+			animation-duration: 2s;
+			/*动画次数 它的值可以为自然数也可以为infinite  infinite表示无限次*/
+			animation-iteration-count: infinite;
+			/*animation-iteration-count: 2;*/
+			/*动画的执行顺序，默认是从第一帧到最后一帧*/
+			/*默认的*/
+			/*animation-direction: normal;*/
+			/*反转的*/
+			/*animation-direction: reverse;*/
+			/*奇数次执行，从第一帧到最后一帧.偶数次执行，从最后一帧到最后一帧*/
+			animation-direction: alternate;
+			/*奇数次执行,从最后一帧到最后一帧.偶数次执行，从第一帧到最后一帧.*/
+			/*animation-direction:alternate-reverse;*/
+			/*动画的延迟执行*/
+			animation-delay: 2s;
+			/*填充模式*/
+			/*在动画等待时间内将准备播放的帧的动画填充到元素上*/
+			/*animation-fill-mode: backwards;*/
+			/*在动画结束的时候使用结束的帧去填充元素，默认不填充的回到原样*/
+			/*animation-fill-mode: forwards;*/
+
+			/*速度曲线*/
+			/*动画在执行过程中的变化速率*/
+			/*默认值*/
+			/*animation-timing-function: ease;*/
+			/*先慢后快*/
+			/*animation-timing-function: ease-in;*/
+			/*先快后慢*/
+			/*animation-timing-function: ease-out;*/
+			/*先慢后快再慢*/
+			/*animation-timing-function: ease-in-out;*/
+			/*匀速*/
+			animation-timing-function: linear;
+		}
+		/*声明动画 myani是动画的名字*/
+		@keyframes myani{
+			from{
+				/*开始样式*/
+				width: 100px;
+				background-color: cyan;
+			}
+			50%{
+				/*动画必经的点*/
+				width: 200px;
+			}
+			to{
+				/*结束样式*/
+				width: 300px;
+				background-color: coral;
+			}
+			/*0%{}
+			100%{}*/
+		}
+	</style>
+</head>
+<body>
+
+	<div>
+		<!-- 动画：一帧一帧 -->
+	</div>
+	
+</body>
+</html>

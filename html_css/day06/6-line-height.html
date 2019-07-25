@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>line-height</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			
+		}
+		@font-face{
+			/*字体家族的名字*/
+			font-family: webfont;
+			/*地址*/
+			src:url('./fonts/1.ttf');
+		}
+		div{
+			font-family: webfont;
+			color: white;
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			/*内部文本水平居中*/
+			text-align: center;
+			/*内部文本垂直居中,设置文字行高(与div中的height保持一致可居中)*/
+			line-height: 100px;
+		}
+		ul{
+			list-style: none;
+			height: 50px;
+			background-color: teal;
+			color: white;
+		}
+		li{
+			/*将li显示在一行*/
+			display: inline-block;
+			width: 24%;
+			text-align: center;
+			line-height: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div>hello</div>
+	<ul>
+		<li>首页</li>
+		<li>列表页</li>
+		<li>新闻页</li>
+		<li>关于我们</li>
+	</ul>
+	
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>H5中的表单</title>
+	<script>
+		//更改progress的值，产生动态效果
+		//获取id为download的元素
+		window.onload=function(){
+        var ele =document.getElementById('download');
+	    var show = document.getElementById('show');
+	    //console.log(ele.value);
+	    // ele.value=80;
+	    //定时器
+	    setInterval(function(){
+	    	if(ele.value>=100){
+	    		return;
+	    	}else{
+	    		//更改进度条的值
+	    		ele.value=ele.value+5;
+	    		//更改span内部的html
+	    		show.innerHTML =ele.value+'%';
+	    	}
+
+	    },2000);
+	    }
+	</script>
+</head>
+<body>
+	<form novalidate id="form">
+		<!-- 进度条 -->
+		<progress id="download" value="30" max="100"></progress>
+		<output id="show">30%</output>
+		<br />
+		<!-- 绿色 -->
+		<meter min="0" max="100" low="40" high="60" value="50">
+		</meter>
+		<!-- 黄色 -->
+		<meter min="0" max="100" low="40" high="60" value="20">
+		</meter>
+		<!-- 黄色,如果optium在low和high之间,没有效果. -->
+		<meter min="0" max="100" low="40" high="60" optimum="50" value="50">
+		</meter>
+		<!-- 红色,如果optium在low和high之外,optium小于low值时,value大于high就显示红色-->
+		<meter min="0" max="100" low="40" high="60" optimum="20" value="90">
+		</meter>
+		<!-- 红色,如果optium在low和high之外,optium大于high值时,value小于low也显示红色-->
+		<meter min="0" max="100" low="40" high="60" optimum="90" value="10">
+		</meter>
+		<br />
+		<input autocomplete="off" type="text" list="datasource" name="datalist" />
+		<datalist id="datasource">
+			<option value="hello">hello</option>
+			<option value="world">world</option>
+		</datalist>
+		<br />
+		<!-- autocomplete="off" 关闭自动补全 -->
+		<input autocomplete="off" type="text" name="text" />
+		<br />
+		年月日date:
+		<input type="date" name="" />
+		<br />
+		时间time:
+		<input type="time" name="" />
+		<br />
+		年月日时间datetime-local:
+		<input type="datetime-local" name="" />
+		<br />
+		月份month:
+		<input type="month" name="" />
+		<br />
+		周week:
+		<input type="week" name="" />
+		<br />
+		<h3>其他的type值</h3>
+		年龄:
+		<input type="number" />
+		<br />
+		颜色:
+		<input type="color" name="color" />
+		<br />
+		邮箱:
+		<input type="email" />
+		<br />
+		URL:
+		<!-- required必填项,填了表单才能提交 -->
+		<input type="url" required/>
+		<br />
+		Telphone:
+		<!-- pattern正则表达式的验证 -->
+		<input type="tel" pattern="[0-9]{11}" />
+		<br />
+		Search:
+		<input type="Search" />
+		<br />
+		Range:
+		<!-- 滑块,step步长 -->
+		<input type="range" min="0" max="100" step="10" value="50" />
+		<br />
+        <button>提交</button>
+        <button formaction="./2-form.html" formtarget="_blank" formnovalidate>提交到其他地方</button>
+	</form>
+	<hr />
+	外部的Input:
+	<input type="text" name="outinput" form="form" />
+</body>
+</html>
