@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style type="text/css">
+    	* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    background: #fff;
+}
+
+.box {
+    width: 600px;
+    height: 350px;
+    margin: 100px auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.imgList {
+    position: absolute;
+}
+
+.imgList img {
+    width: 600px;
+    height: 350px;
+    position: absolute;
+    right: 0;
+}
+
+.img1 {
+    left: 0;
+}
+
+.img2 {
+    left: 600px;
+}
+
+.img3 {
+    left: 1200px;
+}
+
+.img4 {
+    left: 1600px;
+}
+
+.btn {
+    position: relative;
+    left: 0;
+    right: 0;
+}
+
+.btn a {
+    position: absolute;
+    top: 150px;
+    display: inline-block;
+    padding: 15px 8px;
+    background: rgba(0, 0, 0, 0.5);
+    font-size: 20px;
+    color: white;
+}
+
+.leftBtn {
+    left: 0;
+}
+
+.rightBtn {
+    right: 0;
+}
+
+.tab {
+    position: absolute;
+    left: 40%;
+    bottom: 0;
+}
+
+.tab a {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 10px
+}
+
+.whiteTab {
+    background: #fff;
+}
+
+.redTab {
+    background: #000;
+}
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="imgList" id="imgList">
+                        <img src="./images/e-4.png" alt="">
+                        <img src="./images/e-1.png" alt="">
+                        <img src="./images/e-2.png" alt="">
+                        <img src="./images/e-3.png" alt="">
+        </div>
+        <div class="btn" id="btn">
+            <a class="leftBtn" href="javascript:">&lt;</a>
+            <a class="rightBtn" href="javascript:">&gt;</a>
+        </div>
+        <div class="tab" id="tab">
+            <a href="javascript:"></a>
+            <a href="javascript:"></a>
+            <a href="javascript:"></a>
+            <a href="javascript:"></a>
+        </div>
+    </div>
+<script type="text/javascript">
+    	window.onload = function () {
+    //获得标签对象
+    let imgList = $("imgList");
+    let btn = $("btn");
+    let tab = $("tab");
+    let leftBtn = $("leftBtn");
+    let rightBtn = $("rightBtn");
+
+    //获得子元素
+    let imgListChildren = imgList.children;
+    let tabChildren = tab.children;
+
+    //用来记录当前是第几张图片
+    let index = 0;
+    //用来记录当前是第几个小圆点
+    let tabIndex = 0;
+
+    //一张图片的宽度
+    const IMG_WIDTH = 600;
+
+    //存储定时器的返回值
+    let timer = null;
+
+    //当鼠标移入imgList时，btn显示
+    imgList.onmousemove = function () {
+        btn.style.display = "block";
+        //鼠标进入时不自动播放，清除定时器
+        clear();
+    }
+    //当鼠标移出imgList时，btn隐藏
+    imgList.onmouseout = function () {
+        btn.style.display = "none";
+        //鼠标离开时，启动定时器
+        startAuto();
+    }
+
+    //若不添加下面两句，则会出席那bug，鼠标进入btn时会抖动
+    //当鼠标移到btn时，btn显示
+    btn.onmouseenter = function () {
+        btn.style.display = "block";
+        //鼠标进入时不自动播放，清除定时器
+        clear();
+    }
+    //当鼠标移出btn时，btn隐藏
+    btn.onmouseout = function () {
+        btn.style.display = "none";
+        //鼠标离开时，启动定时器
+        startAuto();
+    }
+
+    //点击左侧按钮时，left向左移动
+    leftBtn.onclick = function () {
+        leftMove();
+    }
+    //点击右侧按钮时，left向右运动
+    rightBtn.onclick = function () {
+        rightMove();
+    }
+
+    for (let i = 0; i < tabChildren.length; i++) {
+        //鼠标悬浮再第几个小圆点上，就切换到第几张图片
+        tabChildren[i].onmouseover = function () {
+            //鼠标悬浮时不自动播放，清除定时器
+            clear();
+            MotionUtils.bufferMove(imgList, {
+                left: -i * IMG_WIDTH
+            });
+            //切换小圆点
+            tabMove(i);
+        }
+        tabChildren[i].onmouseout = function () {
+            startAuto();
+        }
+    }
+
+    //自动播放
+    startAuto();
+
+    //自动播放
+    function startAuto() {
+        timer = setInterval(function () {
+            rightMove();
+        }, 1500);
+    }
+
+    //清除定时器
+    function clear() {
+        clearInterval(timer);
+    }
+
+
+    //小圆点
+    function tabMove(i) {
+        //切换到第几个小圆点，并修改index值，要求和i的值一致
+        index = i;
+        //当i===4时，小圆点应该为0
+        if (i === 4) {
+            i = 0;
+        }
+        tabChildren[i].className = "redTab";
+        //遍历tab，如果和i的值不想等则设为白色
+        for (let j = 0; j < tabChildren.length; j++) {
+            if (j !== i) {
+                tabChildren[j].className = "whiteTab";
+            }
+        }
+    }
+
+    //左侧按钮
+    function leftMove() {
+        //向做移动index--
+        index--;
+        //若index===-1，那么就直接设置left为-4*IMG_WIDTH，然后index = 3
+        if (index === -1) {
+            imgList.style.left = -4 * IMG_WIDTH + "px";
+            index = 3;
+        }
+        //设置left值
+        MotionUtils.bufferMove(imgList, {
+            left: -index * IMG_WIDTH
+        });
+        //切换小圆点
+        tabMove(index);
+    }
+
+    //右侧按钮
+    function rightMove() {
+        //向右移动index++
+        index++;
+        //若index===5，那么直接把imgList的left值设为0，index设为1
+        if (index === 5) {
+            imgList.style.left = 0;
+            index = 1;
+        }
+        //设置left值
+        MotionUtils.bufferMove(imgList, {
+            left: -index * IMG_WIDTH
+        });
+        //切换小圆点
+        tabMove(index);
+    }
+
+}
+
+function $(id) {
+    return document.getElementById(id);
+}
+
+function getStyle(element, attr) {
+    let result = element.currentStyle ? element.currentStyle[attr] : getComputedStyle(element, null)[attr];
+    return Number.parseFloat(result);
+}
+
+
+
+let MotionUtils = {
+    /**
+     *
+     * @param obj 要改变的对象
+     * @param attr 要改变的对象的属性
+     * @param finalValue 要改变对象的属性的最大值
+     * @param callback 在上一次运动完后下一次要运动的函数，回调自己
+     */
+    bufferMove: function (obj, data, callback) {
+        //清除旧定时器
+        clearInterval(obj.timer);
+        //开启新定时器
+        obj.timer = setInterval(function () {
+            //flg标识运动是否完毕
+            let flg = true;
+            for (let attr in data) {
+                //获得当前obj属性值
+                let currentValue;
+                if (attr === "opacity") {
+                    currentValue = Number.parseFloat(getStyle(obj, attr)) * 100;
+                } else {
+                    currentValue = Number.parseInt(getStyle(obj, attr));
+                }
+                //计算速度
+                let speed = (data[attr] - currentValue) / 8;
+
+                //计算物体运动方向
+                speed = speed > 0 ? Math.ceil(speed) : Math.floor(speed);
+
+                //计算下一次obj的属性值
+                let nextValue = currentValue + speed;
+                //设置属性值
+                if (attr === "opacity") {
+                    obj.style[attr] = nextValue / 100;
+                    obj.style.filter = "alpha(opacity=" + nextValue + ")";
+                } else {
+                    obj.style[attr] = nextValue + "px";
+                }
+                //判断当前属性是否运动完毕
+                if (nextValue !== data[attr]) {
+                    flg = false;
+                }
+            }
+            //清除定时器
+            if (flg) {
+                clearInterval(obj.timer);
+                //如果传了callback，那么就执行这个函数
+                if (callback) {
+                    callback();
+                }
+            }
+        }, 50);
+    },
+
+
+
+    fadein: function (element) {
+        let speed = 0.1;
+        clearInterval(element.timer);
+        element.timer = setInterval(function () {
+            let currentOpacity = Number(getStyle(element, "opacity"));
+
+            if (currentOpacity < 1) {
+                element.style.opacity = currentOpacity + speed;
+            }
+            if (currentOpacity >= 1) {
+                element.style.opacity = 1;
+                clearInterval(element.timer);
+            }
+        }, 50);
+    },
+
+    fadeout: function (element) {
+        let speed = 0.1;
+        clearInterval(element.timer);
+        element.timer = setInterval(function () {
+            let currentOpacity = Number(getStyle(element, "opacity"));
+
+            if (currentOpacity > 0) {
+                element.style.opacity = currentOpacity - speed;
+            }
+            if (currentOpacity <= 0) {
+                element.style.opacity = 0;
+                clearInterval(element.timer);
+            }
+        }, 50);
+    }
+
+
+}
+</script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Text</title>
+	<script>
+		window.onload = function(){
+			var text = document.body.firstChild;
+			console.log(text);  //#text "hello"
+			text.appendData('world');
+			console.log(text);
+			text.splitText(5);
+			console.log(document.body.childNodes);
+			//合并两个文本节点
+			document.body.normalize();
+			console.log(document.body.childNodes);
+			console.log(text);
+			//截取
+			console.log(text.substringData(5,5));
+			console.log(text);
+			//删除
+			text.deleteData(5,5);
+			console.log(text);
+
+		}
+	</script>
+</head>
+<body>hello</body></html>

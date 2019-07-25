@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>属性值的计算</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			/*height: 100px;*/
+			/*width: 100px;*/
+			/*符号之间需要用空格隔开*/
+			/*width: calc(20px + 30px);*/
+			/*width: calc(50% + 30px);*/
+            /*background-color: pink;*/
+           }
+           .container{
+           	display: flex;
+           	/*height: 300px; */
+           	/*使用浮动元素，定位元素，块级元素的宽度将不再是100%，而是由内部撑起来,宽度需手动设置*/
+           	/*高度占满*/
+           	position: absolute;
+           	top: 0;
+           	bottom: 0;
+           	/*left: 0;
+           	right: 0;*/
+           	width: 100%;
+           }
+           .left-div{
+           	width: 200px;
+           	background-color: coral;
+           	height: 100%;
+
+           }
+           .right-div{
+           	width: calc(100% - 200px);
+           	height: 100%;
+           	background-color: cyan;
+           	
+           }
+	</style>
+</head>
+<body>
+	<div class="container">
+	<div class="left-div"></div>
+	<div class="right-div"></div>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- 块级元素：独占一行,可以包含其他标签 -->
+	<!-- 常见块级元素<h1>~<h6>,<p>,<div>,<ul>,<ol>,<li> -->
+	<!-- 段落标签 -->
+	<p>hello</p>
+	<div>div-hello纯粹块级元素</div>
+	<!-- 行内元素:与其他行内元素共享一行 ，但不可以放置块级元素-->
+	<!-- 块级元素会独占一行
+	高度，行高，外边距和内边距都可以单独设置
+	宽度默认是容器的100%
+	可以容纳内联元素和其他的块级元素 -->
+	<i>斜体</i>
+	<b>加粗</b><br>
+	<!-- 常见行内元素<a>,<strong>,<b>,<em>,<del>,<span> -->
+	<!-- 和相邻的行内元素在一行上
+	高度和宽度无效，但是水平方向上的padding和margin可以设置，垂直方向上的无效
+	默认的宽度就是它本身的宽度
+	行内元素只能容纳纯文本或者是其他的行内元素（a标签除外） -->
+	<span>span-纯粹行内元素</span>
+	<!-- 空元素 -->
+	<!-- 分割线 -->
+	<hr />
+	<!-- 回车换行 -->
+	<i>hello</i>
+	<br />
+	<i>hello</i>
+	<!-- 行内块级元素 -->
+	<!-- 在行内元素中有几个特殊的标签，
+	<img/>,<input/>,<td/>,可以设置它们的宽高度以及对齐属性 -->
+	<!-- 和相邻的行内元素（行内块）在一行上，但是中间会有空白的间隙
+	默认的宽度就是本身内容的宽度
+	高度，行高，内边距和外边距都可以设置 -->
+	<!-- 属性测试 -->
+	<div id="one" class="div-one" style="color:red;font-size: 30px"  title="这是提示信息">属性&nbsp;&nbsp;&nbsp;测试
+	&lt;p&gt;哈哈哈哈哈
+	版权：&copy;
+	删除：&times;
+	</div>
+	<p>
+		hello
+		world
+	</p>
+	<!-- 完全按照代码的写法去显示 -->
+	<pre>
+		hello
+		world
+	</pre>
+	<h1>一级标题</h1>
+	<h2>二级标题</h2>
+	<h3>三级标题</h3>
+	<h4>四级标题</h4>
+	<h5>五级标题</h5>
+	<h6>六级标题</h4>
+	<u>下划线</u>
+	<strong>更为有用的</strong>
+	<em>强调</em>
+	<!-- 有序列表 
+		reversed布尔属性，无论写了什么只要出现就表示true，有效果的-->
+	<!-- <ol reversed type="square"> -->
+	<ol reversed>
+		<li>苹果</li>
+		<li>葡萄</li>
+		<li>阳澄湖大闸蟹</li>
+		<li>车厘</li>
+	</ol>
+	<!-- <ol reversed type="square"></ol> -->
+	<!-- 无序列表 -->
+	<!-- <ul type="circle"> -->
+	<ul type="disc">
+		<li>苹果</li>
+		<li>葡萄</li>
+		<li>阳澄湖大闸蟹</li>
+		<li>车厘</li>
+	</ul>
+	<!-- 自定义列表 -->
+	<dl>
+		<!-- dt:标题 -->
+		<dt>html</dt>
+		<!-- dd:列表项 -->
+		<dd>超文本标记语言</dd>
+		<dt>html</dt>
+		<dd>超文本标记语言</dd>
+	</dl>
+
+</body>
+</html>

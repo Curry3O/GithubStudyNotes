@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MySelf</title>
+	<style>
+		table{
+			border: 1px solid #000;
+			border-collapse: collapse;
+			margin: 0px auto;
+        }
+        tr{
+        	height: 30px;
+        }
+        td{
+        	width: 100px;
+        	border: 1px solid #000;
+        }
+        tr>td{
+        	text-align:center;
+        }
+        tr>td:nth-child(odd){
+        	background-color: #ddd;
+        }
+        tr>td:nth-child(even):hover{
+        	background-color: #bbb;
+        }
+        td::selection{
+        	background-color: teal;
+        	color: #fff;
+        }
+        td[class=one]::before{
+        	content: '*';
+        	color: red;
+        }
+        a{
+        	display: block;
+        	text-align:center;
+        }
+		
+		
+        a:link{
+        	color: #000;
+        }
+        a:visited{
+        	color: blue;
+        }
+        a:hover{
+        	color: cyan;
+        	cursor: pointer;
+        }
+        a:active{
+        	color: red;
+        	
+        }
+
+        
+	</style>
+</head>
+<body>
+	<table>
+		<caption><h3>学生信息表</h3></caption>
+		<tbody>
+			<tr>
+				<td class="one">姓名：</td>
+				<td></td>
+				<td class="one">性别：</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="one">出生：</td>
+				<td></td>
+				<td class="one">籍贯：</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>民族：</td>
+				<td></td>
+				<td>身份：</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>电话：</td>
+				<td></td>
+				<td>QQ：</td>
+				<td></td>
+			</tr>
+			
+		</tbody>
+	</table>
+	<br />
+	<a href="./8-UserInfo.html" >跳转到注册页面</a>
+
+	
+</body>
+</html>

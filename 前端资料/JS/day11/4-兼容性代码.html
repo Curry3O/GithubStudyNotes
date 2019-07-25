@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>兼容性代码</title>
+	<script>
+		//事件绑定
+		var eventUtil = {
+			bind:function(el,type,handle){
+				if (el.addEventListener) {
+					//DOM2级非IE8及以下浏览器
+					el.addEventListener(type,handle);
+				}else if (el.attachEvent) {
+					//DOM2级IE8及以下浏览器
+					el.attachEvent('on'+type,function(){
+						handle.call(el);
+					});
+				}else{
+					//DOM0级
+					el['on'+type] = handle;
+				}
+			},
+			//事件解绑
+			unbind:function(el,type,handle){
+				if (el.removeEventListener) {
+					el.removeEventListener(type,handle);
+				}else if (el.detachEvent) {
+					el.detachEvent('on'+type,handle);
+				}else{
+					el['on'+type] = null;
+				}
+			},
+			//事件对象
+			getEvent:function(event){
+				return event?event:window.event;
+			},
+			//事件目标
+			getTarget:function(event){
+				return event.target?event.target:event.srcElement;
+			},
+			//停止冒泡
+			stopPropa:function(event){
+				if (event.stopPropagation) {
+					event.stopPropagation();
+				}else{
+					event.cancelBubble = true;
+				}
+			},
+			//阻止默认
+			preventDef:function(event){
+				if (event.preventDefault) {
+					event.preventDefault();
+				}else{
+					event.returnValue = false;
+				}
+			}
+		};
+		window.onload = function(){
+			var div = document.getElementsByTagName('div')[0];
+			eventUtil.bind(div,'click',function(event){
+				var e = eventUtil.getEvent(event);
+				console.log(e);
+				//e 就是事件对象
+				console.log(this);
+				alert('绑定成功');
+			});
+		}
+	</script>
+</head>
+<body>
+	<div>hello</div>
+</body>
+</html>

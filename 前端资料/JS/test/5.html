@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>5</title>
+	<script>
+		window.onload = function(){
+			var one = document.getElementsByClassName('one')[0];
+			var two = document.getElementsByClassName('two')[0];
+			function ck(event){
+				console.log(this.className);
+				console.log(event);
+				console.log(event.target);
+				console.log(event.currentTarget);
+				//阻止冒泡
+				event.stopPropagation();
+				//阻止默认行为
+				event.preventDefault();
+			}
+			one.onclick = ck;
+			two.onclick = ck;
+		}
+	</script>
+</head>
+<body>
+	<div class="one">
+		one
+		<div class="two">two</div>
+	</div>
+	<span>222</span>
+</body>
+</html>

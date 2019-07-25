@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>行内和块级的转换</title>
+	<style>
+		body>*{
+			height: 100px;
+			width: 100px;
+			border: 1px solid red;
+		}
+		div{
+			/*将div转换成行内元素，同时没有块级元素特点*/
+			/*display: inline;*/
+
+			/*将div转换成行内显示，同时可设置宽高的元素*/
+			display: inline-block;
+		}
+		span{
+			/*将span转换成块级元素，同时没有行内元素特点*/
+			/*display: block;*/
+
+			/*将span转换成行内显示，同时可设置宽高的元素*/
+			display: inline-block;
+        }
+	</style>
+</head>
+<body>
+	<div>
+		one
+	</div>
+	<div>
+		two
+	</div>
+	<div>
+		three
+	</div>
+	<span>
+	    span-one
+    </span>
+	<span>
+	    span-two
+	</span>
+	<span>
+	    span-three
+	</span>
+	
+</body>
+</html>

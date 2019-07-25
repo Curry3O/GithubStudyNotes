@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>form表单</title>
+</head>
+<body>
+	<!-- action表单提交的地址 -->
+	<!-- get方法:./4-h5.html?search=xxx&search1=xx(多个数据) -->
+	<!-- post方式的参数在请求体 -->
+	<!-- 前端项目部署 Apache服务器 安装目录 htdocs文件夹 -->
+	<form action="./4-h5.html" method="get" enctype="application/x-www-form-urlencoded">
+	<!-- <form action="./4-h5.html" method="get" enctype="text/plain"> -->
+		<!-- 表单控件 -->
+		<!-- text 文本框 -->
+		<input type="text" name="search" />
+		<!-- <input type="text" name="search1" /> -->
+		<button>提交</button>
+	</form>
+	
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>原型链继承</title>
+	<script>
+		//原型链继承
+		//子构造函数的原型对象是父构造函数的实例
+		//伪经典继承(组合)
+		function Animal(name,age){
+			this.name = name;
+			this.age = age;
+		}
+		Animal.prototype.sayName = function(){
+			console.log(this.name);
+		}
+		var animal = new Animal('大白',1);
+		animal.sayName(); //大白
+		console.log(animal); //Object { name: "大白", age: 1 }
+
+		function Dog(name,age,color){
+			/*this.name = name;
+			this.age = age;*/
+			//经典继承
+			Animal.call(this,name,age);  
+			//将this由Animal内部指向Window变成了指向Dog
+			this.color = color;
+		}
+		//原型链继承
+		Dog.prototype = new Animal();
+		Dog.prototype.constructor = Dog;
+		//dog自己的方法(父的不能使用子的)
+		//子对象的方法其实是定义在了符类对象的实例上
+		Dog.prototype.sayAge = function(){
+			console.log(this.age);
+		}
+		var dog = new Dog('yoyo',2,'gloden');
+		console.log(dog); 
+		dog.sayName();
+		console.log(dog.constructor);  //function Dog()
+		dog.sayAge();
+
+		console.log(Array.prototype.__proto__.constructor.name);  //Object
+		console.log(Date.prototype.__proto__.constructor.name);  //Object
+		console.log(Number.prototype.__proto__.constructor.name);  //Object
+		//console.log(Object.prototype.__proto__.constructor);  //报错null
+
+
+
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

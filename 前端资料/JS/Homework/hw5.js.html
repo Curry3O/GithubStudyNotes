@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hw5</title>
+	<style>
+		img{
+			width: 180px;
+			height: 100px;
+			position: absolute;
+		}
+	</style>
+	<script>
+		//使用键盘上下左右键移动小车  注意车头方向也要发生变化
+		window.onload =function(){
+			var car = document.getElementsByTagName('img')[0];
+			document.onkeydown = function(event){
+				var event = event || window.event;
+				switch(event.keyCode){
+					// 37左 38上 39右 40下
+					// 100左 104上 102右 98下(数字键盘)
+					case 37:
+					case 100:
+					car.style.left = car.offsetLeft - 10 +'px';
+					car.style.transform = 'rotateY(0deg)';
+					break;
+					case 38:
+					case 104:
+					car.style.top = car.offsetTop - 10 +'px';
+					car.style.transform = 'rotateZ(90deg)';
+					break;
+					case 39:
+					case 102:
+					car.style.left = car.offsetLeft + 10 +'px';
+					car.style.transform = 'rotateY(180deg)';
+					break;
+					case 40:
+					case 98:
+					car.style.top = car.offsetTop + 10 +'px';
+					car.style.transform = 'rotateZ(-90deg)';
+					break;
+					default:
+						alert('请按上下左右键');
+					break;
+				}
+			}
+		}
+		
+	</script>
+</head>
+<body>
+	<img src="../images/3.png" alt="">
+</body>
+</html>

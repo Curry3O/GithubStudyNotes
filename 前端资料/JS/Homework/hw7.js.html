@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hw7</title>
+	<style>
+		table{
+			border-collapse: collapse;
+			width: 400px;
+		}
+		table,td,th{
+			border:1px solid #ccc;
+			text-align: center;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			myAjax('GET','/manager/category/findAllCategory',null,function(res){
+				data = JSON.parse(res).data;
+				var tbody = document.getElementsByTagName('tbody')[0];
+				var allBtn = document.getElementById('all');
+				var addBtn = document.getElementById('add');
+				var batchDeleteBtn = document.getElementById('batchdelete');
+				var modifyBtn = document.getElementById('modify');
+				var str = '';
+				data.forEach(function(item){
+					str += `
+						<tr>
+							<td><input type="checkbox" value='`+item.id+`'></td>
+							<td>`+item.no+`</td>
+							<td>`+item.name+`</td>
+							<td>`+item.comment+`</td>
+							<td><button>删除</button></td>
+						</tr>
+				    `;
+				});
+				tbody.innerHTML = str;
+				var button = tbody.firstElementChild.lastElementChild.firstElementChild;
+				button.disabled = true;
+				//全选
+				allBtn.onclick = function(event){
+					var inputs = document.getElementsByTagName('input');
+					inputs = Array.prototype.slice.call(inputs,0);
+					inputs.forEach(function(item){
+						(item.checked==false)?(item.checked=true):(item.checked=false);
+					});
+				}
+				//单项删除
+				tbody.onclick = function(event){
+					var target = event.target;
+					a = target.parentNode.parentNode;
+					if(target.nodeName === 'BUTTON'){
+						this.removeChild(a);
+						var id = a.firstElementChild.firstElementChild.value;
+						myAjax('GET','/manager/category/deleteCategoryById?id='+id,null,function(res){return res});
+					}
+				}
+				//批量删除
+				batchDeleteBtn.onclick = function(){
+					var inputs = document.getElementsByTagName('input');
+					inputs = Array.prototype.slice.call(inputs,0);
+					var inputsResult = inputs.filter(function(item){
+						return item.checked === true;
+					});
+					if(inputsResult.length>0){
+						inputsResult.forEach(function(item){
+							tbody.removeChild(item.parentNode.parentNode);
+							myAjax('POST','/manager/category/batchDeleteCategory',{ids:[item.value].toString()},function(res){return res});
+						});
+					}else{
+						alert('请选择要删除的数据');
+					}
+				}
+				//添加
+				addBtn.onclick = function(){
+					var newNo = +prompt('请您输入要添加的序号:');
+					var newName = prompt('请您输入要添加的栏目名称:');
+					var newComment = prompt('请您输入要添加的备注:');
+					myAjax('POST','/manager/category/saveOrUpdateCategory',{no:newNo,name:newName,comment:newComment},function(res){
+						alert(JSON.parse(res).message);
+						var newTr = document.createElement('tr');
+						var str =`
+								  <td><input type="checkbox"></td>
+								  <td>`+newNo+`</td>
+								  <td>`+newName+`</td>
+								  <td>`+newComment+`</td>
+								  <td><button>删除</button></td>
+						`;
+						newTr.innerHTML = str;
+						tbody.appendChild(newTr);
+					});
+				}
+				//修改
+				modifyBtn.onclick = function(){
+					var input = document.getElementsByTagName('input');
+					input = Array.prototype.slice.call(input,0);
+					var inputResult = input.filter(function(item){
+						return item.checked === true;
+					});
+					inputResult.forEach(function(item){
+						checkedId = item.value;
+					});
+					if (inputResult.length == 1) {
+						var newNo = +prompt('请您输入新的序号:');
+						var newName = prompt('请您输入新的栏目名称:');
+						var newComment = prompt('请您输入新的的备注:');
+						myAjax('POST','/manager/category/saveOrUpdateCategory',{id:checkedId,no:newNo,name:newName,comment:newComment},function(res){
+							alert(JSON.parse(res).message);
+							var modifyTr;
+							// var oldId;
+							var trs = tbody.children
+							trs = [].slice.call(trs);
+							trs.forEach(function(item){
+								if(item.firstElementChild.firstElementChild.value == checkedId){
+									modifyTr = item;
+									/*oldId = item.firstElementChild.firstElementChild.value;*/
+								}
+							});
+
+							var newTr = document.createElement('tr');
+							var str =`
+								  <td><input type="checkbox" value='`+checkedId+`'></td>
+								  <td>`+newNo+`</td>
+								  <td>`+newName+`</td>
+								  <td>`+newComment+`</td>
+								  <td><button>删除</button></td>
+							`;
+							newTr.innerHTML = str;
+							tbody.replaceChild(newTr,modifyTr);   
+						});
+					}else {
+						alert('请勾选一个你需要修改的栏目');
+					}
+				}
+			});
+			function myAjax(method,url,param,handle){
+				var baseURL = 'http://134.175.154.93:8099';
+				var http = new XMLHttpRequest();
+				http.open(method,baseURL+url);
+				http.onreadystatechange = function(){
+					if (http.status === 200&&http.readyState === 4) {
+						handle(http.responseText);
+					}
+				}
+				if (method == 'GET') {
+					http.send();
+				}else if (method == 'POST') {
+					http.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+					http.send(encodeFormData(param));
+				}
+			}
+			function encodeFormData(data){
+				if(!data){
+					return "";
+				}
+				var pairs = [];
+				for(var name in data){
+					if(!data.hasOwnProperty(name)){
+						continue;
+					}
+					if(typeof data[name] == "function"){
+						continue;
+					}
+					var value = data[name].toString();
+					name = encodeURIComponent(name.replace("%20","+"));//编码名字
+					value = encodeURIComponent(value.replace("%20","+"));//编码值
+					pairs.push(name+"="+value);
+				}
+				return pairs.join('&');
+			}
+			/*myAjax('POST','/manager/category/batchDeleteCategory',{ids:[667].toString()},function(res){
+				console.log(res);
+			})*/
+		}
+	</script>
+</head>
+<body>
+	<button id='all'>全选</button>
+	<button id='add'>新增</button>
+	<button id="batchdelete">批量删除</button>
+	<button id="modify">修改</button>
+	<table>
+		<thead>
+			<tr>
+				<th>选择</th>
+				<th>序号</th>
+				<th>栏目名称</th>
+				<th>备注</th>
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody></tbody>
+	</table>
+</body>
+</html>

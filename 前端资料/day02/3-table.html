@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>table</title>
+</head>
+<body>
+	<!-- thead tfoot -->
+	<!-- tr代表一行 td代表单元格，一行中的某一列 -->
+	<table border="1px" cellspacing="0px" cellpadding="0px" align="center" bgcolor="pink" width="200px">
+		<caption align="bottom">表1-1 学生信息表</caption>
+		<tbody>
+			<!-- tr>th*4 -->
+			<tr>
+				<th>学号</th>
+				<th>姓名</th>
+				<th>性别</th>
+				<th>年龄</th>
+			</tr>
+			<!-- tr>td*4 -->
+			<tr align="center">
+				<td>1</td>
+				<td>2</td>
+				<td>3</td>
+				<td>4</td>
+			</tr>
+			<tr align="center">
+				<td>5</td>
+				<td>6</td>
+				<td>7</td>
+				<td>8</td>
+			</tr>
+			
+		</tbody>
+	</table>
+	<hr />
+	<table width="200px">
+	<caption>表2-1学生信息表</caption>
+	<thead>
+		<!-- 表头 -->
+		<tr>
+			<th></th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<!--tr*3>td*3  -->
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+	<tfoot>
+		<!-- 总计 -->
+		<tr>
+			<td></td>
+			<td></td>
+			<td></td>
+		</tr>
+	</tfoot>
+	</table>
+	<!-- 单元格的合并 -->
+	<table width="200px" border="1px" cellspacing="0" cellpadding="0" align="center">
+		<colgroup>
+			<col />
+			<!-- 接下来的三列当作同一列处理 -->
+			<col span="3" style="background-color: yellow" />
+		</colgroup>
+		<!-- tr*4>td*4 -->
+		    <tr>
+				<td colspan="2">11</td>
+				<!-- <td>12</td> -->
+				<td>13</td>
+				<td>14</td>
+			</tr>
+			<tr>
+				<td>15</td>
+				<td>16</td>
+				<td rowspan="2">17</td>
+				<td>18</td>
+			</tr>
+			<tr>
+				<td>19</td>
+				<td>20</td>
+				<!-- <td>21</td> -->
+				<td>22</td>
+			</tr>
+			<tr>
+				<td>23</td>
+				<td>24</td>
+				<td>25</td>
+				<td>26</td>
+			</tr>
+	</table>
+</body>
+</html>

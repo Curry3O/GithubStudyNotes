@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>固定显示背景</title>
+	<style>
+		body{
+			background-image: url(./images/1.png);
+			/*背景图片绑定的位置，视口区或者元素*/
+			/*固定背景，不随着滚动条的滚动而滚动*/
+			/*background-attachment: fixed;*/
+			/*默认的，随着滚动条滚动*/
+			background-attachment: scroll;
+		}
+		div{
+			width: 300px;
+			height: 100px;
+			text-align: center;
+			line-height: 100px;
+			/*hsla则代表“色调、饱和度、亮度和Alpha透明度*/
+			/*hsla模式里，前三个参数则分别代表色调（0-360）、饱和度（0%-100%）和亮度（0%-100%）。透明度的取值从0（完全透明）到1（完全不透明）*/
+			border: 10px solid hsla(0,0%,100%,.5);
+			background: #fff;
+			background-clip: padding-box;
+		}
+		p{
+			width: 300px;
+			height: 100px;
+			background: red;
+			box-shadow: 0 0 0 10px cyan,0 0 0 15px pink;
+		}
+	</style>
+</head>
+<body>
+	hello
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<p></p>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div>你好呀咿呀咿呀哟</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	world
+</body>
+</html>

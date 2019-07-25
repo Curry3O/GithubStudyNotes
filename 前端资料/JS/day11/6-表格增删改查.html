@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表格增删改查</title>
+	<style>
+		table{
+			border-collapse: collapse;
+			width: 400px;
+		}
+		table,td,th{
+			border:1px solid #ccc;
+			text-align: center;
+		}
+	</style>
+	<script>
+		var stus = [{
+			id:1001,
+			name:'zhangsan',
+			age:12,
+			gender:'男'
+		},{
+			id:1002,
+			name:'lisi',
+			age:15,
+			gender:'女'
+		},{
+			id:1003,
+			name:'tom',
+			age:12,
+			gender:'男'
+		},{
+			id:1004,
+			name:'fairy',
+			age:15,
+			gender:'女'
+		},{
+			id:1005,
+			name:'tom',
+			age:12,
+			gender:'男'
+		}];
+		window.onload = function(){
+			var tbody = document.getElementsByTagName('tbody')[0];
+			var addBtn = document.getElementById('add');
+			var batchDeleteBtn = document.getElementById('batchdelete');
+			// 遍历数组，放置数据
+			var str = '';
+			stus.forEach(function(item){
+				str += `
+					<tr>
+						<td><input type="checkbox"></td>
+						<td>`+item.name+`</td>
+						<td>`+item.age+`</td>
+						<td>`+item.gender+`</td>
+						<td><button>删除</button></td>
+					</tr>
+				`;
+			});
+			tbody.innerHTML = str;
+			//tbody给删除按钮做代理
+			tbody.onclick = function(event){
+				var target = event.target;
+				if(target.nodeName === 'BUTTON'){
+					this.removeChild(target.parentNode.parentNode);
+				}
+			}
+			//批量删除
+			batchDeleteBtn.onclick = function(){
+				//获取所有用户选中的input,循环删除对应的tr
+				var inputs = document.getElementsByTagName('input');
+				inputs = Array.prototype.slice.call(inputs,0);
+				var inputsResult = inputs.filter(function(item){
+					return item.checked === true;
+				});
+				// console.log(inputsResult);
+				if(inputsResult.length>0){
+					inputsResult.forEach(function(item){
+						//item是一个一个的input
+						tbody.removeChild(item.parentNode.parentNode);
+					});
+				}else{
+					alert('请选择要删除的数据');
+				}
+			}
+			// 新增
+			addBtn.onclick = function(){
+				var newTr = document.createElement('tr');
+				var str = `
+					<td><input type="checkbox"></td>
+					<td>terry</td>
+					<td>12</td>
+					<td>男</td>
+					<td><button>删除</button></td>
+				`;
+				newTr.innerHTML = str;
+				tbody.appendChild(newTr);
+			}
+		}
+	</script>
+</head>
+<body>
+	<button id="add">新增</button>
+	<button id="batchdelete">批量删除</button>
+	<!-- 查看数据，单条删除，批量删除，新增 -->
+	<table>
+		<thead>
+			<tr>
+				<!-- 放置input复选框 -->
+				<th>编号</th>
+				<th>名字</th>
+				<th>年龄</th>
+				<th>性别</th>
+				<!-- 放置删除按钮 -->
+				<th>操作</th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- <tr>
+				<td><input type="checkbox"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><button>删除</button></td>
+			</tr> -->
+		</tbody>
+	</table>
+</body>
+</html>

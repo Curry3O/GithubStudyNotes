@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>沙箱</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background: pink;
+			text-align: center;
+			line-height: 100px;
+		}
+		p{
+			width: 100px;
+			height: 100px;
+			background: yellow;
+			text-align: center;
+			line-height: 100px;
+		}
+	</style>
+	<script>
+		var getTag = 1;
+		var divs = 2;
+		var pps = 3;
+		window.onload = function(){
+			(function(){
+				function getTag(tarName){
+					return document.getElementsByTagName(tarName);
+				} 
+				var divs = getTag('div');
+				for(var i=0;i<divs.length;i++){
+					divs[i].style.border = '1px solid black';
+				}
+				var pps = getTag('p');
+				for(var j=0;j<pps.length;j++){
+					pps[j].style.border = '2px solid blue';
+				}
+
+			}());
+			console.log(getTag,divs,pps);
+		}
+	</script>
+</head>
+<body>
+	<div>1</div><br>
+	<div>2</div><br>
+	<div>3</div><br>
+	<p>4</p>
+	<p>5</p>
+	<p>6</p>
+</body>
+</html>

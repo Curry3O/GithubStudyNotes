@@ -1,0 +1,142 @@
+git的历史：
+	1991年，Linus创建了开源的Linux，从此，Linux系统不断发展，已经成为最大的服务器系统软件了。Linus虽然创建了Linux，但Linux的壮大是靠全世界热心的志愿者参与的，这么多人在世界各地为Linux编写代码，那Linux的代码是如何管理的呢？
+	事实是，在2002年以前，世界各地的志愿者把源代码文件通过diff的方式发给Linus，然后由Linus本人通过手工方式合并代码！
+	到了2002年，Linux系统已经发展了十年了，代码库之大让Linus很难继续通过手工方式管理了，社区的弟兄们也对这种方式表达了强烈不满，于是Linus选择了一个商业的版本控制系统BitKeeper，BitKeeper的东家BitMover公司出于人道主义精神，授权Linux社区免费使用这个版本控制系统。
+	2005年，BitMover公司因某些原因，要收回Linux社区的免费使用权。
+	Linus花了两周时间自己用C写了一个分布式版本控制系统，这就是Git！一个月之内，Linux系统的源码已经由Git管理了！
+	Git迅速成为最流行的分布式版本控制系统，尤其是2008年，GitHub网站上线了，它为开源项目免费提供Git存储，无数开源项目开始迁移至GitHub，包括jQuery，PHP，Ruby等等。
+版本控制工具：
+
+下载并安装git
+	下载地址   https://git-scm.com/downloads
+	双击进行安装，安装流如正常软件
+	测试安装是否成功：
+		在命令行输入git命令，如果不报错，则成功
+
+自己将项目添加到github中，步骤如下：
+	0.创建github账号。
+	1.创建github仓库，并命名，比如说webgit
+	2.上传项目到该仓库
+		（1）创建本地文件夹webgit，在webgit中新建项目app文件夹，编写项目
+		（2）在命令行中，进入webgit文件夹
+		（3）初始化本地git
+				git init
+		（4）添加本地项目到缓存,并添加注释
+				git add * 
+				git commit -m “第一次提交”
+		（5）将本地与远程绑定
+				git remote add origin 远程仓库地址
+				git remote add origin https://github.com/liuyrSilence/webgit.git
+				输入用户名和密码
+		（6）将缓存中的项目放到远程仓库中
+				git push origin master
+		（7）如果修改项目之后，更新的话，执行以下操作
+				git add *
+				git commit -m "第二次提交"
+				git push origin master
+		（8）如果别人更改了代码，想更新本地代码的话，进入文件夹，执行命令
+				git pull origin master
+		（9）如果想把别人的项目从github中拉下来
+				git clone 远程仓库的地址
+				git clone https://github.com/liuyrSilence/webgit.git
+
+				
+如果，展示项目的话，借助github pages，步骤如下：
+	0.创建github账号
+	1.创建github仓库，命名必须符合以下规则，username.github.io。比如说liuyrSilence.github.io
+	2.上传项目到该仓库
+		（1）创本地文件夹webgit，在webgit中新建项目建app文件夹，编写项目
+		（2）在命令行中，进入webgit文件夹
+		（3）初始化本地git
+				git init
+		（4）添加本地项目到缓存,并添加注释
+				git add * 
+				git commit -m “第一次提交”
+		（5）将本地与远程绑定
+				git remote add origin 远程仓库地址
+				git remote add origin https://github.com/liuyrSilence/liuyrSilence.github.io.git
+				输入用户名和密码
+		（6）将缓存中的项目放到远程仓库中
+				git push origin master
+
+		（7）别人访问的时候，需要使用如下地址：
+				http://liuyrSilence.github.io/app来进入
+
+
+git图形化界面desktop github的使用
+	打开desktop github，登录
+	1.从github中拉资源：
+		左上角的+按钮，之后点击clone选项，选择要克隆的项目，选择要克隆到的位置
+	2.修改下载下来的资源文件并同步到github中：
+		（1）打开自己选择的位置的文件夹，修改项目中的文件
+		（2）在desktop github上点击，可看到变化（是因为该软件会监控目标文件夹的变化）
+		（3）在修改窗口的左下角，输入注释和描述，然后点击commit to master按钮。放到缓存中，相当于命令中的git commit -m “描述信息”
+		（4）同步到github中，右上角有一个sync按钮，点击，即可同步。相当于命令中的git push origin master
+
+
+
+
+
+---------代码更新，本地仓库->远程仓库---------
+1. git init
+	将当前文件夹初始化git本地仓库
+2. git add *							
+	将当前文件夹中所有的文件添加到缓存中
+3. git commit -m '填写提交的原因'
+	将缓存中的所有文件提交到本地仓库中
+	如果报错的话，需要
+		git config --global user.email '904105440@qq.com'
+		git config --global user.name 'liuyrSilence'
+		git commit -m "第一次提交"
+	查看信息：git log
+4.git remote add origin 自己仓库的地址
+	将本地仓库与远程仓库建立起连接，远程仓库地址为 https://github.com/liuyrSilence/webgit.git
+	例如：git remote add origin https://github.com/liuyrSilence/test.git
+5. git push -u origin master
+	将本地仓库中的所有文件推送的远程仓库中
+
+6. 如果修改了git仓库中的文件，想再次提交，这时候只需
+	git add *
+	git commit -m '再次提交'
+	git push origin master
+
+总结：
+	如果你已经远程提交过你的代码，也就是说你早已经将本地仓库和远程仓库绑定了，现在只是本地仓库内容变化了，你想让这个变化体现在远程仓库中。你只需要做
+	git add *
+	git commit -m '再次提交'
+	git push origin master	
+	就会自动提交到远程仓库中，因为你早已经绑定了远程仓库和本地仓库了，计算机已经记住了你的远程仓库的地址，你无序再执行git remote add origin https://github.com/liuyrSilence/webgit.git， 如果执行反而报错！
+
+
+---------代码更新，远程仓库->本地仓库---------
+1. 当你想把别人仓库中的代码克隆到你本地仓库时候可以调用以下命令从远程仓库中获取内容
+	1) 新建任意文件夹，但是不要执行git init。也就是不要初始化
+	2) 执行 git clone https://github.com/liuyrSilence/webgit.git
+	3) 这时候你会发现当前文件中多了一个 webgit 的文件
+	4) 进入这个文件，你会发现这里面有个.git的隐藏文件
+2. 当你本地已经clone过别人的仓库，但是别人仓库中的内容进行了更新，你也想把你仓库中的内容更新，就像我更新了笔记，但是你之前已经克隆了我的笔记，你想让你的笔记和我的笔记保持同步，可以执行以下操作
+	1)在dos里 进入到webgit这个文件夹中.即 cd webgit
+	2)执行 git pull origin master即可。
+		该命令的意思是获取到远程服务器中的最新版本，并且将最新版本和本地仓库的内容进行合并
+		相当于执行了
+			git fetch origin master
+			git merge origin/master
+
+总结
+	也就是说，你只要克隆过我的笔记。如果我上课时候更新了笔记以及代码，你如何将这些更新也更新到你的本地仓库呢？
+		1. 进入到webgit目录下
+		2. 执行 git pull origin master
+	仅仅两步即可。
+
+
+git clean -dfx 清除用户信息
+
+
+---------------------------
+
+
+
+
+
+
+

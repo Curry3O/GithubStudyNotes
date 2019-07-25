@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>单位</title>
+	<style>
+		body{
+			font-size: 20px;
+		}
+		.parent{
+			/*默认1em=16px(font-size:16px)*/
+			/*width: 10em;  
+			height: 10em;*/
+            
+            /*rem默认值就是1rem=16px,不能更改*/
+			width: 10rem;
+			height: 10rem;
+			background-color: coral;
+			/*单位也可以为cm(厘米),mm(毫米),in(英寸),都是绝对单位*/
+		}
+		.child{
+			width: 5em;
+			height: 5em;
+            
+            /*是父类的50%，也就是父类高的一半，宽的一半（比如：width*50%）*/
+			/*width: 50%
+			height: 50%;*/
+			background-color: cyan;
+		}
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="child">
+			
+		</div>
+	</div>
+	
+</body>
+</html>

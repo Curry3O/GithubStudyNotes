@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>18</title>
+	<script>
+		window.onload = function(){
+			var btns = document.getElementsByTagName('button');
+			btns[0].onclick = function(){
+				location.href = './13.html';
+			}
+			btns[1].onclick = function(){
+				location.assign('./14.html');
+			}
+			btns[2].onclick = function(){
+				location.reload();
+			}
+			btns[3].onclick = function(){
+				history.forward();
+				// history.go(-1);
+			}
+		}
+	</script>
+</head>
+<body>
+	<button>打开新页面1</button>
+	<button>打开新页面2</button>
+	<button>刷新</button>
+	<button>跳转下一页</button>
+</body>
+</html>

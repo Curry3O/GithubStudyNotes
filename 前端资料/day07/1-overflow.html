@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>溢出处理</title>
+	<style>
+		div{
+			width: 200px;
+			height: 200px;
+			border: 1px solid red;
+		}
+		.over-div{
+			/*溢出内容隐藏*/
+			/*overflow: hidden;*/
+
+            /*如果有溢出就产生滚动条，如果没有溢出就不产生滚动条*/
+			overflow: auto;
+
+			/*无论有没有溢出都产生滚动条(x，y轴都会产生滚动条)*/
+			/*overflow: scroll;*/
+		}
+		.one{
+			width: 100px;
+			height:100px;
+			background-color: pink;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="over-div">
+		hello
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		hello
+		hello
+		hello
+		hello
+		hello
+		hello
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
+		hello
+		hello
+		hello
+		hello
+		hello
+	</div>
+	<div class="one">
+		hello world
+	</div>
+	
+</body>
+</html>

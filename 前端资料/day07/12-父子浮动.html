@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>父子浮动</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			border: 1px solid blue;
+			list-style: none;
+			overflow: hidden;
+			/*清除浮动，给父元素设置了高度*/
+		}
+		li{
+			border: 1px solid red;
+			width: 100px;
+			height: 100px;
+			float: left;
+		
+
+		}
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: cyan;
+			/*clear: both;*/
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+	<div></div>
+	
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>20</title>
+	<script>
+		findAllCategory();
+		/*saveOrUpdateCategory();
+		deleteCategoryById();
+		batchDeleteCategory();*/
+		//查看
+		function findAllCategory(){
+			var http = new XMLHttpRequest();
+			http.open('GET','http://134.175.154.93:8099/manager/category/findAllCategory');
+			http.onreadystatechange = function(){
+				if (http.status === 200&&http.readyState === 4) {
+					console.log(http.responseText);
+				}
+			}
+			http.send();
+		}
+		//保存或更新
+		function saveOrUpdateCategory(obj){
+			var http = new XMLHttpRequest();
+			http.open('POST','http://134.175.154.93:8099/manager/category/saveOrUpdateCategory');
+			http.onreadystatechange = function(){
+				if (http.status === 200&&http.readyState ===4) {
+					console.log(http.responseText);
+					findAllCategory();
+				}
+			}
+			http.setRequestHeader("Content-Type","application/x-www-form-urlencoded;charset=UTF-8");
+			http.send(encodeFormData(obj));
+		}
+		//删除
+		function deleteCategoryById(id){
+			var http = new XMLHttpRequest();
+			http.open('GET','http://134.175.154.93:8099/manager/category/deleteCategoryById?id='+id);
+			http.onreadystatechange = function(){
+				if (http.status ===200&&http.readyState ===4) {
+					console.log(http.responseText);
+					findAllCategory();
+				}
+			}
+			http.send();
+		}
+		//批量删除
+		function batchDeleteCategory(obj){
+			var http = new XMLHttpRequest();
+			http.open('POST','http://134.175.154.93:8099/manager/category/batchDeleteCategory');
+			http.onreadystatechange = function(){
+				if (http.status ===200&&http.readyState ===4) {
+					console.log(http.responseText);
+					findAllCategory();
+				}
+			}
+			http.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded;charset=UTF-8');
+			http.send(encodeFormData(obj));
+		}
+		//用于HTTP请求的编码对象
+		function encodeFormData(data){
+				if(!data){
+					return "";
+				}
+				var pairs = [];
+				for(var name in data){
+					if(!data.hasOwnProperty(name)){
+						continue;
+					}
+					if(typeof data[name] == "function"){
+						continue;
+					}
+					var value = data[name].toString();
+					name = encodeURIComponent(name.replace("%20","+"));//编码名字
+					value = encodeURIComponent(value.replace("%20","+"));//编码值
+					pairs.push(name+"="+value);
+				}
+				return pairs.join('&');
+			}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11</title>
+	<style>
+		header,footer,nav,aside,article,section,img{
+			display: block;
+		}
+		img{
+			width:200px;
+			heigth:400px;
+		}
+	</style>
+</head>
+<body>
+	<article>
+	<header>
+		<h3>I am Iron!</h3>
+		<img src="./images/1.png" alt="">
+		<a href="./2-img.html" target="_blank">点我</a>
+	</header>
+	<nav class="menu">
+		<ul>
+			<li><a href="#">home</a></li>
+			<li><a href="#">hosptial</a></li>
+			<li><a href="#">school</a></li>
+		</ul>
+	</nav>
+	<hr />
+	<section>
+		<figure>
+			<img src="./images/1.png" alt="">
+			<figcaption>哇哦！这是仙女吧</figcaption>
+		</figure>
+	</section>
+	<footer>
+		<p>
+			Posted on
+			<time datetime="2019-6-13 17:00">July 13</time>
+			by Tom.
+		</p>
+	</footer>
+	<hr />
+	</article>
+	<form action="./2-img.html" method="get" enctype="application/x-www-form-urlencoded">
+		<div>
+			<label for="username">
+			    我的昵称:
+			</label>
+			<input type="text" name="username" placeholder="输入用户名" />
+		</div>
+		<div>
+			<label>
+				我的密码:
+			</label>
+			<input type="password" name="password" placeholder="输入密码" />
+		</div>
+		<div>
+			<input type="submit" value="登录" />
+		</div> 
+		<div>
+			<button type="reset" value="重置" >重置</button>
+		</div>
+		</form>
+	<details>
+		<summary>
+			CXK
+		</summary>
+		<dd>像极了爱情！</dd>
+		<figure>
+			<img src="./images/1.png" alt="">
+			<figcaption>这就是我想要的爱情</figcaption>
+		</figure>
+	</details>
+	<table border="5px" width="300ox" bgcolor="blue" align="center" cellspacing="10px" cellpadding="0">
+		<caption align="center">比分情况
+		<colgroup>
+			<col />
+			<col span="3" style="background-color: yellow" />
+        </colgroup>
+        </caption>
+		<thead>
+			<tr>
+				<th>a</th>
+				<th>b</th>
+				<th>c</th>
+				<th>d</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>30</td>
+				<td>11</td>
+				<td>35</td>
+				<td>23</td>
+			</tr>
+			<tr>
+				<td>02</td>
+				<td rowspan="2">23</td>
+				<td>09</td>
+				<td>03</td>
+			</tr>
+			<tr>
+				<td>13</td>
+				<!-- <td>03</td> -->
+				<td>52</td>
+				<td>25</td>
+			</tr>
+			<tr>
+				<td colspan="3">23</td>
+				<!-- <td>69</td> -->
+				<!-- <td>34</td> -->
+				<td>45</td>
+			</tr>
+		</tbody>
+		
+	</table>
+	
+</body>
+</html>

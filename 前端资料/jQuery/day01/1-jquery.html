@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery</title>
+	<!-- 引入第三方资源 -->
+	<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+	<script>
+		//获取div节点的操作
+		$(function(){
+			//文档加载完毕之后
+			//$div是jQuery对象,是jQuery函数调用完之后的返回值
+			//jQuery对象是类数组对象，元素是DOM节点
+			var $div = $('div');
+			console.log($div);
+		});
+	</script>
+</head>
+<body>
+	<div>hello</div>
+</body>
+</html>

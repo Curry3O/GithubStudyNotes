@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪类选择器</title>
+	<style>
+		/* 鼠标悬停的时候 ，选中下一个兄弟元素，展示出来*/
+		/*显示元素，块级显示*/
+		/*.btn-div:hover+*{
+			display: block;*/
+
+		.btn-div:hover>.list-div{
+			display: block;
+		}
+		.list-div{
+			/*隐藏元素*/
+			display: none;
+		
+        }
+	</style>
+</head>
+<body>
+	<div class="btn-div">
+		<button>显示菜单</button>
+		<div class="list-div">
+		<ur>
+			<li>HTML</li>
+			<li>CSS</li>
+			<li>JavaScript</li>
+			<li>React</li>
+		</ur>
+	</div>
+	</div>
+	
+	
+</body>
+</html>

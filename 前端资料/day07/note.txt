@@ -1,0 +1,104 @@
+单位
+	px mm cm in
+	em   1em=16px 可更改
+	rem  1rem=16px 不可更改
+	百分比  %
+颜色
+	关键字
+	#ffffff
+	#fff
+	rgb(255,255,255)
+	rgba(255,255,255,0.5)
+font属性
+	font-family 字体家族
+		serif  
+		sans-serif
+		cursive
+		fantasy
+		monospace
+
+	WebFont
+		声明字体
+		@font-face{
+			font-family:'test';
+			src:url(./test.ttf);
+		}
+		使用网络字体
+		div{
+			font-family:test;
+		}
+
+	font-style  斜体
+		{
+			font-style:normal;
+			font-style: italic;
+			font-style: oblique;
+		}
+	font-weight  粗细
+		{
+			/*700*/
+			font-weight: bold;
+			font-weight: bolder;
+			font-weight: lighter;
+			font-weight: 700;
+			/*400*/
+			font-weight: normal;
+		}
+	font-size  字体大小
+
+	text-decoration  文本修饰
+		{
+			text-decoration: none;
+			text-decoration: underline;
+			text-decoration: overline;
+			text-decoration: line-through;
+			text-decoration-color: red;
+			text-decoration-style: solid;
+			text-decoration-style: wavy;
+			text-decoration-line: line-through;
+		}
+	text-transform  英文字体变形
+		{
+			text-transform: none;
+			text-transform: uppercase;
+			text-transform: lowercase;
+			text-transform: capitalize;
+			text-transform: full-width;
+		}
+	text-shadow 文字阴影 
+		text-shadow:x y blur color;
+		text-shadow:3px -3px 2px red;
+list-style属性
+	{
+		list-style:none;
+		list-style-type: disc;
+		list-style-type: square;
+		list-style-type: decimal;
+		list-style-type: decimal-leading-zero;
+		list-style-type: upper-alpha;
+		list-style-image: url(./);
+		list-style-position: inside;
+		list-style-position: outside;
+	}
+
+属性
+	display:none/block/;  
+	visibility:hidden/visible
+	opacity:0/1/0.5
+	overflow:溢出内容的处理
+
+图片精灵技术
+	服务器
+	前端项目部署到服务器上，图片当然也是在服务器上。网页如果要显示a图片，如果显示b图片，如果套很多个图片，需要访问很多次服务器，占用网络的资源
+	background-position:
+
+浮动
+	飘起来
+
+
+
+
+
+
+
+

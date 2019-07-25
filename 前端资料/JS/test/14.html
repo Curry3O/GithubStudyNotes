@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>car</title>
+	<style>
+		*{
+			margin: 0;
+		}
+		html{
+			height: 100%;
+		}
+		body{
+			background-image: url(../images/bb.jpg);
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+		}
+		div{
+			background-image: url(../images/R.png);
+			width: 200px;
+			height: 100px;
+			background-size: 100% 100%;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var div = document.getElementsByTagName('div')[0];
+			document.onkeydown = function(event){
+				// 37左 38上 39右 40下
+				var left = parseFloat(div.style.marginLeft);
+				var top = parseFloat(div.style.marginTop);
+				if (event.keyCode == 37&&left >0) {
+					div.style.backgroundImage = 'url(../images/L.png)';
+					div.style.width = '200px';
+					div.style.height = '100px';
+					div.style.marginLeft = (left-10)+'px';
+				}
+				if (event.keyCode == 39) {
+					div.style.backgroundImage = 'url(../images/R.png)';
+					div.style.width = '200px';
+					div.style.height = '100px';
+					div.style.marginLeft = (left+10)+'px';
+				}
+				if (event.keyCode == 38&&top >0) {
+					div.style.backgroundImage = 'url(../images/T.png)';
+					div.style.width = '100px';
+					div.style.height = '200px';
+					div.style.marginTop = (top-10)+'px';
+				}
+				if (event.keyCode == 40) {
+					div.style.backgroundImage = 'url(../images/D.png)';
+					div.style.width = '100px';
+					div.style.height = '200px';
+					div.style.marginTop = (top+10)+'px';
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div style="margin:100px"></div>
+</body>
+</html>

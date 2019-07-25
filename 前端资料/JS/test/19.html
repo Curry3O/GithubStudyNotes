@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>19</title>
+	<script>
+		getAllDate();
+		function getAllDate(){
+			var http = new XMLHttpRequest();
+			http.open('GET','http://www.wangshuwen.com/api/getRegion');
+			http.onreadystatechange = function(){
+				if (http.status === 200&&http.readyState ===4) {
+					var res = http.responseText;
+					console.log(res);
+					console.log(JSON.parse(res));
+					var arr = JSON.parse(res).data;
+					console.log(arr);
+				}
+				http.send;
+			}
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>
