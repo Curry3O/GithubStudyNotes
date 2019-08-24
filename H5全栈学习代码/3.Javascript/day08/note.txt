@@ -1,0 +1,27 @@
+Object熟悉操作
+configurable    delete删除  能否重新被定义
+enumerable
+writable
+value
+获取属性的特性
+Object.getOwnPropertyDescriptor(obj,'name');
+设置属性特性
+Object.defineProperty(obj,'name',{writable:false});
+Object.defineProperties(obj,{name:{writable:false},age:{}});
+正则表达式
+1.构造函数
+var pattern = new RegExp('hello','ig');
+2.字面量
+var pattern = /hello/ig;
+正则表达式的使用
+1.正则表达式对象的属性或者方法
+pattern.lastIndex
+pattern.test(str)
+2.String类型对正则表达式的支持方法
+str.search(pattern);
+str.match(/hello/ig);
+str.replace(/hello/ig,'hi');
+str.split(/hello/ig);
+str.split('&');
+进行字符串的裁切，返回数组
+

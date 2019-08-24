@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM2级</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background: pink;
+			text-align: center;
+			line-height: 100px;
+		}
+	</style>
+	<script>
+		//DOM2级可以与DOM0级共存
+		//非IE8及以下
+		//使用DOM2级绑定(绑定多个事件时依次执行)
+		window.onload = function(){
+			var div = document.getElementsByTagName('div')[0];
+			div.addEventListener('click',handle1,false);
+			div.addEventListener('click',handle2,false);
+			function handle1(){
+				alert(1);
+			}
+			function handle2(){
+				alert(2);
+			}
+			//使用DOM0级绑定(绑定多个事件时后面覆盖前面的)
+			/*div.onclick = function(){
+				alert(3);
+			}
+			div.onclick = function(){
+				alert(4);
+			}*/
+			//使用DOM2级解绑
+			div.removeEventListener('click',handle1,false);
+			//IE8及以下
+			//绑定(逆序执行)
+			/*div.attachEvent('onclick',handle1);
+			div.attachEvent('onclick',handle2);
+			// 2    1
+			//解绑
+			div.detachEvent('onclick',handle1);*/
+		}
+	</script>
+</head>
+<body>
+	<div>点击我</div>
+</body>
+</html>

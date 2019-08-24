@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入react react-dom babel -->
+    <script src="./js/react.js"></script>
+    <script src="./js/react-dom.js"></script>
+    <script src="./js/babel.min.js"></script>
+    <!-- babel转换 type="text/babel" -->
+    <script type="text/babel">
+
+        // 声明组件-函数声明方式
+    function MyCom(props){
+      // props是父组件给子组件传参存放的位置，是一个对象
+      // 变量渲染
+      let test = 'test1';
+      // 返回的是模板
+      return (
+        <div>
+          <h1>hello{test}</h1>
+          <h2>world{props.stua.name}</h2>
+        </div>
+      );
+    }
+    // 将组件渲染到容器中
+    let student = {
+      name:'zhangsan'
+    };
+    // 给子组件传参
+    ReactDOM.render(<MyCom stua={student}/>,document.getElementById('container'));
+    
+    ReactDOM.render(<MyCom stua={student}/>,document.getElementById('one'));
+    // 写one的渲染
+    // temp是React元素
+    /* const temp = <h3>temp</h3>;
+    console.log(temp);
+    ReactDOM.render(temp,document.getElementById('one')); */
+  </script>
+</head>
+
+<body>
+    <div id="container"></div>
+    <div id="one"></div>
+</body>
+
+</html>

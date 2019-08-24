@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>弹性盒布局-伸缩盒布局-flex布局</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			height: 650px;
+			border: 1px solid red;
+			display: flex;
+			/*排列成一行，默认，x轴为主轴*/
+			flex-direction: row;
+			/*排列成一列，y轴为主轴*/
+			/*flex-direction: column;*/
+			/*反转过来，从右边开始排*/
+			/*flex-direction: row-reverse;*/
+			/*反转过来，从下开始排*/
+			/*flex-direction: column-reverse;*/
+
+			/*主轴对齐方式*/
+			/*从主轴的起点对齐，默认的*/
+			/*justify-content: flex-start;*/
+			/*从主轴的终点对齐*/
+			/*justify-content: flex-end;*/
+			/*项目在主轴上居中对齐*/
+			/*justify-content: center;*/
+			/*项目在主轴上，项目与项目之间有空间*/
+			/*justify-content: space-between;*/
+			/*项目四周有空间*/
+			/*justify-content: space-around;*/
+
+			/*交叉轴上的对齐方式*/
+			/*交叉轴的起点对齐，默认*/
+			/*align-items: flex-start;*/
+			/*交叉轴的终点对齐*/
+			/*align-items: flex-end;*/
+			/*交叉轴的居中对齐*/
+			/*align-items: center;*/
+			/*如果项目没有设置高度，这是默认的对齐方式*/
+			/*stretch拉伸项目高度，占满父元素的高度*/
+			/*align-items: stretch;*/
+			/*基准线对齐，项目内部的文本对齐，项目需要设置高度*/
+			/*align-items: baseline;*/
+
+			/*多主轴的对齐方式*/
+			/*项目多了一个主轴放不下可以换行显示*/
+			/*flex-wrap: wrap;*/
+			/*多主轴在交叉轴的对齐方式*/
+			/*align-content: flex-start;*/
+			/*align-content: flex-end;*/
+			/*align-content: center;*/
+			/*align-content: space-between;*/
+			/*align-content: space-around;*/
+			/*默认的*/
+			/*align-content: stretch;*/
+			/*flex-direction:row; flex-wrap:wrap; */
+			/*简写*/
+			/*flex-flow: row wrap;*/
+
+		}
+		.container>div{
+			flex: 1;
+			/*平分父容器在主轴的空间,占父容器的1/3*/
+            width: 200px;
+			/*height: 200px;*/
+			border: 1px solid blue;
+
+		}
+		div.one{
+			/*最小占据主轴上空间为200px；如果有空间再占用父容器的1/3*/
+			flex-basis: 200px;
+			/*flex: 200px 1;*/
+			/*flex:2;*/
+			/*height: 100px;*/
+			/*padding:10px;*/
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="one">one</div>
+	    <div class="two">two</div>
+	    <div class="three">three</div>
+	    <!-- <div class="one">one</div>
+	    <div class="two">two</div>
+	    <div class="three">three</div>
+	    <div class="one">one</div>
+	    <div class="two">two</div>
+	    <div class="three">three</div>
+	    <div class="one">one</div>
+	    <div class="two">two</div>
+	    <div class="three">three</div> -->
+	
+	</div>
+	
+</body>
+</html>

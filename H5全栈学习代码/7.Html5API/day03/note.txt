@@ -1,0 +1,13 @@
+拖放元素  是一个可拖放元素，img和a默认可拖放  设置 draggable = "true"
+1.dragstart 拖放开始
+2.drag  正在拖放
+3.dragend  拖放结束
+
+目标元素  放置拖放元素   设置可放置的目标元素
+1.dragenter  进入目标元素
+2.dragover  在目标元素内部活动       event.preventDefault() 阻止默认行为
+3.drop    将拖放元素放置在目标元素内部   event.stopPropagation() 阻止冒泡
+
+拖放事件生命周期
+dragstart-->drag-->dragenter-->dragover-->drop-->dragend
+

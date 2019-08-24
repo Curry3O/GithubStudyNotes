@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>插入节点</title>
+	<style>
+		.outer{
+			border: 1px solid red;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			var $newSpan = $('<span>world</span>');
+			/*//将$newSpan追加到outer中最后
+			$('.outer').append($newSpan);
+			//克隆节点   浅复制不复制事件，深复制复制事件
+			var $clone = $newSpan.clone();
+			//将$newSpan追加到outer中最前
+			$('.outer').prepend($clone);*/
+
+			//将$newSpan作为兄弟节点追加到之后
+			// $('.outer').after($newSpan);
+			//将$newSpan作为兄弟节点追加到之前
+			// $('.outer').before($newSpan);
+
+		});
+	</script>
+</head>
+<body>
+	<div class="outer">
+		<span>hello</span>
+	</div>
+	<div class="outer">
+		<span>hello</span>
+	</div>
+</body>
+</html>

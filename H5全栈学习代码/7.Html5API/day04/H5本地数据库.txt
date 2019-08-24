@@ -1,0 +1,314 @@
+本地数据库
+在HTML4中，数据库只能放在服务器端，只能通过服务器来访问数据库，但是在HTML5中，可以像访问本地文件那样轻松地对内置数据库进行访问。在HTML5中内置了两种本地数据库，一种为"SQL Lite"(Web SQL关系型数据库),可以通过SQL语言来访问的文件型SQL数据库。另外一种为"indexedDB"的NoSQL类型的数据库(非关系型数据库,数据仓库存放数据,需要借助事务去操作,key value键值对形式去存放数据 value可以是一个对象)。到目前为止Chrome6+，Opera10+，Safari5+ 的浏览器对SQLLite数据库提供支持。
+
+1.SQLLite数据库  WebSQL数据库   谷歌支持，火狐目前不支持
+	SQL语句
+	              字段的名称和类型
+		创建表：create table student(id integer,name text,age integer,tel text)
+		删除表：drop table student
+		插入数据：insert into student values(1001,'zhangsan',12,'12323233434')
+		修改数据：update student set name='lisi' where id=1001
+		查询数据：select * from student
+		删除数据：delete from student
+	1) 访问方式
+		1. 使用openDatabase方法创建一个访问数据库的对象
+			/*数据库的名称 数据库的版本 数据库的描述 数据库的容量大小(字节)*/
+		 	var db = openDatabase("mydb",1.0,'Test DB',2*1024*1024)   /2M/
+		2. 使用事务处理
+
+		/* ?代表sql语句中的占位符
+		var sql = 'insert into student values(?,?,?,?)';
+		sql注入
+		ts.executeSql(sql,[1001,'zhangsan',12,'12323233434')],function(ts,result){},function(ts,errorMsg){}); */
+
+			db.transaction(function(ts){
+				ts.executeSql(sql,[],function(ts,result){},function(ts,errorMsg){});
+			});
+	2) API
+		window.openDatabase(dbName,version,desc,size,[fun])
+			参数分别为数据库名，版本号，数据库的描述，数据库的大小(以字节为单位)，回调函数
+			返回值为创建后的数据库访问对象，如果数据库不存在，则创建该数据库
+		dataBase.transaction(fun)
+			执行事务处理，使用事务处理，可以防止在对数据库进行访问以及执行有关操作时受到外界的干扰。
+			参数为回调函数，在该回调函数中，执行访问数据库的语句
+		transaction.executeSql(sql,[],dataHandler,errorHandler);
+			sql 	需要执行的SQL语句
+			[]sql中所有使用到的参数的数组，sql语句中可以使用占位符?进行替代
+			dataHandller	成功执行SQL语句时调用的回调函数
+				function dataHandler(transaction,results){
+					//transaction 事务对象
+					//results 执行查询操作时返回的查询到的结果数据集对象
+				}
+			errorHandler 	执行SQL语句出错时调用的回调函数
+				function errorHandler(transaction,errmsg){
+					//transaction 事务对象
+					//errmsg 执行发生错误时的错误信息文字
+				}
+
+2. indexedDB
+	该数据库是一种存储在客户端本地的NoSQL数据库，目前Firefox4+，IE10，Chrome11+对其提供了支持
+	数据库-->数据仓库/对象仓库/对象存储-->对象记录
+	一个网站可能有一个或多个 IndexedDB 数据库，每个数据库必须具有唯一的名称。
+	一个数据库可包含一个或多个对象存储。
+	一个对象存储（由一个名称惟一标识）是一个记录集合。
+	每个记录有一个键和一个值。该值是一个对象，可拥有一个或多个属性。键可能基于某个键生成器，从一个键路径衍生出来，或者是显式设置。一个键生成器自动生成唯一的连续正整数。键路径定义了键值的路径。它可以是单个 JavaScript 标识符或多个由句点分隔的标识符。
+	在indexedDB-API中，对象仓库中的每一条记录均为一个具有一个或多个属性值的对象。
+
+
+	1. 使用步骤
+	1) 打开indexedDb连接并创建对象仓库
+         /**
+         * 1.获取数据库连接
+         * */
+        function getConnection (handler) {
+            var request=window.indexedDB.open("sms");
+            request.onerror=function(e){
+                console.log('OPen Error!',e);
+            };
+            request.onsuccess=function(e){
+                db=e.target.result;
+                handler(db);
+            };
+            /**
+             * 2. 创建对象仓库
+             * */
+            request.onupgradeneeded = function(e) {
+                var oldVersion = e.oldVersion;
+                var newVersion = e.newVersion;
+                console.log("数据库版本更新成功！旧版本为" + oldVersion + ",新版本为" + newVersion);
+                //删除原有的数据仓库，创建新的数据仓库
+                var db=e.target.result;
+                if(db.objectStoreNames.contains("Users")){
+                    db.deleteObjectStore("Users");
+                }
+                //创建对象仓库
+                var store = db.createObjectStore("Users",{
+                    keyPath:"userId",
+                    autoIncrement:true
+                });
+            }
+        }
+
+    2) 执行增删改查操作
+		在使用indexedDB数据库时，所有对于数据的操作都在一个事务内部执行。事务为以下两种：
+			只读事务	"readonly"
+			读写事务	"readwrite"
+
+    	 /**
+         * 保存
+         * */
+        function save() {
+            getConnection(function(db){
+                var user = {
+                    userName:"terry",
+                    address:"shanxi"
+                };
+                //开启事务
+                var tx = db.transaction(["Users"],"readwrite");
+                //获取对象仓库
+                var store = tx.objectStore("Users");
+                var req = store.put(user);
+                req.onsuccess = function () {
+                    alert("保存成功");
+                };
+            });
+        }
+        /**
+         * 获取单个
+         * */
+        function get() {
+            getConnection(function (db) {
+                //开启事务
+                var tx = db.transaction(["Users"],"readwrite");
+                //获取对象仓库
+                var store = tx.objectStore("Users");
+                var req = store.get(1);
+                req.onsuccess = function () {
+                    console.log(this.result);
+                };
+            })
+        }
+        /**
+         * 删除
+         * */
+        function del() {
+            getConnection(function (db) {
+                //开启事务
+                var tx = db.transaction(["Users"],"readwrite");
+                //获取对象仓库
+                var store = tx.objectStore("Users");
+                var req = store.delete(1);
+                req.onsuccess = function () {
+                    var result = this.result;
+                    console.log("删除成功",result);
+                };
+            })
+        }
+
+	2.API
+		网址：https://www.w3.org/TR/IndexedDB/
+		1)indexedDB【对象】
+			open(name,version) 		返回IDBOpenDBRequest的一个实例对象
+			deleteDatabase(name) 	删除数据库，参数为数据库的名字
+		2)IDBOpenDBRequest open函数的返回值
+			onsuccess   成功之后触发的事件
+			onerror		失败之后触发的事件
+			onupgradeneeded	版本更新之后触发的事件，一般在这里获取数据库对象之后，创建对象仓库
+
+			event.target.result      IDBDatabase对象
+		3)IDBDatabase indexedDB数据库 【构造函数】
+			objectStoreNames  获取所有对象仓库的名字
+			
+			createObjectStore(storeName,{}) 	创建对象仓库
+				参数:
+					storeName
+						对象仓库名
+					optionalParameters
+						可选，参数值为一个JS对象
+						keyPath 		用于指定对象仓库中的每一条记录使用哪个属性值来作为该记录的主键值
+						autoIncrement 	当取值为true时，表示主键值自增，在添加数据的时候无需指定主键值
+				示例：	
+					db.createObjectStore(storeName,{
+						keyPath:"id",
+						autoIncrement:true
+					});	
+
+			deleteObjectStore(name)		删除对象仓库，参数为删除的对象仓库的名字
+
+			transaction(stores,mode) 			获得事务
+				参数:
+					arr[] 表示由一些对象仓库名组成的一个字符串数组，用于定义事务的所用范围，即限定该事务中所运行的读写操作只能针对哪些对象仓库进行；当事务中的数据存取操作只针对某个对象仓库时，该参数值也可以为一个由该对象仓库名；也可以为idb.objectStoreNames,表示由该数据库中所有对象仓库名构成的数组(不建议使用)。
+
+					mode 可选参数，用于定义事务的读写模式
+				示例：
+					var transaction = db.transaction(storeName,"readwrite");
+
+		4)IDBTransaction indexedDB事务 【构造函数】
+			objectStore(storeName)  获取对象仓库。参数为仓库名
+
+		5)IDBObjectStore indexedDB对象仓库 【构造函数】
+			put(obj)	添加。添加数据，重复添加会更新原有数据
+			add(obj)	添加。添加数据，重复添加会报错
+
+			get(key)	通过主键获取
+			getAll()	获取所有
+
+			delete(key) 通过主键删除
+			clear()		删除所有
+
+			【返回值是IDBRequest对象，如果执行成功，则进行后续操作】
+
+		6)IDBRequest indexedDB请求对象,是仓库对象执行方法之后的返回值【构造函数】
+			onsuccess   成功之后触发的事件
+			onerror		失败之后触发的事件
+
+			result      结果集
+		
+--------------------------------------------			
+附：
+	封装indexedDB：
+		var btns = document.getElementsByTagName("button");
+		// 创建对象仓库
+		(function init(dbName,storeName){
+			var request = indexedDB.open(dbName,"1");
+			request.onupgradeneeded = function(){
+				var db = this.result;
+				if(db.objectStoreNames.contains(storeName)){
+					db.deleteObjectStore(storeName);
+				}
+				db.createObjectStore(storeName,{
+					keyPath:"id",
+					autoIncrement:true
+				});
+				console.log("对象仓库创建成功");
+			}
+		}("db2","Users2"));
+		btns[0].onclick = function(){
+			var obj = {
+				name:"terry",
+				age:12,
+				gender:"female"
+			};
+			saveUser(obj,function(event){
+				alert("保存成功");
+			});
+		} 
+		btns[1].onclick = function(){
+			findAllUser(function(event){
+				console.log("查询成功");
+				console.log(event);
+			});
+		}
+		btns[2].onclick = function(){
+			deleteUser(1,function(){
+				console.log("删除成功");
+			});
+		}
+
+		
+		//获取仓库
+		function getStore(dbName,storeName,handler){
+			var request = indexedDB.open(dbName);
+			request.onsuccess = function(){
+				var db = this.result;
+				var transaction = db.transaction(storeName,"readwrite");
+				var store = transaction.objectStore(storeName);
+				handler(store);
+			}
+		}
+ 
+		//添加
+		function saveUser(student,handler){
+			getStore("db2","Users2",function(store){
+				//获取仓库
+				var request = store.put(student);
+				request.onsuccess = function(event){
+					handler.call(this,event);
+				}
+			});
+		}
+		// 查询
+		function findAllUser(handler){
+			getStore("db2","Users2",function(store){
+				var request = store.getAll();
+				request.onsuccess = function(event){
+					handler.call(this,event);
+				}
+			});
+		}
+		//删除
+		function deleteUser(key,handler){
+			getStore("db2","Users2",function(store){				
+				var request = store.delete(key);
+				request.onsuccess = function(event){
+					handler.call(this,event);
+				}
+			});
+		}
+
+
+
+
+附：
+indexedDB预定义
+	window.indexedDB = window.indexedDB || window.webkitIndexedDB || window.mozIndexedDB || window.msIndexedDB;
+
+	window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+
+	window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+
+	window.IDBCursor = window.IDBCursor || window.webkitIDBCursor || window.msIDBCursor;
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+phrases: [ "Happy Tanabata Festival,\nmy baby", "You're my sweet heart", "喜欢与你在那条小道一起散步", "Every day,\nYou're beautiful", "I miss you every day", "The longest advertisement is waiting", "小斌斌爱你一生一世", "我们以后要生好多好多可爱的小宝宝", "Show you the most wonderful flowers", "You're better than them,\nwhoever they are", "小梦梦人家超级爱你哟", "老婆,\n我们结婚吧", "You are,\ntherefore I am", "Nothing better than You \ncould have happened to the world", "臭屁屁要乖乖略略略" ],

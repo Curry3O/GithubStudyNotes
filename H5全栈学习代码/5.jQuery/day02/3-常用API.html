@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>常用API</title>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			//获取内容
+			//如果选择器选中多个，使用html()只拿取第一个元素的内容
+			/*console.log($('div').html());  //<span>one</span>
+			//如果选择器选中多个，使用text()拿取所有元素的文本
+			console.log($('div').text());  //onetwothree*/
+
+			//设置内部内容  
+			//如果选择器选中多个，使用html(参数)   全部修改
+			// $('div').html('<h2>hello</h2>');
+
+			//设置内部文本	使用text(参数)   全部修改
+			// $('div').text('hello');
+			
+			//获取value值
+			//如果选择器选中多个，使用val()只获取第一个元素的value值
+			/*console.log($('input').val());   //hb
+			//效果一样
+			console.log($('input')[0].value);   //hb*/
+
+			//设置value值
+			//如果选择器选中多个，使用val(参数)   value全部修改
+			// $('input').val('hello');
+
+			//获取每一个选中元素的html
+			/*$('div').html(function(index,item){
+				//index 索引
+				//item 值
+				console.log(index,item);
+			});*/
+			//遍历
+			$('div').each(function(index,item){
+				//index 索引
+				//item DOM节点
+				// console.log(index,item);
+				console.log($(item).html());
+			});
+		});
+	</script>
+</head>
+<body>
+	<input type="text" value="hb">
+	<input type="text" value="lm">
+	<div><span>one</span></div>
+	<div><span>two</span></div>
+	<div><span>three</span></div>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制直线和渐变</title>
+	<style>
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			context = canvas.getContext('2d');
+			//直线1
+			//打开路径
+			context.beginPath();
+
+			//直线的起点
+			context.moveTo(0,0);
+			//直线的终点
+			context.lineTo(100,200);
+
+			//关闭路径
+			context.closePath();
+			
+			//设置边框样式
+			context.strokeStyle = 'coral';
+
+			//绘制路径
+			context.stroke();
+
+			//直线2
+			context.beginPath();
+			context.moveTo(100,200);
+			context.lineTo(300,200);
+			context.closePath();
+			context.strokeStyle = 'coral';
+			context.stroke();
+
+			//直线3
+			context.beginPath();
+			context.moveTo(300,200);
+			context.lineTo(400,400);
+			context.closePath();
+			context.strokeStyle = 'coral';
+			context.stroke();
+
+			//直线4
+			context.beginPath();
+			context.moveTo(0,200);
+			context.lineTo(100,0);
+			context.lineTo(300,0);
+			context.lineTo(400,200);
+			context.lineTo(300,400);
+			context.lineTo(100,400);
+			context.lineTo(0,200);
+			context.closePath();
+			context.strokeStyle = 'blue';
+			context.stroke();
+
+			//制作转折点
+			context.beginPath();
+			context.arc(100,200,5,0,Math.PI*2);
+			context.closePath();
+			//设置径性渐变填充样式
+			var gradient = context.createRadialGradient(100,200,2,100,200,5);
+			gradient.addColorStop(0,'yellow');
+			gradient.addColorStop(1,'coral');
+			context.fillStyle = gradient;
+			context.fill();
+
+			context.beginPath();
+			context.arc(300,200,5,0,Math.PI*2);
+			context.closePath();
+			var gradient = context.createRadialGradient(300,200,2,300,200,5);
+			gradient.addColorStop(0,'yellow');
+			gradient.addColorStop(1,'coral');
+			context.fillStyle = gradient;
+			context.fill();
+
+			//渐变的圆  填充模式
+			//创建线性渐变对象 参数  起始坐标x、y   结束坐标x、y 
+			// var g = context.createLinearGradient(0,350,100,350); //从左往右
+			var g = context.createLinearGradient(50,300,50,400); //从上到下
+			//添加渐变颜色  参数 偏移量0-1  颜色值
+			g.addColorStop(0.2,'red');
+			g.addColorStop(0.8,'blue');
+			context.fillStyle = g;
+			context.fillRect(0,300,100,100);
+
+
+			//创建径性渐变对象 参数  起始圆的圆心x、y和半径  结束圆心x、y和半径
+			var g = context.createRadialGradient(350,350,20,350,350,40);
+			g.addColorStop(0,'red');
+			g.addColorStop(1,'coral');
+			context.fillStyle = g;
+			context.fillRect(300,300,100,100);
+
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</html>

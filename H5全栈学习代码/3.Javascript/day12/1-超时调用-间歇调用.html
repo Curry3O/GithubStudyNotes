@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>超时调用-间歇调用</title>
+	<script>
+		//超时调用
+		//2秒后输出hello
+		/*var id = setTimeout(function(){
+			console.log('hello');
+		},2000);
+		console.log('----');
+		console.log(id);  //2
+		//1秒后终止setTimeout执行
+		setTimeout(function(){
+			console.log('1秒');
+			clearTimeout(id);
+		},1000);*/
+		/*function test(){
+			console.log(this);
+		}
+		window.test();
+		var a = 2;
+		console.log(window.a);*/
+
+		//间歇调用
+		//每隔一秒输出1
+		var ids = setInterval(function(){
+			console.log(1);
+		},1000);
+		//10秒后停止间歇调用
+		setTimeout(function(){
+			clearInterval(ids);
+		},10000);
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

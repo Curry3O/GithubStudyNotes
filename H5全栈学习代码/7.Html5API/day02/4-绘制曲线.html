@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制曲线</title>
+	<style>
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			//绘制曲线
+			var canvas = document.getElementById('canvas');
+			context = canvas.getContext('2d');
+			//打开路径
+			//两个控制点的曲线
+			/*context.beginPath();
+
+			//曲线的起点
+			context.moveTo(0,0);
+
+			//bezierCurveTo(c1x,c1y,c2x,c2y,x,y)
+			//参数  控制点1坐标x、y  控制点2坐标x、y   结束点坐标x、y
+			context.bezierCurveTo(200,0,400,200,400,400);
+
+			//绘制曲线
+			context.strokeStyle = 'teal';
+			context.stroke();
+
+			//一个控制点的曲线
+			context.beginPath();
+			context.moveTo(0,0);
+			//context.quadraticCurveTo(cx,cy,x,y)
+			//参数  控制点坐标x、y  结束点坐标x、y
+			context.quadraticCurveTo(400,0,400,400);
+			context.strokeStyle = 'green';
+			context.stroke();*/
+
+			//绘制复杂图形
+			context.beginPath();
+			context.moveTo(0,0);
+			context.quadraticCurveTo(400,0,400,400);
+			context.bezierCurveTo(400,200,200,0,0,0);
+			context.fillStyle = 'pink';
+			context.fill();
+
+
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</html>

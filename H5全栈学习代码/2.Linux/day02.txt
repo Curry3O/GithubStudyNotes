@@ -1,0 +1,172 @@
+day02
+学习目标
+	1.linux系统简介
+	2.Unix和Linux和Ubuntu的关系是什么？
+	3./下的目录介绍-->/etc下的文件的作用
+	4.vi命令操作
+	5.vim 
+	6.基础命令
+	7.用户相关的功能
+	8.history命令
+	9.权限
+
+1.linux系统简介
+2.Unix和Linux和Ubuntu的关系是什么？
+		Unix是内核，Linux是在Unix发展基础上的操作系统，Ubuntu是Lunux操作系统中的具体某一个。
+		Ubuntu与Linux的关系，相当于window10与window操作系统的关系
+		Unix是爷爷，Linux是爸爸，Ubuntu是众多儿子中的一个。
+3./下的目录介绍
+	bin  部分系统可执行文件目录
+	usr  unix system resouces  操作系统的文件
+		/usr/local   相当于c:/program files
+	var 
+		可变文件目录
+		用户信息
+		apache的www目录
+	etc 配置文件目录
+		/etc/passwd  用户信息
+		/etc/shadow  密码信息
+		/etc/group   组信息
+		/etc/gshadow   组密码信息
+		/etc/sudoers   设置组的权限
+		/etc/skel    创建了新用户之后，复制的家文件 
+		/etc/profile  核心配置
+	opt 安装软件目录  第三方安装包
+		解压即安装的软件 jdk eclipse
+	home 用户家目录 /home/ubuntu
+	root 超级用户家目录
+
+4.vi命令操作
+	三种模式
+		输入模式 
+			输入模式进入命令模式，使用esc
+			输入模式进入底行模式，使用esc进入到命令模式之后，使用:进入底行模式
+		命令模式
+			命令模式进入输入模式，使用i,a,o,I,A,O
+			命令模式进入底行模式，使用: / ?
+		底行模式
+			底行模式进入命令模式，使用两次esc
+			底行模式进入输入模式，先使用两次esc，进入命令模式，然后再使用i,a,o,I,A,O进入输入模式
+			:set nu  显示行号
+			:set nonu  不显示行号
+			i在光标前插入文本
+			I在光标所在行前插入
+    	a在光标后插入文本
+    	A在光标所在行未插入
+    	o在光标所在行下插入新行
+    	O在光标所在行上插入新行
+    配置当前用户vi永久显示行号
+    	vi ~/.vimrc
+    		set nu
+
+5.vim 
+	vi的升级版，linux的主要文本编辑，类似于window的记事本
+	打开或关闭vi
+		vi
+		vim
+
+6.基础命令
+	pwd
+		查看当前所在路径
+	cd
+		空  ~
+		相对路径
+			cd 不以/开始的
+		绝对路径
+			cd 以/开始的
+	ls
+		查看当前目录下的目录或者文件
+		ls 路径  
+			查看指定路径下的文件目录或者文件
+		-a 查看所有文件和隐藏文件
+		-A 查看所有文件和隐藏文件，除了.和..
+		-l 长格式列出所有的文件和目录
+	clear 
+		清屏
+	mkdir 
+		mkdir 目录名称
+			在当前目录下新建目录
+	rmdir 目录
+		删除空目录
+	more 预览文件内容
+		空格翻页，回车换行，q退出
+	man 帮助手册
+		man ls
+	sudo 临时提升权限
+		sudo !!执行上次命令
+	touch 创建文件
+		可以创建文件或者更改最近访问时间
+		touch 文件名
+
+7.用户相关的功能
+	whoami
+	添加用户：
+		adduser 用户名
+			$ adduser user1
+		查看/etc/passwd
+		查看/etc/group
+	添加组
+		addgroup 组名
+	新建用户指定组
+		adduser --gid 1000 user2
+
+		查看user2的家目录中是否与/etc/skel中的一样
+	更改用户到某个组
+		usermod  修改用户信息
+
+		usermod -g 1002 user1
+		usermod --gid 1002 user1
+	删除空余的组
+		groupdel user1
+		groupdel user2
+		在/etc/group查看
+	更改密码
+		root用户更改其他用户的密码
+			passwd user1
+		更改自己的密码
+			passwd  
+	切换用户
+		su  
+			切换到超级管理员身份
+		su 用户名
+			切换到用户  从root切换到其他用户不用输入密码
+			从其他用户切换到其他用户需要输入密码
+			whoami 当前用户
+		su - 
+			彻底切换，切换家目录，切换环境变量
+			直接切换到用户的家目录
+			每个用户都有一个家目录
+				有用户变量
+	删除用户 
+		userdel -r 用户名
+			-r删除所有的信息
+
+8.history命令
+	所有历史命令
+	!!	执行上一条命令
+	!20	执行20行的命令
+
+9.权限
+	用户角色
+		user  拥有者 u
+		group 同组人 g
+		other 其他人 o
+
+	文件权限
+		read 读  r
+		write 写  w
+		execute 执行  x
+	修改用户权限
+		1）chmod g+w index.html
+				为index.html添加同组人权限
+		2) chmod 777 index.html
+			用8进制设定
+			rwx rwx rwx
+			111 111 111
+			7	7	7
+
+
+
+
+
+

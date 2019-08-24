@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>相对定位</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+        }
+		.one{
+			background-color: coral;
+		}
+		.two{
+			background-color: cyan;
+			/*相对定位不脱离文档流，原先位置保留*/
+			position: relative;
+			/*如果不设置left和top，位置不发生更改，跟原来一样*/
+			/*只有定位元素才能设置 left right top bottom来改变最终的位置 */
+			left: 0;
+			top: 0;
+			left: 10px;
+			top: 10px;
+
+		}
+		.three{
+			background-color: navy;
+		}
+	</style>
+</head>
+<body>
+	<div class="one">one</div>
+	<div class="two">two</div>
+	<div class="three">three</div>
+	
+</body>
+</html>

@@ -1,0 +1,31 @@
+console.log(test);
+function test(){}
+var test = 1;
+
+//函数声明提升到最顶部，同名变量声明忽略
+function test(){}
+console.log(test);    //function test()
+test = 1;
+//变量声明提升到顶部，到函数声明的前边，如果有同名，则后边的覆盖前面的
+var test;
+function test(){}
+console.log(test);    //function test()
+test = 1;
+每一个构造函数都有一个原型对象与之对应
+Object.prototype.constructor === Object;
+实例是通过构造函数创建出来的，实例可以调用构造它的构造函数对应的原型对象中的属性和方法
+obj.toString === Object.prototype.toString
+判断实例的原型对象
+Object.prototype.isPrototypeOf(obj);
+arguments.length 实参个数
+arguments.callee  test函数
+this
+函数运行的执行环境
+test();  在test函数内部this--
+node js环境   this-->globalb对象
+浏览器 环境    this -->windows对象
+test(参数1，参数2);   global对象
+test.call(this,参数列表)
+test.call(this,参数数组)
+test.call(this)();     等同于 test.call(this,参数列表)();
+bind方法可以更变this指向，返回的是一个函数，需要后面加()去执行

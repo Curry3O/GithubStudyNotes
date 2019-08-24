@@ -1,0 +1,256 @@
+
+Ajax
+	1. Ajax
+		Ajax机制：通过创建XMLHttpRequest对象与服务器进行数据交互，向服务器发送请求，接受服务器的响应。
+		Ajax是Asynchronous JavaScript and XML的缩写，异步的JavaScript和XML. Ajax描述了一种主要使用脚本操作HTTP的Web应用架构，Ajax应用的主要特点是使用脚本操纵HTTP和Web服务器进行数据交换，不会导致页面重载。
+
+	2. HTTP
+		超文本传输协议(HyperText Transfer Protocol)规定了Web浏览器如何从Web服务器获取文档和向Web服务器提交表单内容，以及Web服务器如何响应这些请求和提交。通常，HTTP并不在脚本的控制下，只是当用户单击链接，提交表单和输入URL时才发生。但是，用JavaScript代码操纵HTTP是可行的。
+		1) HTTP请求
+			HTTP请求方法或动作
+			正在请求的URL
+			请求头集合，其中可能包含身份验证信息(可选)
+			请求体(可选)   / 请求报文
+		2) HTTP响应
+			一个数字和文本组成的返回码，用来显示请求的成功和失败
+			一个响应头集合
+			响应体  / 响应报文
+
+	3. XMLHttpRequest
+		浏览器在XMLHttpRequest构造函数上定义了它们的HTTP API,这个构造函数的每个实例都表示一个独立的请求/响应对，并且这个对象的属性和方法允许指定请求细节和提取响应数据。很多年前Web浏览器就开始支持XMLHttpRequest，并且其API已经到了W3C指定标准的最后阶段。同时W3C正在指定“2级XMLHttpRequest”标准草案。
+
+		注意：在使用XMLHttpRequest时，必须将html部署到web服务器中。
+
+		1) 指定请求
+			1. 实例化
+				var request = new XMLHttpRequest();
+				request为实例化的XMLHttpRequest对象，该对象可以重用，但是这将会终止之前通过该对象挂起的任何请求。
+
+			2. 指定请求
+				open()
+				参数：
+					1.指定HTTP方法或动作，这个字符串不区分大小写，通常大家用大写字母来匹配HTTP协议。取值可以为：GET/POST/HEAD/DELETE/OPTIONS/PUT 
+						GET	:用于常规请求，适用于URL完全指定请求资源，请求对服务器没有任何副作用，服务器的响应是可缓存的
+						POST:用于HTML表单，它在请求主体中包含额外数据，且这些数据常存储到服务器上的数据库中。相同URL的重复POST请求从服务器得到的响应可能不同，同时不应该缓存使用这个方法的请求。
+					2.URL,请求的主题，是相对于文档的URL。跨域请求会报错。
+					3.Boolean类型的值，如果值为false代表同步请求，send()方法将阻塞直到请求完成。这种情况下无需使用事件处理函程序，一旦send()返回，只需检查XMLHttpRequest对象的status和responseText属性。
+				request.open("GET","data.xml");
+
+			3. 设定请求头
+				setRequestHeader();
+				如果有请求头，需要调用该方法进行设定。
+				参数：
+					1.key
+					2.value
+
+				request.setRequestHeader("Content-type","text/plain;charset=UTF-8");
+				注意：
+					XMLHttpRequest将自动添加以下这些请求头以防止伪造，我们无法向setRequestHeader()传递以下请求头。
+					Accept-Charset		TE 				Content-Transfer-Encoding
+					Accept-Encoding		Date			Trailer
+					Connection			Expect			Transfer-Encoding
+					Content-Length		Host			Upgrade
+					Cookie 				Keep-Alive		User-Agent
+					Cookie2				Referer			Via
+			4. 指定可选的请求主体并向服务器发送
+				send()
+				参数：
+					请求主体内容，如果没有，为null,或者省略。
+
+			/*
+		  	  使用POST方法发送纯文本给服务器
+			*/
+			function postMessage(url,msg){
+				var request = new XMLHttpRequest();
+				request.open("POST",url);
+				request.setRequestHeader("Content-type","text/plain;charset=UTF-8");
+				request.send(msg);
+			}
+
+		2) 取得响应
+			status		以数字形式返回HTTP状态码	
+				200	OK
+				404	Not Found
+			  	403 forbidden	JSONP
+				500 后台代码异常
+			statusText	以文本形式返回HTTP状态码	OK	Not Found
+			getResponseHeader()		获取指定响应头
+			getAllResponseHeaders()	获取所有响应头
+			responseText	获取文本形式的响应体
+			responseXML		获取Document形式的响应体
+			readyState		返回HTTP请求状态
+				0	open()尚未调用	UNSENT
+				1	open()已调用		OPENED
+				2	接收到头信息		HEADERS_RECEIVED
+				3 	接收到响应主体		LOADING
+				4 	响应完成			DONE
+			readystatechange 请求状态改变事件
+				当readyState值改变为4或服务器的响应完成时，所有的浏览器都触发该事件
+
+			/*
+			  获取HTTP响应
+			*/
+			function getText(url,callback){
+				var request = new XMLHttpRequest();
+				request.open("GET",url);
+				request.onreadystatechange = function(){
+					//如果请求完成，并且请求成功
+					if(request.readyState === 4 && request.status ===200){
+						var type = request.getResponseHeader("Content-type");
+						if(type.match(/^text/)){	//如果响应是文本
+							callback(request.responseText);//执行回调函数
+						}
+					}
+				};
+				request.send(null);
+			}
+		3) 响应解码
+			1.MIME类型为text/plain,text/html,text/css 文本类型时，可以使用responseText属性解析
+			2.MIME类型为XML文档类型时，使用responseXML属性解析
+			3.如果服务器发送对象，数组这样的结构化数据作为其响应，他应该传输JSON编码的字符串数据。通过responseText接受到它，可以把它传递给JSON.parse()方法来解析。
+
+	4.编码请求主体
+		HTTP POST请求包括一个请求主体，它包含客户端传递给服务器的数据。
+		1) 表单编码的请求
+			当用户提交表单时，表单中的数据（每个表单元素的名字和值）编码到一个字符串中并随请求发送。对表单数据的编码方案：对每个表单元素的名字和值执行普通的URL编码（使用十六进制转义码替换特殊字符），使用等号把编码后的名字和值分开，并使用"&"符号分开键/值对。表单数据编码格式有一个正式的MIME类型 application/x-www-form-urlencoded
+
+			当使用POST方式提交这种顺序的表单时，必须设置"Content-Type"请求头为"application/x-www-form-urlencoded"
+
+			用于HTTP请求的编码对象
+			function encodeFormData(data){
+				if(!data){
+					return "";
+				}
+				var pairs = [];
+				for(var name in data){
+					if(!data.hasOwnProperty(name)){
+						continue;
+					}
+					if(typeof data[name] == "function"){
+						continue;
+					}
+					var value = data[name].toString();
+					name = encodeURIComponent(name.replace("%20","+"));//编码名字
+					value = encodeURIComponent(value.replace("%20","+"));//编码值
+					pairs.push(name+"="+value);
+				}
+				return pairs.join('&');
+			}
+
+			使用表单编码数据发起一个HTTP POST请求
+			function postData(url,data,callback){
+				var request = new XMLHttpRequest();
+				request.open("POST",url);
+				reqeust.onreadystatechange = function(){
+					if(request.readyState === 4 && callback){
+						callback(request);
+					}
+				};
+				//设置请求头
+				request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+				//发送表单编码的数据
+				request.send(encodeFormData(data));
+			}
+
+			使用表单编码数据发起GET	请求
+			function getData(url,data,callback){
+				var request = new XMLHttpRequest();
+				request.open("GET",url+"?"+encodeFormData(data));
+				reqeust.onreadystatechange = function(){
+					if(request.readyState === 4 && callback){
+						callback(request);
+					}
+				};
+				request.send(null);
+			}
+
+		2) JSON格式的编码请求
+			近年来，作为Web交换格式的JSON已经得到了普及。
+			function postJSON(url,data,callback){
+				var request = new XMLHttpRequest();
+				request.open("POST",url);
+				reqeust.onreadystatechange = function(){
+					if(request.readyState === 4 && callback){
+						callback(request);
+					}
+				};
+
+				request.setRequestHeader("Content-Type","application/json");
+				request.send(JSON.stringify(data));
+			}
+		3) XML编码的请求
+			XML有时也用于数据传输的编码，但是较少
+			//doc表示一个XML DOM
+			function postXML(url,doc,callback){
+				var request = new XMLHttpRequest();
+				request.open("POST",url);
+				reqeust.onreadystatechange = function(){
+					if(request.readyState === 4 && callback){
+						callback(request);
+					}
+				};
+				//自动设置合适的头部。
+				request.send(doc);
+			}
+	5. 中止请求和超时
+		function getData(url,timeout,callback){
+			var request = new XMLHttpRequest();
+			var flag = false;
+			var timer = setTimeout(function(){
+				flag = true;
+				request.abort();//中止请求
+			},timeout);
+			request.open("GET",url+"?"+encodeFormData(data));
+			reqeust.onreadystatechange = function(){
+				if(request.readyState !== 4 ){
+					return;
+				}
+				if(timeout){
+					return;	//如果超时返回
+				}else{
+					clearTimeout(timmer); 
+				}
+				if(request.status === 200){
+					callback(request);
+				}
+			};
+			request.send(null);
+		}
+	6. 跨域HTTP
+		作为同源策略的一部分，XMLHttpRequest请求对象通常仅可以发起和文档具有相同服务器的HTTP请求。可以在<form>,<iframe>元素中使用跨域URL，但因为同源策略，浏览器不允许原始脚本查找跨域文档内容。
+
+
+附：
+1. 编码方式
+	encodeURI 和 encodeURIComponent都是ECMA-262标准中定义的函数,所有兼容这个标准的语言（如JavaScript, ActionScript）都会实现这两个函数。它们都是用来对URI （RFC-2396）字符串进行编码的全局函数，但是它们的处理方式和使用场景有所不同。为了解释它们的不同，我们首先需要理解RFC-2396中对于URI中的字符分类
+		1) 保留字符（reserved characters）：这类字符是URI中的保留关键字符，它们用于分割URI中的各个部分。这些字符是：";"  "/"  "?"  ":"  "@"  "&" "=" "+"  "$" ","
+		2) Mark字符（mark characters）：这类字符在RFC-2396中特别定义，但是没有特别说明用途，可能是和别的RFC标准相关。 这些字符是："-"  "_" "." "!" "~"  "*" "'"  "(" ")"
+		3) 基本字符（alphanum characters）：这类字符是URI中的主体部分，它包括所有的大写字母、小写字母和数字
+
+	在介绍完上面三类字符串后，我们就非常容易来解释encodeURI和encodeURIComponent函数的不同之处了：
+		1) encodeURI: 该函数对传入字符串中的所有非（基本字符、Mark字符和保留字符）进行转义编码（escaping）。所有的需要转义的字符都按照UTF-8编码转化成为一个、两个或者三个字节的十六进制转义字符（％xx）。例如，字符空格" "转换成为"%20"。在这种编码模式下面，需要编码的ASCII字符用一个字节转义字符代替，在\u0080和\u007ff之间的字符用两个字节转义字符代替，其他16为Unicode字符用三个字节转义字符代替
+		
+		2) encodeURIComponent: 该函数处理方式和encodeURI只有一个不同点，那就是对于保留字符同样做转义编码。例如，字符":"被转义字符"%3A"代替
+		
+	之所以有上面两个不同的函数，是因为我们在写JS代码的时候对URI进行两种不同的编码处理需求。encodeURI可以用来对完整的URI字符串进行编码处理。而encodeURIComponent可以对URI中一个部分进行编码，从而让这一部分可以包含一些URI保留字符。这在我们日常编程中是十分有用的。比如下面的URI字符串：
+		http://www.mysite.com/send-to-friend.aspx?url=http://www.mysite.com/product.html
+	在这个URI字符串中。send-to-friend.aspx页面会创建HTML格式的邮件内容，里面会包含一个链接，这个链接的地址就是上面URI字符串中的url值。显然上面的url值是URI中的一个部分，里面包含了URI保留关键字符。我们必须调用encodeURIComponent对它进行编码后使用，否则上面的URI字符串会被浏览器认为是一个无效的URI。正确的URI应该如下：
+		http://www.mysite.com/send-to-friend.aspx?url=http%3A%2F%2Fwww.mysite.com%2Fproduct.html 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

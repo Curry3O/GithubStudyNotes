@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>百度一下</title>
+	<link rel="stylesheet" href="../bootstrap-3.3.7/css/bootstrap.css">
+</head>
+<body>
+	<div class="container">
+		<div class="well">
+			<!-- 方法一 -->
+			<form>
+				<div class="form-group has-success">
+					<div class="input-group">
+						<div class="form-group has-feedback">
+							<input type="text" class="form-control">
+							<span class="glyphicon glyphicon-search form-control-feedback"></span>
+						</div>
+						<div class="input-group-addon">百度一下</div>
+					</div>
+				</div>
+			</form>
+
+			<br>
+
+			<!-- 方法二 -->
+			<form>
+				<div class="form-group has-feedback has-error">
+					<div class="input-group">
+						<input type="text" class="form-control">
+						<span class="glyphicon glyphicon-search form-control-feedback" style="margin-right: 80px"></span>
+						<div class="input-group-addon">百度一下</div>
+					</div>
+				</div>
+			</form>
+
+			<br>
+			<!-- 方法三 -->
+			<form class="form-horizontal">
+				<div class="form-group has-feedback">
+					<div class="input-group col-md-offset-2 col-md-8">
+						<input type="text" class="form-control">
+						<span class="glyphicon glyphicon-search form-control-feedback" style="right: 80px"></span>
+						<div class="input-group-btn">
+							<button class="btn btn-primary" type="button">百度一下</button>
+						</div>
+					</div>
+				</div>
+			</form>
+
+		</div>
+	</div>
+</body>
+</html>

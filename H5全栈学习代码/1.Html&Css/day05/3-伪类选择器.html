@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪类选择器</title>
+	<style>
+		/* 聚焦状态 */
+		input[type=text]:focus{
+			/*border: 1px solid coral;*/
+			/*盒子阴影, x偏移(水平向右为正)、y偏移（水平向下为正）、模糊距离、阴影颜色*/
+			box-shadow: 3px 3px 3px #ccc;
+		}
+		/*禁用的*/
+		/*input:disabled{
+			border: 1px solid blue;
+		}*/
+		/*可用的*/
+		/*input:enabled{
+			border: 1px solid green;
+		}*/
+
+		/*用户选中的*/
+		/*input[type=radio]:checked{*/
+			/*外线*/
+			/*outline: 1px solid blue;
+		}*/
+		/*默认选中的*/
+		/*input[type=radio]:default{*/
+			/*外线*/
+			/*outline: 1px solid red;
+		}*/
+
+		/*通过验证的*/
+		/*input:valid{
+			border: 1px solid green;
+		}*/
+		/*不通过验证的*/
+		/*input:invalid{
+			border: 1px solid red;
+		}*/
+
+		/*选中必填项*/
+		/*input:required{
+			border: 1px solid coral;
+		}*/
+		/*选填项*/
+		/*input:optional{
+			border: 1px solid cyan;
+		}*/
+
+		/*在范围内*/
+		input[type=number]:in-range{
+			border: 1px solid green;
+		}
+		/*在范围外*/
+		input[type=number]:out-of-range{
+			border: 1px solid red;
+		}
+	</style>
+</head>
+<body>
+	<form action="#">
+		用户名：
+		<input type="text" required />
+		<br />
+		密码：
+		<input type="password" disabled />
+		<br />
+		性别：
+		<input type="radio" name="gender" checked />男
+		<input type="radio" name="gender">女
+		<br />
+		年龄：
+		<input type="number" min="10" max="50" />
+		<br />
+		<input type="submit" value="提交" />
+	</form>
+	
+</body>
+</html>

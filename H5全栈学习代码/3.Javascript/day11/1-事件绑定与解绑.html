@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件绑定与解绑</title>
+	<script>
+		window.onload = function(){
+			var div = document.getElementsByTagName('div')[0];
+			var btn = document.getElementsByTagName('button')[0];
+			div.onclick = function(){
+				alert(1);
+			}
+			btn.onclick = function(){
+				//给div解绑
+				div.onclick = null;
+				alert('div解绑成功');
+				//自身解绑(实现只能点击一次的需求)
+				this.style.background = '#ccc';
+				this.onclick = null;
+			}
+		}
+	</script>
+</head>
+<body>
+	<button>div解绑</button>
+	<div>点击我</div>
+	
+</body>
+</html>

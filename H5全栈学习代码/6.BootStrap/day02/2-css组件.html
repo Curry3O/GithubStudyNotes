@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>图标-alert</title>
+	<link rel="stylesheet" href="../bootstrap-3.3.7/css/bootstrap.css">
+	<script src="../bootstrap-3.3.7/js/jquery-3.4.1.min.js"></script>
+	<script src="../bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<style>
+		body{
+			overflow-x: hidden;
+		}
+		.info-div{
+			width: 200px;
+			height: 150px;
+			position: absolute;
+			top: 10px;
+			/*right: 10px;*/
+			/*display: none;*/
+			right: -210px;
+			opacity: 0;
+		}
+	</style>
+	<script>
+		$(function(){
+			//点击删除按钮弹出框显示，2秒后消失
+			$('#del-btn').click(function(){
+				// $('.info-div').fadeIn(1000);
+				$('.info-div').animate({
+					right:'10px',
+					opacity : 1,
+				});
+				//2秒后消失
+				setTimeout(function(){
+					$('.info-div').fadeOut(1000,function(){
+						$('.info-div').css({
+							right: '-210px',
+							opacity: 0,
+							display:'block',
+						});
+					});
+				},2000);
+			});
+			$('#close-btn').click(function(){
+				$('.info-div').animate({
+					right:'10px',
+					opacity : 1,
+				});
+				//2秒后消失
+				setTimeout(function(){
+					$('.info-div').fadeOut(1000,function(){
+						$('.info-div').css({
+							right: '-210px',
+							opacity: 0,
+							display:'block',
+						});
+					});
+				});
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="well">
+			<!-- 图标按钮 -->
+			<button class="btn btn-default">
+				<span class="glyphicon glyphicon-camera"></span> 上传照片
+			</button>
+			<button class="btn btn-success" id="del-btn">删除</button>
+			<br>
+			<br>
+			<!-- alert组件 -->
+			<div class="alert alert-danger alert-dismissable" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<div>hello</div>
+			</div>
+
+			<div class="alert alert-danger alert-dismissable" role="alert">
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span class="glyphicon glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
+				<div>hello</div>
+			</div>
+		</div>
+	</div>
+</body>
+<!-- 右上角边的提示框  默认隐藏-->
+<div class="info-div">
+	<div class="alert alert-success alert-dismissable">
+		<!-- <button class="close" data-dismiss="alert">&times;</button> -->
+		<button class="close" id="close-btn">&times;</button>
+		<div>删除成功</div>
+	</div>
+</div>
+</html>

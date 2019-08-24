@@ -1,0 +1,244 @@
+vsftpd安装与配置
+mysql安装与配置
+nodeJS安装与配置
+apache安装与配置
+JDK安装与配置
+1.购买云服务器
+	https://cloud.tencent.com/act/campus?utm_source=qcloud&utm_medium=head&utm_campaign=campus
+	腾讯云 服务器版  ubuntu版本
+2.连接工具
+	使用腾讯自带的网页shell  webshell
+	使用ssh
+		ssh ubuntu@106.52.23.167
+	在自己电脑上访问服务器端
+		安装putty或者Xshell或者secureCRT进行远程终端访问
+	安装cyberduck或者WinSCP软件进行文件上传与下载
+3.安装服务器端软件
+	sudo apt-get update
+	查找安装路径dpkg -L apache2(软件安装的名称)
+	1.在线安装
+		ps -ef 查看正在运行的进程
+		ps -ef | grep atp   查找是否正在运行
+		atp工具   Advance Packaging Tool  高级包装工具
+		sudo apt-get update 命令来保持本地的软件包列表是最新的
+		1)安装mysql-server 
+			sudo apt-get install mysql-server
+			输入数据库的root用户密码: root
+			再次输入数据库的root用户密码: root
+			验证是否成功  mysql -uroot -proot登录
+			使用exit;退出当前mysql环境
+		2)安装NodeJS环境
+			安装nodejs：sudo apt-get install nodejs
+			建立软连接：sudo ln -s /usr/bin/nodejs /usr/bin/node
+			测试是否安装成功：node -v  回车查看版本号
+				使用.exit退出node环境
+
+			安装npm sudo apt-get install npm
+			测试npm是否安装成功 npm -v 回车查看版本号
+			
+			
+		3)安装apache2
+			sudo apt-get install apache2
+			默认安装完成后是启动的，如果要手动启动使用：sudo /etc/init.d/apache2 start
+			测试ps -ef | grep httpd  安装成功
+
+			apache2的部署目录  /var/www/html
+				因ubuntu用户没有权限操作/var/www/html，可有以下两种解决方案
+					第一种解决方案
+						使用sudo临时提升权限，将 /var/www/html的权限设置成777，原先是755。设置了之后，ubuntu用户就可以往html目录中放置文件或文件夹了
+						sudo chmod -R 777 /var/www/html
+					第二种解决方案
+						更改apache2的部署目录 在家目录创建文件apache/htdocs
+						全路径 使用pwd查看  /home/ubuntu/apache/htdocs
+						更改两处：
+						第一处：
+							sudo vi /etc/apache2/sites-available/000-default.conf
+							更改前：DocumentRoot /var/www/html
+							更改后：DocumentRoot /home/ubuntu/apache/htdocs
+						第二处：
+							sudo vi /etc/apache2/apache2.conf
+							在Directory群里添加
+							<Directory /home/ubuntu/apache/htdocs>
+							</Directory>
+						重启服务器：sudo /etc/init.d/apache2 restart
+			将第一个项目部署到apache上，远程访问
+
+	谨慎使用root用户操作ubuntu系统：（使用root登录）
+		1.默认root用户不可登录，更改root用户登录
+		备份文件
+			sudo cp /etc/ssh/sshd_config /etc/ssh/sshd_config.bak(先备份)
+			sudo vim /etc/ssh/sshd_config(进行编辑)
+			
+	        找到这一行  
+					注释#PermitRootLogin prohibit-password
+					PermitRootLogin yes
+					sudo service ssh restart
+			重新登录
+
+	2.本地安装
+		在官网下载安装包后进行安装
+		1)安装jdk环境
+			上传到ubuntu家目录下
+			使用sudo移动到到/opt
+			sudo mv jdk-8u131-linux-x64.tar.gz /opt
+			解压
+			sudo tar -zxvf /opt/jdk-8u131-linux-x64.tar.gz 
+			vim ~/.bashrc
+				在最末尾添加 
+					export JAVA_HOME=/opt/jdk1.8.0_131
+					export CLASSPATH=.:./bin
+					export PATH=$PATH:$JAVA_HOME/bin
+			使更改的.bashrc文件生效
+				source ~/.bashrc
+			测试
+				java -version
+				有版本号出来则安装成功
+
+Ubuntu简介
+Linux简介
+Unix简介
+
+命令
+	pwd
+		查看当前所在路径
+	cd
+		空  ~
+		相对路径
+			cd 不以/开始的
+		绝对路径
+			cd 以/开始的
+	ls
+		查看当前目录下的目录或者文件
+		ls 路径  
+			查看某个目录的文件目录或者文件
+	clear 
+		清屏
+	mkdir 
+		mkdir 目录名称
+			在当前目录下新建目录
+	rmdir 目录
+		删除空目录
+	more 预览文件内容
+		空格翻页，回车换行，q退出
+	man 帮助手册
+		man ls
+	sudo 临时提升权限
+		sudo !!执行上次命令
+
+/目录
+	bin  部分系统可执行文件目录
+	usr  unix system resouces  操作系统的文件
+		/usr/local   相当于c:/program files
+	var 
+		可变文件目录
+		用户信息
+		apache的www目录
+	etc 配置文件目录
+		/etc/passwd  用户信息
+		/etc/shadow  密码信息
+		/etc/group   组信息
+		/etc/gshadow   组密码信息
+		/etc/sudoers   设置组的权限
+		/etc/skel    创建了新用户之后，复制的家文件 
+		/etc/profile  核心配置
+	opt 安装软件目录  第三方安装包
+		解压即安装的软件 eclipse
+	home 用户家目录
+	root 超级用户家目录
+
+用户相关的功能
+	who am i
+	whoani
+	添加用户：
+		adduser 用户名
+			$adduser user1
+		查看/etc/passwd
+		查看/etc/group
+	添加组
+		addgroup 组名
+	更改用户到某个组
+		usermod  修改用户信息
+
+		usermod -g 1002 user1
+		usermod --gid 1002 user1
+	删除空余的组
+		groupdel user1
+		groupdel user2
+		在/etc/group查看
+
+	新建用户指定组
+		adduser --gid 1002 user3
+
+		查看user3的家目录中是否与/etc/skel中的一样
+	更改密码
+		root用户更改其他用户的密码
+			passwd user1
+		更改自己的密码
+			passwd
+	切换用户
+		su  
+			切换到超级管理员身份
+		su 用户名
+			切换到用户  从root切换到其他用户不用输入密码
+			从其他用户切换到其他用户需要输入密码
+			whoami 当前用户
+		su -
+			彻底切换，切换家目录，切换环境环境变量
+			直接切换到用户的家目录
+			每个用户都有一个家目录
+				有用户变量
+	删除用户 
+		userdel -r 用户名
+
+
+
+
+更改了ubuntu用户的密码
+
+更改了root用户的密码
+
+将项目部署到云服务器上
+	1.在云服务器上安装apache服务器  htdocs
+		localhost:80/a.html
+		file:///
+
+		将项目移动到云服务器上
+		文件的上传与下载  ftp协议
+		http  浏览器与服务器数据交互使用http协议
+		客户端和服务器文件交互使用ftp协议
+
+		工具
+			1.ftp工具  文件交换
+				安装cyberduck或者WinSCP软件进行文件上传与下载
+			2.ssh工具  远程链接工具
+				安装putty或者Xshell或者secureCRT进行远程终端访问
+
+		创建文件
+			touch a.txt
+		更改权限为777
+			sudo chmod -R 777 /var/www/html
+			html
+				a.txt index.html
+		man 帮助手册
+			man chmod
+			man ls
+			
+	
+
+	
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

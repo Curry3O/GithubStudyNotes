@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>网页动态时间</title>
+	<script>
+		window.onload = function(){
+			var span = document.getElementsByTagName('span')[0];
+			var dateStr = formatDate();
+			//将时间放置到span内
+			span.innerHTML = dateStr;
+			//更新每刻时间
+			setInterval(function(){
+				span.innerHTML = formatDate();
+			},1000);
+			//格式化年月日时分秒
+			function formatDate(){
+				var date = new Date();
+				var year = date.getFullYear();
+				var month = date.getMonth()+1;
+				month = month<10?'0'+month:month;
+				var day = date.getDate();
+				day = day<10?'0'+day:day;
+				var hours = date.getHours();
+				hours = hours<10?'0'+hours:hours;
+				var minutes = date.getMinutes();
+				minutes = minutes<10?'0'+minutes:minutes;
+				var seconds = date.getSeconds();
+				seconds = seconds<10?'0'+seconds:seconds;
+				return year+'-'+month+'-'+day+' '+hours+':'+minutes+':'+seconds;
+			}
+		}
+	</script>
+</head>
+<body>
+	<div>
+		当前时间:
+		<span></span>
+	</div>
+	
+</body>
+</html>

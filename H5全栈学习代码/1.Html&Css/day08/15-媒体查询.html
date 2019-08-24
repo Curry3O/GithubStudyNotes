@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>媒体查询</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+			/*
+			<768      超小屏
+			768~992   小屏
+			992~1200  中屏
+			>1200     大屏
+			 */
+		}
+		/*>1200大屏*/
+		@media screen and (min-width:1200px ) {
+			div{
+				width: 300px;
+			    height: 300px;
+			    background-color: blue;
+			}
+		}
+			/*992~1200 中屏*/
+		@media screen and (min-width: 992px) and (max-width: 1200px) {
+			div{
+				width: 200px;
+			    height: 200px;
+			    background-color: green;
+			}
+			
+		}
+		/*768~992小屏*/
+		@media screen and (min-width: 768px) and (max-width: 992px) {
+			div{
+				width: 150px;
+			    height: 150px;
+			    background-color: cyan;
+			}
+			
+		}
+		/*<768超小屏*/
+		@media screen and (max-width: 768px) {
+			div{
+				width: 50px;
+			    height: 50px;
+			    background-color: black;
+			}
+			
+		}
+			
+		
+	</style>
+</head>
+<body>
+	<div></div>
+	
+</body>
+</html>

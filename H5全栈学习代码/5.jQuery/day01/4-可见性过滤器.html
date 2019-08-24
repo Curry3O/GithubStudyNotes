@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<style>
+		.one{
+			display: none;
+		}
+		.two{
+			visibility: hidden;
+		}
+		.three{
+			opacity: 0;
+		}
+	</style>
+	<meta charset="UTF-8">
+	<title>可见性过滤器</title>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			//var $res = $(':hidden');
+			//var $res = $('body :visible');
+			//选出没有title属性和title的属性值不为one
+			//var $res = $('body [title = hello]');
+			var $res = $('body [title != one]');
+			console.log($res);
+		})
+	</script>
+</head>
+<body>
+	<div title="hello">hello</div>
+	<div class="one">none</div>
+	<input type="hidden">
+	<div class="two">hidden</div>
+	<div class="three">opacity</div>
+</body>
+</html>

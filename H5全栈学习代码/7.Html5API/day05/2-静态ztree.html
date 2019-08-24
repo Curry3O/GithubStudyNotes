@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>静态ztree</title>
+	<link rel="stylesheet" href="./zTree_v3/css/zTreeStyle/zTreeStyle.css">
+	<script src="./zTree_v3/js/jquery-1.4.4.min.js"></script>
+	<script src="./zTree_v3/js/jquery.ztree.core.min.js"></script>
+	<script>
+		//1.配置对象
+		var setting = {};
+		//2.显示的数据
+		var cates = [
+			{id:1,name:'根编目',cate_path:null},
+			{id:2,name:'Java课程',cate_path:'1.2'},
+			{id:3,name:'Spring课程',cate_path:'1.2.3'},
+			{id:4,name:'SpringBoot课程',cate_path:'1.2.3.4'},
+			{id:5,name:'Web课程',cate_path:'1.5'},
+			{id:6,name:'Servlet课程',cate_path:'1.2.6'},
+			{id:7,name:'React课程',cate_path:'1.5.7'},
+			{id:8,name:'redux课程',cate_path:'1.5.7.8'},
+			{id:9,name:'HTML5课程',cate_path:'1.5.9'},
+			{id:10,name:'HTML5API课程',cate_path:'1.5.9.10'},
+			{id:11,name:'Python课程',cate_path:'1.11'},
+			{id:12,name:'Djgo课程',cate_path:'1.11.12'},
+		];
+		cates = cates.filter(function(item){
+			return item.cate_path;
+		});
+		cates.forEach(function(item){
+			item.children = [];
+			var parentsArr = item.cate_path.split('.');
+			var parentId = parentsArr[parentsArr.length - 2];
+			item.parent_id = +parentId;
+		});
+		cates.forEach(function(item){
+			var parents = cates.filter(function(pItem){
+				return item.parent_id === pItem.id;
+			});
+			if (parents.length > 0) {
+				parents[0].children.push(item);
+			}
+		});
+		var result = cates.filter(function(item){
+			return item.cate_path.split('.').length === 2;
+		});
+
+		//3.DOM节点
+		$(function(){
+			//将DOM与配置对象与数据绑定,显示树
+			$.fn.zTree.init($('#treeDemo'),setting,result);
+		});
+	</script>
+</head>
+<body>
+	<div class="content_wrap">
+		<div class="zTreeDemoBackground left">
+			<!-- #treeDemo放置ztree的地方 -->
+			<ul id="treeDemo" class="ztree"></ul>
+		</div>
+	</div>
+</body>
+</html>

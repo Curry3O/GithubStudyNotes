@@ -1,0 +1,172 @@
+对象的扩展
+    属性的简写
+    方法的简写
+    属性名的简写
+    Object.is(a,b)
+    +0 -0     false
+    NaN NaN   true
+    Object.setPrototypeOf(obj,proObj);
+    Object.getPrototypeOf(obj);
+    Object.keys();  属性名数组
+    Object.values(); 属性值数组
+    Object.entries(); 键值对数组  二维数组
+    Object.assign();  对象浅复制
+    let o = Object.assign(obj);
+    //let o = obj;
+    对象合并
+    let o = Object.assign({},obj,obj1,obj2);
+    可以给某个对象设置默认值
+    Object.assign({},{
+        url:'',
+        method:'get',
+        data:null,
+        async:false
+    },{
+        url:'findAll...',
+        data:{page:0,pageSize:10}
+    });
+    {
+        url:'findAll...',
+        method:'get',
+        data:{page:0,pageSize:10},
+        async:false
+    }
+    
+
+函数的扩展
+    name
+        函数的名字
+    length
+        形参的个数,遇到有默认值的参数就停止，返回之前的个数
+    函数参数解构
+        function test([a,b]){}
+        test([1,2]);
+        function test({a,b}){}
+        test({a:1,b:2});
+    rest参数
+        扩展运算符的逆运算
+        接受多余的数据
+        function test(...tail){}
+        test(1,2,3);
+        tail   [1,2,3]
+    箭头函数
+    ()=>{}
+    this 指向箭头函数声明时父作用域的this的执行
+    arguments不保存实参，不进行实参使用
+
+
+数组的扩展
+    Array.from(类数组、set、map、有Iterator接口的数据结构类型)
+    Array.of(2,3);
+        创建数组  [2,3]
+    arr.find(function(item,index,arr){
+        return item>10;
+    });
+    查找元素，返回第一个符合条件的元素或者没找到返回undefined
+
+    arr.findIndex(function(item,index,arr){
+        return item>10;
+    });
+    查找元素，返回第一个符合条件的元素的索引或者没找到返回-1
+
+    arr.includes(2);
+    查找元素，返回true/false
+
+    arr.fill(9)
+    填充数组，将数组中的所有元素都使用9填充
+
+    arr.keys()
+    返回key值迭代器对象
+    for-of遍历
+
+    arr.values()
+    返回value值迭代器对象
+    for-of遍历
+
+    arr.entries()
+    返回键值对迭代器对象
+    for-of遍历
+
+
+    --------------------------
+
+    Set集合                                   Map集合
+    Array                                     Object
+    new Set();                               new Map();
+    增删改查                                  增删改查
+    遍历                                        遍历
+    set.add(value);添加数据                 map.set(key,value);添加数据
+    set.delete(value);删除数据                 .....
+    set.clear(value);清空数据
+    set.keys();
+    set.values();//与set.keys()返回一样，都是数据的值
+    set.entries();
+    set.forEach(function(value,key,set){});
+
+
+    set --Array
+        存的是值，不可有重复的数据
+    map --Object
+        存的是键值对  键值可以是任何数据类型的
+
+
+模块
+    js文件，在某个JS文件中导出一部分数据，在另外一个JS文件中，如果想要使用数据，先导入再使用。
+
+    NodeJS的模块(第三方的模块)
+        module.exports.a = 1;   导出
+        require('./a.js');      导入
+        const $ = require('jquery');
+        cnpm install jquery --save
+        const Highcharts = require('Highcharts');
+    ES6的模块(自己的模块)
+        export   导出
+        export default 导出
+        import   导入
+
+    浏览器
+        a.js
+        b.js
+        在b.js文件中使用a.js中的变量
+        html
+            script src='a.js';
+            script src='b.js';
+Promise
+    承诺机制
+        Promise对象是容器，它里放置的是异步处理函数。
+            如果异步执行成功，调用resolve函数
+            如果异步执行失败，调用reject函数
+        let p = new Promise(function(resolve,reject){
+            //resolve,reject  函数
+            //异步操作
+            $.ajax({
+                url:'',
+                method:'',
+                success(res){
+                    resolve(res);
+                },
+                error(error){
+                    reject(error);
+                }
+            });
+        });
+        p.then(function(response){
+            //内部异步执行成功的处理
+            //比如成功可以操作DOM
+        });
+        p.catch(function(error){
+            //内部异步执行失败的处理
+            //比如提示用户出错了
+        });
+    
+    axios是一个基于Promise的HTTP库    里面有 
+    ajax + Promise 方法
+        axios.get('url).then(function(res){
+
+        }).catch(function(error){
+
+        });
+
+    想在NodeJS环境中用jquery
+        jsdom    创建虚假的dom节点
+        jquery

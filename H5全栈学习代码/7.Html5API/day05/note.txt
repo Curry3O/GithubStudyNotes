@@ -1,0 +1,89 @@
+ztree
+1.ztree的配置对象   {}
+2.绑定的DOM节点		#one
+3.显示的数据
+
+highcharts
+echarts
+
+数据库
+给数据库里存数据
+数据从数据库中获取,进行处理,然后进行渲染页面
+前后端分离
+后台接口获取的数据,进行处理,然后进行渲染页面
+
+
+
+
+
+
+ztree
+	1.ztree的配置对象  {}
+	2.绑定的DOM节点   #one
+	3.显示的数据   
+highcharts
+echarts
+	1.图表的配置对象
+	2.绑定的DOM节点
+	3.显示的数据
+
+H5数据库
+	给数据库里存数据，
+	数据从数据库中获取，进行处理，然后进行渲染页面。
+前后端分离
+	后台接口获取的数据，进行处理，然后进行渲染页面。
+
+	令牌   JWT   token验证
+	用户名-密码，访问后台接口，返回当前登录用户的数据，token字符串。
+	每次访问后台接口的时候，都需要携带token给接口。
+	安全方面的。
+	//用户只登录一次，登录之后，前端在查找数据的时候，每次都要带上token信息
+	在每次访问接口前，拿到token，设置到请求头部。可以在请求发送前，拦截，设置请求头。
+		Content-Type
+		AuthA:'hskdjahjksueuiehudafa9kjashd3'
+	后台再每接到一个请求，先拦截，进行身份验证，后台拦截器，拦截住每一次请求
+加了JWT的交互过程
+	登录，获取到token，保存到某个地方，每次发送请求的时候带上token。统一设置发送请求前的拦截器，在发送请求前，拦住，设置了token后再发送。
+	后台接受到请求后，先拦截进行身份验证，验证通过，转到具体的接口，查找数据，返回响应。
+如果有运行时间比较长的代码，在主线程中，会一直等着执行完毕，再往下去执行。
+
+js单线程
+	console.log(1);
+	var total;
+	for(var i=0;i<1000000000000;i++){
+		total += i;
+	}
+	console.log(total);
+	console.log(2);
+Web Worker
+	将JS多线程去处理
+	将耗费时间长的代码放到后台去执行。
+	后台代码  a.js
+		onmessage = function(event){
+			//event.data 主线程给的参数
+			var total;
+			for(var i=0;i<event.data;i++){
+				total += i;
+			}
+			postMessage(total);
+		}
+	主线程
+		var worker = new Worker('a.js');
+		//后台给了主线程数据
+		worker.onmessage = function(event){
+			console.log(event.data);
+		}
+		worker.postMessage(10000000000);
+		.....
+
+
+异步
+	console.log(1);
+	$.ajax({
+		url:'',
+		...
+		success:function(){
+			console.log(3);
+		}
+	})
+	console.log(2);

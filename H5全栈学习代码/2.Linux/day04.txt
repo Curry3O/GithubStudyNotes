@@ -1,0 +1,85 @@
+目标
+1.自主在本机安装navicat for mysql软件,连接mysql远程数据库
+
+准备工作
+	1.使用root用户登录
+		mysql -uroot -proot;
+	2.创建briup用户
+		create user "briup"@"localhost" identified by "briup";
+
+	3.创建briupdb数据库
+		create database briupdb default charset utf8 collate utf8_general_ci;
+		如果要删除，参考10
+
+	4.给briup用户赋予权限，briupdb数据库的所有权限和所有数据库的查看权限
+		grant all privileges on briupdb.* to "briup"@"localhost" identified by "briup"; 
+		grant select on *.* to briup@localhost identified by "briup";
+		flush privileges; 	刷新系统权限表
+	5.使用briup用户,briupdb数据库,执行table.sql文件
+		mysql -ubriup -pbriup -Dbriupdb < table.sql文件的路径 
+		【注意一定是大写的D，这里的路径可以直接将文件拖拽到控制台，注意斜杠】
+		或者直接登录briup用户，使用briupdb数据库，使用source 文件名命令也可
+	6*可不做.使用briup用户登录，使用briupdb数据库。查看表，执行source命令
+		mysql -ubriup -pbriup   登陆
+		use briupdb     选择数据库
+		show tables;    显示表
+		source table.sql文件的路径   执行sql文件
+		show tables;    显示表
+		
+	7.导出数据库中的表
+		mysqldump -u用户名 -p 密码 db_name > file_name.sql;
+	8.连接远程数据库
+		1)在远程服务器端将root用户设为所有ip都可以用的用户
+			在服务器端登录，修改user表中root用户的host值为“%”。原来为localhost
+			使用如下：
+				update user set host="%" where user="root";
+		2）在本地端使用如下连接（前提：本地端有mysql的客户端，也就是识别mysql命令，如无，自行安装）
+			mysql -h远程服务器端ip地址 -uroot -proot
+				比如：mysql -h192.168.218.131 -uroot -proot
+				如果报  Can‘t connect ....之类的错，如下
+					在远程服务器端输入netstat -an | grep 3306  查看服务器端的3306被哪些客户端可用
+					如果是只有127.0.0.1的话，需要修改/etc/mysql/mysql.conf.d/mysqld.cnf。这个文件是只读文件，所以需要管理员先将文件设置权限为777.
+					 sudo chmod 777 mysqld.cnf
+					将该文件中bind-address  = 127.0.0.1，修改为0.0.0.0 
+						
+					保存，退出，将该文件权限修改为原来的644 只读
+						chmod 644 mysqld.cnf
+				即可访问
+
+				下面还要确认的一件事就是确认客户端用户是否具有权限
+					mysql>grant all privileges on *.* to username@"%" identified by "password";
+
+					grant all privileges on *.* to root@"%" identified by "root";
+						注意%后面要空一隔
+					上面的命令授予的用户权限可以访问mysql中的任意数据库(database)和表(table)。
+	9.重启mysql服务
+		service mysql restart
+	10.删除数据库和数据表
+		drop database 数据库名;
+		drop table 数据表名;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

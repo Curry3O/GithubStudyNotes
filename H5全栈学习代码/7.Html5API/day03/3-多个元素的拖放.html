@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>多个拖放元素和多个目标元素</title>
+	<style>
+		body{
+			height: 500px;
+			border: 1px solid red;
+		}
+		.parent{
+			height: 150px;
+			border: 1px solid tan;
+			margin: 10px;
+		}
+		.child{
+			width: 100px;
+			height: 100px;
+			float: left;
+			margin: 20px;
+		}
+		#one{
+			background-color: pink;
+		}
+		#two{
+			background-color: coral;
+		}
+		#three{
+			background-color: skyblue;
+		}
+		#four{
+			background-color: yellow;
+		}
+		#five{
+			background-color: teal;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			//获取拖放元素
+			var childs = document.getElementsByClassName('child');
+			//Array.from()方法将类数组对象转成数组
+			childs = Array.from(childs);
+
+			//获取目标元素
+			var parents = document.getElementsByClassName('parent');
+			parents = Array.from(parents);
+
+
+			//绑定拖放事件
+			childs.forEach(function(item){
+				//item ==> 拖放元素
+				item.ondragstart = ds;
+			});
+
+			//绑定放置事件
+			parents.forEach(function(item){
+				//item ==> 目标元素
+				item.ondragover = drago;
+				item.ondrop = dr;
+			});
+
+			//给body设置成放置元素
+			document.body.ondragover = drago;
+			document.body.ondrop = dr;
+
+
+			//事件处理程序
+			//dragstart
+			function ds(event){
+				var dt = event.dataTransfer;
+				//设置鼠标样式
+				dt.effectAllowed = 'copy';
+				// dt.effectAllowed = 'link';
+				dt.setData('id',this.id);
+			}
+
+			//dragover
+			function drago(event){
+				event.preventDefault();
+				var dt = event.dataTransfer;
+				//设置拖放过程中鼠标的样式
+				dt.dropEffect = 'copy';
+				// dt.dropEffect = 'link';
+
+			}
+
+			//drop
+			function dr(event){
+				var dt = event.dataTransfer;
+				var id = dt.getData('id');
+				var dom = document.getElementById(id);
+				this.appendChild(dom);
+				//阻止冒泡
+				event.stopPropagation();
+				//拖动时火狐浏览器出现多选项卡，需要阻止默认行为
+				event.preventDefault();
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="parent"></div>
+	<div class="parent"></div>
+	<div class="child" id="one" draggable="true"></div>
+	<div class="child" id="two" draggable="true"></div>
+	<div class="child" id="three" draggable="true"></div>
+	<div class="child" id="four" draggable="true"></div>
+	<div class="child" id="five" draggable="true"></div>
+</body>
+</html>

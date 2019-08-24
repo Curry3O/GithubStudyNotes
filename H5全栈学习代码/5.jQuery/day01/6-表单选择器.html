@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表单选择器</title>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			$('form :checkbox').click(function(){
+				var $res = $('form :checkbox:checked');
+				var arr = [];
+				//使用jQuqry对象提供的map方法，将value映射出来
+				var $arr = $res.map(function(index,item){
+					//item  DOM
+					return $(item).val();
+				});
+				//将jQuery对象(类数组)转换成数组
+				arr = [].slice.call($arr);
+				console.log(arr);
+			});
+		});
+	</script>
+</head>
+<body>
+	<form action="">
+		<div>
+			<input type="text">
+		</div>
+		<div>
+			<input type="checkbox" value="1">
+			<input type="checkbox" value="2">
+			<input type="checkbox" value="3">
+		</div>
+	</form>
+</body>
+</html>

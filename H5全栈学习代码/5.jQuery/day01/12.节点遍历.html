@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>节点遍历</title>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			//子代中
+			$res = $('.outer').children('.inner');
+			console.log($res);
+			console.log($('.outer>.inner'));
+			//后代中
+			$res = $('.outer').find('.inner');
+			console.log($res);
+			console.log($('.outer .inner'));
+		});
+	</script>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner">子代inner</div>
+		<div>
+			<div class="inner">后代inner</div>
+		</div>
+	</div>
+</body>
+</html>

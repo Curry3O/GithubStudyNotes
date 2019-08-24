@@ -1,0 +1,130 @@
+day03学习目标
+1.用户赋权
+2.vim分屏使用，sublime分屏使用
+3.vim基础配置
+4.vim安装插件  vim-emmet
+5.扩展
+6.文件操作
+
+1.用户赋权
+	默认生成的用户没有使用sudo的权限，在/etc/sudoers里进行配置
+2.vim分屏使用
+	:split	横向分屏
+	:vsplit 纵向分屏
+	:open 	目录	在当前分屏中打开指定文件或者目录
+	Ctrl + ww	在不同的分屏中切换光标
+	:close	关闭当前分屏
+3.vim基础配置
+	set nu
+	set tabstop = 2
+4.vim安装插件  vim-emmet
+	vim-emmet网址  https://www.vim.org/scripts/script.php?script_id=2981
+	pathogen.vim网址  https://www.vim.org/scripts/script.php?script_id=2332
+	github网址  http://github.com/mattn/emmet-vim
+	1）去home目录下，并查看home目录下是否有.vim目录和.vimrc文件，如果没有，则新建，执行以下命令：
+		cd ~/.vim
+		touch .vimrc
+	2）安装pathogen.vim，执行以下命令
+		pathogen是安装其他包的工具
+		创建目录：
+			mkdir -p ~/.vim/autoload ~/.vim/bundle
+		安装pathogen：
+			curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+			curl是软件安装的一种方式
+	3）安装git
+		sudo apt-get install git
+		使用以下命令测试git是否安装成功
+			git --version
+	4) 使用pathogen.vim和git安装vim-emmet
+		第一种方案
+			1.进入.vim的bundle目录
+				cd ~/.vim/bundle
+			2.下载插件
+				git clone https://github.com/mattn/emmet-vim.git
+			3.使用
+				编辑.vimrc
+					vim ~/.vimrc
+				在最上方添加一下内容
+					execute pathogen#infect()
+				默认的触发键是ctrl+y+,
+				在~/.vimrc修改Emmet扩展键，更改触发键为Ctrl+e
+				在最末尾添加以下内容：
+				let g:user_emmet_expandabbr_key = '<C-e>'
+				就可以在html使用Ctrl+e进行快速编写了
+		第二种方案
+			1.在~/.vim手动创建plugin目录，这是将来存放插件的目录
+				第一步：cd ~/.vim
+				第二步：mkdir plugin
+			2.进入.vim的bundle目录
+				cd ~/.vim/bundle
+			3.下载插件
+				git clone https://github.com/mattn/emmet-vim.git
+			4.进入下载好的目录
+				cd emmet-vim
+			5.将下载好插件部分内容复制到vim的插件目录和自动加载目录
+				第一步：cp ~/.vim/bundle/emmet-vim/plugin/emmet.vim ~/.vim/plugin/
+				第二步：cp ~/.vim/bundle/emmet-vim/autoload/emmet.vim ~/.vim/autoload/
+				第三步：cp -a ~/.vim/bundle/emmet-vim/autoload/emmet ~/.vim/autoload/
+			6.使用
+				默认的触发键是ctrl+y+,
+				在~/.vimrc修改Emmet扩展键，更改触发键为Ctrl+e
+					vim ~/.vimrc
+				在最上方添加一下内容
+				execute pathogen#infect()
+				在最末尾添加以下内容：
+					let g:user_emmet_expandabbr_key = '<C-e>'
+				就可以在html使用Ctrl+e进行快速编写了
+
+5.扩展
+	more index.html > a.txt
+
+	卸载软件
+		sudo apt-get purge git  彻底卸载(强制)
+	日期
+		date
+			在控制台显示当前时间
+		cal
+			在控制台显示日历
+		date > a.txt
+			将内容输出到a.txt，覆盖原先内容
+		date >> a.txt
+			将内容追加到a.txt(不覆盖)
+
+6.文件操作
+	创建
+		mkdir 目录名
+			在当前目录创建一个目录
+		mkdir 目录名 目录名
+			在当前目录创建多个目录
+		mkdir -p 目录名 
+			需要时创建上层目录
+	移动
+		mv 要移动的目录或文件 移动到的路径
+			将一个目录或文件移动到另一个地方
+		如果是移动到同一个目录，相当于重命名
+	复制/拷贝
+		cp 要复制的目录  复制到的目录
+
+		-a：此选项通常在复制目录时使用，它保留链接、文件属性，并复制目录下的所有内容。其作用等于dpR参数组合。
+		-d：复制时保留链接。这里所说的链接相当于Windows系统中的快捷方式。
+		-f：覆盖已经存在的目标文件而不给出提示。
+		-i：与-f选项相反，在覆盖目标文件之前给出提示，要求用户确认是否覆盖，回答"y"时目标文件将被覆盖。
+		-p：除复制文件的内容外，还把修改时间和访问权限也复制到新文件中。
+		-r：若给出的源文件是一个目录文件，此时将复制该目录下所有的子目录和文件。
+		-l：不复制文件，只是生成链接文件。
+	删除
+		rmdir 目录
+			删除一个空目录
+		rm  文件
+			删除文件
+		rm -r 目录
+			递归删除非空目录中的内容
+
+
+
+
+
+
+
+
+

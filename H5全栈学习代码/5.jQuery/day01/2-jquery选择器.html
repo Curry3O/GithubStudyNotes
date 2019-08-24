@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>jquery选择器</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+		}
+		div.two{
+			width: 200px;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		//1.在文档加载完毕后执行
+		$(function(){
+			// alert(1);
+		});
+		//2.在文档加载完毕后执行
+		$(document).ready(function(){
+			//jquery中的事件
+			//给所有选中的div绑定click事件
+			$('div').click(function(){
+				// alert(1);
+				console.log($('div'));
+				console.log(this);  //DOM节点
+			});
+			//样式操作,给div背景
+			/*$('div').css('background','red');
+			$('div').css('margin','10px');*/
+			$('div').css({
+				backgroundColor:'red',
+				margin:'10px',
+			});
+			//获取css属性的值(选择第一个div元素的宽)
+			console.log($('div').css('width'));  //100px
+		});
+	</script>
+</head>
+<body>
+	<div class="one">hello</div> 
+	<div class="two">world</div> 
+</body>
+</html>

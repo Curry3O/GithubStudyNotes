@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>下拉列表</title>
+	<link rel="stylesheet" href="../bootstrap-3.3.7/css/bootstrap.css">
+	<script src="../bootstrap-3.3.7/js/jquery-3.4.1.min.js"></script>
+	<script src="../bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<script>
+		$(function(){
+			//点击li获取它的内部文本
+			$('.dropdown li').click(function(){
+				console.log($(this).text());
+				$('.dropdown button').html($(this).text()+' <span class="caret"></span>');
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="dropdown">
+				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+				Dropdown
+				<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+			    <li><a href="#">Action</a></li>
+			    <li><a href="#">Another action</a></li>
+			    <li><a href="#">Something else here</a></li>
+			    <li role="separator" class="divider"></li>
+			    <li><a href="#">Separated link</a></li>
+				</ul>
+		</div>
+        <br>
+
+		<!-- 按钮组 -->
+		<div class="btn-group" role="group">
+			<button type="button" class="btn btn-default">Left</button>
+			<button type="button" class="btn btn-default">Middle</button>
+			<button type="button" class="btn btn-default">Right</button>
+		</div>
+		
+		<br>
+		<br>
+
+		<!-- 占满一行按钮组 -->
+		<div class="btn-group btn-group-justified">
+			<a href="" class="btn btn-default">按钮</a>
+			<a href="" class="btn btn-default">按钮</a>
+			<a href="" class="btn btn-default">按钮</a>
+		</div>
+		
+		<br>
+		<br>
+
+		<div class="btn-group btn-group-justified">
+			<div class="btn-group">
+				<button class="btn btn-default">按钮</button>
+			</div>
+			<div class="btn-group">
+				<button class="btn btn-default">按钮</button>
+			</div>
+			<div class="btn-group">
+				<button class="btn btn-default">按钮</button>
+			</div>
+		</div>
+
+		<br>
+		<br>
+
+		<!-- 分页 -->
+		<ul class="pagination">
+			<li class="disabled">
+ 				<a href="#" aria-label="Previous">
+    				<span aria-hidden="true">&laquo;</span>
+  				</a>
+			</li>
+		    <li class="active"><a href="#">1</a></li>
+		    <li><a href="#">2</a></li>
+		    <li><a href="#">3</a></li>
+		    <li><a href="#">4</a></li>
+		    <li><a href="#">5</a></li>
+			<li>
+				<a href="#" aria-label="Next">
+    				<span aria-hidden="true">&raquo;</span>
+  				</a>
+			</li>
+			</ul>
+		
+		<br>
+		<br>
+
+		<!-- 徽章 -->
+		<button class="btn btn-danger">
+			未读消息: <span class="badge">10</span>
+		</button>
+
+		<br>
+		<br>
+
+		<!-- 进度条 -->
+		<div class="progress">
+			<div class="progress-bar" style="width: 30%">
+				30%
+			</div>
+		</div>
+		<div class="progress">
+			<div class="progress-bar progress-bar-striped progress-bar-success active" style="width: 80%">
+				80%
+			</div>
+		</div>
+
+		<br>
+		<br>
+
+		<!-- 面板 -->
+		<div class="panel panel-danger">
+			<div class="panel-heading text-center">Panel heading</div>
+			<!-- <div class="panel-body">内容区</div> -->
+			<!-- 内部表格 -->
+			<table class="table table-condensed text-center">
+				<tr>
+					<td>hello</td>
+					<td>hello</td>
+					<td>hello</td>
+					<td>hello</td>
+				</tr>
+				<tr>
+					<td>hello</td>
+					<td>hello</td>
+					<td>hello</td>
+					<td>hello</td>
+				</tr>
+				<tr>
+					<td>hello</td>
+					<td>hello</td>
+					<td>hello</td>
+					<td>hello</td>
+				</tr>
+				<tr>
+					<td>hello</td>
+					<td>hello</td>
+					<td>hello</td>
+					<td>hello</td>
+				</tr>
+				<tr>
+					<td>hello</td>
+					<td>hello</td>
+					<td>hello</td>
+					<td>hello</td>
+				</tr>
+			</table>
+			<!-- <div class="panel-footer">结尾</div> -->
+		</div>
+
+		<br>
+		<br>
+
+		<!-- 路径导航  面包屑导航 -->
+		<ol class="breadcrumb">
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Library</a></li>
+			<li>Data</li>
+		</ol>
+
+		<br>
+		<br>
+
+		<!-- 导航条 -->
+		<nav class="navbar navbar-default">
+			<div class="container">
+				<!-- 导航 -->
+				<ul class="nav nav-pills nav-justified">
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Library</a></li>
+					<li><a href="#">Data</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<br>
+		<br>
+		<br>
+
+		<nav class="navbar navbar-default navbar-fixed-bottom">
+			<div class="container">
+				<ul class="nav nav-pills nav-justified">
+					<li>新闻页</li>
+					<li>娱乐页</li>
+					<li>体育页</li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+</body>
+</html>

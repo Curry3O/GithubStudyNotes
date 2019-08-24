@@ -1,0 +1,8 @@
+将其他元素转换成行内显示，同时可设置元素宽高
+display:inline-block
+
+将其他元素转换成行内元素，不可设置宽高
+display:inline
+
+将其他元素转换成块级元素，可设置宽高
+display:block

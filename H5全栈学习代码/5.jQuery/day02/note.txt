@@ -1,0 +1,15 @@
+$('button').click(function(){})
+
+$('button').bind({'click',function(){}});
+$('button').unbind({'click',function(){}});
+$('button').bind({
+	click:function(){},
+	mouseover:function(){},
+});
+
+$('button').on('click',function(){});
+$('button').off('click',function(){});
+
+代理
+$('body').on('click','button',function(){})
+$('body').delegate('button','click',function(){})

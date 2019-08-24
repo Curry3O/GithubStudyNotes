@@ -1,0 +1,26 @@
+JS特点：
+1.浏览器端执，node环境执行；
+2.解释性语言
+3.弱类型语言
+4.自上而下去执行
+
+数据类型
+基本数据类型：
+null
+undefined
+boolean
+number
+string
+引用数据类型：
+object{}
+array[]
+function(){}
+
+两个数相加的函数：
+function add(x,y){
+	return x + y;
+}
+var result = add(10,20);
+console.log(result);
+
+

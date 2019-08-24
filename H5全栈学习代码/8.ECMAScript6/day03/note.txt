@@ -1,0 +1,70 @@
+解构
+	数组解构
+		let [a,b=2] = [1];  //a=1 b=2
+	对象的解构
+		let {name:aName='hb'} = {
+			name:'lm',
+		};  //aName = 'lm'
+	字符串的解构
+		let {toSting} = '123';
+		let [a,b] = '123'; //a=1 b=2
+	数值的解构
+		let {toSting} = 123;
+	布尔的解构
+		let {toSting} = true;
+	使用:
+		函数变量的赋值
+		function test([a,b]){}
+		test([1,2]);
+		function test({a,b}){}
+		test({a:1,b:2});
+	扩展运算符 ...
+		...[1,2,3]
+
+	rest参数 ...变量   函数的形参
+		可以用来接收剩余的实参
+		function test(...tail){}
+		test(1,2,3,4,5);
+		let [a...b] = [1,2,3,4];
+对象的扩展
+	属性简写
+		let name = 'hb';
+		let age = 22;
+		let obj = {
+			name,
+			age
+		};
+	方法的简写
+		let obj = {
+			sayName(){
+				...
+			}
+		};
+	属性名表达式
+		let name = 'test';
+		let obj = {
+			[name]:'hb',
+			[name+'lm']:'hello'
+		};
+
+	Object.is(a,b)    ===
+		+0 === -0  true
+		NaN === NaN false
+		Object.is(+0,-0)  false
+		Object.is(NaN,NaN)  true
+对象浅复制
+	引用复制/浅拷贝
+	let obj = {};
+	let obj2 = obj;
+	改变obj2也会改变obj
+对象深复制/深拷贝
+	复制内部的内容
+	let obj = {name:'hb'};
+	let obj2 = JSON.parse(JSON.stringify(obj));
+
+	//Object.assign(target,...tail){}
+	function myClone(target,...tail){
+
+		return target;
+	}
+	myClone({},{name:'lm'},{age:21},{gender:'woman'});

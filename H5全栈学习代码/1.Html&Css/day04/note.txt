@@ -1,0 +1,151 @@
+CSS级联--CSS层叠
+规定了在哪 个html上使用的样式
+
+
+
+html
+	p
+	h1-h6
+	pre
+	div
+	span
+	article
+	section
+	nav
+	header
+	footer
+	aside
+	address
+	table
+	thead
+	tbody
+	tfoot
+	tr
+	th
+	td
+	caption
+	colgroup
+	col
+	form
+	input
+		type=""
+			text
+			password
+			radio
+			checkbox
+			submit
+			reset
+			file
+			image
+			search
+			color
+			number
+			tel
+			url
+			email
+			date
+			time
+			datetime-locale
+			week
+			month
+			range
+	select
+	option
+	textarea
+	progress
+	meter
+	fieldset
+	legend
+	figure
+	figcaption
+	.....
+
+表单控件的属性
+	disabled
+	required
+	checked
+	selected
+	readonly
+	autofocus
+	autocomplete="off"
+	min
+	max
+	name
+	value
+	step
+
+块级元素  行内元素
+	css控制
+
+CSS
+	css2 css3  C3
+	H5+C3
+	层叠样式表  
+	CSS级联--CSS层叠
+	规定了在哪个html上使用哪个样式
+	样式表
+		div{
+			color:red;  css声明
+			font-size:30px;
+		}
+		选择器CSS代码块
+		css样式
+		body{
+			font-size:16px;
+		}
+		div{
+			background-color:#ffffff;
+			font-size:40px;
+		}
+
+CSS选择器，选中匹配的元素，然后进行样式的设置
+	标签选择器  div  h1  
+		th{
+			color:red;
+		}
+		<table>
+			<tr>
+				<th>hello</th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</table>
+CSS样式
+
+
+DOM
+						html
+				|					|
+			head   			body
+	|		|			|				|
+	meta title link 	div
+										|		|
+										p   ul
+元素节点							|
+注释节点
+属性节点  
+	<img src="" alt="">
+原生JS  jQuery  React Vue  AngularJS 
+
+
+
+@import 导入
+	可以在css文件中导入另一个css文件
+	也可以在html文件中导入一个css文件
+	
+
+给谁设置什么样式
+	选择器
+	样式属性
+
+
+
+
+
+
+
+
+
+
+

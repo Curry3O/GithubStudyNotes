@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Element</title>
+	<style>
+		.red{
+			background: red;
+		}
+		.blue{
+			background: blue;
+		}
+	</style>
+	<script>
+		function test(){
+			var div = document.getElementById('one');
+			console.log(div);
+			//class切换
+			/*var str = 'red';
+			if (div.className==='red') {
+				str = 'blue';
+			}
+			div.className = 'str';*/
+			//三目运算
+			div.className = (div.className === 'red')?'blue':'red';
+		}
+		window.onload = function(){
+			var div = document.body.children[0];
+			//console.log(div);
+			//console.log(document.body.firstElementChild);
+			//获取属性值
+			console.log(div.className);  //red
+			console.log(div.title);  //我是div
+			console.log(div.getAttribute('class'));//red
+			console.log(div.getAttribute('date-flag'));//1001
+			console.log(div.style);//CSS2Properties { color → "coral" }
+			console.log(div.getAttribute('style'));//color: coral
+			div.style.color = 'skyblue';
+			//div.style.backgroundColor = 'red';
+			console.log(div.style); //对象
+			//CSS2Properties { color → "skyblue", "background-color" → "red" }
+			console.log(div.onclick);  //function onclick()  函数
+			console.log(div.getAttribute('onclick'));//test() 字符串
+			//设置属性值
+			div.title = 'hello';
+			div.setAttribute('title','world');
+			//移除属性
+			div.removeAttribute('title');
+			//打印所以属性
+			console.log(div.attributes);//NamedNodeMap(5) [ id="one", style="color: skyblue;", class="red", date-flag="1001", onclick="test()"
+			//属性节点组成的类数组
+			console.log(div.attributes[2]);  //class="red"
+			//属性节点对象  nodeType  2
+			//修改属性值
+			div.attributes[2].nodeValue = 'blue';
+			console.log(div.attributes.getNamedItem('class'));  //class="blue"
+			//获取内部内容
+			console.log(div.innerHTML);
+			//获取内部文本,去掉回车换行
+			console.log(div.innerText);
+			//获取内部文本,有回车换行
+			console.log(div.textContent);
+			//修改内部文本
+			//div.innerText = 'hello';
+			//div.innerHTML = 'hello';
+			
+			//div.innerText = '<span>span</span>';
+			//div.innerHTML = '<span>span</span>';  //可以解析html代码
+			
+			div.innerHTML = `
+							<div>
+								<span>hello</span>
+							</div>
+						`;
+		}
+	</script>
+</head>
+<body>
+	hello
+	<div id='one' style="color: coral" class='red' title="我是div" date-flag='1001' onclick="test()">
+		one
+		two
+		three
+		<span>four</span>
+	</div>
+	
+</body>
+</html>

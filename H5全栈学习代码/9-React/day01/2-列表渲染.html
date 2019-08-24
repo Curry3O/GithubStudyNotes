@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表渲染</title>
+    <script src="./js/react.js"></script>
+    <script src="./js/react-dom.js"></script>
+    <script src="./js/babel.min.js"></script>
+    <script type="text/babel">
+        //列表渲染  循环渲染-for渲染
+        let arr = ['苹果','葡萄','桃子'];
+        function MyCom(props) {
+            return(
+                <div>
+                    <ul>
+                        {
+                            //如果要在JSX中写JS代码要用{}
+                            //如果要访问变量要用{}
+                            props.arr.map((item,index)=>{
+                                return <li key={index}>{item}</li>;
+                            })
+                        }
+                    </ul>
+                </div>
+            );
+        }
+
+        //使用组件
+        ReactDOM.render(<MyCom arr={arr}/>,document.getElementById('one'));
+    </script>
+</head>
+<body>
+    <div id="one"></div>
+</body>
+</html>

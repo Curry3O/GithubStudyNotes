@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>删除节点</title>
+	<style>
+		.outer{
+			border: 1px solid blue;
+			overflow: hidden;
+			float: left;
+			margin: 10px;
+		}
+		.inner{
+			border: 1px solid red;
+			width: 50px;
+			height: 50px;
+			float: left;
+			margin: 10px;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			$('.inner').click(function(){
+				alert(1);
+			});
+			var $res = $('.outer .inner:first-child');
+			var $result = $('.outer .inner:contains("one")');
+			//remove()返回值不保留了jQuary数据和事件
+			//var $rm = $res.remove();
+			// $('div').remove('.inner'); 
+			
+			// detach()返回值保留了jQuary数据和事件
+			var $rm = $res.detach(':first');
+			console.log($rm);
+			$('.outer').append($rm);
+			//清空outer
+			$('.outer').empty();
+		});
+	</script>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner">one</div>
+		<div class="inner">two</div>
+		<div class="inner"></div>
+		<div class="inner"></div>
+	</div>
+	<div class="outer">
+		<div class="inner">one</div>
+		<div class="inner">two</div>
+		<div class="inner"></div>
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

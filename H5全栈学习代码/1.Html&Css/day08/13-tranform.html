@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变形</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			background-color: coral;
+			/*绕X轴旋转30度*/
+			/*transform: rotateX(30deg);*/
+			animation-name: myani;
+			animation-duration: 2s;
+			/*设置变形源点，坐标圆心的位置*/
+			/*绕着左上点旋转*/
+			/*transform-origin: left top;*/
+			/*transform-origin:20px 20px;*/
+			/*margin: 200px;*/
+		}
+		@keyframes myani{
+			0%{
+				/*rotate skew 默认Z轴*/
+				/*旋转*/
+				/*transform: rotateX(0deg);*/
+				/*transform: rotateY(0deg);*/
+				/*transform: rotateZ(0deg);*/
+
+				/*倾斜*/
+				/*transform: skewX(0deg);*/
+				/*transform: skewY(0deg);*/
+				/*transform: skewZ(0deg);*/
+
+				/*x轴和y轴都倾斜*/
+				/*transform: skew(0deg,0deg);*/
+
+				/*缩放*/
+				/*1表示原始比例，不进行缩放,大于1放大，小于1缩小*/
+				/*transform: scale(1);*/
+
+				/*平移*/
+				/*开始在原来位置*/
+				transform: translate(0,0);
+			}
+			100%{
+				/*transform: rotateX(360deg);*/
+				/*transform: rotateY(360deg);*/
+				/*transform: rotateZ(360deg);*/
+
+				/*transform: skewX(90deg);*/
+				/*transform: skewY(90deg);*/
+				/*transform: skewZ(90deg);*/
+
+				/*transform: skew(45deg,45deg);*/
+
+				/*transform: scale(2);*/
+				/*x方向放大*/
+				/*transform: scaleX(3);*/
+				/*y方向缩小*/
+				/*transform: scaleY(0.3);*/
+
+                /*x轴方向移动100px，y方向移动200px*/
+				transform: translate(100px,200px);
+				/*transform: translateX(100px);*/
+				/*transform: translateY(200px);*/
+
+			}
+		}
+	</style>
+</head>
+<body>
+	<div>hello</div>
+	
+</body>
+</html>

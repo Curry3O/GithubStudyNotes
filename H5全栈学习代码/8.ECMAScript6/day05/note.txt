@@ -1,0 +1,205 @@
+Set 数组
+    数据不重复
+    new Set()
+    set.add() 添加
+    set.delete()  删除
+    set.clear() 清空
+    set.has() 是否有某个值
+    遍历 
+    返回迭代器对象
+        set.keys()
+        set.values()
+        set.entries()
+    set.forEach((value,key,set)=>{})
+    数组去重
+        [...new Set(arr)]
+    
+Map 对象
+    new Map()
+    map.set(key,value) 添加
+    map.delete()  删除
+    map.clear() 清空
+    map.has() 是否有某个值
+    返回迭代器对象
+        map.keys()
+        map.values()
+        map.entries()
+    map.forEach((value,key,set)=>{})
+
+迭代器
+    Iterator 接口
+        Array
+        String
+        Set
+        Map
+        Arguments
+        NodeList
+
+        可以使用for-of
+        map.keys().next()  指针指向下一个，拿当前的数据返回一个对象
+        {value:'',done:false}
+        ...
+        {value:undefined,done:true}
+        
+模块
+    ES6的模块，如果在Node环境中执行需要进行babel转换
+    导出：
+        export {m,n}
+        export let a = 1;
+
+        function test(){}
+        export default test;
+    导入：
+        import {m,n,a} from './a.js';
+        import * as obj from './a.js/;
+        import test from './a.js/;
+
+Promise
+    容器，内部封装异步操作，异步代码同步编写
+    let p = new Promise((resolve,reject){
+        $.ajax({
+            success(res){
+                resolve(res);
+            },
+            error(error){
+                reject(error);
+            }
+        })
+    });
+    p.then(function(res){
+        console.log(res);
+    });
+     p.catch(function(error){
+        console.log(error);
+    });
+---------------
+Promise.resolve(p1);  将p1转成Promise对象，并且Promise对象的状态为resolve状态
+Promise.reject(p2);   将p2转成Promise对象，并且Promise对象的状态为reject状态
+let p3 = Promise.all([p1,p2,p3]);
+    p3.then(function(res){
+        //全部成功时
+        console.log([p1的响应,p2的响应,p3的响应]);
+    });
+    p3.catch(function(error){
+        //只有有一个失败时,便返回它的失败信息
+        console.log(error);
+    });
+Promise.race([p1,p2,p3]);//赛跑 谁快用谁的数据
+p.finally(()=>{});  //finally方法用于指定不管Promise对象最后状态如何，都会执行的操作
+
+类  
+    语法糖--构造函数-原型对象
+
+    class Animal{
+        //构造器
+        constructor(name,age){
+            //实例属性  小animal的属性
+            this.name = name;
+            this.age = age;
+        }
+        //实例的方法   小animal的方法
+        sayName(){
+            console.log(this.name);
+        }
+        //static 类方法 静态方法  小animal不能去调用,只能类本身去调用
+        static say(){
+            console.log('say');
+        }
+    }
+    Animal.staticAttr = 'hello';  //静态属性
+    Animal.say();  //静态方法
+
+
+    实例属性  constructor中this后边的
+    实例方法  在类内部没有用static修饰的方法
+
+    静态属性  在类外部使用 (类名.属性名) 声明的属性，只能通过类名去调用
+    静态方法  在类内部使用static修饰的方法，只能通过类名去调用
+
+    类继承  extends
+    es5 
+        Dog   Animal
+        function Animal(name,age){};
+        function Dog(name,age,color){
+            Animal.call(this,name,age);
+        };
+        Dog.prototype = new Animal();
+        Dog.prototype.constructor = Animal;
+
+    es6
+        1.extends关键字
+        2.属性的继承
+        3.方法的继承
+
+        class Animal();
+        class Dog extends Animal();
+        //实现了静态方法，静态属性，实例方法的继承
+        //实例属性的继承需要手动写。在Dog类的构造器中调用父类的构造器，传递参数。
+
+
+
+        //继承有两条线
+        子类对象继承父类对象
+        子类的原型对象继承父类的原型对象
+
+        父类的静态属性和静态方法，子类可以调用，Dog继承Animal中的静态属性和静态方法
+        父类中写的实例方法，在子类的原型中可以获取到。子类实例可以调用。
+
+
+
+
+
+---------------------------------------
+复习
+    HTML5
+        零碎
+            块级元素
+                div p h1-h6 
+                //h5新增标签
+                article section nav header footer address slide aside figure
+            行内元素
+                span a strong b em i sub sup  //sub(log)  sup(指数)
+            替代元素
+                img input
+            空元素
+                br hr meta
+        表格的
+            table thead tbody tfoot tr td th caption colspan=""  rowspan=""
+        表单的
+            form action="" target method=""
+            input type="" text password radio checkbox image file submit reset button range data data-time data-localtime number search url email 
+            select
+                option  value=""
+            textarea
+            button
+            fieldset
+            legend
+            progress
+            meter
+    CSS3
+        选择器
+            id class * 标签 后代选择权 属性选择器 伪类选择器 伪元素选择器
+        级联
+        文字样式
+        列表样式
+        溢出处理
+        显示与隐藏
+        盒子模型
+        浮动
+        定位
+        flex
+        动画
+        过渡
+        变形
+        兼容性
+        继承
+    Linux
+    JS
+    jQuery
+    Bootstrap
+    HTML5API
+    ES6
+
+
+
+

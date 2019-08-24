@@ -1,0 +1,40 @@
+ECMAScript 核心语法规则
+DOM 对文档节点的操作
+BOM 对浏览器的操作
+JS注释
+//单行注释
+/*
+
+多行注释的内容
+
+*/
+关键字：var if else for while continue
+保留字：class static super int abstract
+声明变量：var a;
+初始化变量：a = 5;
+声明并初始化变量：var a = 5;
+var a =5,b =3,c=4;
+命名规则：
+由字母,数字，$和_ 组成；
+不能以_和数字开头；
+小驼峰命名法：userName;
+不能使用关键字和保留字。
+数据类型：
+基本类型                   属性值   
+undefined                  undefined
+null                       null
+boolean                    true\false
+number                     任何数字(1, 1.33, 2.333333333)
+string                     任何字符串("hello")
+引用数据类型
+object类型       对象   var obj={};    var o ={name='li'};
+Array类型        数组   var arr=[1,2,3];
+Function类型     函数   var test=function(){}        function test(){}
+
+typeof取值
+undefined
+number
+boolean
+string
+object   object/null/array
+function

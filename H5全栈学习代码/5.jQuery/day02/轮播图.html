@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>11</title>
+	<style>
+		*{
+	        margin: 0;
+	        padding: 0;
+	    }
+	    li{
+	       list-style: none;
+	   	}
+	   	.container{
+	   		width: 800px;
+	   		height: 500px;
+	   		position: relative;
+	   		margin: 100px auto;
+	   	}
+	   	img{
+	   		width: 800px;
+	   		height: 500px;
+	   	}
+	   	.num{
+	   		position: absolute;
+	   		text-align: center;
+	   		width: 100%;
+	   		bottom: 20px;
+	   	}
+	   	.num li{
+	        display: inline-block;
+	        width: 25px;
+	        height: 25px;
+	        background-color: darkgray;
+	        color: white;
+	        text-align: center;
+	        line-height: 25px;
+	        border-radius: 50%;
+	        margin: 0 35px;
+	    }
+	    .btn{
+	        position: absolute;
+	        width: 45px;
+	        height: 80px;
+	        background-color: darkgray;
+	        color: white;
+	        top: 50%;
+	        margin-top: -25px;
+	        display: none;
+	    }
+	    .btn i{
+	    	display: block;
+	    	line-height: 80px;
+			text-align: center;
+	    }
+	    .leftBtn{
+	        left: 0;
+	    }
+	    .rightBtn{
+	    	right: 0;
+	    }
+	     .container .btn{
+	        cursor: pointer;
+	    }  
+	    .current{
+	        background-color: red!important;
+	    }
+	</style>
+	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			var banners = [
+			'./images/1.jpg',
+			'./images/2.jpg',
+			'./images/3.jpg',
+			'./images/4.jpg',
+			'./images/5.jpg',
+			'./images/6.jpg',
+			];
+			var index = 0;
+			//设置每2.5秒自动轮播
+			var time = setInterval(move,2500);
+			function move(){
+				index++;
+				if (index == 6) {
+					index = 0;
+				}
+				$('.num li').eq(index).addClass('current').siblings().removeClass('current');
+				// $('#banner').fadeOut(500).fadeIn(2000);
+				$('#banner').attr('src',banners[index]);
+			};
+			//鼠标放到顺序按钮上时
+			$('.num li').mousemove(function(){
+				$(this).addClass('current').siblings().removeClass('current');
+				index = $(this).index();
+				$('#banner').attr('src',banners[index]);
+			});
+			//鼠标划入、划出轮播图区域时
+			$('.container').mouseover(function(){
+				clearInterval(time);
+				$('.btn').css('display','block');
+			});
+			$('.container').mouseout(function(){
+				time = setInterval(move,2500);
+				$('.btn').css('display','none');
+			});
+			//点击右侧按钮时执行
+			$('.rightBtn').click(function(){
+				move();
+			});
+			//点击左侧按钮时执行
+			$('.leftBtn').click(function(){
+				index--;
+				if (index == -1) {
+					index = 5;
+				}
+				$('.num li').eq(index).addClass('current').siblings().removeClass('current');
+				$('#banner').attr('src',banners[index]);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div class="container">
+		<ul class="img">
+			<li><a><img src="./images/1.jpg" id="banner"></a></li>
+		</ul>
+		<ul class="num">
+			<li class="current">1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+			<li>5</li>
+			<li>6</li>
+		</ul>
+		<div class="leftBtn btn">
+			<i class="fa fa-chevron-left fa-4x" aria-hidden="true"></i>
+		</div>
+		<div class="rightBtn btn">
+			<i class="fa fa-chevron-left fa-4x fa-flip-horizontal" aria-hidden="true"></i>
+		</div>
+	</div>
+</body>
+</html>

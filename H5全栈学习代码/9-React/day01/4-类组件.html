@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>类组件</title>
+    <script src="./js/react.js"></script>
+    <script src="./js/react-dom.js"></script>
+    <script src="./js/babel.min.js"></script>
+    <script type="text/babel">
+        //组件声明有两种方法：函数组件,类组件
+        //props
+        class MyCom extends React.Component{
+            constructor(props){
+                //props 父组件的数据模型
+                super(props);
+                // console.log(this);
+                //state 本组件的数据模型  状态组件
+                this.state = {
+                    msg:'state中的msg'
+                };
+            }
+            //模块渲染 需重写
+            render(){
+                let msg = 'hello';
+                return (
+                    <div>
+                        {/*访问render内部变量*/}
+                        <h2>{msg}</h2>
+                        {/*访问props中变量*/}
+                        <h2>{this.props.test}</h2>
+                        {/*访问state中变量*/}
+                        <h2>{this.state.msg}</h2>
+                    </div>
+                );
+            }
+        }
+        let test = 'test1';
+        ReactDOM.render(<MyCom test={test}/>,document.getElementById('one'));
+    </script>
+</head>
+<body>
+    <div id="one"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>margin合并</title>
+	<style>
+		div{
+			width: 100px;
+			height: 100px;
+			border: 1px solid red;
+			/*浮动*/
+			float: left;
+		}
+		/*没有浮动谁的边距大用谁的*/
+		/*如果有浮动，边距是两个相加*/
+		.one{
+			/*margin-bottom: 20px;*/
+			margin: 20px;
+		}
+		.two{
+			/*margin-top: 30px;*/
+			margin: 30px;
+		}
+	</style>
+</head>
+<body>
+	<div class="one"></div>
+	<div class="two"></div>
+	
+</body>
+</html>

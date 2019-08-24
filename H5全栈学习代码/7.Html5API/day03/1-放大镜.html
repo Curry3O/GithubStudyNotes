@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>放大镜</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			width: 500px;
+			height: 500px;
+			border: 1px solid #ccc;
+			position: relative;
+			margin: 80px;
+		}
+		canvas{
+			border: 1px solid #ccc;
+		}
+		#big-canvas{
+			position: absolute;
+			left: 520px;
+			top: 100px;
+			display: none;
+		}
+		#small-canvas{
+			position: absolute;
+			opacity: 0.5;
+			left: 0;
+			top: 0;
+			display: none;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var container = document.getElementsByClassName('container')[0];
+			var canvas = document.getElementById('canvas');
+			var context = canvas.getContext('2d');
+			var bigCanvas = document.getElementById('big-canvas');
+			var bigContext = bigCanvas.getContext('2d');
+			var smallCanvas = document.getElementById('small-canvas');
+			var smallContext = smallCanvas.getContext('2d');
+			//图片画布
+			var img = new Image();
+			img.src = '../media/images/2.png';
+			img.onload = function(){
+				context.drawImage(img,0,0,500,500);
+			}
+			//波点画布
+			var imgbd = new Image();
+			imgbd.src = '../media/images/bd.jpg';
+			imgbd.onload = function(){
+				smallContext.drawImage(imgbd,0,0,80,80);
+			}
+			container.onmousemove = function(event){
+				//鼠标移进波点画布和放大镜都显示
+				bigCanvas.style.display = 'block';
+				smallCanvas.style.display = 'block';
+				// x是开始裁剪图片的位置的横坐标  x是开始裁剪图片的位置的纵坐标
+				var x = event.pageX - container.offsetLeft - smallCanvas.offsetWidth/2;
+				var y = event.pageY - container.offsetTop - smallCanvas.offsetHeight/2;
+				//判断边界
+				if (x<0) {
+					x = 0;
+				}
+				if (x> canvas.offsetWidth - smallCanvas.offsetWidth) {
+					x = canvas.offsetWidth - smallCanvas.offsetWidth;
+				}
+				if (y<0) {
+					y = 0;
+				}
+				if (y> canvas.offsetHeight - smallCanvas.offsetHeight) {
+					y = canvas.offsetHeight - smallCanvas.offsetHeight;
+				}
+				bigContext.clearRect(0,0,300,300);
+				// 参数：图像对象，开始剪切的 x 坐标位置，开始剪切的 y坐标位置，被剪切图像的宽度，被剪切图像的高度，绘制位置的起始x坐标，起始y坐标，绘制图像的宽，高
+				bigContext.drawImage(canvas,x,y,80,80,0,0,300,300);
+				// 设置波点画布的位置
+				smallCanvas.style.left = x + 'px';
+				smallCanvas.style.top = y + 'px';
+			}
+			//鼠标移出波点画布和放大画布都隐藏
+			container.onmouseleave = function(){
+				bigCanvas.style.display = 'none';
+				smallCanvas.style.display = 'none';
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="container">
+		<!-- 原图 -->
+		<canvas id="canvas" width="500px" height="500px"></canvas>
+		<!-- 放大区域 -->
+		<canvas id="big-canvas" width="300px" height="300px"></canvas>
+		<!-- 波点区域 -->
+		<canvas id="small-canvas" width="80px" height="80px"></canvas>
+	</div>
+</body>
+</html>

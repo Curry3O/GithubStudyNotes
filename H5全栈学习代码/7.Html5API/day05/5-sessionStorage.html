@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>sessionStorage</title>
+	<script>
+		window.onload = function(){
+			/*console.log(sessionStorage);
+			console.log(localStorage);*/
+			//存储数据 只能存储字符串,对象要想将装成json字符串
+			sessionStorage.setItem('name','hb');
+			sessionStorage.setItem('age',22);
+			sessionStorage.setItem('obj',JSON.stringify({name:'lm',age:21}));
+
+			//获取数据
+			var age = sessionStorage.getItem('age');
+			console.log(age);
+			var obj = sessionStorage.getItem('obj');
+			console.log(JSON.parse(obj));
+			console.log(sessionStorage.key(1));
+
+			//获取localStorage中的数据
+			console.log(localStorage.getItem('gender'));
+		}
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选择器</title>
+	<style>
+		.outer{
+			border: 1px solid blue;
+			overflow: hidden;
+			float: left;
+			margin: 10px;
+		}
+		.inner{
+			border: 1px solid red;
+			width: 50px;
+			height: 50px;
+			float: left;
+			margin: 10px;
+		}
+	</style>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			//class为outer
+			/*var $res = $('.outer');
+			$res.css('background','pink');*/
+			//outer所有后代inner
+			/*var $result = $('.outer .inner');
+			$result.css('background','pink');*/
+			//outer所有子代inner
+			/*var $result = $('.outer>.inner');
+			$result.css('background','pink');*/
+			//.one第一个兄弟
+			/*var $res = $('.one+');
+			$res.css('background','pink');*/
+			//.one后的所有兄弟
+			/*var $res = $('.one~*');
+			console.log($res);
+			$res.css('background','pink');*/
+			//所有inner中的第一个
+			/*var $result = $('.outer .inner:first');
+			$result.css('background','pink');*/
+			//偶数(从0开始)
+			/*var $result = $('.outer .inner:even');
+			$result.css('background','pink');*/
+			//奇数
+			/*var $result = $('.outer .inner:odd');
+			$result.css('background','pink');*/
+			//索引等于2
+			/*var $result = $('.outer .inner:eq(2)');
+			$result.css('background','pink');*/
+			//索引小于2
+			/*var $result = $('.outer .inner:lt(2)');
+			$result.css('background','pink');*/
+			//索引大于2
+			/*var $result = $('.outer .inner:gt(2)');
+			$result.css('background','pink');*/
+			//除了索引小于2
+			/*var $result = $('.outer .inner:not(:lt(2))');
+			$result.css('background','pink');*/
+			//选择所有标题元素
+			/*var $res = $('.outer *:header');
+			console.log($res);*/
+			//获取内容中包含o元素
+			/*var $res = $(".outer :contains('o')");
+			console.log($res);
+			$res.css('background','pink');*/
+		});
+	</script>
+</head>
+<body>
+	<div class="outer">
+		<div class="inner"></div>
+		<div class="inner one"></div>
+		<div class="inner"></div>
+		<div class="inner"></div>
+		<div class="inner"><h4>inner</h4></div>
+		<div style="overflow: hidden;">
+			<div class="inner"></div>
+		</div>
+		<h2>hello</h2>
+		<h4>world</h4>
+	</div>
+	<div class="outer">
+		<div class="inner"></div>
+		<div class="inner one"></div>
+		<div class="inner"></div>
+		<div class="inner"></div>
+		<div class="inner"></div>
+	</div>
+	<div class="outer">
+		<div class="inner"></div>
+		<div class="inner"></div>
+		<div class="inner"></div>
+	</div>
+</body>
+</html>

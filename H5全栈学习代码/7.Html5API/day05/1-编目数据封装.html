@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>编目数据封装</title>
+	<script>
+		var cates = [
+			{id:1,name:'根编目',cate_path:null},
+			{id:2,name:'Java课程',cate_path:'1.2'},
+			{id:3,name:'Spring课程',cate_path:'1.2.3'},
+			{id:4,name:'SpringBoot课程',cate_path:'1.2.3.4'},
+			{id:5,name:'Web课程',cate_path:'1.5'},
+			{id:6,name:'Servlet课程',cate_path:'1.2.6'},
+			{id:7,name:'React课程',cate_path:'1.5.7'},
+			{id:8,name:'redux课程',cate_path:'1.5.7.8'},
+			{id:9,name:'HTML5课程',cate_path:'1.5.9'},
+			{id:10,name:'HTML5API课程',cate_path:'1.5.9.10'},
+			{id:11,name:'Python课程',cate_path:'1.11'},
+			{id:12,name:'Djgo课程',cate_path:'1.11.12'},
+		];
+		//父编目内部有一个孩子编目的数组,放的改编目下的所有子编目
+		//给每一个编目对象中添加一个属性,child:[]
+		//给每一个编目对象中添加一个属性,父编目的id属性
+		//找到当前的一个编目对象，获取它的父编目id,通过这个父编目id,找到父编目对象。将当前的编目对象放置到父编目对象的child数组中
+		
+		//1.添加parent_id属性和child属性
+		//删除根编目
+		cates = cates.filter(function(item){
+			return item.cate_path;
+		});
+		cates.forEach(function(item){
+			item.childs = [];
+			//获取每个编目对象的父编目对象的id值,通过cate_path裁切获取
+			var parentsArr = item.cate_path.split('.');
+			var parentId = parentsArr[parentsArr.length - 2];
+			// console.log(parentId);
+			item.parent_id = +parentId;
+		});
+		// console.log(cates);
+		
+		//2.将子编目对象放到父编目对象中的child数组中
+		cates.forEach(function(item){
+			//item 子编目对象
+			//通过子编目对象找父编目对象
+			var parents = cates.filter(function(pItem){
+				return item.parent_id === pItem.id;
+			});
+			// console.log(parents);
+			if (parents.length > 0) {
+				//parents[0]  父编目对象
+				parents[0].childs.push(item);
+			}
+		});
+		// console.log(cates);
+
+		//3.过滤获取一级编目对象
+		//通过cate_path判断一级编目
+		var result = cates.filter(function(item){
+			return item.cate_path.split('.').length === 2;
+		});
+		console.log(result);
+		
+		
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

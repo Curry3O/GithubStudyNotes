@@ -1,0 +1,10 @@
+Bootstrap 
+框架 html/css  
+js静态框架
+基于jQuery的
+
+响应式
+css  媒体查询
+
+jQuery 是js的一个库
+React、Vue、AngularJS   数据驱动框架，不需要手动去操作DOM

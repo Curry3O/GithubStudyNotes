@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>webWork</title>
+	<script>
+		/*console.time();
+		var total = 0;
+		for(var i=0;i<100000;i++){
+			total += i;
+		}
+		console.log(total);
+		console.timeEnd();   //用于计算中间代码的执行时间*/
+
+		console.time();
+		var worker = new Worker('web.js');
+		// 监听后台程序给worker数据
+		worker.onmessage = function(event){
+			// event.data后台程序给的数据
+			console.log(event.data);
+		}
+		worker.postMessage(10000000000);
+		console.timeEnd();
+	</script>
+</head>
+<body>
+	
+</body>
+</html>

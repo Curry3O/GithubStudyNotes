@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>拖放</title>
+	<style>
+		.parent{
+			height: 200px;
+			border: 1px solid red;
+		}
+		.child{
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			//目标元素
+			//在开始的时候保存拖放的元素，在放置的时候获取拖放的元素，放置在目标元素内部
+			var parent = document.getElementsByClassName('parent')[0];
+			//拖放元素
+			var child = document.getElementsByClassName('child')[0];
+			//拖放开始事件   记录拖放元素
+			child.ondragstart = function(event){
+				console.log('dragstart');
+				//拖放数据传输对象
+				var dt = event.dataTransfer;
+				//添加数据到数据传输对象里
+				dt.setData('id',this.id);
+			}
+			//正在拖放
+			child.ondrag = function(){
+				console.log('drag');
+			}
+			//拖放结束
+			child.ondragend = function(){
+				console.log('dragend');
+			}
+
+
+			//进入目标事件
+			parent.ondragenter = function(){
+				console.log('dragenter');
+			}
+			//在目标元素内部活动事件
+			parent.ondragover = function(){
+				console.log('dragover');
+				//设置目标元素为可放置的    阻止默认行为
+				event.preventDefault();
+			}
+			//将拖放元素放置到目标元素内部事件
+			parent.ondrop = function(){
+				console.log('drop');
+				//获取开始拖放时保存的id值
+				var dt = event.dataTransfer;
+				var id = dt.getData('id');
+				//通过id获取DOM节点
+				var dom = document.getElementById(id);
+				//将拖放元素追加到目标元素内部
+				this.appendChild(dom);
+				//阻止冒泡
+				event.stopPropagation();
+			}
+		}
+	</script>
+</head>
+<body>
+	<div class="parent" id="two"></div>
+	<!-- draggable="true"设置成可拖放元素 -->
+	<div class="child" id="one" draggable="true"></div>
+</body>
+</html>

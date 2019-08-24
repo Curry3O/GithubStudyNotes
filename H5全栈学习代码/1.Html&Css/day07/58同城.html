@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>58同城</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		html{
+			height: 100%;
+		}
+		body{
+			background-image: url(./images/2.png);
+		    background-size: 100% 100%;
+			
+		}
+        a{
+			color: #f6f6f6;
+			font-size: 12px;
+			font-style: normal;
+			text-decoration: none;
+			font-family: 微软雅黑;
+        }
+        .ptab{
+        	width: 476px;
+        	margin: 0 auto;
+        }
+
+        .plinks{
+            width: 476px;
+            height: 45px;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        .pbody{
+        	width: 476px;
+        	height: 540px;
+        	background-color: white;
+        	text-align: center;
+        }
+        .sty2{
+        	float: right;
+        }
+        .phead{
+        	text-align: center;
+        	width: 100%;
+        }
+        .info{
+        	width: 476px;
+        }
+        .info>div{
+        	height: 68px;
+        	width: 350px;
+        	margin: 0 auto;
+        }
+        .info input{
+        	width: 350px;
+        	height: 42px;
+        	box-sizing: border-box;
+        	border: 2px solid #ebebeb;
+        	text-indent: 15px;
+        	outline: 0;
+        	font-size: 14px;
+        	line-height: 42px;
+        }
+
+        .getcode{
+        	position: relative;
+        	top: -33px;
+        	right: -126px;
+        	color: #999;
+        	font-size: 12px;
+        	line-height: 26px;
+        	background-color: #eee;
+        	border-radius: 2px;
+        	cursor: pointer;
+        	padding:5px 10px;
+
+        }
+
+        .placeholder{
+        	color: #ccc;
+        }
+        .protocal{
+        	width: 476px;
+        	height: 45px;
+        	text-align: center;
+        	line-height: 40px;
+        	clear: both;
+        }
+        .protocal>a{
+        	color: #ff553e;
+        	text-decoration: none;
+        }
+        .btn{
+        	height: 42px;
+        	width: 476px;
+        }
+        .btn>button{
+        	height: 42px;
+        	width: 350px;
+        	background-color: #ff553e;
+        	border: none;
+
+
+        }
+        .pbottom{
+        	height: 60px;
+        }
+        .pbottom>a{
+        	display: inline-block;
+        	line-height: 60px;
+        	text-align: center;
+        	float: left;
+        	width: 33%;
+        }
+        
+		
+	</style>
+</head>
+<body>
+	<div class="popup">
+		<div class="ptab">
+								<div class="plinks">
+									<a id="sty1" href="#">返回首页</a>
+						            <a class="sty2" href="#">已有账号？去登录</a>
+								</div>
+					<div class="pbody">
+										<div class="phead">
+											<img src="./images/3.png" style="height: 98px;">
+										</div>
+									<div class="info">
+										<div>
+											<input id="phone" type="text" placeholder="手机号" maxlength="11">
+											<span class="getcode">获取动态码</span>
+										</div>
+										<div>
+											<input id="mobilecode" type="text" placeholder="动态码" maxlength="6">
+										</div>
+										<div>
+										<input id="username" type="text" placeholder="账户名" maxlength="20">
+										</div>
+										<div>
+										<input id="password" type="password" placeholder="设置密码" maxlength="16">
+										</div>
+										<div style="height: 40px;">
+										<input id="confirmpassword" type="password" placeholder="确认密码" maxlength="16">
+										</div>
+									</div>
+				    <div class="protocal">
+				    	<a style="color: #999;">注册即同意</a>
+						<a href="#">《58同城使用协议》</a>
+						<a style="color: #999;">&</a>
+						<a href="#">《隐私政策》</a>
+					</div>
+           			<div class="btn">
+						<button>注册</button>
+					</div>
+				</div>
+
+									     <div class="pbottom">
+								        	<a>&copy;58.com</a>
+								            <a href="#">联系客服</a>
+								            <a href="#">帮助</a>
+								        </div>
+        </div>
+	</div>
+	
+</body>
+</html>

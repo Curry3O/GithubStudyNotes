@@ -1,0 +1,124 @@
+*{
+			margin: 0;
+			padding: 0;
+		}
+		html,body{
+			height: 100%;
+		}
+		body{
+			background-image: url(../images/1.png);
+			background-size: 100% 100%;
+		}
+
+
+		.container{
+			display: flex;
+			justify-content: center;
+		}
+
+
+		.pbox{
+			width: 476px;
+		}
+
+		.phead{
+			width: 476px;
+			height: 45px;
+			line-height: 45px;
+			color: #f6f6f6;
+			font-size: 12px;
+			font-style: normal;
+			font-family: 微软雅黑;
+		}
+		#a2{
+			float: right;
+		}
+
+		.pbody{
+			width: 476px;
+			height: 540px;
+			background-color: white;
+		}
+		.pimg{
+			width: 476px;
+
+		}
+		img{
+			display: block;
+			width: 300px;
+			margin: 0 auto;
+		}
+		.pinput{
+			width: 476px;
+			margin-top: 18px;
+		}
+		.pinput>div{
+			height: 62px;
+        	width: 350px;
+        	margin: 0 auto;
+		}
+		input{
+			width: 350px;
+        	height: 42px;
+        	border: 2px solid #ebebeb;
+        	font-size: 14px;
+        	line-height: 42px;
+        	box-sizing: border-box;
+        	padding-left: 10px;
+
+		}
+		.getcode{
+			position: relative;
+			color: #999;
+			font-size: 12px;
+			background-color: #eee;
+			border-radius: 2px;
+			cursor: pointer;
+			top: -37px;
+			padding: 8px 10px;
+			line-height: 32px;
+			right: -262px;
+		}
+
+		.ptext{
+			width: 476px;
+			height: 60px;
+			color: #999;
+			line-height: 60px;
+			text-align: center;
+			font-size: 14px;
+			margin-top: -20px;
+        }
+        .b2{
+        	color: #ff553e;
+        }
+        .btn{
+        	width: 476px;
+        	height: 42px;
+        	text-align: center;
+        }
+        button{
+        	height: 42px;
+        	width: 350px;
+        	background-color: #ff553e;
+        	border: none;
+        }
+
+
+		
+		.pfoot{
+			width: 350px;
+			height: 60px;
+			margin: 0 auto;
+			margin-top: 8px;
+		}
+		.pfoot>a{
+			color: #f6f6f6;
+			font-size: 12px;
+			font-family: 微软雅黑;
+			line-height: 60px; 
+			text-align: center;
+			display: inline-block;
+			float: left;
+			width: 33.3%
+		}

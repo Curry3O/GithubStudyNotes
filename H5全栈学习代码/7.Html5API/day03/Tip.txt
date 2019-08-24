@@ -1,0 +1,17 @@
+原生js
+以下均不带单位，可用于计算
+offsetWidth  元素的宽度值
+offsetLeft  元素的水平偏移
+clientX 元素在当前窗口中的水平偏移量
+clientWidth 元素的宽度值(不包括边框)
+pageX  元素在页面中的水平偏移
+pageX = clientX+scrollLeft
+screenX  元素在屏幕中水平偏移
+scrollLeft  滚动条的水平偏移距离
+scrollWidth 水平滚动条能滚动的距离
+
+
+jquery
+以下均不带单位，可用于计算
+offset().left  元素水平偏移量  只能获取不能设置
+scrollLeft  获取或设置水平滚动条的滚动距离

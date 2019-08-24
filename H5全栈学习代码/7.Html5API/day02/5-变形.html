@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>变形</title>
+	<style>
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			context = canvas.getContext('2d');
+			//坐标轴的变形
+			context.fillRect(0,0,100,100);
+			//平移坐标轴  此时坐标原点变成(100,100)
+			//参数 坐标原点在x轴方向移动的单位，坐标原点在y轴方向移动的单位
+			context.translate(100,100);
+			//再画一个矩形验证
+			// context.fillRect(0,0,100,100);
+
+			//缩小或放大坐标轴
+			//参数 水平方向的放大/缩小倍数，垂直方向放大/缩小的倍数
+			context.scale(0.5,0.5);
+			//再画一个矩形验证
+			// context.fillRect(0,0,100,100);
+			
+			//旋转坐标轴
+			//参数 旋转的角度  顺时针旋转90度
+			context.rotate(Math.PI/4);
+			//再画一个矩形验证
+			context.fillRect(0,0,100,100);
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</html>

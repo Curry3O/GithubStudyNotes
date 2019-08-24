@@ -1,0 +1,138 @@
+nodeJS环境中支持大部分ES6功能
+	环境，后台语言
+	封装google v8引擎，js解析器
+	安装的位置
+		全局安装 -g  --global
+		局部安装 当前所处的的目录位置安装
+		node_modules文件夹 放置第三方包的文件夹
+		根目录  node_modules (全局)
+			...	
+				day01 
+					node_modules (局部)
+				...
+					app 
+						node_modules  babel-cli (局部)
+	npm包管理工具 (国外的镜像)
+		包--模块--第三方模块  (node package manage)
+		package.json中记录了项目的相关的信息
+		dependencies 产品阶段的依赖
+		devDependencies 项目开发阶段需要的依赖
+		cnpm install --save babel-cli
+			dependencies:{
+				babel-cli:""
+			}
+		cnpm install --save-dev babel-cli
+			devDependencies:{
+				babel-cli:""
+			}
+		npm 下载依赖，删除依赖，更新依赖
+	cnpm 淘宝镜像的npm工具  (国内的镜像) Vue
+		npm install -g cnpm  全局安装cnpm包
+		下载更快:
+		npm install -g cnpm --registry=https://registry.npm.taobao.org
+		cnpm install -g babel-cli
+	yarn 包管理工具 React
+		yarn add babel-cli
+NodeJS内置模块的介绍
+	内置模块:
+		NodeJS后台语言
+		url 网址模块
+		http 服务器模块(用http模块可以搭建服务器)
+		path 文件的路径模块
+		querystring 查询字符串模块
+		第三方:express框架，基于http的模块
+ES6新特性
+	语法方面
+		let const 箭头函数 (形参)=>{函数体}
+	功能方面
+		对 对象、函数、数组进行功能性的扩展
+			复制对象 let obj ={};
+					1.json
+					let obj1 = JSON.Parse(JSON.stringify(obj));
+					2.遍历对象
+					let obj1 = {};
+					for(var key in obj){
+						obj1[key] = obj[key];
+					}
+					3.es6
+					let obj1 = {};
+					Object.assign(obj1,obj);
+		Set 	Map		Class ...
+		用类去创建实例 构造器
+		用类去实现继承 extends
+		Promise 承诺对象
+		模块化...
+ES6写的代码，NodeJS绝大部分支持，浏览器的支持程度比较弱  项目 ES6-->ES5
+使用Babel工具将ES6的代码转成ES5代码
+babel工具只转换语法层次的
+babel-polyfill 垫片 将es6的功能性新特性转换成es5的代码
+Babel工具使用
+	1.全局安装babel工具
+		cnpm install -g babel-cli
+	2.局部安装转换规则包
+		最新转码规则
+			cnpm install babel-preset-latest
+		ES2015转码规则
+			cnpm install babel-preset-es2015
+		不会过时的转码规则
+			cnpm install babel-preset-env
+	3.编写babel配置文件
+		项目根目录  .babelrc
+					{
+						'presets':['latest'];
+					}
+	4.编写ES6代码
+	5.转换
+		babel a.js(文件名)
+Babel 命令
+	babel 文件名 将转换的结果输出到终端
+	babel 文件名 --out-file 文件名 (默认是当前目录底下)
+	eg: babel 1-a.js --out-file 2-a.js 
+	babel 目录名 --out-dir 目录名  将第一个目录名中所有文件转换成es5的代码，最终输出到第二个目录底下的同名文件中
+项目升级
+	1.package.json
+		cnpm init -y
+	2.下载项目依赖
+		cnpm install --save-dev babel-cli
+		babel-preset-latest
+	3.创建 .babelrc
+		{
+			"presets":["latest"]
+		}
+	4.新增命令
+		在package.json的 "scripts":{"start":"babel src --out-dir dist"}
+	5.编写src底下的es6代码
+	6.转换
+		babel src --out-dir dist
+		npm run strat
+	运行命令:(效果一样)
+		npm run strat
+		npm strat
+		npm run dev
+		cnpm run strat
+		cnpm run dev
+		babel src --out-dir dist
+	在安装依赖的时候需要记录让使用该项目的人能一眼看到项目的信息及依赖，需要去写package.json
+	babel-cli
+	babel-preset-latest
+
+	package.json
+	在项目底下:
+	cnpm init -y 快捷生成package.json文件
+	cnpm init    生成package.json文件
+
+	"start":"babel src --out-dir dist"
+	"dev":"npm run strat"
+升级项目的好处
+	1.可以在package.json中读取需要的信息，项目依赖的包以及如何启动项目
+	2.拿到别人没有给node_moduler的项目，需要先打开package.json，看看项目的依赖，去下载 cnmp install 下载项目中的所有依赖
+
+let特点
+	1.let {}代码块内的局部变量
+	2.let声明的变量不提升
+	3.暂时性死区现象
+		在let 变量声明前使用
+	4.在同一代码块内不可重复声明
+
+
+

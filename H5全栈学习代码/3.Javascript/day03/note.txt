@@ -1,0 +1,4 @@
+null、undefined没有 .toString()方法
+3.toString() //不行
+(3).toString()  //可以
+number 3 --> Number(3)  包装器的转换，成为对象3

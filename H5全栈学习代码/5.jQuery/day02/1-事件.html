@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>事件绑定</title>
+	<script src="../js/jquery-3.4.1.min.js"></script>
+	<script>
+		$(function(){
+			//点击不同的button修改标题
+			$('button').bind('click',function(event){
+				//event.data = 123;
+				//$(DOM).html()   获取
+				//$(DOM).text()   获取
+				//$(DOM).text('hello')  设置文本内容
+				
+				//获取button文本
+				if ($(event.target).text() === '新增') {
+					$('div').text('新增学生信息');
+				}else if ($(event.target).text() === '修改') {
+					$('div').text('修改学生信息');
+				}
+			});
+			function handle(){
+				console.log(1);
+			}
+			$('button').click(handle);
+			//解绑
+			$('button').unbind('click',handle);
+
+			$('button').bind({
+				click:function(){},
+				mouseover:function(){},
+			});
+		});
+	</script>
+</head>
+<body>
+	<button>新增</button>
+	<button>修改</button>
+	<div>标题</div>
+</body>
+</html>

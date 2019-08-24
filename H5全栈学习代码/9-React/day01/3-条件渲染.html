@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>条件渲染</title>
+    <script src="./js/react.js"></script>
+    <script src="./js/react-dom.js"></script>
+    <script src="./js/babel.min.js"></script>
+    <script type="text/babel">
+        function IsCom(props) {
+            //使用解构获取属性
+            let {show,user,temp} = props;
+            if (show&&user) {
+                return <h2>已登录</h2>;
+            }
+            return <div><h2>请登录</h2>{temp}---{Array.isArray(temp)+''}</div>;
+        }
+        let show = false;
+        let user = {
+            name:'hb'
+        };
+        ReactDOM.render(<IsCom show={show} user={user} temp={[1,2,3]}/>,document.getElementById('root'));
+    </script>
+</head>
+<body>
+    <div id="root"></div>
+</body>
+</html>

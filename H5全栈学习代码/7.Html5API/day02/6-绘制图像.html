@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制图像</title>
+	<style>
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			context = canvas.getContext('2d');
+			//绘制图像
+			//创建图像节点
+			var image =  new Image();
+			// console.log(image);
+			image.src = '../media/images/2.png';
+			//监听图像装载完成
+			image.onload = function(){
+				//绘制图像  
+				//参数:图像DOM对象，绘制位置的起始x坐标，起始y坐标，绘制图像的宽，高
+				context.drawImage(image,0,0,100,100); 
+
+				//平铺
+				/*var pattern = context.createPattern(image,'repeat');
+				context.fillStyle = pattern;
+				context.fillRect(0,0,200,200);*/
+			}
+
+			//图像裁剪   裁一个圆
+			/*context.beginPath();
+			context.arc(200,200,50,0,Math.PI*2);
+			context.closePath();
+			// context.fill();
+			// 只有在裁切范围内的才能显示出来
+			context.clip();
+			var image =  new Image();
+			image.src = '../media/images/2.png';
+			image.onload = function(){
+				context.drawImage(image,150,150,100,100); 
+			}*/
+			
+			//绘制文本
+			//设置字体  参数 绘制的文字 绘制文字的起点横坐标与纵坐标
+			/*context.font = '30px sans-serif';
+			context.strokeText('hello',100,100);
+			context.fillText('hello',100,100);*/
+			
+
+			//放大镜
+			//image 鼠标滑过图像 获取鼠标所在的点(event.clientX/screenX)  获取左上角 方形区域,放大
+			
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</html>

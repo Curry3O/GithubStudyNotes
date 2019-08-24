@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>伪类选择器</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		div{
+			border: 1px solid red;
+			/*外边距*/
+			margin: 10px;
+		}
+		/*选中每个div的第一个孩子*/
+		div>*:first-child{
+			background-color: coral;
+        }
+
+        /*选中每个div的最后一个孩子*/
+        div>*:last-child{
+        	background-color: yellow; 
+        }
+
+        /*每个div的第二个孩子*/
+        div>*:nth-child(2){
+        	background-color: pink;
+        }
+
+        /*每个div奇数孩子,等同于2n+1*/
+        /*div>*:nth-child(odd){
+        	background-color: pink;
+        }*/
+        /*每个div偶数孩子,等同于2n*/
+       /* div>*:nth-child(even){
+        	background-color: pink;
+        }*/
+        
+        /*每个div倒数第二个孩子*/
+        /* div>*:nth-last-child(2)*/
+        /*每种类型中的第一个孩子*/
+        /*div.>*:first-of-type*/
+         /*每种类型中的最后一个孩子*/
+        /*div.>*:last-of-type*/
+         /*每种类型中的第二个孩子*/
+        /*div.>*:nth-of-type(2)*/
+         /*每种类型中的倒数第二个孩子*/
+        /*div.>*:nth-last-of-type(2)*/
+
+        /*获取div中的独生子元素*/
+       /* div.>*:only-child*/
+
+        /*表格设置宽高。给tr设置高，给td或th设置宽*/
+        table{
+        	border: 1px solid #444;
+        	/*表格的边框合并,相当于原来的cellspacing=0*/
+        	border-collapse: collapse;
+        }
+        thead>tr{
+        	background-color:#aaa;
+        }
+        tbody>tr:nth-child(even){
+        	background-color: #ccc;
+        }
+        tbody>tr:hover{
+        	background-color: #eee;
+        }
+        tr{
+        	height: 50px;
+        }
+        th,td{
+        	width: 100px;
+        	border: 1px solid #444;
+
+        }
+
+	</style>
+</head>
+<body>
+	
+	<div>
+		<p>p1</p>
+		<p>p2</p>
+		<span>span1</span>
+		<span>span2</span>
+	</div>
+	<div>
+		<p>p1</p>
+		<p>p2</p>
+		<span>span1</span>
+		<span>span2</span>
+		<span>span3</span>
+		<span>span4</span>
+	</div>
+	<div>
+		<span>span</span>
+	</div>
+	
+	<span>body的最后一个孩子</span>
+
+
+	<table>
+		<thead>
+			<tr>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- tr*8>td*6 -->
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			
+		</tbody>
+	</table>
+
+	
+</body>
+</html>

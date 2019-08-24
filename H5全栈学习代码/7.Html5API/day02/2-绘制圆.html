@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>绘制圆</title>
+	<style>
+		canvas{
+			border: 1px solid red;
+		}
+	</style>
+	<script>
+		window.onload = function(){
+			var canvas = document.getElementById('canvas');
+			context = canvas.getContext('2d');
+			//绘制圆
+			
+			//线绘制圆的路径
+			//开始创建路径
+			context.beginPath();
+
+			//设置路径   参数: x、y、半径、开始角度、结束角度、绘制方向
+			//绘制方向true逆时针  false顺时针(默认)
+			context.arc(100,100,100,0,Math.PI/2,true);
+
+			//关闭路径  将路径的终点与路径的起点连接
+			context.closePath();
+
+			//设定绘制样式，进行图形绘制
+			//绘制圆(填充)
+			context.fillStyle = 'coral';
+			context.fill();
+			//绘制边框
+			context.strokeStyle = '#fff';
+			context.stroke();
+
+			//再次绘画
+			context.beginPath();
+			context.arc(300,300,50,0,Math.PI*2);
+			context.closePath();
+			context.fill();
+		}
+	</script>
+</head>
+<body>
+	<canvas id="canvas" width="400px" height="400px"></canvas>
+</body>
+</html>

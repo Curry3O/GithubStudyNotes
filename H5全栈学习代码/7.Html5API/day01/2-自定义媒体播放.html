@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>自定义媒体播放</title>
+	<script>
+		window.onload = function(){
+			//获取视频节点
+			var video = document.getElementsByTagName('video')[0];
+			//获取button绑定事件
+			var btnDiv = document.getElementById('btn-div');
+			//切换按钮单独绑定事件
+			var toggle = document.getElementById('toggle');
+			btnDiv.onclick = function(event){
+				var text = event.target.innerText;
+				if (text === '播放') {
+					video.play();
+				}else if (text === '暂停') {
+					video.pause();
+				}else if (text === '快进') {
+					//currentTime当前播放时间
+					video.currentTime += 10;
+				}else if (text === '快退') {
+					video.currentTime -= 10;
+				}else if (text === '2倍速') {
+					video.playbackRate = 2;
+				}else if (text === '0.5倍速') {
+					video.playbackRate = 0.5;
+				}else if (text === '音量+') {
+					video.volume += 0.1;
+				}else if (text === '音量-') {
+					video.volume -= 0.1;
+				}
+			}
+			//video.paused值为true是暂停状态
+			//video.paused值为false是播放状态
+			//视频播放时切换按钮上的文字是'暂停';视频暂停时切换按钮上的文字是'播放'
+			toggle.onclick = function(){
+				// console.log(video.paused);
+				if (video.paused) {
+					video.play();
+					//设置按钮上的文字
+					this.innerText = '暂停视频';
+				}else{
+					video.pause();
+					this.innerText = '播放视频';
+				}
+			}
+			//keydown事件
+			document.onkeydown = function(event){
+				//keyCode键盘码  37左 38上  39右  40下  13回车  32空格
+				// console.log(event.keyCode);
+				if (event.keyCode === 37) {
+					video.currentTime -= 10;
+				}else if (event.keyCode === 38) {
+					video.volume += 0.1;
+				}else if (event.keyCode === 39) {
+					video.currentTime += 10;
+				}else if (event.keyCode === 40) {
+					video.volume -= 0.1;
+				}else if (event.keyCode === 13) {
+					video.play();
+				}else if (event.keyCode === 32) {
+					if (video.paused) {
+						video.play();
+					}else{
+						video.pause();
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	<div id="btn-div">
+		<button>播放</button>
+		<button>暂停</button>
+		<button id="toggle">切换</button>
+		<button>快进</button>
+		<button>快退</button>
+		<button>2倍速</button>
+		<button>0.5倍速</button>
+		<button>音量+</button>
+		<button>音量-</button>
+	</div>
+	<br>
+	<video src="../media/video/1.mp4" controls></video>
+</body>
+</html>

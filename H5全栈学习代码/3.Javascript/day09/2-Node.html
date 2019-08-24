@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>DOM-Node属性和方法</title>
+	<script>
+		console.log(document);  //HTMLDocument
+		console.log(document.constructor);  //ƒ HTMLDocument()
+		console.log(HTMLDocument.prototype.__proto__.constructor); 
+		//ƒ Document()
+		//文档加载完毕后再执行js代码
+		//alert(1); //会阻止代码执行，点击确定后后面代码才会执行
+		window.onload = function(){
+			//body节点
+			console.log(document.body); //<body>
+			//alert(1); //弹出框
+			console.log(document.body.nodeType); //节点类型(Element) 1
+			console.log(document.body.nodeName); //元素节点名称 BODY
+			console.log(document.body.nodeValue); //获取节点值 null(元素节点的值为null 文本节点的值为文本内容)
+			console.log(document.body.firstChild);
+			console.log(document.body.firstChild.nodeValue);  //文本
+			console.log(document.body.childNodes);  //类数组，存放孩子节点
+			//将类数组对象转换成数组
+			var childs = document.body.childNodes;
+			var arr = Array.prototype.slice.call(childs,0);
+			console.log(arr);
+			console.log(childs[2].parentNode);//body  父节点
+			console.log(childs[2].nextSibling);//span  下一个兄弟节点
+			console.log(document.body.ownerDocument); //HTMLDocument
+			console.log(document.body.ownerDocument === document); //true
+			console.log(document.body.childNodes[0].nextSibling.hasChildNodes());  //true
+		}
+	</script>
+</head>
+<body>
+	文本
+	<div>hello</div>
+	<span>world</span>
+	<!-- comment 8 -->
+	
+</body>
+</html>
