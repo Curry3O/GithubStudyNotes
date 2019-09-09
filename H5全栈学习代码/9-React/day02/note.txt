@@ -1,0 +1,149 @@
+React基础
+  React  JS库  框架
+  JSX JS扩展
+  创建React项目
+    create-react-app test
+      test 
+        package.json
+          "homepage":".",
+        src
+          index.js
+          index.css
+          App.js
+          App.css
+          pages   子页面  栏目管理页面，文章管理页面
+            Category.js
+            Category.css
+            Article.js
+            Article.css
+          components  公用组件
+            Header.js
+            Header.css
+        public
+          index.html
+        build  打包之后的文件
+          将整个build文件夹部署
+            localhost:80/build/index.html
+          htdocs
+            static 
+              css
+              js
+            index.html
+
+            /
+            build
+              static 
+                css
+                js
+              index.html
+            localhost:80/build/index.html
+            localhost:80/index.html
+JSX变量渲染
+  <div>{msg}</div>
+JSX条件渲染
+  if(){
+    return <div>{msg}</div>;
+  }else{
+    return <div>{msg}</div>;
+  }
+JSX列表渲染
+  arr.map((item,index)=>{
+    return <div key={index}>{item}</div>
+  });
+组件
+  函数组件
+    function Category(props){
+      return <div>hello--{props.msg}</div>
+    }
+    <Category msg="hello"/>
+  类组件
+    class Category extends React.Component{
+      constructor(props){
+        super(props);
+        ....
+      }
+      render(){
+        return (
+          <div>
+            <h2>1</h2>
+            <h2>2 {this.props.msg}</h2>
+          </div>
+        );
+      }
+    }
+    <Category msg="hello"/>
+
+
+在App.js中引入MyTable去使用，使用的时候，传递参数给MyTable。
+声明MyTable组件，接受参数，处理，导出。在MyTable组件内部使用MyTd组件，传递参数给MyTd.
+声明MyTd组件，接受参数，处理，导出。
+
+props
+  {props.msg}
+  {this.props.msg}
+state 
+  类组件可以作为状态组件。
+  this.state = {
+    msg:'hello',
+    //数据模型  状态，数据
+    obj:{},
+    arr:[]
+  };
+  {this.state.msg}
+
+变量
+  {msg}
+
+
+
+事件
+  事件绑定
+    1. onClick={this.handle}
+        handle = (e)=>{
+          this
+        }  
+    2. onClick={this.handle.bind(this)}
+        handle = (e)=>{
+          this
+        }  
+        handle(e){
+          this
+        }  
+    3.onClick={(e)=>{this.handle(e)}}
+        handle(e){
+          this
+        }  
+        handle = (e)=>{
+          this
+        } 
+  事件传参
+    1.onClick = {this.handle.bind(this,1001,1002)}
+      handle = (a,b,e)=>{
+        this
+        a 1001
+        b 1002 
+        e  event
+      } 
+      handle(a,b,e){
+        this
+        a 1001
+        b 1002 
+        e  event
+      } 
+    2.onClick={(e)=>{this.handle(1001,1002,e)}}
+      handle = (a,b,e)=>{
+        this
+        a 1001
+        b 1002 
+        e  event
+      } 
+      handle(a,b,e){
+        this
+        a 1001
+        b 1002 
+        e  event
+      } 
+
+      
+
+

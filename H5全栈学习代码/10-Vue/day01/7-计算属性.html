@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>计算属性</title>
+    <script src="js/vue.min.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="search">
+        <!-- 遍历渲染 v-for-->
+        <table>
+            <tr>
+                <th>名字</th>
+                <th>评论</th>
+            </tr>
+            <tr v-for="item in userList">
+                <td>{{item.name}}</td>
+                <td>{{item.comment}}</td>
+            </tr>
+        </table>
+
+        {{userList}}
+        <!-- 过滤后的数据 -->
+        {{form}}
+    </div>
+    <script>
+        let vue = new Vue({
+            el: '#app',
+            data: {
+                form: [],
+                search:'jj'
+            },
+            methods: {
+                getData(url,type,data){
+                    return new Promise(function(resolve,reject){
+                        $.ajax({
+                            url:url,
+                            type:type,
+                            data:data,
+                            success:function(res){
+                                resolve(res);
+                            },
+                            error:function(err){
+                                reject(err);
+                            }
+                        });
+                    });
+                }
+            },
+            computed:{
+                userList(){
+                    let that = this;
+                    if (this.form.length>0) {
+                        return this.form.filter(function(item){
+                            // console.log(that.search);
+                            if (item.comment) {
+                                return item.comment.indexOf(that.search)!=-1;
+                            }
+                            return false;
+                        });
+                    }
+                    return [];
+                }
+            },
+            //钩子函数
+            created(){
+                //vue实例构建完毕被调用
+                //访问后台,获取数据
+                let that = this;
+                this.getData('http://134.175.154.93:8099/manager/category/findAllCategory','GET',null).then(function(res){
+                    console.log(res);
+                    that.form = res.data;
+                }).catch(function(err){
+                    console.log(err);
+                })
+            }
+        });
+    </script>
+</body>
+</html>

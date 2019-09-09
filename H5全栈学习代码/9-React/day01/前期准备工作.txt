@@ -1,0 +1,60 @@
+1.安装vscode
+  https://code.visualstudio.com
+2.安装插件
+  Reactjs code snippets
+  React Redux ES6 Snippets
+  React-Native/React/Redux snippets for es6/es7
+  JavaScript (ES6) code snippets(es6代码片段)
+  美化插件  One Dark Pro(atom风格主题)
+  文件图标插件 vscode-icons(文件图标)
+  npm Intellisense(对package.json内中的依赖包的名称提示)
+  Path Intellisense(文件路径补全)
+  CSS Modules(对使用了css modules的jsx标签的类名补全和跳转到定义位置)
+3.使用vscode的控制台
+4.在vscode中连接gitadd
+  git init   初始化
+  git remote add origin git地址  设置远程仓库
+
+  git pull origin master     更新
+  git add *
+  git commit -m '第一次提交'   提交 
+  git push origin master      推送
+
+  如果git pull 失败 ,提示：fatal: refusing to merge unrelated histories
+  其实这个问题是因为 两个 根本不相干的 git 库， 一个是本地库， 一个是远端库， 然后本地要去推送到远端， 远端觉得这个本地库跟自己不相干， 所以告知无法合并
+  提交不了的话，需要解决冲突，强制合并
+  git pull origin master --allow-unrelated-histories
+
+开始React学习
+  全局下载create-react-app
+    cnpm install -g create-react-app
+  全局安装yarn
+    cnpm install -g yarn    react项目推荐用yarn做包管理
+  (可省略)更改npm的源地址
+    npm config set registry https://registry.npm.taobao.org
+  使用create-react-app创建项目
+    create-react-app test  
+      创建项目后自动使用npm下载依赖，所以，提前修改npm源地址，如果有yarn的话，可以不用改npm的源，自动用yarn下载
+  创建成功后，启动项目
+    进入项目  cd  test
+    yarn start
+create-react-app  
+NodeJS搭建的服务器
+Webpack工程   打包
+React项目    react的代码
+
+vue-cli   vue项目
+NodeJS搭建的服务器
+Webpack工程   打包
+vue项目    vue的代码
+  
+    
+  
+
+
+
+
+
+
+
+

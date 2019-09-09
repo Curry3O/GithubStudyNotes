@@ -1,0 +1,80 @@
+✔️1.创建项目，搭建antd的环境
+✔️2.搭建看点资讯项目的框架，左边导航，右边内容区。
+  整合路由
+    ✔️安装路由模块   yarn add react-router-dom
+    ✔️导入
+    ✔️在对应的位置更改Link,Route
+    ✔️创建页面组件
+3.使用axios去完成文章管理模块的实现。
+  纯粹的http的库
+  yarn add axios
+  import axios from 'axios'
+  axios({
+    //配置对象
+    url:'',
+    method:'',
+    data:{},    //请求体里的参数。post
+    params:{}   //url传参  get
+  }).then().catch()
+  axios.get(url,{params:obj}).then().catch()
+  axios.post(url,obj).then().catch()
+  //拦截器
+  在请求发送前拦截请求，进行处理，然后再发送给后台
+    拦住，设置验证信息，或者设置一些其他需要携带的数据给后台。
+    请求头部可以添加一些信息，time:2019-08-26 14:13:23
+  在响应回来之后拦截响应，处理，然后响应数据给前端
+    {
+      data:[],
+      status:200,
+      message:'删除失败'
+    }
+
+    {
+      data:[],
+      st:200,
+      msg:'删除失败'
+    }
+
+项目
+  原型   前端    数据交互
+        后台
+
+
+
+yarn add antd
+yarn add react-app-rewired customize-cra
+yarn add babel-plugin-import
+yarn add less less-loader
+修改package.json
+添加config-overrides.js
+  复制自定义主题那里的最终的文件内容
+
+
+
+yarn add node-sass
+cnpm install --save node-sass
+
+qs   
+  yarn add qs
+  import qs from 'qs'
+  qs.stringify(obj);
+
+获取数据展示
+  1.axios配置
+    yarn add axios
+    baseURL
+  2.分页处理
+
+
+新增
+  模态框
+  点击新增按钮，模态框显示，空数据。点击确定的时候，保存数据，关闭模态框
+  点击修改按钮，模态框显示，有数据。点击确定的时候，保存数据，关闭模态框
+  
+导入模态框，显示模态框
+编写内部表单
+
+
+
+
+

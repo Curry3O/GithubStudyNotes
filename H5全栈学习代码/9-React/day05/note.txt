@@ -1,0 +1,143 @@
+css局部导入
+1.更改webpack配置
+yarn eject
+config文件夹，webpack.config.js
+css导入的配置，423行左右添加以下两行
+modules: true,
+  getLocalIdent: getCSSModuleLocalIdent,
+    使用
+import style from './style.css'
+      .one{ }
+<div className={style.one}></div>
+#two{ }
+<div id={style.two}></div>
+2.使用scss
+不用更改webpack的配置文件
+搭建sass的运行环境
+yarn add node - sass
+cnpm install--save node - sass
+  .scss
+  .sass
+import './a.scss';
+className = "one"
+  .one{ }
+    .myTab{
+      .one{ }
+}
+路由
+react - router - dom
+yarn add react - router - dom
+import { BrowserRouter, HashRouter, Switch, Link, NavLink, Route } from react - router - dom;
+
+BrowserRouter
+HashRouter
+  < HashRouter >
+  <div>
+    <NavLink exact activeClassName="" to="/"></NavLink>
+    <NavLink activeClassName="" to="/student"></NavLink>
+  </div>
+  <div>
+    <Switch>
+      <Route exact path='/' component={Index} />
+      <Route path='/student' component={Student} />
+    </Switch>
+  </div>
+  </HashRouter >
+
+  API
+this.props.history.push('/student')
+this.props.history.push({
+  pathname: '/student',
+  test: '',
+  obj: {}
+})
+获取参数，在Student组件挂载完毕之后获取参数
+this.props.location.test
+this.props.location.obj
+
+  < a href = "#/student" ></a >
+
+    <Link to={{
+      pathname: '/student',
+      search: '?name=zhangsan'
+    }}></Link>
+
+路由跳转
+  API跳转
+    this.props.history.push('/course')
+  NavLink
+    <NavLink to ="/course"></>
+  Link
+    <Link to = "/course"></Link>
+  a
+    <a href="#/course"></a>
+路由传参
+  API路由传参
+     this.props.history.push({
+        pathname:'',
+        state:{
+          test:'test',
+          obj:{}
+        },
+        test:'test'
+     })
+     获取
+     this.props.location.test
+     this.props.location.state
+  查询字符串传参
+    /course?name=zhangsan
+    获取
+      this.props.location.search
+  动态路由
+    <Route path="/course/:test" component={Course}></Route>
+    /course/hello
+    获取
+      this.props.match.params.test
+
+Ant Design  UI库  组件库
+全局导入
+  将所有的样式都导入
+按需导入   高级配置
+  使用到什么，导入什么
+  Button
+  Modal
+  Icon
+高级配置
+  1.yarn add antd
+  2.yarn add react-app-rewired customize-cra
+  3.修改package.json
+  4.创建config-overrides.js,修改默认配置
+    module.exports = function override(config, env) {
+      // do stuff with the webpack config...
+      return config;
+    };
+  5.yarn add babel-plugin-import
+  6.修改文件config-overrides.js
+    const { override, fixBabelImports } = require('customize-cra');
+    module.exports = override(
+      fixBabelImports('import', {
+        libraryName: 'antd',
+        libraryDirectory: 'es',
+        style: 'css',
+      }),
+    );
+  7.按需引入
+    import { Button } from 'antd';
+自定义主题
+  
+
+
+
+
+
+Tree      
+  TreeNode   0-0
+    TreeNode  0-0-0
+      TreeNode   0-0-0-0 
+      TreeNode   0-0-0-1
+    TreeNode  0-0-1
+      TreeNode  0-0-1-0
+      TreeNode  0-0-1-1
+  TreeNode  1-0
+    TreeNode   1-0-0
+

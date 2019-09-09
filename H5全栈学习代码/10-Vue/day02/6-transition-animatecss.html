@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transitionAnimate</title>
+    <script src="../js/vue.min.js"></script>
+    <link rel="stylesheet" href="../css/animate.css">
+    <style>
+        .one{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click='show=!show'>点击</button>
+        <transition enter-active-class='animated bounceInRight' leave-active-class='animated bounceOutRight'>
+            <div class="one" v-show='show'>one</div>
+        </transition>
+    </div>
+    <script>
+        let vue = new Vue({
+            el: '#app',
+            data: {
+                show: true
+            },
+            methods: {},
+        });
+    </script>
+</body>
+</html>

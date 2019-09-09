@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{num}}
+        <button @click="add($event,num)">加</button>
+        <button @click="sub($event,num)">减</button>
+        <form action="">
+            <!-- 阻止默认 -->
+            <input type="submit" value="提交" @click.prevent="test">
+        </form>
+        <div @click="outer">
+            outer
+            <!-- 阻止冒泡 -->
+            <div @click.stop="inner">inner</div>
+        </div>
+        <br>
+        <!-- 只执行一次 -->
+        <button @click.once="inner">点赞</button>
+        <br>
+        <!-- 按回车键  13 -->
+        <input type="text" @keyup.enter="keyFun">
+    </div>
+    <script>
+        let vue = new Vue({
+            el:'#app',
+            data:{
+                num:11
+            },
+            methods:{
+                add(){
+                    this.num++;
+                },
+                sub(){
+                    this.num--;
+                },
+                test(){},
+                outer(){
+                    console.log("outer");
+                },
+                inner(){
+                    console.log("inner");
+                },
+                keyFun(){
+                    console.log('keyFun');
+                }
+            }
+        })
+    </script>
+</body>
+</html>

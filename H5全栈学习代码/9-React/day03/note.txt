@@ -1,0 +1,82 @@
+creat-react-app app
+组件在项目中的使用
+生命周期钩子函数
+  componentWillMount 将要被挂载
+  componentDidMount 挂载完成后
+  shouldComponentUpdate 是否允许更新
+  componentWillUpdate 更新前
+  componentDidUpdate   更新完成后
+  componentWillUnmount  卸载前
+
+  class{
+    constructor(){}
+    钩子函数
+    handle(){
+      
+    }
+    render(){}
+  }
+
+事件
+  绑定
+    <div onClick={this.handle}></div>
+    <div onClick={this.handle.bind(this)}></div>
+    <div onClick={()=>{this.handle()}}></div>
+  this
+    为undefined或者组件对象
+    handle =()=>{}
+  事件传递参数
+    handle =(a,b,event)=>{}
+    <div onClick={this.handle.bind(this,1001,1002)}></div>
+    
+    handle =(a,b,event)=>{}
+    <div onClick={(e)=>{this.handle(1001,1002,e)}}></div>
+Refs参照
+  this.refs   ====>对象，存放的是：组件中使用ref属性，并且属性值为字符串，将Node节点保存到refs。
+  DOM对象
+  event.target可以获取
+  <div ref="hello">
+    this.refs
+    {
+      hello:divDOM节点
+    }
+    this.refs.hello  
+
+  <MyTable ref="mytable"/>
+  this.refs.mytable
+
+父组件改子组件state数据
+  在父组件获取子组件实例，refs。
+  调用setState()
+子组件改父组件state数据
+  需要父组件传递修改自己state的函数给子组件调用
+双向数据绑定
+  input text
+    输入框中的内容发生更改的时候，数据模型中与之对应的数据发生更改。
+    数据模型中的数据发生更改的时候，输入框中的内容发生改变。
+    view   state
+    表单双向数据绑定
+    react
+      state = {
+        inputValue:'hello'
+      }
+      <input value={this.state.inputValue} onChange={this.inputChange} />
+      inputChange = (e)=>{
+        this.setState({
+          inputValue:e.target.value
+        })
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,31 @@
+创建React项目
+  cnpm install -g create-react-app yarn
+  创建项目
+    create-react-app test  
+  启动项目
+    cd test
+    yarn start
+  开发...
+  打包项目
+    yarn build
+    打包之后，项目根目录底下有一个build文件夹，可以将build文件夹里的内容，部署到apache里或者其他的服务器
+开发React
+  
+
+
+组件
+  模板，可以在任何地方使用，也可以重复使用。
+  
+
+
+
+
+
+
+
+
+
+
+
+
+

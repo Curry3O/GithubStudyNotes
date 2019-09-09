@@ -1,0 +1,97 @@
+refs引用参照的使用
+  this.refs 对象，里面存放着该组件内的所有的引用    可以通过属性去获取实例
+    <div ref="str">
+    <MyForm ref="form">
+
+    <div ref={()=>{
+
+    }}>
+      在组件挂载或者卸载的时候调用函数
+父组件控制子组件的state中的数据
+  需要在父组件内获取子组件实例，通过子组件实例去控制
+    this.refs.child.setState({
+      msg:''
+    });
+子组件控制父组件的state中的数据
+  需要在子组件内部控制父组件的state中的数据
+    传递父组件内部的控制函数，给子组件，在子组件内部调用
+表单的双向数据绑定
+  将数据模型中的数据展示在表单控件内
+    value={this.state.form.username}
+    checked={this.state.form.gender==='男'?true:false}
+    复选框  ----
+    数组：
+      form:{
+        hobbies:[{},{},{}]
+      }
+  当表单控件发生更改的时候，修改数据模型中的数据
+
+
+Sass 
+  SassScript
+  脚本语言，经过编译之后，转成css语言
+  是一个CSS的预处理工具
+  .sass
+  .scss
+    可以用css去写
+    .div{
+      .one{}
+      #two{}
+    }
+
+安装sass环境
+  yarn add node-sass
+  .scss
+  import '';
+
+  $red-color:'#fff000';
+
+  .home{
+    color:$red-color;
+    .one{
+      div{
+        background:$red-color;
+      }
+      &:hover{}
+    }
+    .one:hover{}
+
+  }
+
+路由
+  $.load  
+  hash路由
+  localhost:3000/#/student   Student页面
+  localhost:3000/#/course   Course页面
+
+  浏览器路由
+  localhost:3000/student   Student页面
+  localhost:3000/course   Course页面
+
+  页面  
+    学生管理 
+    课程管理
+    教室管理
+
+
+package.json
+  没有"homepage":"."
+  打包，打包之后的文件在本地访问index.html的时候，访问不到。
+  如果要放到服务器访问，那么需要一个一个放过去，不能整个build放过去。
+
+  有"homepage":"."
+    打包，打包之后的文件在本地访问index.html的时候，可以访问。
+    如果要放到服务器访问，可以将整个build放过去。
+  
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,207 @@
+Vue
+	框架
+	特点：
+		MVVM模式
+		数据驱动
+		双向数据的绑定
+Vue使用
+	引入vue.js文件
+
+	Vue是一个构造函数，创建出来的对象叫vue实例
+
+	let vue = new Vue({
+		el:"#app",  //将vue实例与DOM绑定
+			在DOM内部就可以使用vue中的属性和方法
+		data:{  //vue实例的数据，数据模型
+			msg:'hello',
+			arr:[1,2,3]
+		},
+		methods:{	//vue实例方法
+			test(){},
+			test1(){}   //this-->vue实例
+		},
+		computed:{ //vue实例的计算属性
+			arrList(){
+				//遍历arr
+				let vm = this; //this--vue
+				arr.forEach(function(){
+					//this 不是 vue
+					//vm ---vue
+				});
+				return this.msg.split('');
+			}
+		}
+	})
+	vue.msg 
+	vue.test();
+页面渲染
+	{{msg}}   在#app外部是不能使用
+	<div id="app">
+		{{msg}}  
+	</div>
+双向数据绑定
+	v-model  指令  一般是在表单控件上使用
+		1.将vue中的值，赋值给表单控件的value属性上
+		2.将用户修改的值，返回到vue的属性上
+事件的绑定
+	<div v-on:click="test"></div>
+	<div v-on:click="test($event)"></div>
+	
+	<div @click="test"></div>
+	<div @click="test($event,2)"></div>
+属性的绑定
+	<div v-bind:title="msg"></div>
+	<div :title="msg"></div>
+遍历
+	<div v-for="item in arr" :key="item"></div>	
+	<div v-for="temp in arr"></div>	
+	<div v-for="(item,index) in arr" :key="item.id"></div>	
+	<div v-for="(item,index) in arr" :key="key">
+		{{item}}
+	</div>	
+显示与隐藏  可见性
+	css  
+	display:none;    不占屏幕空间  
+	visibility:hidden; 占用屏幕空间，透明度为0。
+	他们的DOM节点都还在文档中
+
+	v-if="show"   显示
+	v-else     当v-if不显示的时候，v-else显示
+
+	v-show
+		如果值为true,显示
+		如果值为false,隐藏。display:none;节点还在文档中
+	v-if 
+		如果值为true,显示
+		如果值为false,隐藏。从文档结构中删除该元素
+vue实例生命周期 钩子函数
+	beforeCreate()
+		在vue实例创建完毕。内部属性和方法还没有设置好。
+	*created()
+		在vue实例创建完毕，内部属性和方法设置好。---一般向后台发送请求，请求数据
+	beforeMount()
+		节点还未绑定好前
+	*mounted()
+		节点加载完毕，并且与vue实例中的属性和方法绑定好了
+		---选中页面中的元素，可以使用DOM节点
+	beforeUpdate()
+		在数据更新前触发的钩子函数，页面渲染更新之前
+	updated()
+		页面渲染更新完毕
+	beforeDestroy()
+		页面销毁之前，vue实例销毁之前。在这里还是可以访问数据的
+	destoryed()
+		页面完全销毁，vue实例中的属性和方法也没有了
+Vue中的动画
+	
+css  动画
+	animation
+	transition
+js   left  right
+		margin-left margin-right
+	显示与隐藏
+jquery
+	$(el).animate({
+		width:200px,
+		height:100px,
+	},1000[,'ease-in'],function(){
+		<!-- 动画执行完毕之后调用的函数 -->
+	})
+animate.css
+	class="animated swing"
+
+Vue中的动画
+	vue中提供了一个transition组件。标签，封装了css js 的功能
+
+	组件完整体，封装了html css js
+
+	<transition>
+		<div>产生动画的元素</div>
+	</transition>
+	在div显示与隐藏的时候产生动画
+
+1.使用transition组件的样式控制动画
+	.v-enter    开始进入时的样式
+	.v-enter-active 正在进入的样式
+	.v-enter-to    全部进入的样式
+	.v-leave   开始离开时候的样式
+	.v-leave-active 正在离开的样式
+	.v-leave-to	 全部离开的样式
+
+	v是可以改变的，在transition标签中写name="ccc",在以上.v-XXX中的v可以使用ccc代替
+2.使用transition组件中的类属性来实现
+	<transition enter-class="" enter-active-class="" ....></transition>
+	enter-class
+	enter-active-class
+	enter-to-class
+	leave-class
+	leave-active-class
+	leave-to-class
+
+	enter-active-class="第三方的样式类"
+	leave-active-class="animated fadeout"
+
+		animate.css
+			<div class="animated swing"></div>
+			如果想切换动画的话，需要将原先的动画删除，再设置动画
+				$('div').removeClass('swing');
+				$('div').addClass('bounce');
+				$('div').hide();
+				$('div').show();
+			刚开始div是隐藏
+				点击按钮要显示div
+					$('div').removeClass('animated fadeout');
+					$('div').addClass('animated fadeIn');
+					$('div').show();
+				再次点击按钮的时候，隐藏div
+					$('div').removeClass('animated fadeIn');
+					$('div').addClass('animated fadeout');
+					$('div').hide();
+3.使用transition组件中的钩子函数实现动画（js）
+
+	钩子函数又可以理解为某个事件触发的函数
+	before-enter
+	enter
+	after-enter
+	before-leave
+	leave
+	after-leave
+
+	enter    正在进入触发的事件
+	leave    正在离开触发的事件 
+
+	<transition @enter="enterFun" @leave="leaveFun"></transition>
+		methods:{
+			enterFun(el,done){  //el执行动画的节点，done是动画执行完毕之后调用的函数
+				$.aniamte({
+
+				},1000,done)
+			},
+			leaveFun(){}
+		}
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

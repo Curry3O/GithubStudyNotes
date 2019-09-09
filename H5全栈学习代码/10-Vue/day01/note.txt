@@ -1,0 +1,97 @@
+Vue
+	VueJS
+	Vue.js
+	Vue是一个前端框架。AngularJS
+	Vue是一个基于数据的框架，依靠数据来驱动  
+	MVVM模式的一个框架
+		与MVC模式对象
+			M  Model  数据模型
+			V  View   视图
+			C  Controller 控制器，是连接数据模型和视图的中间纽带
+				var arr = [{},{}];
+				html页面  div table
+				将数据显示在视图中
+		MVVM与MVC类似
+			M  Model 数据模型
+			V  View  视图
+			VM ViewModel  视图与数据模型的集合，它是中间的纽带
+	双向数据绑定
+		Model中的值改变，会改变显示的值
+		显示的值改变的时候，会改变model中的值
+		v-model 指令
+			使用它可以将数据模型中的值显示在表单控件中，还可以在用户改变了表单控件值的情况下，改变数据模型。
+Vue实例
+	<div id="app">
+		{{msg}}---hello
+	</div>
+
+	let vue = new Vue({
+		el:"#app",
+		data:{
+			msg:'hello'
+		},
+		methods:{
+			test(){}
+		}
+	});
+
+	在声明Vue实例的时候，需要给构造函数传递一个参数，并且是一个对象
+	在这个对象中，
+		el属性，表示与vue实例绑定的DOM元素的Id或者class，#id .class
+		data属性，表示这个DOM元素需要的数据 是一个对象
+		methods属性，表示这个DOM元素需要的方法，是一个对象
+事件绑定
+	<div v-on:click="test($event)"></div>
+	事件处理函数必须在vue实例构造的时候的methods中
+		methods:{
+			test(event){}
+		}
+	<div @click="test($event,333)"></div>
+
+	事件修饰符
+		@click.stop=""
+			阻止事件冒泡
+		@click.prevent=""
+			阻止默认行为
+		@click.once=""
+			只执行一次，再次点击的时候不执行函数
+	键盘修饰符
+		@keyup.enter=""
+			enter键抬起
+		@keydown.13=""
+			enter键抬起
+属性绑定
+	v-bind:属性名="值"
+	:属性名="值"
+		值会去从vue中的data去拿。
+		值是data中的一个属性名
+计算属性
+	可以进行简单计算的属性,computed与data,el,methods同一级别
+	computed:{
+		userList(){
+			return 1;//必须有return
+		}
+	}
+	{{userList}}
+	计算属性依赖的条件发生改变的时候，计算属性值就会改变
+遍历渲染
+	v-for指令
+
+		v-for="(item,index) in arr"
+			写在要遍历生成的元素节点上
+			item index
+			{{item?item:'a'}} {{index}}
+			:title="item.name"
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if-else</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        <button @click="test">点击</button>
+        <span v-if='show'>one</span>
+        <span v-else>two</span>
+    </div>
+    <script>
+        let vue = new Vue({
+            el:'#app',
+            data:{
+                msg:'hi',
+                show:true,
+            },
+            methods:{
+                test(){
+                    this.show=this.show?false:true;
+                }
+            }
+        });
+    </script>
+</body>
+</html>

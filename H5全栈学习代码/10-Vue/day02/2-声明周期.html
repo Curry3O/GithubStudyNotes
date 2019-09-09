@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>声明周期</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+    </div>
+        <script>
+        let vue = new Vue({
+            el:'#app',
+            data:{
+                msg:'wooo',
+            },
+            methods:{},
+            computed:{},
+            beforeCreate(){
+                // console.log(this.msg);
+                // alert('beforeCreate');
+            },
+            //created在vue实例创建完毕，内部属性和方法设置好了(向后台请求数据)
+            created(){
+                // console.log(this.msg);
+                // alert('created');
+            },
+            beforeMount(){
+                // alert('beforeMount');
+            },
+            //mounted在节点加载完毕，并且与vue实例中的属性和方法绑定好了(操作DOM节点)
+            mounted(){
+                // alert('Mounted');
+            },
+            beforeUpdate(){
+                // alert('beforeUpdate');
+            },
+            updated(){
+                // alert('updated');
+            },
+            beforeDestory(){
+                // alert('beforeDestory');
+            },
+            destoryed(){
+                // alert('destoryed');
+            }
+        });
+        /* setTimeout(() => {
+            vue.msg = "lowwww"
+        }, 2000); */
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue实例</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app" v-on:click="test">
+        {{msg}}
+    </div>
+    <script>
+        let vue = new Vue({
+            el:'#app',
+            data:{
+                msg:"111"
+            },
+            methods:{
+                test(){
+                    console.log(this.msg);
+                }
+            }
+        });
+        console.log(vue);
+        console.log(vue.msg);
+        setTimeout(() => {
+            vue.msg = "222"
+        }, 2000);
+    </script>
+</body>
+</html>

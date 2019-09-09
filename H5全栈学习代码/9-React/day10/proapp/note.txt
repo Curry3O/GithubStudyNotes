@@ -1,0 +1,45 @@
+dva
+  https://dvajs.com
+  封装了redux  redux-saga  fetch(http)数据交互，request     request('')
+
+antd pro
+  https://pro.ant.design/index-cn
+  dva umi  antd
+
+dva项目
+  安装dva-cli
+    cnpm install -g dva-cli
+  查看dva版本
+    dva -v
+  创建项目
+    dva new dvaapp
+    cd dvaapp
+    npm start
+
+dva项目目录结构
+  src
+    components   可复用的UI组件
+    models  数据仓库，redux,redux-saga
+    routes/pages  页面组件
+    services  所有要访问的后台请求
+    utils   request的配置fetch的使用，axios配置
+
+合并多个model
+  在models文件夹里新建index.js,内容如下：
+    const context = require.context('./', false, /\.js$/);
+export default context
+  .keys()
+  .filter(item => item !== './index.js')
+  .map(key => context(key));
+在src的index.js导入的时候，使用以下代码
+  require('./models').default.forEach(key => {
+  app.model(key.default);
+});
+
+
+
+  Pro 开箱即用，在 config 文件夹里进行添加路由的操作，添加路由又需要组件，所以需要创建组件，创建组件又需要创建 model、services.
+
+
+  
+

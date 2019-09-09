@@ -1,0 +1,187 @@
+Redux  同步操作
+  actionCreators     store     reducers
+
+              components
+
+  actionCreators  生产action的
+  reducers 纯函数
+    export default (state={},action)=>{
+      if(action.type===XXXX){
+        /*axios.get().then(()=>{
+          return {
+            ...state,arr:res
+          }
+        })*/
+        return {
+          ...state,
+          inputValue:action.value
+        }
+      }
+      return state;
+    }
+如果在redux中使用异步，需要借助中间件(redux-thunk,redux-saga(ES6-Generator函数))。
+
+funtion* test(){}
+
+
+react-redux
+  类组件->函数组件
+  用户写的组件-->函数组件--->无状态组件--->没有state
+
+  UI组件和容器组件
+    使用react-redux的connect方法将一个UI组件内部包裹一个容器组件，UI组件如果想要获取数据，props去获取
+  直接将数据仓库绑定到根组件，内部的子组件都可以使用
+
+  store-->根组件
+
+
+
+React  UI库  框架
+  想要状态管理机制，使用Redux
+  如果想要异步交互，使用Redux-thunk或者Redux-saga中的一个
+  如果想要简化代码，获取业务逻辑与UI组件分离，那么使用react-redux
+
+  技术栈
+    react
+    redux
+    redux-thunk/redux-saga
+    react-redux
+
+备忘录
+  action
+  reducer.js
+  store
+
+  actionCreators文件夹
+    AactionCreator.js
+      import {GET_A} from './actioTypes'
+      export const getA = (value)=>{
+        return {
+          type:GET_A,
+          value
+        }
+      }
+    BactionCreator.js
+      import {GET_B} from './actioTypes'
+      export const getB = (value)=>{
+        return {
+          type:GET_B,
+          value
+        }
+      }
+  文件夹 actionTypes
+      index.js
+        export const GET_A = 'GET_A'
+        export const GET_B = 'GET_B'
+  文件夹 reducers
+    Areducer.js
+      AinitState:{}
+      export default (state=AinitState,action)=>{
+        .....
+        return state;
+      }
+    Breducers.js
+      BinitState:{}
+      export default (state=BinitState,action)=>{
+        .....
+        return state;
+      }
+
+    store 
+      import Areducer from './Areducer'
+      import Breducer from './Breducer'
+
+      let total = combineReducers({
+        Areducer,
+        Breducer
+      })
+      let store = createStore(total)
+
+      state={
+         Areducer:{},
+         Breducer:{}
+      }
+    
+
+
+
+
+
+
+
+
+React-Redux
+React-Redux 将所有组件分成两大类：UI 组件（负责 UI 的呈现）和容器组件（负责管理数据和逻辑）。
+UI组件
+  1.只负责 UI 的呈现，不带有任何业务逻辑
+  2.没有状态（即不使用this.state这个变量）
+  3.所有数据都由参数（this.props）提供
+  4.不使用任何 Redux 的 API
+  5.因为不含有状态，UI 组件又称为"纯组件"，即它跟纯函数一样，纯粹由参数决定它的值。
+
+容器组件
+  1.负责管理数据和业务逻辑，不负责 UI 的呈现
+  2.带有内部状态
+  3.使用 Redux 的 API
+
+UI 组件和容器组件的结合
+1.如果一个组件既有 UI 又有业务逻辑，那么将它拆分成两层结构：外面是一个容器组件，里面包了一个UI 组件。前者负责与外部的通信，将数据传给后者，由后者渲染出视图。
+2.React-Redux 规定，所有的 UI 组件都由用户提供，容器组件则是由 React-Redux 自动生成。
+
+React-Redux中的connect()
+  用于从 UI 组件生成容器组件
+
+React-Redux中的mapStateToProps()
+  1.mapStateToProps是一个函数。它的作用是建立一个从外部state对象到 UI 组件的props对象的映射关系。执行后返回一个对象，里面的每一个键值对就是一个映射。
+  2.mapStateToProps会订阅（绑定） Store，每当state更新的时候，就会自动执行，重新计算 UI 组件的参数，从而触发 UI 组件的重新渲染。
+  3.mapStateToProps的第一个参数总是state对象，还可以使用第二个参数，代表容器组件的props对象。使用ownProps作为参数后，如果容器组件的参数发生变化，也会引发 UI 组件重新渲染。
+  4.如果connect方法省略mapStateToProps参数，那么UI 组件就不会订阅Store，就是说 Store 的更新不会引起 UI 组件的更新。
+
+React-Redux中的mapDispatchToProps()
+  1.mapDispatchToProps是connect函数的第二个参数，用来建立 UI 组件的参数到store.dispatch方法的映射。也就是说，它定义了用户的哪些操作应该当作 Action，传给 Store。它可以是一个函数，也可以是一个对象。
+  2.如果mapDispatchToProps是一个函数，会得到dispatch和ownProps（容器组件的props对象）两个参数，应该返回一个对象，该对象的每个键值对都是一个映射，定义了 UI 组件的参数怎样发出 Action。
+  3.如果mapDispatchToProps是一个对象，它的每个键名也是对应 UI 组件的同名参数，键值应该是一个函数，会被当作 Action creator ，返回的 Action 会由 Redux 自动发出。
+
+React-Redux的<Provider> 组件
+  connect方法生成容器组件以后，需要让容器组件拿到state对象，才能生成 UI 组件的参数。一种解决方法是将state对象作为参数，传入容器组件。但是容器组件可能在很深的层级，一级级将state传下去就很麻烦。React-Redux 提供Provider组件，可以让容器组件拿到state。在根组件外面包了一层Provider，App的所有子组件都可以拿到state了。它的原理是React组件的context属性，store放在了上下文对象context上面。React-Redux自动生成的容器组件的代码，就类似下面这样，然后子组件就可以从context拿到store。
+    <Provider store={store}>
+      <App />
+    </Provider>
+
+安装
+  yarn add react-redux
+使用
+  1.在项目index.js里，引入Provider,引入store，然后使用
+    import { Provider } from 'react-redux'
+    import store from './store'
+  <Provider store={store}><App /></Provider>
+  <Provider>是一个提供器，只要使用了这个组件，组件里边的其它所有组件都可以使用store了
+  2.使用store中的数据
+    在需要使用store数据的地方，引入连接器
+    import {connect} from 'react-redux'  //引入连接器
+    创建映射关系，把原来的state映射成组件中的props属性
+      const stateToProps = (state)=>{
+          return {
+              inputValue : state.inputValue
+          }
+      }
+    导出组件
+      export default connect(mapStateToProps,mapDispatchToProps)(TodoList)
+
+      mapStateToProps传入所有state，返回指定的state数据
+        function mapStateToProps(state) {
+            return { todos: state.todos }
+          }
+      mapDispatchToProps，传入dispatch，返回的对象中的方法会在组件的props中
+      const mapDispatchToProps = (dispatch) => {
+        return {
+          inputChange(e) {
+            dispatch(changeInputAction(e.target.value));
+          }
+        }
+      }
+      connect的作用是把UI组件（无状态组件）和业务逻辑代码的分开，然后通过connect再连接到一起，让代码更加清晰和易于维护。这也是React-Redux最大的优点。
+
+
+
+

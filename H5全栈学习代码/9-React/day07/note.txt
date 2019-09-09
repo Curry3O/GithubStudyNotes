@@ -1,0 +1,40 @@
+安装redux
+  yarn add redux
+1.创建reducer
+  store->reducer.js
+  定义默认state,导出函数
+    (state,action)=>{
+      if(action.type===XXX){
+        return {
+
+        }
+      }
+    }
+2.创建store
+  import { createStore } from 'redux';
+  import reducer from './reducer';
+  // 注入reducer
+  export default createStore(reducer);
+3.引入store
+  import store from './store';
+4.使用
+  在constructor里
+    this.state = store.getState();   将store中的数据导入到当前组件的state
+    store.subscribe(this.storeChange) //订阅Redux的状态，如果redux中的状态发生更改，需要监听并渲染
+
+    storeChange = () => {
+      this.setState(store.getState());
+    }
+  编写action,触发reducer更改store中的数据
+    const action = {
+      type: 'changInput',
+      value: e.target.value
+    };
+    store.dispatch(action);
+
+
+
+订阅者模式
+  store中的数据一更改，页面的订阅者发现，就去改页面的数据，让页面重新去渲染。
+  
+

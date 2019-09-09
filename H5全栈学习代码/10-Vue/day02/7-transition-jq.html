@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transitionjQuery</title>
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <style>
+        .one{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <button @click='show=!show'>点击</button>
+        <transition @enter='enterFun' @leave='leaveFun'>
+            <div class="one" v-show='show'>one</div>
+        </transition>
+    </div>
+    <script>
+        let vue = new Vue({
+            el: '#app',
+            data: {
+                show: true
+            },
+            methods: {
+                enterFun(el,done){
+                    $(el).animate({
+                        opacity:1
+                    },2000,done);
+                },
+                leaveFun(el,done){
+                    $(el).animate({
+                        opacity:0
+                    },2000,done);
+                }
+            },
+        });
+    </script>
+</body>
+</html>

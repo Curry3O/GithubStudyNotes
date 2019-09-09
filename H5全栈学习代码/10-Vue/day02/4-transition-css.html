@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>transition</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{oneStyle}}
+        <select v-model="choice">
+            <option value="">请选择</option>
+            <option v-for="(item,index) in optionArr" :key="index" :value="item.value">
+                {{item.name}}
+            </option>
+        </select>
+        <button @click="show=!show">按钮</button>
+        <div class="one" :style="oneStyle" v-show="show">
+            one
+        </div>
+    </div>
+    <script>
+        let vue = new Vue({
+            el:'#app',
+            data:{
+                choice:'',
+                show:true,
+                optionArr:[{
+                    name:'红色',
+                    value:'red'
+                },{
+                    name:'蓝色',
+                    value:'blue'
+                },{
+                    name:'黄色',
+                    value:'yellow'
+                },{
+                    name:'绿色',
+                    value:'green'
+                }],
+            },
+            methods:{},
+            computed:{
+                oneStyle(){
+                    return 'width:100px;height:100px;background:'+(this.choice?this.choice:'skyblue');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

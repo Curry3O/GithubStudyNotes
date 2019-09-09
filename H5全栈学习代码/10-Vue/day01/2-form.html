@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>双向数据绑定</title>
+    <script src="js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}
+        {{user}}
+        <form action="">
+            姓名：
+            <input type="text" v-model="user.name">
+            <br>
+            密码：
+            <input type="password" v-model="user.password">
+            <br>
+            性别：
+            <input type="radio" v-model="user.gender" name="gender" value="man">男
+            <input type="radio" v-model="user.gender" name="gender" value="woman">女
+            <br>
+            爱好：
+            <input type="checkbox" v-model="user.hobbies" name="hobbies" value="sing">唱歌
+            <input type="checkbox" v-model="user.hobbies" name="hobbies" value="dance">跳舞
+            <input type="checkbox" v-model="user.hobbies" name="hobbies" value="basketball">篮球
+            <input type="checkbox" v-model="user.hobbies" name="hobbies" value="run">跑步
+            <br>
+            <input type="submit" value="提交" v-on:click="handler($event,'111')">
+        </form>
+    </div>
+    <script>
+        let vue = new Vue({
+            el:'#app',
+            data:{
+                msg:'hello',
+                user:{
+                    name:'',
+                    password:'',
+                    gender:'',
+                    hobbies:[]
+                }
+            },
+            methods:{
+                //点击提交按钮打印数据
+                //this指向vue,是Vue实例
+                handler(event,n){
+                    event.preventDefault();
+                    console.log(this.user,n);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
