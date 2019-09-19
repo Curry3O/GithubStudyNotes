@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>子传父升级版</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        父Num:{{num}}--{{num2}}---{{num+num2}}
+        <br>
+        <my-one @listen="handle"></my-one>
+        <my-one @listen="bandle"></my-one>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                num:0,
+                num2:0,
+            },
+            components:{
+                'my-one':{
+                    template:`
+                        <button @click="cbtn">Num:{{clickNum}}</button>
+                    `,
+                    data:function(){
+                        return {
+                            clickNum:0
+                        };
+                    },
+                    methods:{
+                        cbtn(){
+                            this.clickNum++;
+                            //发射数据给父组件
+                            this.$emit('listen',this.clickNum);
+                        }
+                    },
+                }
+            },
+            methods:{
+                handle(data){
+                    // console.log(data);
+                    this.num = data;
+                },
+                bandle(data){
+                    this.num2 = data;
+                }
+            },
+        });
+    </script>
+</body>
+</html>

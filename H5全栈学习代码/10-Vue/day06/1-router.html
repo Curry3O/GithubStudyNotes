@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script></script>
+    <script src="../js/vue.min.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+    <title>Router</title>
+</head>
+<body>
+    <div id="app">
+        <!--4.页面使用 -->
+        <router-link to="/category">category</router-link>
+        <router-link to="/test">test</router-link>
+        <router-link to="/home">home</router-link>
+        <br>
+        <router-view></router-view>
+    </div>
+    <script>
+        //1.声明组件
+        let Category = {
+            template:`
+                <div>{{msg}}</div>
+            `,
+            data(){
+                return {
+                    msg:'Cate'
+                };
+            }
+        };
+        let Test = {
+            template:`
+                <div>{{msg}}</div>
+            `,
+            data(){
+                return {
+                    msg:'Text'
+                };
+            }
+        };
+        let Home = {
+            template:`
+                <div>{{msg}}</div>
+            `,
+            data(){
+                return {
+                    msg:'User'
+                };
+            }
+        };
+        //2.声明路由
+        let router = new VueRouter({
+            routes:[{
+                path:'/',
+                component:Category
+            },{
+                path:'/category',
+                component:Category
+            },{
+                path:'/test',
+                component:Test
+            },{
+                path:'/home',
+                component:Home
+            }]
+        });
+        let vue = new Vue({
+            el: '#app',
+            //3.注册路由
+            router,
+        })
+    </script>
+</body>
+</html>

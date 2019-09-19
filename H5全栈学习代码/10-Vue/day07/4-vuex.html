@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuex</title>
+    <script src="../js/vue.min.js"></script>
+    <script src="https://unpkg.com/vuex@3.0.1/dist/vuex.js"></script>
+    <script src="https://unpkg.com/axios@0.18.0/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{category}}
+    </div>
+    <script>
+        axios.defaults.baseURL = 'http://134.175.154.93:8099';
+        axios.defaults.headers.post['Content-Type']="application/x-www-form-urlencoded;charset=UTF-8";
+        let store = new Vuex.Store({
+            state:{
+               category:[]
+            },
+            getters:{
+                category:state=>state.category
+            },
+            mutations:{
+                changeCategory(state,data){
+                    state.category = data;
+                }
+            },
+            actions:{
+                findCategory(context){
+                    return new Promise(function(resolve,reject){
+                        axios.get('/manager/category/findAllCategory').then(function({data}){
+                            context.commit('changeCategory',data.data);
+                            resolve(data.data);
+                        }).catch(function(error){
+                            reject(error);
+                        });
+                    });
+                }
+            }
+        });
+        new Vue({
+            el:'#app',
+            store,
+            created(){
+                this.getData();
+            },
+            /* methods:{
+                getData(){
+                    this.findCategory().then(function(data){
+                        console.log(data);
+                    }).catch(function(error){
+                        console.log(error);
+                    });
+                },
+                ...Vuex.mapActions(['findCategory'])
+            }, */
+            methods:{
+                getData(){
+                    this.$store.dispatch('findCategory');
+                }
+            },
+            computed:{
+                ...Vuex.mapGetters(['category'])
+            },
+        });
+    </script>
+</body>
+</html>

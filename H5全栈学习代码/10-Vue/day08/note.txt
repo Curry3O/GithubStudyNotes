@@ -1,0 +1,211 @@
+在webpack中集成 
+	VueRouter Vuex  Axios Elementui jquery  qs(将js对象转换成查询字符串，提交表单格式的数据 qs.stringify(obj))  
+
+创建webpack+vue的项目
+	vue-cli 脚手架
+		cnpm install -g vue-cli 
+	进入创建项目的目录
+		vue init webpack app
+			使用vue脚手架初始化一个webpack项目
+		下载了一个项目模板
+	如何启动项目
+		cnpm install 安装项目需要的依赖
+		cnpm run start  启动
+
+1.集成ElementUI
+	--save是产品依赖、生产依赖
+	--save-dev  是开发依赖
+	cnpm install --save element-ui
+		main.js
+			import Vue form 'vue';
+			import ElementUI from 'element-ui'
+			import 'element-ui/lib/theme-chalk/index.css'
+			//注册
+			Vue.use(ElementUI)
+	在.vue文件中就可以使用ElementUI的组件了
+2.创建组件，配置路由，访问
+3.集成vuex
+	cnpm install --save vuex
+
+	在项目底下创建了一个store文件夹，index.js
+		import Vue ...
+		import Vuex ...
+		import XXXStore from './XXXStore'
+		Vue.use(Vuex)
+		export default new Vuex.Store({
+			modules:{
+				//对象，state,getters
+				//其他模块的小仓库
+				XXXStore,
+			}
+		})
+	在main.js
+		import store from './store'
+		new Vue({
+			..
+			store,
+			...
+		})
+	在组件中可以使用仓库中的数据
+		子组件中：.vue
+			<template>
+				<div class="category">
+					{{msg}}
+				</div>
+			</template>
+			<script>
+				import {mapGetters} from 'vuex'
+
+				export default{
+					data(){
+						return {};
+					},
+					computed:{
+						...mapGetters(['msg'])
+					}
+				}
+			</script>
+4.集成axios
+	在仓库的actions中，可以放异步操作
+
+	cnpm install --save axios
+
+	在store文件夹中创建一个axios.js文件。
+		写关于axios的基础配置
+			import axios from 'axios';
+			axios.defaults.baseURL=""
+			axios.defaults.headers.post['Content-Type'] = ""
+			export default axios;
+		在仓库中使用
+			import axios from '../axios'
+			actions:{
+				findAll(){
+					axios.get()
+				}
+			}
+			
+
+webpack支持sass
+	在开发阶段依赖，
+	cnpm install --save-dev node-sass
+	cnpm install --save-dev sass-loader
+
+sass
+	css预编译工具   能将sass代码编译成css代码
+	test.scss   scss文件是支持原生的css代码的
+
+		#home{
+			color:red;
+		}
+		#home .one{
+			border:1px solid red;
+		}
+		#home .one span{
+			cursor:pointer;
+		}
+		//scss文件
+		#home{
+			color:red;
+			.one{
+				border:1px solid red;
+				span{
+					cursor:pointer;
+				}
+			}
+		}
+
+
+	//test.sass
+
+jquery
+	cnpm install --save jquery
+
+	import $ from 'jquery'
+
+qs js的对象转换为查询字符串，表单格式数据
+	cnpm install --save qs
+
+	在仓库中引入：
+		import qs from 'qs'
+		qs.stringify(obj)
+		actions:{
+			saveCateogry(context,obj){
+				axios.post('',qs.stringify(obj)).then().catch()
+			}
+		}
+	vue组件中使用	
+		this.saveCateogry(this.form)
+
+
+
+
+
+
+
+
+
+
+
+
+在模板项目中进行开发
+	1.如果.vue文件中的style中想用sass代码，如何让webpack能识别sass代码？需要如下操作：
+		<style scope lang="scss">
+			#home{
+				.helloDiv{
+					background:red;
+				}
+			}
+		</style>
+		cnpm install --save-dev node-sass
+		cnpm install --save-dev sass-loader    sass-loader依赖node-sass
+
+		安装了这两个之后，webpack就可以识别了
+	2.webpack中集成vuex
+		cnpm install --save vuex
+		在需要创建vuex仓库对象的地方，
+			import Vue from 'vue'
+			import Vuex from 'vuex'
+			import XXXStore from '@/store/XXX'
+			Vue.use(Vuex)
+
+			export default Vuex.Store({
+				modules:{
+					XXXStore
+				}
+			});
+	3.在页面vue中使用vuex
+		<script>
+			import {mapGetters} from 'vuex';
+		<script>
+		cnpm install --save polyfill
+	4.webpack中集成axios
+		cnpm install --save axios
+			
+	5.webpack中集成elementui
+		cnpm install --save element-ui
+
+		在main.js中
+			import ElementUI from 'element-ui'
+			import 'element-ui/lib/theme-chalk/index.css';
+			Vue.use('ElementUI')
+	6.webpack中集成jquery
+		cnpm install --save jquery
+
+		import $ from 'jquery'
+	7.webpack中集成qs
+		cnpm install --save qs
+		
+		import qs from 'qs'
+
+		qs.stringify(obj);
+
+
+
+
+
+
+
+
+		
+
+	

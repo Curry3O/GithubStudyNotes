@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动态组件</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="current='my-one'">my-one</button>
+        <button @click="current='my-two'">my-two</button>
+        <button @click="current='my-three'">my-three</button>
+        <component :is="current"></component>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                current:'my-one',
+            },
+            components:{
+                'my-one':{
+                    template:`
+                        <div>
+                            my-one
+                        </div>
+                    `,
+                },
+                'my-two':{
+                    template:`
+                        <div>
+                            my-two
+                        </div>
+                    `,
+                },
+                'my-three':{
+                    template:`
+                        <div>
+                            my-three
+                        </div>
+                    `,
+                },
+            },
+        });
+    </script>
+</body>
+</html>

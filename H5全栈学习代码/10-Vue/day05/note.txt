@@ -1,0 +1,257 @@
+组件
+	全局注册
+		Vue.component('组件的名称',{
+			template:``,
+			data:function(){
+				return {
+					msg:''
+				}
+			},
+			methods:{
+				test(){}
+			}
+		});
+		new Vue()
+	局部注册
+		new Vue({
+			el:'',
+			data:{},
+			methods:{},
+			components:{
+				'名称':{
+					template:``,
+					.....
+				}
+			}
+		})
+组件使用
+	<my-one></my-one>
+	<div is="my-one"></div>
+组件之间的通信
+	父->子数据
+		<div>
+			<my-one :list="names"></my-one>
+		</div>
+		data:{
+			names:[]
+		}
+		<!-- 子 -->
+			'my-one':{
+				props:['list'],
+				template:`
+					<span>{{list}}</span>
+				`
+			}
+	子->父数据
+		子组件发射数据，父组件监听和接收
+
+
+		<!-- 子 -->
+		'my-one':{
+			template:`
+				<button @click="handle">发射</button>
+			`,
+			data:function(){
+				return {
+					msg:'hello'
+				};
+			},
+			methods:{
+				handle(){
+					this.$emit('listen',this.msg);
+				}
+			}
+		}
+		<!-- 父 -->
+		<div>
+			<my-one @listen="listenFun"></my-one>
+		</div>
+		methods:{
+			listenFun(data){
+				data-->接受的数据
+			}
+		}
+插槽
+	在子组件内部可以使用父组件的小模板
+	'my-one':{
+		template:`
+			<button>
+				<slot>default</slot>
+			</button>
+		`
+	}
+	<!-- 父 -->
+	<div>
+		<my-one>新增</my-one>
+		<my-one></my-one>
+	</div>
+多个插槽
+	'my-one':{
+		template:`
+			<div>
+				<slot name="one"></slot>
+				<slot>default</slot>
+			</div>
+		`
+	}
+	<!-- 父组件 -->
+	<div>
+		<my-one>
+			<span slot="one">hello</span>
+			<span>hello</span>
+		</my-one>
+	</div>
+插槽作用域
+	插槽中的模板的数据更灵活
+	<!-- 使用子组件遍历一个数组 -->
+	data:{
+		arr:[]
+	}
+	<div>
+		<my-one :list="arr">
+			<!-- 以下内容用来填充slot -->
+			<template slot-scope="props">
+				<tr v-for="item in props.data">
+					<td>{{item.name}}</td>
+					<td>{{item.age}}</td>
+				</tr>
+			</template>
+		</my-one>
+	</div>
+	'my-one':{
+		props:['list'],
+		template:`
+			<!-- 就可以遍历list了，arr -->
+			<div>
+				<table>
+					<slot :data="list"></slot>
+					<!-- <tr v-for="item in list">
+						<td>{{item.name}}</td>
+						<td>{{item.age}}</td>
+					</tr> -->
+				</table>
+			</div>
+		`,
+		data:function(){
+			return {
+
+			}
+		}
+	}
+
+	父组件的数据给子组件，子组件将数据给插槽作用域。
+		<div>
+			<my-one :list="students">
+				<!-- 这里的内容替换插槽 -->
+				<!-- 在这里使用子组件中的数据，那么就要借助插槽作用域 -->
+				<template slot-scope="props">
+					<span>{{props.data}}</span>
+				</template>
+			</my-one>
+		</div>
+			'my-one':{
+					props:['list'],
+					template:`
+							<table>
+								<!-- 自定义子组件的模板 -->
+								<slot :data="list"></slot>
+							</table>
+						`
+			}
+动态组件
+	作用：选项卡的切换
+		1.有3个选项卡，写3个div,
+			只显示一个div
+		2.有3个选项卡，写3个div,
+			可以使用jquery的load()方法加载某一个div
+	<div is="my-one"></div>
+		声明3个组件，改变is的值
+	<component is="my-one"></component>
+		声明3个组件，改变is的值
+
+过滤器
+	全局声明
+		Vue.filter('过滤器的名字',function(data){
+			//data---是要过滤的数据,arr
+			return 过滤后的值;
+		});
+	局部声明
+		new Vue({
+			el:'',
+			data:{},
+			computed:{},
+			components{},
+			filters:{
+				<!-- 过滤未成年人 -->
+				childFilter(data){
+					return data.filter(function(item,index){
+						return item.age<=18;
+					});
+				}
+			}
+		})
+	使用
+		对arr进行过滤
+		{{arr|childFilter}}
+		v-bind:title="arr|childFilter"
+
+自定义指令
+	v-bind
+	v-for
+	v-if
+	v-show
+	
+	全局声明
+		Vue.directive('名字',{
+			<!-- 在第一次使用指令的时候触发 -->
+			bind(el,binding,vnode){
+
+			}
+		});
+
+		<div v-web></div>
+
+		<div id="app">
+			<div v-for="item in arr"></div>
+		</div>
+	局部声明
+		v-web
+		new Vue({
+			directives:{
+				'web':{
+					bind(el,binding,vnode){}
+				}
+			},
+		});
+	使用
+		<div v-web="msg"></div>
+axios   插件
+	内部封装了ajax，返回的是一个promise对象
+	
+	axios.get(url,{params:obj}).then(function(axiosObj){
+		axiosObj.data  ---> 后台返回的数据{status:"",message:'',data:[]}
+	}).catch();
+	axios.get(url);
+
+	axios.post('url',obj).then().catch();
+
+
+
+
+
+
+<!-- vue-router  插件 -->
+
+
+
+
+	
+
+
+
+
+
+
+
+
+

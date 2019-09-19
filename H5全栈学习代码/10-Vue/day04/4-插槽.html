@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>插槽</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-btn1></my-btn1>
+        <my-btn1></my-btn1>
+        <my-btn1></my-btn1>
+        <br>
+        <my-btn2>添加</my-btn2>
+        <my-btn2>删除</my-btn2>
+        <my-btn2></my-btn2>
+        <my-btn2></my-btn2>
+        <br>
+        <my-div></my-div>
+        <my-div>hello</my-div>
+        <my-div>
+            World
+            <span slot="header">Hello</span>
+        </my-div>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                
+            },
+            components:{
+               'my-btn1':{
+                    template:`
+                        <button>按钮</button>
+                    `,
+               },
+               'my-btn2':{
+                    template:`
+                        <button>
+                            <slot>default</slot>    
+                        </button>
+                    `,
+               },
+               'my-div':{
+                    template:`
+                        <div>
+                            <slot name="header">defH</slot>
+                            <slot>def</slot>
+                        </div>
+                    `,
+               },
+            },
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuex</title>
+    <script src="../js/vue.min.js"></script>
+    <script src="https://unpkg.com/vuex@3.0.1/dist/vuex.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{test}}
+        <br>
+        {{arr}}
+    </div>
+    <script>
+        let store = new Vuex.Store({
+            state:{
+                msg:'hello world',
+                arr:[1,2,3]
+            },
+            getters:{},
+            mutations:{},
+            actions:{}
+        });
+        new Vue({
+            el:'#app',
+            store,
+            computed:{
+                test(){
+                    return this.$store.state.msg;
+                },
+                ...Vuex.mapState(['msg','arr'])
+            },
+        });
+    </script>
+</body>
+</html>

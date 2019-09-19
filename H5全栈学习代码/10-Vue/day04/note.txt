@@ -1,0 +1,138 @@
+组件
+	声明：
+		全局注册
+			Vue.component('组件名称',{
+				template:``,---html片段，只能有一个根元素
+				data:function(){
+					return {
+						msg:'hello'
+					}
+				},
+				methods:{},
+				created(){}
+			})
+			<my-one></my-one>
+			<my-one></my-one>
+		局部注册
+			new Vue({
+				el:'#app',
+				data:{},
+				methods:{},
+				components:{
+					'组件名称':{
+						template:``,
+						data:function(){
+							return{}
+						},
+						methods:{}
+					},
+					'组件名称':{}
+				}
+			})
+	使用
+		<my-one></my-one>
+		<div is="my-one"></div>
+组件之间的通信
+	<div id="app">  父组件
+		<my-one></my-one>  子组件
+	</div>
+	data:{}
+	data:function(){
+		return{}
+	}
+	作用域之间的数据不交互
+
+	如何在父子组件之间进行数据通信，
+
+	1.父组件->子组件
+		<div id="app">
+			<my-one v-bind:list="names"></my-one>
+			***<my-one :list="names"></my-one>
+			<!-- {{names}}
+			<button :title="names"></button> -->
+		</div>
+			<!-- 父组件的data -->
+			data:{
+				names:['zhangsan','lisi']
+			},
+			components:{
+				'my-one':{
+				<!-- 从父组件中获取的值的变量名，要是使用引号包裹 -->
+					***props:['list'],
+					template:`
+						<ul>
+							<li v-for="(item,index) in list" :key="index">
+								{{item}}
+							</li>
+						</ul>
+					`
+					data:function(){
+						return {
+
+						};
+					},
+				}
+			}
+
+	2.子组件->父组件
+			子组件在某个方法的内部发射数据    this.$emit('事件名称','发射的数据')
+					this.$emit('test',this.msg)
+			父组件去监听一个事件，拿数据过来
+				<div id="app">
+					<my-one @test="handle"></my-one>
+				</div>
+				父组件的methods里面声明handle
+					handle(data){
+						data-->子组件发送的数据
+					}
+插槽
+	template:`<button>button<button>`
+
+	<my-one>添加</my-one>
+	<my-one>删除</my-one>
+	<my-one></my-one>
+	<my-one></my-one>
+	<my-one></my-one>
+	插槽，将父组件中的小模板给子组件使用
+	template:`
+		<button>
+			<slot>默认</slot>
+		</button>
+	`
+slot标签的name属性
+	my-one
+	template:`
+		<div>
+			<slot name="header"></slot>
+			<slot></slot>
+		</div>	
+	`
+	hello	sssss
+	<div id="app">
+		<my-one>
+			sssss
+			<span slot="header">hello</span>
+		</my-one>
+	</div>
+
+插槽作用域
+	在子组件的模板中，有插槽
+		父组件作用域的数据
+		子组件作用域的数据
+		插槽作用域的数据
+		<slot :data="list"></slot>
+		
+		在父组件中写子组件，写插槽模板的时候，需要使用template标签包裹模板
+			在template标签中，有一个属性slot-scope="props" props就是当前插槽的作用域
+				props.data  data与<slot :data="list"></slot>
+
+	如果涉及到插槽作用域，一定要使用template标签来包裹模板
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Axios</title>
+    <script src="../js/vue.min.js"></script>
+    <script src="https://unpkg.com/axios@0.18.0/dist/axios.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="getData">加载数据</button>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                
+            },
+            methods:{
+                getData(url,type){
+                    axios.get('http://134.175.154.93:8099/manager/category/findAllCategory').then(function(param){
+                        console.log(param.data.data);
+                    }).catch(function(err){
+                        console.log(err);
+                    });
+                }
+            }
+        });
+    </script>
+</body>
+</html>

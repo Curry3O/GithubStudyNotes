@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>栏目管理</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="../js/vue.min.js"></script>
+    <script src="https://unpkg.com/axios@0.18.0/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://cdn.bootcss.com/qs/6.5.2/qs.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>栏目管理页面</h2>
+        <div class="searchDiv">
+            <el-input v-model="search" size="mini" style="width:200px" placeholder="请输入内容"></el-input>
+            <el-button type="success" size="mini" style="float:right" @click="add">新增</el-button>
+            <el-table :data="categoryList" style="width: 100%" height="450">
+                <el-table-column prop="id" label="ID">
+                </el-table-column>
+                <el-table-column prop="name" label="名称">
+                </el-table-column>
+                <el-table-column prop="comment" label="描述">
+                </el-table-column>
+                <el-table-column prop="parent.name" label="父栏目">
+                </el-table-column>
+                <el-table-column label="操作">
+                    <template slot-scope="scope">
+                        <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                        <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除
+                        </el-button>
+                    </template>
+                </el-table-column>
+            </el-table>
+            <el-dialog :title="dialogTitle" :visible.sync="dialogFormVisible">
+                <el-form :model="form">
+                    <el-form-item label="栏目名称" :label-width="formLabelWidth">
+                        <el-input v-model="form.name" autocomplete="off"></el-input>
+                    </el-form-item>
+                    <el-form-item label="父栏目" :label-width="formLabelWidth">
+                        <el-select v-model="form.parentId" placeholder="请选择父栏目">
+                            <el-option label="请选择" value=""></el-option>
+                            <el-option v-for="item in category" :label="item.name" :value="item.id"></el-option>
+                        </el-select>
+                    </el-form-item>
+                    <el-form-item label="描述" :label-width="formLabelWidth">
+                        <el-input type="textarea" v-model="form.comment" autocomplete="off"></el-input>
+                    </el-form-item>
+                </el-form>
+                <div slot="footer" class="dialog-footer">
+                    <el-button @click="dialogFormVisible = false">取 消</el-button>
+                    <el-button type="success" @click="save">确 定</el-button>
+                </div>
+            </el-dialog>
+        </div>
+    </div>
+    <script>
+        // 设置发送的数据格式为表单数据格式
+        axios.defaults.headers.post['Content-Type']="application/x-www-form-urlencoded;charset=UTF-8";
+        new Vue({
+            el:'#app',
+            data:{
+                search:'',
+                category:[],
+                dialogTitle:'新增栏目',
+                dialogFormVisible:false,
+                form:{
+                    no:0,
+                },
+                formLabelWidth:'80px',
+            },
+            computed:{
+                categoryList(){
+                    let that = this;
+                    return this.category.filter(function(item){
+                        return item.id>that.search;
+                    });
+                }
+            },
+            created() {
+				this.loadData();
+			},
+            methods:{
+                loadData(){
+                    let that = this;
+                    axios.get('http://134.175.154.93:8099/manager/category/findAllCategory').then(function(param){
+                        that.category = param.data.data;
+                    }).catch(function(err){
+                        console.log(err);
+                    });
+                },
+                handleEdit(index,row){
+                    this.dialogTitle = '修改栏目',
+                    this.form = {
+                        no:0,
+                        id:row.id,
+                        name:row.name,
+                        comment:row.comment,
+                        parentId:row.parent?row.parent.id:'',
+                    };
+                    this.dialogFormVisible = true;
+                },
+                handleDelete(index,row){
+                    let that = this;
+                    axios.get('http://134.175.154.93:8099/manager/category/deleteCategoryById',{params:{id:row.id}}).then(function(param){
+                        if (param.data.status == 200) {
+                            that.$message({
+                                message: '删除成功',
+                                type: 'success'
+                            });
+                            that.loadData();
+                        }else{
+                            that.$message({
+                                message: '删除失败',
+                                type: 'error'
+                            });
+                        }
+                    }).catch(function(err){
+                        console.log(err);
+                    });
+                },
+                add(){
+                    this.dialogTitle = '新增栏目',
+                    this.form = {
+                        no:0
+                    };
+                    this.dialogFormVisible = true;
+                },
+                save(){
+                    let that = this;
+                    axios.post('http://134.175.154.93:8099/manager/category/saveOrUpdateCategory',Qs.stringify(this.form)).then(function(param){
+                        // console.log(param);
+                        that.dialogFormVisible = false;
+                        let msg = '';
+                        if (that.dialogTitle == '新增栏目') {
+                            msg = '保存';
+                        }else {
+                            msg = '修改';
+                        }
+                        that.$message({
+                            message: msg+'成功',
+                            type: 'success'
+                        });
+                        that.loadData();
+                    });
+                }
+            },
+        });
+    </script>
+</body>
+</html>

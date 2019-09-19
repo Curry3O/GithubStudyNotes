@@ -1,0 +1,216 @@
+Vue-Router	
+	插件  vue-router
+	进行路由管理和控制
+	1.创建router对象
+		let router = new VueRouter({
+			routes:[{
+				path:"/category",
+				component:'Category'
+			}]
+		})
+	2.创建组件
+		let Category = {
+			template:`
+
+			`,
+			data(){
+				return {};
+			},
+			methods:{
+				sayName(){}
+			}
+		};
+	3.注册路由
+		将路由与Vue绑定
+		new Vue({
+			el:'#app',
+			router:router
+		})
+	4.使用路由
+		<div id="app">
+			<router-link to="/category">category</router-link>
+			<router-link to="/user">user</router-link>
+			<!-- 加载对应的组件 -->
+			<router-view></router-view>
+		</div>
+二级路由-嵌套路由
+	1.声明路由，创建router对象
+		let router = new VueRouter({
+			routes:[{
+				path:'/category',
+				component:Category,
+				children:[{
+					path:'add',
+					component:AddCategory
+				}]
+			},{
+				path:'/user',
+				component:User
+			}]
+		})
+	2.声明组件
+		let Category = {
+			template:`
+				<div>
+					<router-link to="/category/add"></router-link>	
+					<router-link to="/category/delete"></router-link>
+					<router-view></router-view>	
+				</div>
+			`
+		};
+使用Vue开发项目，Vue全家桶
+	Vue   ElementUI   VueRouter
+	Vuex  Axios
+	webpack
+
+Vuex 插件
+	状态管理机制，管理数据。
+	将vue中的数据抽离出来，进行统一管理。
+	有一个大的仓库，用来存放所有共用的数据。
+	1.使用script引入
+	2.npm install vuex
+		Vue.use(Vuex);
+创建仓库对象
+	let store = new Vuex.Store({
+		state:{},
+		getters:{},
+		mutations:{},
+		actions:{}
+	})
+
+	state里面存放的是状态，数据
+		state:{
+			msg:'hello',
+			arr:[23,2,56,7],
+			category:[]
+		}
+	getters里面放的是对state中的数据的过滤
+		getters:{
+			msg:state=>state.msg
+			child(state){
+				return state.arr.filter(item=>item>10);
+			},
+		}
+	mutations  突变 突变state中的数据 放的是同步操作
+		mutations:{
+			changeMsg(state,data){
+				state.msg = data;
+			},
+			changeArr(state,data){
+				state.arr = data;
+			},
+			changeCategory(state,data){
+				state.category = data;
+			}
+		}
+	actions 动作 放置异步请求，调用mutations中的方法，进而改变state中的数据
+		actions:{
+			<!-- context 可以代表store -->
+			findCategory(context,obj){
+				axios.get('url',obj).then(function({data}){
+					data---后台返回的所有的数据了
+					data.data --- 后台返回的数组
+					context.commit('changeCategory',data.data);
+					<!-- let {data} = param; -->
+					<!-- obj = {
+						a:1,
+						b:2
+					};
+					let {a,b} = obj; -->
+					//param.data
+				}).catch();
+			}
+		}
+注册仓库
+	new Vue({
+		el:'#app',
+		store:store,
+		data:{},
+		computed:{},
+		methods:{},
+	});
+使用仓库中的数据和方法
+	state
+	getters
+	mutations
+	actions
+	Vuex提供了一些辅助函数，用来快速的在vue获取vuex仓库中的数据
+	{{msg}} {{category}}
+	computed:{
+		<!-- msg
+		category -->
+		...Vuex.mapState(['msg','category']),
+	}
+
+	{{msg}}
+	{{child}}
+	computed:{
+		...Veux.mapGetters(['msg','child'])
+	}
+
+	methods:{
+		...Vuex.mapMutations(['changeMsg','changeCategory']),
+		...Vuex.mapActions(['findCategory'])
+	}
+state
+	this.$store.state.msg
+	...Vuex.mapState(['msg'])
+getters
+	this.$store.getters.msg
+	...Vuex.mapGetters(['msg'])
+mutations	
+	this.$store.commit('changeMsg',data)
+	...Vuex.mapMutations(['changeMsg'])
+		this.changeMsg(data);
+actions
+	this.$store.dispatch('findAll',data)
+		<!-- data可以是传递给异步请求的参数 -->
+	...Vuex.mapActions(['findAll'])
+		this.findAll(data);
+
+webpack
+	前端模块化工具，打包工具
+
+	在webpack中，所有的东西都是模块
+
+	js
+	css----webpack-》 js  html css
+	png
+	vue
+
+	基本应用
+		cnpm install --save-dev webpack	
+		cnpm install --save-dev webpack-cli
+
+		环境搭建比较复杂
+vue-cli 脚手架  工具 快速搭建一个webpack vue 的项目
+	1.安装vue-cli
+		 cnpm install -g vue-cli
+	2.创建项目
+			vue init webpack app
+				使用vue脚手架初始化一个webpack项目
+			注意：ESlint  No
+						units test  No
+						最后一个npm  选择第三个自己安装项目的依赖
+			进入项目 cnpm install
+			启动项目  npm run start
+				在终端有输出 localhost:8080
+				在浏览器上访问 localhost:8080
+			项目做完，要打包
+				npm run build
+					 dist-->index.html static
+			将打包之后的dist文件夹中的文件放到apache服务器上的htdocs里面，就可以访问了
+
+package.json
+	里面默认有一些包的记录
+cd app
+	cnpm install  
+	安装当前下载的项目需要的依赖
+	
+	npm run start
+		启动webpack-vue项目
+	npm run build 
+		打包webpack项目，dist文件夹里面，index.html  static-css js
+webpack加载器
+	webpack 默认将js文件当做模块
+	如何让webpack将css vue png...也识别成模块

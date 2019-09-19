@@ -1,0 +1,198 @@
+axios
+	前端向后台发送数据
+
+
+Ajax---jquery的ajax
+	默认发送的数据是表单格式的数据，默认的请求头Content-Type是application/x-www-form-urlencoded
+
+		ajaxSetup方法设定发送数据的格式
+			设置的是请求头的信息
+			Content-Type:''
+				text/plain
+				application/json
+				application/x-www-form-urlencoded
+		$.ajax({
+			url:url,
+			type:'POST',
+			//如果声明了请求头发送的数据为json,需要给后台传json数据，JSON.stringify(obj)
+			data:{},
+			//希望后台返回的数据格式
+			dataType:'json'
+		})
+
+		//Get方式的发送的数据，就是查询字符串数据,是表单格式的数据
+		//Post方式发送的数据，是可以修改数据格式的
+			配合修改请求头的Content-Type属性
+			$.ajax({
+				type:'POST',
+				data:obj,
+				headers:{
+					"Content-Type":'application/x-www-form-urlencoded;charset=UTF-8'
+				}
+			})
+			$.ajax({
+				type:'POST',
+				data:JSON.stringify(obj),
+				headers:{
+					"Content-Type":'application/json'
+				}
+			})
+				默认发送的是表单格式的数据，如果想发送json格式，先修改Content-Type属性，然后再修改发送的数据为json字符串。
+
+			批量设置ajax发送的数据格式
+				$.ajaxSetup({
+					headers:{
+						"Content-Type":'application/json'
+					}
+				})
+
+				$.ajax({
+					url:url,
+					data:JSON.stringify(obj);
+				})
+
+Axios
+	默认get发送的是查询字符串，表单格式的数据
+	默认post发送的是json字符串
+
+	在axios中将发送的数据格式更改为表单数据格式
+		axios.post(url,obj).then().catch();
+
+		//querystring.js    qs.js
+		//Qs.stringify(obj)
+		axios.post(url,Qs.stringify(obj),{
+			headers:{
+				'Content-Type':'application/x-www-form-urlencoded;charset=UTF-8'
+			}
+		})
+
+		设置每次post发送的请求头
+			axios.defaults.headers.post['Content-Type']="application/x-www-form-urlencoded;charset=UTF-8";
+
+	axios中get方式的参数
+		axios.get(url,{params:obj}).then(function(param){
+			param.data 里是后台返回的所有的数据
+		}).catch();
+
+
+$.ajax
+	post 默认发送表单数据格式数据
+		如何发送json格式数据
+			单个
+				$.ajax({
+					url:'',
+					type:'Post',
+					data:JSON.stringify(obj),
+					headers:{
+						//告诉后台前端发送的是什么格式的数据
+						"Content-Type":'application/json'
+					}
+				})
+			批量设置
+				$.ajaxSetup({
+					headers:{
+						//告诉后台前端发送的是什么格式的数据
+						"Content-Type":'application/json'
+					}
+				});
+
+				$.ajax({
+					url:'',
+					type:'POST',
+					data:JSON.stringify(obj1)
+				})
+				$.ajax({
+					url:'',
+					type:'POST',
+					data:JSON.stringify(obj),
+					//headers:{}
+				})
+axios
+	post  json格式数据
+		如何发送表单数据格式数据
+			单个
+				需要借助一个插件 qs.js  querystring   Qs.stringify(obj)
+				axios.post(url,Qs.stringify(obj),{
+					headers:{
+						'Content-type':'application/x-www-form-urlencoded;charset=UTF-8'
+					}
+				})
+			批量设置
+				设置post的请求头
+				axios.defaults.headers.post['Content-Type']="application/x-www-form-urlencoded;charset=UTF-8"
+
+				axios.post(url,Qs.stringify(obj)),then().catch()
+				axios.post()
+
+
+axios.defaults.baseURL="ip地址+端口号"
+axios.defaults.baseURL="http://120.78.164.247:8099"
+
+axios.defaults.baseURL="http://120.78.164.5:8099"
+	axios.post('/manager/category/findAllCategory',obj);
+	axios.post('/manager/category/saveOrUpdateCategory',obj);
+
+	
+路由
+	路由：页面内部的跳转叫路由
+			a标签的锚点
+				<a href="#one"></a>
+				<div id="one"></div>
+	vue-router 插件
+		1.直接script引入
+				new VueRouter()
+		2.使用npm安装
+				Vue.use('VueRouter');
+
+	vue-router
+		1.声明组件
+			let Category = {
+				template:`
+					<div>Category</div>
+				`
+			};
+			let MyArticle = {
+				template:`
+					<div>MyArticle</div>
+				`
+			};
+		2.声明路由
+				let router = new VueRouter({
+					routes:[{
+						<!-- 将路由与组件绑定 -->
+						path:'/category',
+						component:Category
+					},{
+						path:'/article',
+						componet:MyArticle
+					}]
+				});
+		3.注册路由
+				new Vue({
+					router:router
+				})
+		4.页面使用
+				<!-- 进行跳转路由 -->
+				<router-link to="/category">category</router-link>
+				<!-- 显示组件的内容 -->
+				<router-view></router-view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Velocity</title>
+    <script src="../js/vue.min.js"></script>
+    <script src="js/velocity.min.js"></script>
+    <script src="js/velocity.ui.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="show=!show">点击</button>
+        <transition @enter="ent" @leave="lea">
+            <div v-show="show" class="one" :style="style"></div>
+        </transition>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                show:true,
+                style:'width:100px;height:100px;background:skyblue'
+            },
+            methods:{
+                ent(el,done){
+                    Velocity(el,'transition.fadeIn',2000,done);
+                },
+                lea(el,done){
+                    Velocity(el,'transition.fadeOut',2000,done);
+                }
+            },
+        });
+    </script>
+</body>
+</html>

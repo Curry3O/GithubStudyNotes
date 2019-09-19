@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>插槽</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-tab :arr="students">
+            <template slot="header">
+                <tr>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>性别</th>
+                </tr>
+            </template>
+            <template slot-scope="props">
+                <tr v-for="(item,index) in props.data" :key="index">
+                    <td>{{item.name}}</td>
+                    <td>{{item.age}}</td>
+                    <td>{{item.gender}}</td>
+                </tr>
+            </template>
+        </my-tab>
+        <br>
+        <my-tab :arr="courses">
+            <template slot="header">
+                <tr>
+                    <th>课程</th>
+                    <th>学分</th>
+                    <th>课时</th>
+                </tr>
+            </template>
+            <template slot-scope="props">
+                <tr v-for="(item,index) in props.data" :key="index">
+                    <td>{{item.name}}</td>
+                    <td>{{item.score}}</td>
+                    <td>{{item.time}}</td>
+                </tr>
+            </template>
+        </my-tab>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                students:[
+                    {name:'hb',age:22,gender:'man'},
+                    {name:'lm',age:21,gender:'woman'},
+                    {name:'yoo',age:27,gender:'woman'}
+                ],
+                courses:[
+                    {name:'web',score:5,time:25},
+                    {name:'java',score:3,time:15},
+                    {name:'php',score:2,time:10},
+                    {name:'c++',score:4,time:20}
+                ],
+            },
+            components:{
+               'my-tab':{
+                   props:['arr'],
+                    template:`
+                        <div>
+                            <table>
+                                <slot name="header"></slot>
+                                <slot :data="arr"></slot>
+                            </table>
+                        </div>
+                    `,
+               },
+            },
+        });
+    </script>
+</body>
+</html>

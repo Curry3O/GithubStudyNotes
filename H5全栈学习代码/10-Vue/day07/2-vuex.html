@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vuex</title>
+    <script src="../js/vue.min.js"></script>
+    <script src="https://unpkg.com/vuex@3.0.1/dist/vuex.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{testArr}}---{{arr}}
+        <br>
+        {{arrTest}}
+        <br>
+        {{arrLength}}
+    </div>
+    <script>
+        let {Store,mapState,mapGetters,mapMutations,mapActions} = Vuex;
+        let store = new Store({
+            state:{
+               arr:[30,11,35,23,9] 
+            },
+            getters:{
+                arr:state=>state.arr,
+                arrTest(state){
+                    return state.arr.filter(item=>item>=30);
+                },
+                arrLength(state){
+                    return state.arr.length;
+                }
+            },
+            mutations:{},
+            actions:{}
+        });
+        new Vue({
+            el:'#app',
+            store,
+            methods:{
+
+            },
+            computed:{
+                testArr(){
+                    return this.$store.getters.arr
+                },
+                ...Vuex.mapGetters(['arr','arrTest','arrLength'])
+            },
+        });
+    </script>
+</body>
+</html>

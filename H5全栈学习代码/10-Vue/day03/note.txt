@@ -1,0 +1,151 @@
+页面渲染
+	遍历渲染
+		<div v-for="(item,index) in arr" :key="index"></div>
+	条件渲染
+		v-if v-else
+			<div v-if="--true--"></div>
+			<div v-else></div>
+		v-show
+			<div v-show="-true-"></div>
+	
+		v-if v-show的区别
+			v-if为false的话，文档中完全没有这个节点
+			v-show为false的话，display:none
+vue实例的生命周期-事件钩子
+	beforeCreate
+		vue实例构建完毕，属性和方法还没有设置好
+	created
+		vue实例构建完毕，并且属性和方法设置好了，可以访问vue实例中的属性
+		发送请求，请求后台，
+			{{students}}
+			$.ajax({
+				....
+				success:function(res){
+					this.students = res;
+				}
+			})
+	beforeMount
+		准备开始构建DOM
+			<div id="app"></div>
+	mounted
+		挂载成功，vue实例将DOM与属性和方法绑定完毕
+	beforeUpdate
+		准备开始更新
+	updated
+		更新完毕，数据更新的时候，vue去重新渲染页面中的节点
+	beforeDestory
+		销毁之前，还可以访问vue实例
+	destroyed
+		完全销毁，将vue中的属性和方法与DOM解绑
+动画
+	<transition></transition>
+	1.自定义的类实现动画
+			.v-enter   进入之前的样式
+			.v-enter-active  正在进入的样式
+			.v-enter-to  进入之后的样式
+			.v-leave    离开之前的样式
+			.v-leave-active 正在离开的样式
+			.v-leave-to  完全离开之后的样式
+
+			.v-enter,.v-leave-to{}
+			.v-leave,.v-enter-to{}
+			.v-enter-active,v-leave-active{
+				transition:all 3s;
+			}
+
+			想修改v,在<transition name="web"></transition>
+				.web-enter
+	2.使用类属性来实现动画(animate.css)
+			enter-class
+			enter-active-class
+			enter-to-class
+			leave-class
+			leave-active-class
+			leave-to-class
+			<transition enter-active-class="animated swing" leave-active-class="animated bounce"></transition>
+	3.使用钩子函数来实现动画($.animate())
+		 钩子函数：某一个事件的时候触发的函数
+		 @before-enter
+		 @enter
+		 @after-enter
+		 @before-leave
+		 @leave
+		 @afeter-leave
+		<transition @enter="handleEnter" @leave="handleLeave"></transition>
+			handleEnter,handleLeave是事件绑定的函数
+			钩子函数中有两个参数，分别是正在执行动画的元素，和动画执行完毕后的函数
+			methods:{
+				handleEnter(el,done){
+					<!-- 动画进入的操作 -->
+					$(el).animate({
+						opacity:1
+					},1000,done);
+				},
+				handleLeave(el,done){
+					$(el).animate({
+						opacity:0
+					},1000,done);
+				}
+			}
+	4.使用钩子函数实现动画（Velocity第三方库）
+		velocity.js
+		velocity.ui.js  在这里声明了一些默认的动画
+		methods:{
+			handleEnter(el,done){
+				<!-- 动画进入的操作 -->
+				Velocity(el,'transition.fadeIn',1000,done);
+				<!-- $(el).animate({
+					opacity:1
+				},1000,done); -->
+			},
+			handleLeave(el,done){
+				Velocity(el,'transition.fadeOut',1000,done);
+				<!-- $(el).animate({
+					opacity:0
+				},1000,done); -->
+			}
+		}
+组件
+	<!-- transition -->
+	是html css js的完整体
+
+	父子组件
+		组件：有模板，有vue实例绑定这个模板
+					模板：html元素代码
+	
+
+	1.注册组件
+		全局注册
+			第二个参数是组件对应的vue实例
+			Vue.component('组件名称',{
+				<!-- 模板 template-->
+				template:`
+					<div>
+						<div>hello</div>
+						<div>world</div>
+					</div>
+				`,
+				data:function(){
+					return {};
+				},
+				methods:{}
+			})
+		局部注册
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

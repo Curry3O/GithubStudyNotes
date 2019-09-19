@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父传子</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-one :arr="students"></my-one>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                students:[
+                    {name:'hb',age:22,gender:'man'},
+                    {name:'lm',age:21,gender:'woman'}
+                ],
+            },
+            components:{
+                'my-one':{
+                    props:['arr'],
+                    template:`
+                        <div>
+                            <table>
+                                <tr v-for="item in arr">
+                                    <td>{{item.name}}</td>
+                                    <td>{{item.age}}</td>
+                                    <td>{{item.gender}}</td>
+                                </tr>
+                            </table>
+                        </div>
+                    `,
+                    data:function(){
+                        return {
+                            /* arr:[{name:'hb',age:22,gender:'man'},{name:'lm',age:21,gender:'woman'}], */
+                        };
+                    },
+                },
+            },
+        });
+    </script>
+</body>
+</html>

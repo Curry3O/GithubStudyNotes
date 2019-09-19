@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>组件局部注册</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <my-one></my-one>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            components:{
+                'my-one':{
+                    template:`
+                        <div>
+                            <span>hello</span>
+                            <p>world</p>
+                            <button @click="hello">btn</button>
+                        </div>
+                    `,
+                    methods:{
+                        hello(){
+                            console.log(this);
+                        }
+                    }
+                }
+            },
+            data:{},
+            methods:{},
+            computed:{},
+            created(){},
+            mounted(){},
+        });
+    </script>
+</body>
+</html>

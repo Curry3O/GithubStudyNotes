@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>过滤器</title>
+    <script src="../js/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        {{msg}}---{{msg|toUpper}}
+        <input type="text" v-model="search">
+        <!-- <div :title="students|childFilter">大于18岁</div> -->
+        <my-tab :arr="students|childFilter(search)"></my-tab>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                msg:'hello world',
+                search:18,
+                students:[
+                    {name:'hb',age:22,gender:'man'},
+                    {name:'lm',age:11,gender:'woman'},
+                    {name:'yoo',age:27,gender:'woman'},
+                ],
+            },
+            components:{
+                'my-tab':{
+                    props:['arr'],
+                    template:`
+                        <table>
+                            <tr v-for="(item,index) in arr">
+                                <td>{{item.name}}</td>
+                                <td>{{item.age}}</td>
+                                <td>{{item.gender}}</td>
+                            </tr>
+                        </table>
+                    `,
+                }
+            },
+            filters:{
+                toUpper(data){
+                    return data.toUpperCase();
+                },
+                childFilter(data,search){
+                    return data.filter(function(item,index){
+                        return item.age>search;
+                    });
+                }
+            },
+        });
+    </script>
+</body>
+</html>

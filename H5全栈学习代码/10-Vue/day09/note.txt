@@ -1,0 +1,187 @@
+Vuex-->webpack
+
+Vuex是状态管理机制的技术
+	html  vuex.js
+		new Vuex.Store({
+			//状态-数据
+			state:{},
+			//对数据的过滤
+			getters:{},
+			//突变state中的数据  同步
+			mutations:{},
+			//异步操作  axios ajax 
+			actions:{
+				findAll(){
+					//$.ajax
+					axios.get()
+					axios.post()...
+				}
+			},
+			modules:{
+				XXXStore,
+				集成其他的小仓库
+				其他的小仓库是一个个的对象，对象里面有state,getters,mutations,actions
+			}
+		})
+使用仓库中的数据
+	...Vuex.mapState(['msg'])
+	...Vuex.mapGetters(['msg'])
+
+	...Vuex.mapMutations(['change...'])
+	...Vuex.mapActions(['findAll'])
+
+webpack
+	前端模块化管理工具，和打包工具
+
+	可以将前端的任何东西当做模块来处理。
+		默认是识别js文件的，可以将js文件当做一个模块
+		如果想要识别.css，.vue ，.png.....需要借助加载器
+
+如何在webpack项目中集成其他的插件
+	1.cnpm install -g vue-cli
+		vue脚手架
+	2.vue init webpack app
+		是下载一个项目模板。模板中已经配置好了常用的加载器。  
+	3.vue-router 在下载模板的时候，自己手动yes安装
+		router文件夹 
+			index.js
+			import Vue from 'vue';
+			import Router from 'vue-router'
+			Vue.use(Router)
+			export default new Router({
+				routes:[{
+					path:'',
+					components:XXX,
+					children:[{
+						path:'',
+						component:XXX
+					}]
+				}]
+			})
+		在main.js中使用router
+			import router from './router'
+
+			new Vue({
+				...
+				router,
+			})
+	4.vuex插件
+			cnpm install --save vuex
+
+			新建一个与router文件夹同级别的store文件夹
+			在store里新建一个index.js文件。
+				创建仓库并且导出
+
+				import Vue from 'vue';
+				import Vuex from 'vuex';
+				//引入小仓库
+				import XXX from './XXX';
+				Vue.use(Vuex);
+				export default new Vuex.Store({
+					modules:{
+						XXX，
+						//小仓库  要创建小仓库 在store文件夹底下创建XXX文件夹，在改文件夹内创建一个index.js
+						//index.js中的内容
+						//export default {
+							state:{},
+							getters:{},
+							mutations:{},
+							actions:{}
+						}
+					}
+				});
+		在main.js中使用store
+			import store from './store';
+			new Vue({
+				store,
+			})
+		在其他的组件中使用仓库中的数据
+			<script>
+				import {mapGetters,mapActions} from 'vuex'
+				export default{
+					data(){
+						return {}
+					},
+					computed:{
+						...mapGetters(['msg'])
+					},
+					methods:{
+						...mapActions(['findAll'])
+					}
+				}
+			</script>
+	5.axios技术
+		cnpm install --save axios
+		在store文件夹里面，新建一个axios.js文件
+			axios.js写关于axios的配置
+				import axios from 'axios'
+				axios.defaults.baseURL ="";
+				axios.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded;charset=UTD-8";
+				export default axios;
+			在vuex的actions中使用
+				import axios from '../axios'
+				actions:{
+					findAll(context){
+						axios.get()
+						axios.post()
+					}
+				}
+	6.ElementUI插件
+		 cnpm install --save element-ui
+		 在main.js中引入
+		 	import Vue from 'vue'
+		 	import ElementUI from 'element-ui';
+		 	import 'element-ui/lib/theme-chalk/index.css';
+		 	Vue.use(ElementUI);
+	7.jquery插件
+			cnpm install --save jquery
+
+			在组件中使用jquery
+				<script>
+					import $ from 'jquery';
+
+					mounted(){
+						$('')去选择节点
+							占满屏幕
+								$('.one').height($(window).height())
+						机房  图片
+						传感器
+							在机房的图片上绘制传感器图片的位置 
+
+							img  机房图片
+							画布  颜色透明  画布上来绘制传感器图片
+
+
+							机房图片的大小不固定。
+								bootstrap 布的局
+								图片占了页面宽度的二分之一
+								机房图片
+									600 216
+
+									500 216
+										给传感器设置了一个位置，520 
+								获取机房图片的宽度，设置成画布的宽度。给百分比
+									$('img').width()
+
+									//$('canvas').width($('img').width())
+
+									<canvas width="" height=""></canvas>
+
+									$('canvas').attr('width',$('img').width())
+									页面适配的问题
+									1.页面放一块地，在地上种树。 
+									2.在树上挂苹果
+									3.打地鼠
+					}
+				</script>
+
+栏目管理模块
+	模糊查询
+	新增 批量删除
+	表格 复选框  修改  删除
+用户管理模块
+	模糊查询
+	新增
+	表格 修改 删除  
+		显示头像，鼠标放在头像上时，头像放大
+		修改用户的状态  开启 关闭  开关按钮

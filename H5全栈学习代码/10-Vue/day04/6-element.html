@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ElementUI</title>
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <script src="../js/vue.min.js"></script>
+    <script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+</head>
+<body>
+    <div id="app">
+        <el-table :data="category" style="width: 100%">
+            <el-table-column prop="id" label="ID">
+            </el-table-column>
+            <el-table-column prop="name" label="栏目名">
+            </el-table-column>
+            <el-table-column prop="comment" label="描述">
+            </el-table-column>
+            <el-table-column prop="parent.name" label="父栏目名">
+            </el-table-column>
+            <el-table-column label="操作">
+                <template slot-scope="scope">
+                    <el-button size="mini" @click="handleEdit(scope.$index, scope.row)">编辑</el-button>
+                    <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)">删除</el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            data:{
+                category:[],
+            },
+            methods:{
+                getData(url,type,data){
+                    return new Promise(function(resolve,reject){
+                        $.ajax({
+                            url,
+                            type,
+                            data,
+                            success:function(res){
+                                resolve(res);
+                            },
+                            error:function(err){
+                                reject(err);
+                            }
+                        });
+                    });
+                },
+                handleEdit(index,row){
+                    console.log(index,row);
+                },
+                handleDelete(index,row){
+                    let id = row.id;
+                    let that = this;
+                    this.getData('http://134.175.154.93:8099/manager/category/deleteCategoryById','GET',{id:id}).then(function(res){
+                        if (res.status==200) {
+                            that.$message({
+                                message: '栏目删除成功',
+                                type: 'success'
+                            });
+                            that.getData('http://134.175.154.93:8099/manager/category/findAllCategory','GET',null).then(function(res){
+                                if (res.status==200) {
+                                    that.category = res.data;
+                                }
+                            }).catch(function(err){
+                                console.log(err);
+                            });
+                        }else{
+                            that.$message.error('栏目删除失败');
+                        }
+                    }).catch(function(err){
+                        that.$message.error('栏目删除失败');
+                    });
+                }
+            },
+            created(){
+                let that = this;
+                that.getData('http://134.175.154.93:8099/manager/category/findAllCategory','GET',null).then(function(res){
+                    if (res.status==200) {
+                        that.category = res.data;
+                    }
+                }).catch(function(err){
+                    console.log(err);
+                });
+            },
+        });
+    </script>
+</body>
+</html>

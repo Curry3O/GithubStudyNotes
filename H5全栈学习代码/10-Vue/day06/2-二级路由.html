@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>二级路由</title>
+    <script src="../js/vue.min.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.1/dist/vue-router.js"></script>
+</head>
+<body>
+    <div id="app">
+        <a href="#/category">category</a>
+        <a href="#/test">test</a>
+        <a href="#/home">home</a>
+        <br>
+        <router-view></router-view>
+    </div>
+    <script>
+        let Category = {
+            template:`
+                <div>
+                    <router-link to="/category/one">one</router-link>
+                    <router-link to="/category/two">two</router-link>
+                    <router-view></router-view>
+                </div>
+            `,
+        };
+        let Test = {
+            template:`
+                <div>
+                    <router-link to="/test/three">three</router-link>
+                    <router-link to="/test/four">four</router-link>
+                    <router-view></router-view>
+                </div>
+            `,
+        };
+        let Home = {
+            template:`
+                <div>
+                    <router-link to="/home/five">five</router-link>
+                    <router-link to="/home/six">six</router-link>
+                    <router-view></router-view>
+                </div>
+            `,
+        };
+        let One = {
+            template:`
+                <div>{{msg}}</div>
+            `,
+            data(){
+                return {
+                    msg:'One'
+                };
+            }
+        };
+        let Two = {
+            template:`
+                <div>{{msg}}</div>
+            `,
+            data(){
+                return {
+                    msg:'Two'
+                };
+            }
+        };
+        let Three = {
+            template:`
+                <div>{{msg}}</div>
+            `,
+            data(){
+                return {
+                    msg:'Three'
+                };
+            }
+        };
+        let Four = {
+            template:`
+                <div>{{msg}}</div>
+            `,
+            data(){
+                return {
+                    msg:'Four'
+                };
+            }
+        };
+        let Five = {
+            template:`
+                <div>{{msg}}</div>
+            `,
+            data(){
+                return {
+                    msg:'Five'
+                };
+            }
+        };
+        let Six = {
+            template:`
+                <div>{{msg}}</div>
+            `,
+            data(){
+                return {
+                    msg:'Six'
+                };
+            }
+        };
+        let router = new VueRouter({
+            routes:[{
+                path:'/',
+                component:Category
+            },{
+                path:'/category',
+                component:Category,
+                children:[{
+                    path:'one',
+                    component:One
+                },{
+                    path:'two',
+                    component:Two
+                }]
+            },{
+                path:'/test',
+                component:Test,
+                children:[{
+                    path:'three',
+                    component:Three
+                },{
+                    path:'Four',
+                    component:Four
+                }]
+            },{
+                path:'/home',
+                component:Home,
+                children:[{
+                    path:'five',
+                    component:Five
+                },{
+                    path:'six',
+                    component:Six
+                }]
+            }]
+        });
+        let vue = new Vue({
+            el: '#app',
+            router,
+        })
+    </script>
+</body>
+</html>
